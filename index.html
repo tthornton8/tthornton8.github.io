@@ -1,1 +1,133 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<title>The Gradz</title>
+
+<style>
+    body {
+        font-family: Helvetica;
+    }
+
+    .nav ul {
+        border-radius: 10px;    
+        list-style-type: none;
+        margin-left: 1em;
+        margin-right: 1em;
+        background-color: #316CB0;
+        text-align: center;
+        font-size: 200%;
+        border: 7px solid #316CB0;
+    }
+
+    .nav li {
+        width: auto;
+        border-right: 1px solid #FFF;
+        margin: 0px;
+        display: inline-block;
+    }
+
+    .nav li:last-child {
+        border-right: none;
+        width:fit-content;
+    }
+
+    .nav li:first-child {
+        width:fit-content;
+    }
+
+    .nav li a {
+        transition: 0.6s background-color;
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        margin-left: 0px;
+        width: auto;
+        height: auto;
+        background-color: #316CB0;
+        color: white;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .nav li a:hover:not(.active) {
+        background-color: #8fb5e0;
+        color: white;
+    }
+
+    .nav li a.active {
+        background-color: #8fb5e0;
+        color: white;
+    }
+
+    .heading {
+        margin-left: 3em;
+    }
+
+    .heading h1{
+        font-family: 'Roboto', sans-serif;
+        font-size: 400%;
+        color: #008AFC;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        }   
+
+    .heading p{
+        margin-top: 10px;
+        margin-left: 0.5em;
+        font-size: 110%;
+        color: grey;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    .left {
+        flex: 65%;
+        margin-left: 10em;
+        margin-right: 10em;
+    }
+
+    .right {
+        flex: 35%;
+        margin-left: 1em;
+        margin-right: 10em;
+    }
+</style>
+
+<head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class = "heading">
+    <h1 >Gradz</h1>
+    <p>Supporting students to develop into experts and showcasing potential. <br>
+    Providing companies with the platform to engage with emerging talent and fresh ideas.</p>
+</div>
+
+<div class = "nav">
+    <ul>
+        <li><a href="default.asp">Home</a></li>
+        <li><a href="news.asp">About Us</a></li>
+        <li><a href="contact.asp">Students</a></li>
+        <li><a href="about.asp">Companies</a></li>
+        <li><a href="about.asp">Projects</a></li>
+        <li><a href="about.asp">News</a></li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="left">
+        <p style = "font-size: 25px; line-height: 167%">Many students have part time jobs, jobs that give them an income but may not help in their development for future careers.</p>
+        <p style = "font-size: 25px; line-height: 167%">Companies are looking for that next talented graduate that is going to bring a fresh new angle and idea to their organisation.</p>
+        <p style = "font-size: 25px; line-height: 167%">So, why not bring them together in an environment that gives the student a platform to engage in part time work that is relevant to their studies? All whilst supporting career development and giving companies access to up and coming enthusiasm, skills, and fresh ideas.</p>
+    </div>
+    <div class="right">
+        <p><img src="img/homepage.png" alt="Students"></p>
+    </div>
+  </div>
+
+</body>
+</html>
