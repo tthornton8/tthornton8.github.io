@@ -209,26 +209,74 @@ body {
   /* border-bottom: 1px solid lightgrey; 
 } */
 
-.button_intouch {
+a.button_intouch {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-width: 1px;
+  transition-duration: 0.3s;
+
   background-color: white;
   color: #316CB0;
   border-color: #316CB0;
   width: 125px;
 }
 
-.button_intouch:hover {
+a.button_intouch:hover {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-width: 1px;
+  transition-duration: 0.3s;
+
   color: white;
   background-color: #316CB0;
 }
 
-.button_company {
+a.button_company {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-width: 1px;
+  transition-duration: 0.3s;
+
   background-color: white;
   color: #ff9090;
   border-color: #ff9090;
-  width: 170px;
+  width: 160px;
 }
 
-.button_company:hover {
+a.button_company:hover {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-width: 1px;
+  transition-duration: 0.3s;
+
   color: white;
   background-color: #ff9090;
 }
@@ -314,6 +362,7 @@ body {
   grid-template-columns: auto auto;
   grid-gap: 10px;
   padding: 10px;
+  margin-left: 1em;
 }
 
 .item1 {
@@ -371,11 +420,6 @@ body {
   border-right: none;
   /* margin-right: 100em; */
 
-}
-
-#_table1 tr {
-  padding-bottom: 20px;
-  margin-bottom: 20px
 }
 
 ._boxgrid {
@@ -441,6 +485,10 @@ body {
   position: relative;
   bottom: 85px;
 }
+
+/* a.button {
+
+} */
 
 
 
