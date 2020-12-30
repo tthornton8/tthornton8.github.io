@@ -2,12 +2,12 @@ body {
     font-family: Helvetica;
 }
 
-.nav {
+._nav {
     overflow: hidden;
     margin-top: 0px;
   }
 
-.nav ul {
+._nav ul {
     border-radius: 10px;    
     list-style-type: none;
     margin-left: 1em;
@@ -18,31 +18,31 @@ body {
     border: 7px solid #316CB0;
 }
 
-.nav li {
+._nav li {
     width: auto;
     border-right: 1px solid #FFF;
     margin: 0px;
     display: inline-block;
 }
 
-.nav li:last-child {
+._nav li:last-child {
     border-right: none;
     width:fit-content;
 }
 
-.nav li:nth-child(6) {
+._nav li:nth-child(6) {
     border-right: none;
     width:fit-content;
 }
 
-.nav li:first-child {
+._nav li:first-child {
     width:fit-content;
 }
 
-.nav li a {
+._nav li a {
     transition: 0.6s background-color;
     display: flex;
-    flex-grow: 1;
+    flex-g_row: 1;
     justify-content: center;
     margin-left: 0px;
     width: auto;
@@ -53,25 +53,31 @@ body {
     text-decoration: none;
 }
 
-.nav li a:hover:not(.active) {
+._nav li a:hover:not(.active) {
     background-color: #8fb5e0;
     color: white;
 }
 
-.nav li a.active {
+._nav li a.active {
     background-color: #8fb5e0;
     color: white;
 }
 
-.nav .icon {
+._nav .icon {
     display: none;
   }
 
-.heading {
-    margin-left: 3em;
-}
+/* /* ._heading {
+    /* position: sticky; */
+    /* top: 0; */
+    /* background-color:#fafafa; */
+    /* width: 100%; */
+    /* border-bottom: 1px solid lightgrey; 
+} */
 
-.heading h1{
+._heading h1{
+    margin-top: 20px;
+    margin-left: 1em;
     font-family: 'Roboto', sans-serif;
     font-size: 400%;
     color: #008AFC;
@@ -79,45 +85,120 @@ body {
     margin-top: 0px;
     }   
 
-.heading p{
+._heading p{
     margin-top: 10px;
-    margin-left: 0.5em;
+    margin-left: 4em;
+    margin-top: 0px;
     font-size: 110%;
     color: grey;
 }
 
-.row {
+._row {
+    margin-top: 1em;
     display: flex;
 }
 
-.left {
+._left {
     flex: 65%;
     margin-left: 10em;
     margin-right: 10em;
 }
 
-.right {
+._right {
     flex: 35%;
     margin-left: 1em;
     margin-right: 10em;
 }
 
+._col {
+    flex: 50%;
+    margin-left: 10em;
+    margin-right: 10em;
+}
+
+._strip{
+    background-color: #F7F7F7;
+}
+
+._smallbox {
+    width: 175px;
+    font-size: large;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    'title title sub'
+    'descrip descrip login';
+  grid-gap: 10px;
+  }
+
+  .grid-container > div {
+    margin-left: 3em;
+    text-align: left;
+    padding: 20px 0;
+  }
+
+#_table1 {
+    margin-left: 3em;
+    margin-right: 3em;
+    width: 95%;
+    background-image: url("img/tablebg2.jpg");   
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 0% 40%;
+    padding-bottom: 20px;
+}
+
+#_table1 th {
+    font-size: 70px;
+    text-align: left;
+    font-family: Helvetica, sans-serif;
+    padding-left: 20px;
+    margin-left: 3em;
+    width: 50%;
+}
+
+#_table1 td {
+    font-family: 'Bree Serif', serif;
+    font-size: 16px;
+    padding-left: 1.5em;
+    color: white;
+    padding-bottom: 20px;
+}
+
+#_table1 td, th {
+    border-right: 20px solid white;
+
+}
+
+#_table1 tr {
+    padding-bottom: 20px;
+    margin-bottom: 20px
+}
+
+
+.item_title { grid-area: title; font-size: x-large}
+.item_sub { grid-area: sub; }
+.item_descrip { grid-area: descrip; width: 200px; font-size: large;}
+.item_login { grid-area: login; }
+
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 1100px) {
-    .nav li:not(:first-child) {
+    ._nav li:not(:first-child) {
         display: none;
     }
 
-    .nav li {
+    ._nav li {
         border-right: none;
     }
 
-    .nav li:last-child {
+    ._nav li:last-child {
         float: right;
         display: block;
     }
 
-    .nav a.icon {
+    ._nav a.icon {
       float: right;
       display: block;
     }
@@ -126,21 +207,21 @@ body {
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 1100px) {
-  .nav.responsive {position: relative;}
-  .nav.responsive a.icon {
+  ._nav.responsive {position: relative;}
+  ._nav.responsive a.icon {
     position: absolute;
     top:0;
     right:0;
     margin-top: 39px;
     margin-right: 39px;
   }
-  .nav.responsive li {
+  ._nav.responsive li {
     float: none;
     display: block;
     text-align: left;
   }
 
-  .nav.responsive li a{
+  ._nav.responsive li a{
     float: none;
     display: block;
     text-align: left;
