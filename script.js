@@ -5,7 +5,7 @@ function expandBar() {
     } else {
       x.className = "nav";
     }
-  }
+  };
 
 var state = 0;
 window.onscroll = function () { 
