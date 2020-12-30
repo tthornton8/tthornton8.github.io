@@ -99,7 +99,9 @@ body {
     'logo bar'
     'blank bar';
   justify-items: center;
-  align-items: center
+  align-items: center;
+  /* border-bottom: solid white 100px; */
+  /* height: 250px; */
 }
 
 ._top_scroll ._heading {
@@ -109,12 +111,10 @@ body {
 
 ._top_scroll ._heading p {
   color: white;
-  margin-left: 3em;
   font-size: 100%;
 }
 
 ._top_scroll ._heading h1 {
-  margin-left: 0.8em;
   font-size: 350%;
 }
 
@@ -297,11 +297,11 @@ body {
   grid-row: 1 / 3;
 }
 
-.grid-item {
+/* .grid-item {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 #_table1 {
   margin-left: 3em;
@@ -340,6 +340,43 @@ body {
   padding-bottom: 20px;
   margin-bottom: 20px
 }
+
+._boxgrid {
+  margin-left: 3em;
+  margin-right: 3em;
+  display: grid;
+  grid-template-areas: 
+    'sk1 sk2 sk3 sk4';
+  grid-gap: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+._boxitem {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+._boxarrow {
+  color: white;
+  margin-top: 0;
+  font-size: 40px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+._boxtitle {
+  margin-top: 10px;
+  color: white;
+  font-size: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sk1 {grid-area: sk1; background-color: #F2BF5E; }
+.sk2 {grid-area: sk2; background-color: #FF6161; }
+.sk3 {grid-area: sk3; background-color: #536EB7; }
+.sk4 {grid-area: sk4; background-color: #75CBA8; }
 
 
 .item_title { grid-area: title; font-size: x-large}
