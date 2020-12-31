@@ -200,6 +200,10 @@ body {
   display: none;
 }
 
+.sel_page{
+  background-color: #8fb5e0
+}
+
 
 /* /* ._heading {
   /* position: sticky; */
