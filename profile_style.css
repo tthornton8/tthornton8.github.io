@@ -1,0 +1,110 @@
+._page {
+    display: grid;
+    grid-template-areas: 
+    'head'
+    'skills'
+    'about'
+    'companies';
+}
+
+._prof_section {
+    display: grid;
+    background-color: #F1F1F1B2;
+    box-shadow: 0px 0px 5px 0.5px #88888844;
+    margin-bottom: 1em;
+    border: 1px solid #88888844;
+    border-radius: 2px;
+    padding: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: grey;
+}
+
+._prof_section hr {
+    width: 100%;
+    height: 3px;
+    color:black;
+}
+/* 
+._prof_section h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: grey;
+}
+
+._prof_section h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: grey; */
+}
+
+._head {
+    grid-area: head;
+}
+
+._head .pp {
+    border-radius: 50%;
+    align-content: center;
+    display: block;
+    margin: 0 auto;
+    width: 350px;
+    height: auto;
+    border: 15px solid grey;
+    box-shadow: 0px 0px 5px 0.5px #88888844;
+}
+
+._skills { 
+    position: relative;
+    grid-area: skills;
+    grid-template-columns: 
+    repeat(auto-fit, minmax(25px, 1fr))
+    repeat(auto-fit, minmax(25px, 1fr))
+    repeat(auto-fit, minmax(4000px, 1fr))
+    repeat(auto-fit, minmax(25px, 1fr))
+    repeat(auto-fit, minmax(25px, 1fr));
+}
+
+/* ._skills hr {
+    grid-area: hr;
+    width: 100%;
+} */
+
+._gr1 {
+    grid-row: 2;
+}
+
+._gr2 {
+    grid-row: 5;
+}
+
+._about { 
+    grid-area: about;
+}
+
+._companies { 
+    grid-area: companies;
+}
+
+._bubble {
+    transition: all 0.1s ease-in-out;
+    border-width: 4px;
+    border-radius: 25px;
+    border: 4px solid grey;
+    margin-right: 1em;
+    padding-left: 20px;
+    padding-bottom: 1%;
+    display: table-cell;
+    font-size: 130%;
+    height: 42px;
+}
+
+._bubble img {
+    float: right;
+    height: 20px;
+    margin-right: 10px;
+}
+
+._bubble:hover {
+    margin-bottom: -200px;
+    transition: all 0.1s ease-in-out;
+    height: 200px;
+    background-color: #F1F1F1;
+    z-index: 100;
+}
