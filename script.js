@@ -47,7 +47,7 @@ function getProjContent(name) {
       html = `
         <h1>Aerocapture</h1>
         <div class = "_project_box_content">
-        <object type="application/pdf" data="pdf/aerocapture.pdf" style = "width: 100%; height: 100%;"></iframe>
+        <object type="application/pdf" data="pdf/aerocapture.pdf" style = "width: 100%; height: 100%;">
         </div> 
         `
       break;
