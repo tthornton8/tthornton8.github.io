@@ -33,3 +33,21 @@ window.onscroll = function () {
     var state = 0;
   }
 };
+
+function clickBox(name) {
+  bg = document.getElementById("bg")
+  bg.style.display = "block";
+
+  x = document.getElementById("project_box")
+  x.classList.remove("_project_box_unclick")
+  x.classList.add("_project_box_click")
+}
+
+function closeBox() {
+  bg = document.getElementById("bg")
+  bg.style.display = "none";
+
+  x = document.getElementById("project_box")
+  x.classList.add("_project_box_unclick")
+  x.classList.remove("_project_box_click")
+}
