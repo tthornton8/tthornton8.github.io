@@ -80,12 +80,13 @@
 
 ._companies { 
     grid-area: companies;
+    text-align: left;
 }
 
 ._bubble {
-    transition: all 0.1s ease-in-out;
+    transition: all 0.05s ease-in-out;
     border-width: 4px;
-    border-radius: 25px;
+    border-radius: 4px;
     border: 4px solid grey;
     margin-right: 1em;
     padding-left: 20px;
@@ -97,14 +98,36 @@
 
 ._bubble img {
     float: right;
-    height: 20px;
+    height: 25px;
     margin-right: 10px;
+    margin-top: 4px;
+    /* box-shadow: inset 0 0 0 1000px #7e000044; */
 }
 
 ._bubble:hover {
-    margin-bottom: -200px;
-    transition: all 0.1s ease-in-out;
+    margin-bottom: -140px;
+    margin-top: -60px;
+    margin-left: -2.5%;
+    margin-right: -2.5%;
+    transition: all 0.05s ease-in-out;
     height: 200px;
+    width: 105%;
     background-color: #F1F1F1;
     z-index: 100;
+}
+
+/* ._img_grid {
+    display: grid;
+    grid-template-columns:  repeat(auto-fit, minmax(auto, 1px)) 1fr;
+}
+
+._img_grid_itm {
+    display: grid;
+    grid-row: 1;
+} */
+
+._img_grid_itm img {
+    float: left;
+    height: 10px;
+    size: 10%
 }
