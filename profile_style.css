@@ -164,8 +164,14 @@
     /* box-shadow: 0px 0px 5px 5px #88888844, 0 0 0 1000px #000000a4; */
     justify-self:center;
     padding: 0.7em;
-    overflow: auto;
     z-index:1001;
+}
+
+._project_box_content {
+    width: 100%;
+    height: 90%;
+    overflow-y: auto;
+    overflow-x: none;
 }
 
 ._bg {
