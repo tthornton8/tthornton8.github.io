@@ -34,20 +34,50 @@ window.onscroll = function () {
   }
 };
 
+function getProjContent(name) {
+  switch (name) {
+    case 'machine design':
+      html = `
+        <h1>Machine Design</h1>        
+        `
+      break;
+    case 'aerocapture':
+      html = `
+        <h1>Aerocapture</h1>
+        `
+      break;
+    case 'feasibility study':
+      html = `
+        <h1>Feasibility Study</h1>
+        `
+      break;
+    case 'neural net':
+      html = `
+        <h1>Neural Network</h1>
+        `
+  }
+
+  html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
+  html += `<p>Extended project detail goes here...</p>`
+  return html
+};
+
 function clickBox(name) {
-  bg = document.getElementById("bg")
+  bg = document.getElementById("bg");
   bg.style.display = "block";
 
-  x = document.getElementById("project_box")
-  x.classList.remove("_project_box_unclick")
-  x.classList.add("_project_box_click")
-}
+  x = document.getElementById("project_box");
+  x.classList.remove("_project_box_unclick");
+  x.classList.add("_project_box_click");
+
+  x.innerHTML = getProjContent(name);
+};
 
 function closeBox() {
-  bg = document.getElementById("bg")
+  bg = document.getElementById("bg");
   bg.style.display = "none";
 
-  x = document.getElementById("project_box")
-  x.classList.add("_project_box_unclick")
-  x.classList.remove("_project_box_click")
-}
+  x = document.getElementById("project_box");
+  x.classList.add("_project_box_unclick");
+  x.classList.remove("_project_box_click");
+};
