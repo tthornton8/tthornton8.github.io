@@ -74,6 +74,10 @@
     grid-row: 5;
 }
 
+._gr2 p {
+    display: none;
+}
+
 ._about { 
     grid-area: about;
 }
@@ -104,7 +108,7 @@
     /* box-shadow: inset 0 0 0 1000px #7e000044; */
 }
 
-._bubble:hover {
+._gr2:hover {
     margin-bottom: -140px;
     margin-top: -60px;
     margin-left: -2.5%;
@@ -114,6 +118,19 @@
     width: 105%;
     background-color: #F1F1F1;
     z-index: 100;
+}
+
+._gr2:hover p {
+    display: block;
+    background-color: white;
+    margin-top: 0.5em;
+    margin-right: 1em;
+    padding: 5px;
+    height: 70%;
+    border-top: 1px solid black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: small;
 }
 
 /* ._img_grid {
