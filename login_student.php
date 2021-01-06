@@ -101,18 +101,14 @@ function test_input($data) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["usn"])) {
     $usnErr = "Username required";
-    echo "Username required";
   } else {
     $usn = test_input($_POST["usn"]);
-    echo $usn;
-    echo "name";
   }
 
   if (empty($_POST["pwd"])) {
     $pwdErr = "Password required";
   } else {
     $pwd = test_input($_POST["pwd"]);
-    echo $pwd;
   }
 
   if ($usn != "" && $pwd != "") {
@@ -124,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<br> Name: " . $row["pwd"]. "<br>";
       }
     } else {
-      echo "username not found";
+      echo "<br> username not found";
     }
     $conn->close();
   }
