@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
                 $error_message = 'Your account is not active yet.';
             }
         } else {
-            $error_message = "Incorrect email or password. '$sql'";
+            $error_message = "Incorrect email or password.";
         }
     } else {
         $error_message = 'Please enter email and password.';
