@@ -65,6 +65,24 @@ span.psw {
   }
 }
 </style>
+
+<?php
+// define variables and set to empty values
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $usn = test_input($_POST["usn"]);
+  $pwd = test_input($_POST["pwd"]);
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
 </head>
 <body>
 
@@ -93,6 +111,13 @@ span.psw {
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form>
+
+<?php
+echo "<h2>Your Input:</h2>";
+echo $usn;
+echo "<br>";
+echo $pwd;
+?>
 
 </body>
 </html>
