@@ -117,6 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pd = $row['pwd'];
     echo "Password";
     echo $pd;
+    print($row);
     $conn->close();
   }
 }
