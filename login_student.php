@@ -83,6 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $name = test_input($_POST["pwd"]);
   }
+}
 
 function test_input($data) {
   $data = trim($data);
