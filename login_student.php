@@ -111,10 +111,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if ($usn != "" && $pwd != "") {
-    $sql = "SELECT * FROM test_user";
+    $sql = "SELECT pwd FROM test_user";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
     $pd = $row['pwd'];
+    echo "Password";
     echo $pd;
     $conn->close();
   }
