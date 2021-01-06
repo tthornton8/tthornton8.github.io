@@ -1,3 +1,8 @@
+<?php
+// Start the session
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,6 +72,21 @@ span.psw {
 </style>
 
 <?php
+$servername = "mysql";
+$username = "root";
+$password = "x3ydNbLgiRZduK";
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully";
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
+?>
+
+<?php
 // define variables and set to empty values
 $usn = $pwd = "";
 $usnErr = $pwdErr = "";
@@ -105,10 +125,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <div class="container">
     <label for="usn"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="usn" required>
+    <input type="text" placeholder="Enter Username" name="usn" value="<?php echo $usn;?>" required>
+    <span class="error">* <?php echo $usnErr;?></span>
 
     <label for="pwd"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="pwd" required>
+    <input type="password" placeholder="Enter Password" name="pwd" value="<?php echo $pwd;?>" required>
+    <span class="error">* <?php echo $pwdErr;?></span>
         
     <button type="submit">Login</button>
     <label>
@@ -121,13 +143,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form>
-
-<?php
-echo "<h2>Your Input:</h2>";
-echo $usn;
-echo "<br>";
-echo $pwd;
-?>
 
 </body>
 </html>
