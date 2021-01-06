@@ -72,7 +72,7 @@ span.psw {
 </style>
 
 <?php
-$servername = "mysql";
+$servername = "localhost";
 $username = "root";
 $password = "x3ydNbLgiRZduK";
 
