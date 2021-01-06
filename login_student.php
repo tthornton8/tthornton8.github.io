@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login Form</title>
+        <title>Login | GradZ</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
         <link href="style.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="script.js"></script>
@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h3>Login Form</h3>
+                    <h3>Login</h3>
                     <?php if(!empty($error_message)) { ?>
                         <div class="alert alert-danger"><?php echo $error_message; ?></div>
                     <?php } ?>
