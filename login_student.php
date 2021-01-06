@@ -112,15 +112,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($usn != "" && $pwd != "") {
     $sql = "SELECT * FROM test_user";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-      while ($row = $result->fetc_assoc()) {
-        echo "<br> Name: " . $row["pwd"]. "<br>";
-      }
-    } else {
-      echo "<br> username not found";
-    }
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $pd = $row['pwd'];
+    echo $pd;
     $conn->close();
   }
 }
