@@ -1,158 +1,72 @@
 <?php
-// Start the session
 session_start();
+  
+require_once('config.php');
+  
+//if user is logged in redirect to myaccount page
+if (isset($_SESSION['id'])) {
+    header('Location: profile.html');
+}
+  
+$error_message = '';
+if (isset($_POST['submit'])) {
+ 
+    extract($_POST);
+ 
+    if (!empty($username) && !empty($password)) {
+        $sql = "SELECT ID, status FROM users WHERE username = '".$conn->real_escape_string($username)."' AND password = '".$conn->real_escape_string($password)."'";
+        $result = $conn->query($sql);
+  
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if($row['status']) {
+                $_SESSION['id'] = $row['ID'];
+                header('Location: profile.html');
+            } else {
+                $error_message = 'Your account is not active yet.';
+            }
+        } else {
+            $error_message = 'Incorrect email or password.';
+        }
+    } else {
+        $error_message = 'Please enter email and password.';
+    }
+}
 ?>
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="login_style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
 
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
+    <h2>Login Form</h2>
 
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+      <div class="imgcontainer">
+        <img src="img_avatar2.png" alt="Avatar" class="avatar">
+      </div>
 
-button:hover {
-  opacity: 0.8;
-}
+      <div class="container">
+        <label for="usn"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" value="<?php echo $username;?>" required>
 
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
+        <label for="pwd"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" value="<?php echo $password;?>" required>
+            
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
 
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
 
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-</style>
-
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "x3ydNbLgiRZduK";
-
-try {
-  $conn = new PDO("mysql:host=$servername;dbname=mysql", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
-}
-?>
-
-<?php
-// define variables and set to empty values
-$usn = $pwd = "";
-$usnErr = $pwdErr = "";
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["usn"])) {
-    $usnErr = "Username required";
-  } else {
-    $usn = test_input($_POST["usn"]);
-  }
-
-  if (empty($_POST["pwd"])) {
-    $pwdErr = "Password required";
-  } else {
-    $pwd = test_input($_POST["pwd"]);
-  }
-
-  if ($usn != "" && $pwd != "") {
-    $sql = "SELECT pwd FROM test_user";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
-    $pd = $row['pwd'];
-    echo "Password";
-    echo $pd;
-    print($row);
-    $conn->close();
-  }
-}
-?>
-
-</head>
-<body>
-
-<h2>Login Form</h2>
-
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-  <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
-
-  <div class="container">
-    <label for="usn"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="usn" value="<?php echo $usn;?>" required>
-    <span class="error">* <?php echo $usnErr;?></span>
-
-    <label for="pwd"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="pwd" value="<?php echo $pwd;?>" required>
-    <span class="error">* <?php echo $pwdErr;?></span>
-        
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form>
-
-</body>
+  </body>
 </html>
