@@ -39,6 +39,8 @@ if (isset($_POST['submit'])) {
     <head>
         <title>Login Form</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="script.js"></script>
     </head>
 
     <script type="text/javascript" src="header.js"></script>
