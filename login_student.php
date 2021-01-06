@@ -68,12 +68,21 @@ span.psw {
 
 <?php
 // define variables and set to empty values
-$name = $email = $gender = $comment = $website = "";
+$usn = $pwd = "";
+$usnErr = $pwdErr = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $usn = test_input($_POST["usn"]);
-  $pwd = test_input($_POST["pwd"]);
-}
+  if (empty($_POST["usn"])) {
+    $usnErr = "Username required";
+  } else {
+    $name = test_input($_POST["name"]);
+  }
+
+  if (empty($_POST["pwd"])) {
+    $nameErr = "Password required";
+  } else {
+    $name = test_input($_POST["pwd"]);
+  }
 
 function test_input($data) {
   $data = trim($data);
