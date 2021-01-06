@@ -104,6 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $name = test_input($_POST["name"]);
     echo $name;
+    echo "name";
   }
 
   if (empty($_POST["pwd"])) {
