@@ -10,7 +10,7 @@ if (isset($_SESSION['id'])) {
     <h3>Welcome User ! <a href="?action=logout">Logout</a></h3>
     <?php
 } else { //redirect to login page
-    header('Location: index.php');
+    header('Location: login_student.php');
 }
 ?>
 
