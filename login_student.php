@@ -40,6 +40,9 @@ if (isset($_POST['submit'])) {
         <title>Login Form</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     </head>
+
+    <script type="text/javascript" src="header.js"></script>
+
     <body>
         <div class="container">
             <div class="row">

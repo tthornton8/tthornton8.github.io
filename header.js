@@ -35,4 +35,4 @@ if (typeof logged_in !== 'undefined') {
             <li><a href="profile.php">My Account</a></li>
         `
     }
-}
+};
