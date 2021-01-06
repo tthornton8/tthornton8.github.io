@@ -110,6 +110,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $name = test_input($_POST["pwd"]);
   }
+
+  if ($usn != "" && $pwd != "") {
+    $sql = "SELECT pwd FROM test_user WHERE username = '$usn'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+      while ($row = $result->fetc_assoc()) {
+        echo "<br> Name: " . $row["name"]. "<br>";
+      }
+    } else {
+      echo "username not found";
+    }
+    $conn->close();
+  }
 }
 ?>
 
