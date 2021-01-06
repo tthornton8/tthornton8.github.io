@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if ($usn != "" && $pwd != "") {
-    $sql = "SELECT pwd, about FROM 'test_user'";
+    $sql = "SELECT * FROM test_user";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
