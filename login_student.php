@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
       while ($row = $result->fetc_assoc()) {
-        echo "<br> Name: " . $row["name"]. "<br>";
+        echo "<br> Name: " . $row["pwd"]. "<br>";
       }
     } else {
       echo "username not found";
