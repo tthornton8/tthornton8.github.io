@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     extract($_POST);
  
     if (!empty($username) && !empty($password)) {
-        $sql = "SELECT ID, status FROM `test_user` WHERE username = '".$conn->real_escape_string($username)."';
+        $sql = "SELECT ID, status FROM test_user WHERE username = '".$conn->real_escape_string($username)."';
         $result = $conn->query($sql);
   
         if ($result->num_rows > 0) {
