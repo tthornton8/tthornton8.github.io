@@ -103,15 +103,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usnErr = "Username required";
     echo "Username required";
   } else {
-    $name = test_input($_POST["name"]);
-    echo $name;
+    $usn = test_input($_POST["usn"]);
+    echo $usn;
     echo "name";
   }
 
   if (empty($_POST["pwd"])) {
-    $nameErr = "Password required";
+    $pwdErr = "Password required";
   } else {
-    $name = test_input($_POST["pwd"]);
+    $pwd = test_input($_POST["pwd"]);
     echo $pwd;
   }
 
@@ -161,6 +161,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form>
+
+<?php
+echo "<h2>Your Input:</h2>";
+echo $name;
+echo "<br>";
+echo $email;
+echo "<br>";
+echo $website;
+echo "<br>";
+echo $comment;
+echo "<br>";
+echo $gender;
+?>
 
 </body>
 </html>
