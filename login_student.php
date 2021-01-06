@@ -101,6 +101,7 @@ function test_input($data) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["usn"])) {
     $usnErr = "Username required";
+    echo "Username required";
   } else {
     $name = test_input($_POST["name"]);
     echo $name;
