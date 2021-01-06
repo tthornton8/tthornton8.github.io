@@ -49,6 +49,8 @@ if (isset($_POST['submit'])) {
         <img src="img_avatar2.png" alt="Avatar" class="avatar">
       </div>
 
+      <div><?php echo $error_message; ?></div>
+
       <div class="container">
         <label for="usn"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="username" value="<?php echo $username;?>" required>
