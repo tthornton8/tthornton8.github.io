@@ -103,12 +103,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usnErr = "Username required";
   } else {
     $name = test_input($_POST["name"]);
+    echo $name
   }
 
   if (empty($_POST["pwd"])) {
     $nameErr = "Password required";
   } else {
     $name = test_input($_POST["pwd"]);
+    echo $pwd
   }
 
   if ($usn != "" && $pwd != "") {
