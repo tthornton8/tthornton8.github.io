@@ -71,6 +71,13 @@ span.psw {
 $usn = $pwd = "";
 $usnErr = $pwdErr = "";
 
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["usn"])) {
     $usnErr = "Username required";
@@ -83,13 +90,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $name = test_input($_POST["pwd"]);
   }
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
 }
 ?>
 
