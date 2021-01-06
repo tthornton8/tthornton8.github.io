@@ -50,8 +50,8 @@ if (isset($_POST['submit'])) {
                     <?php } ?>
                     <form method="post">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email" required />
+                            <label for="exampleInputEmail1">Username</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="username" placeholder="Username" required />
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
