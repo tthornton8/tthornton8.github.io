@@ -26,3 +26,13 @@ document.write(`
         </div>
     </div>
 `);
+
+if (typeof logged_in !== 'undefined') {
+    if (logged_in == 'true') {
+        x = document.getElementById("login_list")
+        x.innerHTML = `
+            <li><a href="?action=logout">Logout</a></li>
+            <li><a href="profile.php">My Account</a></li>
+        `
+    }
+}

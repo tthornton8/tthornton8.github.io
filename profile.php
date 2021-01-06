@@ -6,10 +6,9 @@ if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
 }
  
 if (isset($_SESSION['id'])) {
-    ?>
-    <h3>Welcome User ! <a href="?action=logout">Logout</a></h3>
-    <?php
+    $logged_in = 'true';
 } else { //redirect to login page
+    $logged_in = 'false';
     header('Location: login_student.php');
 }
 ?>
@@ -37,6 +36,9 @@ if (isset($_SESSION['id'])) {
 </head>
 
 <body>
+    <script type="text/javascript">
+        var logged_in = "<?php echo $logged_in; ?>";
+    </script>
 
     <script type="text/javascript" src="header.js"></script>
 

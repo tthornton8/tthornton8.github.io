@@ -5,7 +5,7 @@ require_once('config.php');
   
 //if user is logged in redirect to myaccount page
 if (isset($_SESSION['id'])) {
-    header('Location: profile.html');
+    header('Location: profile.php');
 }
   
 $error_message = '';
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
             $row = $result->fetch_assoc();
             if($row['status']) {
                 $_SESSION['id'] = $row['ID'];
-                header('Location: profile.html');
+                header('Location: profile.php');
             } else {
                 $error_message = 'Your account is not active yet.';
             }
