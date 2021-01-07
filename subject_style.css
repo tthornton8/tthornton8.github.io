@@ -1,0 +1,139 @@
+._subject_grid {
+    display: grid;
+    grid-template-areas: 
+    'heading_pic heading_pic heading_text heading_text '
+    'sidebar body body body';
+    grid-template-columns: 0.75fr 1.25fr 1fr 1fr; 
+    row-gap: 0px;
+    column-gap: 0px;
+}
+
+._heading_pic {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    clip-path: inset(-100px 0px -100px -100px);
+    height: 400px;
+    display: grid;
+    grid-area: heading_pic;
+    /* background-image: url("img/engineering.jpg");  */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+._heading_text {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    clip-path: inset(-100px -100px -100px 0px);
+    height: 400px;
+    display: grid;
+    grid-area: heading_text;
+    /* background: #F2BF5EB2; */
+    /* background: #316CB0B@; */
+    padding: 5%;
+    padding-top: 7.5%;
+    color: white;
+    font-family: 'Carme', sans-serif;
+}
+
+._heading_text h2 {
+    font-size: 45px;
+    text-align: center;
+    letter-spacing: 0.15em;
+}
+
+._heading_text p {
+    display: flex;
+    margin-top: 1em;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    width: 40%;
+    justify-self: center;
+}
+
+
+._sidebar {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    display: grid;
+    grid-area: sidebar;
+    background: #F2BF5EB2;
+    height: 100%;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 0;
+}
+
+._sidebar button {
+    border: none;
+    background: #F2BF5EB2;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-size: 120%;
+    outline:none;
+}
+
+._sidebar button:hover {
+    transition: all 0.07s ease-in-out;
+    border: none;
+    background: #f0e5d1b2;
+}
+
+._sidebar button:focus {
+    transition: all 0.07s ease-in-out;
+    border: none;
+    background: #f0e5d1b2;
+}
+
+._body {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    display: grid;
+    grid-area: body;
+    height: 100%;
+    margin-top: 20px;
+}
+
+._engineering ._heading_pic {
+    background-image: url("img/engineering.jpg"); 
+}
+
+._engineering ._heading_text, ._engineering ._sidebar button {
+    background: #F2BF5EB2;
+}
+
+._engineering button:hover, ._engineering button:focus{
+    background: #f0e5d1b2;
+}
+
+._business ._heading_pic {
+    background-image: url("img/business.jpg"); 
+}
+
+._business ._heading_text, ._business ._sidebar button {
+    background: #FF6161B2;
+}
+
+._business button:hover, ._business button:focus{
+    background: #ffc2c2b2;
+}
+
+._econ ._heading_pic {
+    background-image: url("img/economics.jpg"); 
+}
+
+._econ ._heading_text, ._econ ._sidebar button {
+    background: #536EB7B2;
+}
+
+._econ button:hover, ._econ button:focus{
+    background: #d2deffb2;
+}
+
+._natsci ._heading_pic {
+    background-image: url("img/natsci.jpg"); 
+}
+
+._natsci ._heading_text, ._natsci ._sidebar button {
+    background: #75CBA8B2;
+}
+
+._natsci button:hover, ._natsci button:focus{
+    background: #a5c5b8b2;
+}
