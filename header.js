@@ -27,6 +27,8 @@ document.write(`
     </div>
 `);
 
+var logged_in = "<?php echo $logged_in; ?>";
+
 if (typeof logged_in !== 'undefined') {
     if (logged_in == 'true') {
         x = document.getElementById("login_list")

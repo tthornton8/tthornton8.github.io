@@ -36,9 +36,6 @@ if (isset($_SESSION['id'])) {
 </head>
 
 <body>
-    <script type="text/javascript">
-        var logged_in = "<?php echo $logged_in; ?>";
-    </script>
 
     <script type="text/javascript" src="header.js"></script>
 
