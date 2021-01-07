@@ -9,7 +9,7 @@ document.write(`
         <div class = "_login" id = "login">
             <ul id = "login_list">
                 <li><a href = "login_student.php">Log in</a></li>
-                <li><a href = "#">Register</a></li>
+                <li><a href = "signup_student.php">Register</a></li>
             </ul>
         </div>
 
