@@ -1,3 +1,18 @@
+<?php
+session_start();
+ 
+if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
+    unset($_SESSION['id']);
+}
+ 
+if (isset($_SESSION['id'])) {
+    $logged_in = 'true';
+} else { //redirect to login page
+    $logged_in = 'false';
+    header('Location: login_student.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <title>Home | GradZ</title>
@@ -24,6 +39,7 @@
     <script>
         var sel = document.getElementById("home")
         sel.style.background = "#8fb5e0";
+        var logged_in = "<?php echo $logged_in; ?>";
     </script>
 
     <div class = "_content">

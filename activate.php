@@ -16,12 +16,12 @@ if ($result->num_rows > 0) {
             'msg' => 'Your account is already activated.',
         ];
     } else {
-        $sql = "UPDATE test_user SET status = '1' WHERE id = ".$row['id']." AND activation_key = '".$_GET['key']."'";
+        $sql = "UPDATE test_user SET status = '1' WHERE ID = ".$row['id']." AND activation_key = '".$_GET['key']."'";
         $conn->query($sql);
  
         $arr_message = [
             'class' => 'alert-success',
-            'msg' => 'Your account is activated. You can <a href="thegradz.com/login_student.php">login now</a>.',
+            'msg' => 'Your account is activated. You can <a href="login_student.php">login now</a>.',
         ];
     }
 } else {
