@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+require_once('config.php');
  
 if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
     unset($_SESSION['id']);
@@ -7,7 +9,16 @@ if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
  
 if (isset($_SESSION['id'])) {
     $logged_in = 'true';
-} else { //redirect to login page
+    $id = $_SESSION['id']
+    
+    $sql = "SELECT * FROM test_user WHERE username = '".$id."'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $name = $row['name'];
+    $degree = $row['degree'];
+    $uni = $row['uni'];
+
+} else {
     $logged_in = 'false';
     header('Location: login_student.php');
 }
@@ -42,12 +53,12 @@ if (isset($_SESSION['id'])) {
     <div class = "_content">
         <div class = "_prof_section _head">
             <img src="img/dp.jpg" alt="Profile Picture" class = "pp">
-            <h1>Timothy Thornton</h1>
+            <h1><?php echo $name; ?></h1>
             <hr>
             <table>
                 <td>
-                    <h2>MEng Mechanical Engineering</h2>
-                    <h2>University of Bath</h2>
+                    <h2><?php echo $degree; ?></h2>
+                    <h2><?php echo $uni; ?></h2>
                 </td>
                 <td>
                     <img alt = "University Logo" src = "img/bath.png" style = "height: 80px;">
@@ -100,19 +111,6 @@ if (isset($_SESSION['id'])) {
 
     <div class = "_bg" id = "bg" onclick="closeBox()"></div>
     <div class = "_project_box_unclick animate" id = "project_box"></div>
-<!-- 
-    <script>
-        // Get the modal
-        var modal = document.getElementById("project_box");
-        
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target !== modal && modal.classList.contains("_project_box_click")) {
-                modal.classList.remove("_project_box_click")
-                modal.classList.add("_project_box_unclick")
-            }
-        }
-        </script> -->
 
 </body>
 </html>
