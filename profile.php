@@ -12,7 +12,6 @@ if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
     
     $sql = "SELECT * FROM test_user WHERE ID = '".$conn->real_escape_string($id)."'";
-    echo $sql;
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $name = $row['name'];
