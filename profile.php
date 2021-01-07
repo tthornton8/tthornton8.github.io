@@ -14,9 +14,9 @@ if (isset($_SESSION['id'])) {
     $sql = "SELECT * FROM test_user WHERE username = '".$conn->real_escape_string($id)."'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    $name = "";//$row['name'];
-    $degree = "";//$row['degree'];
-    $uni = "";//$row['uni'];
+    $name = $row['name'];
+    $degree = $row['degree'];
+    $uni = $row['uni'];
 
 } else {
     $logged_in = 'false';
