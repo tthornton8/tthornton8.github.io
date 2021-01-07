@@ -65,38 +65,50 @@ if (isset($_SESSION['id'])) {
                 </td>
             </table>
         </div>
+        <div class = "_prof_section _about">
+            <h2>About</h2>
+            <p>A passionate, comitted, and highly motivated 2nd year mechanical engineering student at the University of Bath with hands-on experience in testing and analysing concept designs. Passionate about innovation in engineering, I am excited about applying my skills to new projects and seeing the results of my efforts put to use in a professional environment. Using my firm grasp of tools such as MATLAB and Excel, and product design know-how, I have excelled in delivering results throughout summer internships and my time at university.</p>
+        </div>
         <div class = "_prof_section _skills">
             <h2 style = "grid-row: 1">Top Skills</h2>
-            <div class = "_bubble _gr1">Machine Learning <img src = "https://www.flaticon.com/svg/static/icons/svg/566/566082.svg" alt = "icon"></div>
-            <div class = "_bubble _gr1">Design<img src = "https://www.flaticon.com/svg/static/icons/svg/681/681662.svg" alt = "icon"></div>
-            <div class = "_bubble _gr1">Python<img src = "https://www.flaticon.com/svg/static/icons/svg/1336/1336494.svg" alt = "icon"></div>
-            <div class = "_bubble _gr1">CFD<img src = "https://www.flaticon.com/svg/static/icons/svg/1055/1055113.svg" alt = "icon"></div>
+            <div class = "_bubble _gr1">Machine Learning    <img src = "https://www.flaticon.com/svg/static/icons/svg/566/566082.svg" alt = "icon"></div>
+            <div class = "_bubble _gr1">Design              <img src = "https://www.flaticon.com/svg/static/icons/svg/681/681662.svg" alt = "icon"></div>
+            <div class = "_bubble _gr1">Python              <img src = "https://www.flaticon.com/svg/static/icons/svg/1336/1336494.svg" alt = "icon"></div>
+            <div class = "_bubble _gr1">CFD                 <img src = "https://www.flaticon.com/svg/static/icons/svg/1055/1055113.svg" alt = "icon"></div>
             <hr style = "grid-column: 1/5; grid-row: 3">
             <h2 style = "grid-row: 4">Top Projects</h2>
-            <div class = "_bubble _gr2" onclick="clickBox('machine design')">Machine Design <img src = "https://www.flaticon.com/svg/static/icons/svg/2099/2099058.svg" alt = "icon">
+            <div class = "_bubble _gr2" onclick="clickBox('machine design')">Machine Design         <img src = "https://www.flaticon.com/svg/static/icons/svg/2099/2099058.svg" alt = "icon">
                 <p>
                     Project Summary....
                 </p>
             </div>
-            <div class = "_bubble _gr2" onclick="clickBox('aerocapture')">Aerocapture<img src = "https://www.flaticon.com/svg/static/icons/svg/2285/2285485.svg" alt = "icon">
+            <div class = "_bubble _gr2" onclick="clickBox('aerocapture')">Aerocapture<span class = "_gradz_project">with the gradz</span><img src = "https://www.flaticon.com/svg/static/icons/svg/2285/2285485.svg" alt = "icon">
                 <p>
                     Project Summary....
                 </p>
             </div>
-            <div class = "_bubble _gr2" onclick="clickBox('feasibility study')">Feasibility Study<img src = "https://www.flaticon.com/svg/static/icons/svg/752/752241.svg" alt = "icon">
+            <div class = "_bubble _gr2" onclick="clickBox('feasibility study')">Feasibility Study<span class = "_gradz_project">with the gradz</span><img src = "https://www.flaticon.com/svg/static/icons/svg/752/752241.svg" alt = "icon">
                 <p>
                     Project Summary....
                 </p>
             </div>
-            <div class = "_bubble _gr2" onclick="clickBox('neural net')">Neural Net<img src = "https://www.flaticon.com/svg/static/icons/svg/566/566082.svg" alt = "icon">
+            <div class = "_bubble _gr2" onclick="clickBox('neural net')">Neural Net                 <img src = "https://www.flaticon.com/svg/static/icons/svg/566/566082.svg" alt = "icon">
                 <p>
                     Project Summary....
                 </p>
             </div>
         </div>
-        <div class = "_prof_section _about">
-            <h2>About</h2>
-            <p>A passionate, comitted, and highly motivated 2nd year mechanical engineering student at the University of Bath with hands-on experience in testing and analysing concept designs. Passionate about innovation in engineering, I am excited about applying my skills to new projects and seeing the results of my efforts put to use in a professional environment. Using my firm grasp of tools such as MATLAB and Excel, and product design know-how, I have excelled in delivering results throughout summer internships and my time at university.</p>
+        <div class = "_prof_section _quals">
+            <h2>Qualifications</h2>
+            <h5> A-Levels </h5>
+            <ul>
+                <li>Maths: A*</li>
+                <li>Further Maths: A*</li>
+                <li>Physics: A</li>
+                <li>Spanish: A</li>
+            </ul>
+            <h5> GCSEs </h5>
+            <p>11 GCSEs A*-B including Further Maths, Spanish, History and Computer Science</p>
         </div>
         <div class = "_prof_section _companies">
             <h2>Worked With</h2>

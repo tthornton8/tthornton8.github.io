@@ -3,6 +3,7 @@
     grid-template-areas: 
     'head about'
     'skills'
+    'quals'
     'companies';
 }
 
@@ -85,6 +86,23 @@
     grid-area: companies;
     text-align: left;
 }
+
+._quals { 
+    grid-area: quals;
+    text-align: left;
+}
+
+._quals ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+._gradz_project {
+    font-style: italic;
+    font-size: 70%;
+    margin-left: 4px;
+}
+
 
 ._bubble {
     transition: all 0.05s ease-in-out;
