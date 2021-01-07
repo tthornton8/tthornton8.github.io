@@ -59,6 +59,8 @@ if (isset($_POST['submit'])) {
         <title>Gradz | Sign Up</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
         <link href="style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
         <script type="text/javascript" src="script.js"></script>
     </head>
 
@@ -70,7 +72,7 @@ if (isset($_POST['submit'])) {
             <div class="_content">
                 <div class="w3-card-4">
                     <div class="w3-container w3-2021-french-blue">
-                        <h2>ign Up</h2>
+                        <h2>Sign Up</h2>
                     </div>
 
                     <?php if(!empty($arr_message['msg'])) { ?>
