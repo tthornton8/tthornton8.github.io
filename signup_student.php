@@ -62,8 +62,9 @@ if (isset($_POST['submit'])) {
         <script type="text/javascript" src="script.js"></script>
     </head>
 
-    <script type="text/javascript" src="header.js"></script>
     <body>
+        <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
+        <script type="text/javascript" src="header.js"></script>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">

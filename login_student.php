@@ -42,7 +42,8 @@ if (isset($_POST['submit'])) {
         <link href="style.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="script.js"></script>
     </head>
-
+    
+    <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
     <script type="text/javascript" src="header.js"></script>
 
     <body>

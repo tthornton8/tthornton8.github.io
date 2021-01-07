@@ -1,3 +1,17 @@
+<?php
+session_start();
+ 
+if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
+    unset($_SESSION['id']);
+}
+ 
+if (isset($_SESSION['id'])) {
+    $logged_in = 'true';
+} else { //redirect to login page
+    $logged_in = 'false';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <title>Students | GradZ</title>
