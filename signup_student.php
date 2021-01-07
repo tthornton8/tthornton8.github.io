@@ -65,35 +65,40 @@ if (isset($_POST['submit'])) {
     <body>
         <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
         <script type="text/javascript" src="header.js"></script>
+
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>Sign Up</h3>
+            <div class="_content">
+                <div class="w3-card-4">
+                    <div class="w3-container w3-2021-french-blue">
+                        <h2>ign Up</h2>
+                    </div>
+
                     <?php if(!empty($arr_message['msg'])) { ?>
                         <div class="alert <?php echo $arr_message['class']; ?>"><?php echo $arr_message['msg']; ?></div>
                     <?php } ?>
+
                     <form method="post">
-                        <div class="form-group">
-                            <label for="exampleInputusername">Full Name</label>
-                            <input type="text" class="form-control" id="exampleInputusername" name="username" placeholder="Full Name" value="<?php if(isset($username)) echo $username; ?>" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email" value="<?php if(isset($email)) echo $email; ?>" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword2">Confirm Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword2" name="cpassword" placeholder="Confirm Password" required>
-                        </div>
-                        <button type="submit" name="submit" class="btn btn-default">Submit</button>
+                        <br>
+                        <label class="w3-text" for="exampleInputusername">Full Name</label>
+                        <input type="text" class="w3-input w3-border w3-light-grey" id="exampleInputusername" name="username" placeholder="Full Name" value="<?php if(isset($username)) echo $username; ?>" required>
+
+                        <label class="w3-text" for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="w3-input w3-border w3-light-grey" id="exampleInputEmail1" name="email" placeholder="Email" value="<?php if(isset($email)) echo $email; ?>" required>
+
+                        <label class="w3-text" for="exampleInputPassword1">Password</label>
+                        <input type="password" class="w3-input w3-border w3-light-grey" id="exampleInputPassword1" name="password" placeholder="Password" required>
+
+                        <label class="w3-text" for="exampleInputPassword2">Confirm Password</label>
+                        <input type="password" class="w3-input w3-border w3-light-grey" id="exampleInputPassword2" name="cpassword" placeholder="Confirm Password" required>
+                        <br>
+                        <button type="submit" name="submit" class="w3-btn w3-blue-grey">Submit</button>
+                        <br>
                     </form>
                 </div>
             </div>
         </div>
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     </body>
 </html>

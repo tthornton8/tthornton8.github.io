@@ -70,6 +70,7 @@ if (isset($_POST['submit'])) {
                         <input type="password" class="w3-input w3-border w3-light-grey" id="inputpassword" name="password" placeholder="Password" required />
                         <br>
                         <button type="submit" name="submit" class="w3-btn w3-blue-grey">Login</button>
+                        <br>
                     </form>
                 </div>
             </div>
