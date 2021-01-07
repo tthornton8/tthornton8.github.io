@@ -24,6 +24,7 @@ if (isset($_POST['submit'])) {
  
                 $sql = "INSERT INTO test_user(username, email, pwd, activation_key) VALUES('".$conn->real_escape_string($username)."', '".$email."', '".md5($conn->real_escape_string($password))."', '".$activation_key."')";
                 $conn->query($sql);
+                echo $sql;
  
                 //send activation link in an email
                 $subject = 'Activate Your Account';
