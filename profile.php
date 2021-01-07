@@ -11,12 +11,12 @@ if (isset($_SESSION['id'])) {
     $logged_in = 'true';
     $id = $_SESSION['id'];
     
-    // $sql = "SELECT * FROM test_user WHERE username = '"$id"'";
-    // $result = $conn->query($sql);
-    // $row = $result->fetch_assoc();
-    $name = "";//$row['name'];
-    $degree = "";//$row['degree'];
-    $uni = "";//$row['uni'];
+    $sql = "SELECT * FROM test_user WHERE username = '"$id"'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $name = $row['name'];
+    $degree = $row['degree'];
+    $uni = $row['uni'];
 
 } else {
     $logged_in = 'false';
