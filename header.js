@@ -1,7 +1,7 @@
 document.write(`
     <div class = "_top" id = "top">
         <div class = "_heading">
-            <h1 >GradZ</h1>
+            <h1><a href="index.html">GradZ</a></h1>
             <p>Supporting students to develop into experts and showcasing potential. <br>
             Providing companies with the platform to engage with emerging talent and fresh ideas.</p>
         </div>

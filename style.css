@@ -391,6 +391,14 @@ a.button_company:hover {
   grid-area: name;
   }   
 
+._heading h1 a {
+  text-decoration: none;
+}
+
+._heading h1 a:hover {
+  color: inherit;
+}
+
 ._heading p{
   /* margin-top: 10px; */
   margin-left: 4em;
