@@ -48,9 +48,12 @@ if (isset($_SESSION['id'])) {
 
         <div class="_row">
             <div class="_left">
-                <p style = "font-size: 25px; line-height: 167%; margin-top: 1em">Many students have part time jobs, jobs that give them an income but may not help in their development for future careers.</p>
-                <p style = "font-size: 25px; line-height: 167%">Companies are looking for that next talented graduate that is going to bring a fresh new angle and idea to their organisation.</p>
-                <p style = "font-size: 25px; line-height: 167%">So, why not bring them together in an environment that gives the student a platform to engage in part time work that is relevant to their studies? All whilst supporting career development and giving companies access to up and coming enthusiasm, skills, and fresh ideas.</p>
+                <h1>Why The Gradz?</h1>
+                <span>
+                    <p style = "font-size: 25px; line-height: 167%; margin-top: 1em">Many students have part time jobs, jobs that give them an income but may not help in their development for future careers.</p>
+                    <p style = "font-size: 25px; line-height: 167%">Companies are looking for that next talented graduate that is going to bring a fresh new angle and idea to their organisation.</p>
+                    <p style = "font-size: 25px; line-height: 167%">So, why not bring them together in an environment that gives the student a platform to engage in part time work that is relevant to their studies? All whilst supporting career development and giving companies access to up and coming enthusiasm, skills, and fresh ideas.</p>
+                </span>
             </div>
             <div class="_right">
                 <p> </p>
@@ -59,30 +62,33 @@ if (isset($_SESSION['id'])) {
 
         <hr class = "_sep_bar">
 
-        <table id = "_table1">
-            <colgroup>
-                <col  style = "background-color: #045184D9">
-                <col  style = "background-color: #E21C21A6">
-            </colgroup>
-            <th style = "color: #3588CC">Students</th>
-            <th style = "color: #ff9090">Companies</th>
-            <tr>
-                <td style = "box-shadow:  0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);">
-                    <div class="grid-container">
-                        <div class="item1">Build and view your student profile. Add new skills and projects, ideas to promote yourself!</div>
-                        <div class="item2"> <a href = "signup_student.php" class="button_intouch">Sign up  &emsp;        &#10095;</a> </div>
-                        <div class="item3"> <a href = "login_student.php" class="button_intouch">Log in   &emsp; &nbsp; &#10095;</a> </div>
-                    </div>
-                </td>
-                <td style = "box-shadow:  0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);">
-                    <div class="grid-container">
-                        <div class="item1">Upload new projects, build your company skills requirements and search for new and fresh talent</div>
-                        <div class="item2"> <a href = "profile.php" class="button_company">Get in touch  &emsp; &#10095;</a> </div>
-                        <div class="item3"> <a href = "profile.php" class="button_company">Log in   &emsp; &emsp; &emsp; &#10095;</a> </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <div class="_sc_grid">
+            <div class="_sc_grid_item _sc_student">
+                <div class = "_sc_grid_title">
+                    Students
+                </div>
+                <div class = "_sc_grid_text">
+                    Build and view your student profile. Add new skills and projects, ideas to promote yourself!
+                </div>
+                <div class = "_sc_grid_buttons">
+                    <a href = "signup_student.php" class="button_intouch">Sign up  &emsp;        &#10095;</a>
+                    <a href = "login_student.php" class="button_intouch">Log in   &emsp; &nbsp; &#10095;</a>
+                </div>
+            </div>
+            <div class = "_sc_sep"></div>
+            <div class="_sc_grid_item _sc_company">
+                <div class = "_sc_grid_title">
+                    Companies
+                </div>
+                <div class = "_sc_grid_text">
+                    Upload new projects, build your company skills requirements and search for new and fresh talent
+                </div>
+                <div class = "_sc_grid_buttons">
+                    <a href = "profile.php" class="button_company">Get in touch  &emsp; &#10095;</a>
+                    <a href = "profile.php" class="button_company">Log in   &emsp; &emsp; &emsp; &#10095;</a>
+                </div>
+            </div>
+        </div>
 
         <hr class = "_sep_bar">
 

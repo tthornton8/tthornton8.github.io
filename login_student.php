@@ -26,10 +26,10 @@ if (isset($_POST['submit'])) {
                 $error_message = 'Your account is not active yet.';
             }
         } else {
-            $error_message = "Incorrect email or password.";
+            $error_message = "Incorrect username or password.";
         }
     } else {
-        $error_message = 'Please enter email and password.';
+        $error_message = 'Please enter username and password.';
     }
 }
 ?>
