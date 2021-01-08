@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
                 <div class="w3-container">
 
                     <?php if(!empty($error_message)) { ?>
-                        <div class="alert alert-danger"><?php echo $error_message; ?></div>
+                        <div class="alert alert-danger"  style = "margin-top: 2em;"><?php echo $error_message; ?></div>
                     <?php } ?>
 
                     <form method="post">
