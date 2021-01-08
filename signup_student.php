@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
                     <h2>Sign Up</h2>
                 </div>
 
-                <div class="w3-container"></div>
+                <div class="w3-container">
 
                     <?php if(!empty($arr_message['msg'])) { ?>
                         <div class="alert <?php echo $arr_message['class']; ?>"><?php echo $arr_message['msg']; ?></div>
@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
                         <label class="w3-text" style = "color: #0072B5;" for="exampleInputPassword2">Confirm Password</label>
                         <input type="password" class="w3-input w3-border w3-light-grey" id="exampleInputPassword2" name="cpassword" placeholder="Confirm Password" required>
                         <br>
-                        <button type="submit" name="submit" class="w3-btn w3-blue-grey">Submit</button>
+                        <button type="submit" name="submit" class="w3-btn w3-blue-grey" style = "margin-bottom: 0.08em;">Register</button>
                         <br>
                     </form>
                 </div>

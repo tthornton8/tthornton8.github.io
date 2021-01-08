@@ -45,11 +45,11 @@ if (isset($_POST['submit'])) {
         <script type="text/javascript" src="script.js"></script>
     </head>
 
-    <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
-    <script type="text/javascript" src="header.js"></script>
-
     <body>
-        <div class = "_content">
+        <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
+        <script type="text/javascript" src="header.js"></script>
+
+        <div class="_content">
             <div class="w3-card-4">
                 <div class="w3-container w3-2021-french-blue">
                     <h2>Please Login</h2>
@@ -57,9 +57,9 @@ if (isset($_POST['submit'])) {
 
                 <div class="w3-container">
 
-                    <!-- <?php if(!empty($error_message)) { ?>
+                    <?php if(!empty($error_message)) { ?>
                         <div class="alert alert-danger"><?php echo $error_message; ?></div>
-                    <?php } ?> -->
+                    <?php } ?>
 
                     <form method="post">
                         <br>
@@ -69,7 +69,7 @@ if (isset($_POST['submit'])) {
                         <label class="w3-text" style = "color: #0072B5;" for="inputpassword">Password</label>
                         <input type="password" class="w3-input w3-border w3-light-grey" id="inputpassword" name="password" placeholder="Password" required />
                         <br>
-                        <button type="submit" name="submit" class="w3-btn w3-blue-grey">Login</button>
+                        <button type="submit" name="submit" style = "margin-bottom: 0.08em;" class="w3-btn w3-blue-grey">Login</button>
                         <br>
                     </form>
                 </div>
