@@ -10,7 +10,7 @@ function expandBar() {
 var state = 0;
 var side = document.getElementById("side");
 if (side) {
-  var sideText = side.getElementsByTagName("span")[0];
+  var sideText = side;
   var sticky = 0;
 }
 
@@ -41,11 +41,9 @@ window.onscroll = function () {
   
   if (side) {
     if (window.pageYOffset > sticky) {
-      sideText.classList.add("_sticky");
-      console.log('on')
+      sideText.style.marginTop = String(window.pageYOffset+15) + "px"
     } else {
-      sideText.classList.remove("_sticky");
-      console.log('off')
+      sideText.style.marginTop = "0px"
     }
   }
 

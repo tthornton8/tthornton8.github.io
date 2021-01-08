@@ -140,6 +140,8 @@ body {
     'blank bar';
   justify-items: center;
   align-items: center;
+  box-shadow:  0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+
 }
 
 ._top_scroll ._heading {
@@ -857,13 +859,15 @@ a.button_company:hover {
   margin-right: 20px;
   color: white;
   padding: 10px;
+  box-shadow:  0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  /* height: calc(55% - 18px); */
 }
 
 ._sidebar h1{
   font-size: xx-large;
 }
- ._sticky {
+ /* ._sticky {
   position: fixed;
   top: 170px;
   width: 100%;
- }
+ } */
