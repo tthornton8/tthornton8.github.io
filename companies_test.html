@@ -31,6 +31,36 @@
     <div class = "_sidebar" id = "side">
         <span id = "text">
             <h1>Industry</h1>
+            <form>
+                <input type="checkbox" id="engineering" name="engineering" value="engineering" onchange = "expand('engineering');">
+                <label for="engineering">Engineering</label><br>
+
+                <div class = "_check_sub" id = "_check_eng">
+                    <input type="checkbox" id="aero" name="aero" value="aero" onchange = "expand('aero');">
+                    <label for="aero">Aeronautical</label><br>
+
+                    <input type="checkbox" id="mech" name="mech" value="mech" onchange = "expand('mech');">
+                    <label for="mech">Mechanical</label><br>
+
+                    <input type="checkbox" id="civ" name="civ" value="civ" onchange = "expand('civ');">
+                    <label for="civ">Civil</label><br>
+
+                    <input type="checkbox" id="Chemical" name="Chemical" value="Chemical" onchange = "expand('chemical');">
+                    <label for="Chemical">Chemical</label><br>
+                </div>
+
+                <input type="checkbox" id="business" name="business" value="business" onchange = "expand('business');">
+                <label for="business">Business</label><br>
+
+                <input type="checkbox" id="economics" name="economics" value="economics" onchange = "expand('economics');">
+                <label for="economics">Economics</label><br>
+
+                <input type="checkbox" id="natsci" name="natsci" value="natsci" onchange = "expand('natsci');">
+                <label for="natsci">Natural Sciences</label><br>
+
+                <input type="checkbox" id="compsci" name="compsci" value="compsci" onchange = "expand('compsci');">
+                <label for="compsci">Computer Science</label><br>
+            </form>
         </span>
     </div>
     <div class  = "_boxes">

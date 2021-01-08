@@ -268,7 +268,6 @@ body {
   text-decoration: none;
 }
 
-
 .sel_page{
   background-color: #8fb5e0
 }
@@ -865,6 +864,15 @@ a.button_company:hover {
 
 ._sidebar h1{
   font-size: xx-large;
+}
+
+._sidebar form {
+  margin-left: 2.5%;
+}
+
+._check_sub {
+  display: none;
+  margin-left: 5%;
 }
  /* ._sticky {
   position: fixed;

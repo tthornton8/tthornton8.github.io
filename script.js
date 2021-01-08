@@ -105,3 +105,25 @@ function closeBox() {
   x.classList.add("_project_box_unclick");
   x.classList.remove("_project_box_click");
 };
+
+function expand(subj) {
+  switch (subj) {
+    case 'engineering':
+      var sub = document.getElementById("_check_eng");
+      var box = document.getElementById('engineering');
+      if (box.checked) {
+        sub.style.display = 'block';
+      } else {
+        sub.style.display = 'none';
+      }
+      break;
+    case 'business':
+      break;
+    case 'economics':
+      break;
+    case 'natsci':
+      break;
+    case 'natsci':
+      break;
+  }
+}
