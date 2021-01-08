@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
                 <div class="w3-container">
 
                     <?php if(!empty($arr_message['msg'])) { ?>
-                        <div class="alert <?php echo $arr_message['class']; ?>"><?php echo $arr_message['msg']; ?></div>
+                        <div class="alert <?php echo $arr_message['class']; ?>" style = "margin-top: 2em;"><?php echo $arr_message['msg']; ?></div>
                     <?php } ?>
 
                     <form method="post">
