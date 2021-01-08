@@ -42,19 +42,6 @@ if (isset($_SESSION['id'])) {
     </script>
 
 <div class = "_content">
-    <div class  = "_boxes">
-        <?php 
-            for($i=0; $i<20; $i++){ 
-                $htmlElement =  "<div class = '_box'>";
-                $htmlElement .= "<img src='img/company.jpeg' alt='Students'>";
-                $htmlElement .= "<h1>Company Name</h1>";
-                $htmlElement .= "<p>Company Description</p>";
-                $htmlElement .= "</div>"; 
-                echo $htmlElement; 
-            } 
-        ?> 
-    </div>
-
     <div class = "_content _content_side">
         <div class = "_sidebar" id = "side">
             <span id = "text">
@@ -62,7 +49,16 @@ if (isset($_SESSION['id'])) {
             </span>
         </div>
         <div class  = "_boxes">
-            <div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div><div class = '_box'><img src='img/company.jpeg' alt='Students'><h1>Company Name</h1><p>Company Description</p></div> 
+            <?php 
+                for($i=0; $i<20; $i++){ 
+                    $htmlElement =  "<div class = '_box'>";
+                    $htmlElement .= "<img src='img/company.jpeg' alt='Students'>";
+                    $htmlElement .= "<h1>Company Name</h1>";
+                    $htmlElement .= "<p>Company Description</p>";
+                    $htmlElement .= "</div>"; 
+                    echo $htmlElement; 
+                } 
+            ?> 
         </div>
     </div>
 
