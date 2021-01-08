@@ -41,5 +41,20 @@ if (isset($_SESSION['id'])) {
         sel.style.background = "#8fb5e0";
     </script>
 
+<div class = "_content">
+    <div class  = "_boxes">
+        <?php 
+            for($i=0; $i<20; $i++){ 
+                $htmlElement =  "<div class = '_box'>";
+                $htmlElement .= "<img src='img/company.jpeg' alt='Students'>";
+                $htmlElement .= "<h1>Company Name</h1>";
+                $htmlElement .= "<p>Company Description</p>";
+                $htmlElement .= "</div>"; 
+                echo $htmlElement; 
+            } 
+        ?> 
+    </div>
+</div>
+
 </body>
 </html>
