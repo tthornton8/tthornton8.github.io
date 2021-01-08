@@ -8,6 +8,12 @@ function expandBar() {
   };
 
 var state = 0;
+var side = document.getElementById("side");
+if (side) {
+  var sideText = side.getElementsByTagName("span")[0];
+  var sticky = 0;
+}
+
 window.onscroll = function () { 
   "use strict";
 
@@ -32,6 +38,17 @@ window.onscroll = function () {
     navBar.classList.remove("_top_scroll");
     var state = 0;
   }
+  
+  if (side) {
+    if (window.pageYOffset > sticky) {
+      sideText.classList.add("_sticky");
+      console.log('on')
+    } else {
+      sideText.classList.remove("_sticky");
+      console.log('off')
+    }
+  }
+
 };
 
 function getProjContent(name) {

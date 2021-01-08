@@ -845,3 +845,25 @@ a.button_company:hover {
   grid-row: 3;
   padding-left: 10px;
 }
+
+._content_side {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  grid-auto-flow: row;
+}
+
+._sidebar {
+  background: #316CB0;
+  margin-right: 20px;
+  color: white;
+  padding: 10px;
+}
+
+._sidebar h1{
+  font-size: xx-large;
+}
+ ._sticky {
+  position: fixed;
+  top: 170px;
+  width: 100%;
+ }
