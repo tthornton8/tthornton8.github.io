@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Gradz | Sign Up</title>
+        <title>Sign up | Gradz</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
         <link href="style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
                         <label class="w3-text" style = "color: #0072B5;" for="exampleInputPassword2">Confirm Password</label>
                         <input type="password" class="w3-input w3-border w3-light-grey" id="exampleInputPassword2" name="cpassword" placeholder="Confirm Password" required>
                         <br>
-                        <button type="submit" name="submit" class="w3-btn w3-blue-grey" style = "margin-bottom: 0.08em;">Register</button>
+                        <button type="submit" name="submit" class="w3-btn w3-blue-grey" style = "margin-bottom: 1em;">Register</button>
                         <br>
                     </form>
                 </div>
