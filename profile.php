@@ -31,7 +31,8 @@ if (isset($_POST['submit'])) {
     $sql .= "SET";
     $sql .= "name = '".$conn->real_escape_string($name)."',";
     $sql .= "degree = '".$conn->real_escape_string($degree)."',";
-    $sql .= "uni = '".$conn->real_escape_string($uni)."'";
+    $sql .= "uni = '".$conn->real_escape_string($uni)."',";
+    $sql .= "about = '".$conn->real_escape_string($about)."',";
     $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
 
     $result = $conn->query($sql);
@@ -83,7 +84,7 @@ if (isset($_POST['submit'])) {
         </div>
         <div class = "_prof_section _about">
             <h2>About</h2>
-            <p>A passionate, comitted, and highly motivated 2nd year mechanical engineering student at the University of Bath with hands-on experience in testing and analysing concept designs. Passionate about innovation in engineering, I am excited about applying my skills to new projects and seeing the results of my efforts put to use in a professional environment. Using my firm grasp of tools such as MATLAB and Excel, and product design know-how, I have excelled in delivering results throughout summer internships and my time at university.</p>
+            <p><?php echo $about; ?>A passionate, comitted, and highly motivated 2nd year mechanical engineering student at the University of Bath with hands-on experience in testing and analysing concept designs. Passionate about innovation in engineering, I am excited about applying my skills to new projects and seeing the results of my efforts put to use in a professional environment. Using my firm grasp of tools such as MATLAB and Excel, and product design know-how, I have excelled in delivering results throughout summer internships and my time at university.</p>
         </div>
         <div class = "_prof_section _skills">
             <h2 style = "grid-row: 1">Top Skills</h2>
