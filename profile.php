@@ -40,6 +40,8 @@ if (isset($_SESSION['id'])) {
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="profile_style.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
         crossorigin="anonymous"> -->
@@ -53,7 +55,7 @@ if (isset($_SESSION['id'])) {
     <div class = "_content">
         <div class = "_prof_section _head">
             <img src="img/dp.jpg" alt="Profile Picture" class = "pp">
-            <h1><?php echo $name; ?></h1>
+            <h1><?php echo $name; ?> <div onclick="editWindow();" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div> </h1>
             <hr>
             <table>
                 <td>
@@ -123,6 +125,65 @@ if (isset($_SESSION['id'])) {
 
     <div class = "_bg" id = "bg" onclick="closeBox()"></div>
     <div class = "_project_box_unclick animate" id = "project_box"></div>
+
+    <div id="editWindow" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close_modal">&times;</span>
+            <h2>Edit Profile</h2>
+          </div>
+          <div class="modal-body">
+            <form method="post">
+                <br>
+                <label class="w3-text" style = "color: #0072B5;" for="inputname">Name</label>
+                <input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = <?php echo "$name"; ?>/>
+
+                <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputdegree">Degree</label>
+                <input type="text" class="w3-input w3-border w3-light-grey" id="inputdegree" name="degree" placeholder="Degree" value = <?php echo "$degree"; ?>/>
+
+                <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputuni">University</label>
+                <input type="text" class="w3-input w3-border w3-light-grey" id="inputuni" name="uni" placeholder="University" value = <?php echo "$uni"; ?>/>
+                <br>
+                <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
+                <br>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <h3>&nbsp;</h3>
+          </div>
+        </div>
+      
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("editWindow");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("_edit_pencil");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close_modal")[0];
+        
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
 
 </body>
 </html>
