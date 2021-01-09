@@ -15,8 +15,10 @@ if (isset($_SESSION['id'])) {
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $name = $row['name'];
+    $email = $row['email'];
     $degree = $row['degree'];
     $uni = $row['uni'];
+    $about = $row['about'];
 
 } else {
     $logged_in = 'false';
@@ -30,6 +32,7 @@ if (isset($_POST['submit'])) {
     $sql =  "UPDATE user";
     $sql .= "SET";
     $sql .= "name = '".$conn->real_escape_string($name)."',";
+    $sql .= "email = '".$conn->real_escape_string($email)."',";
     $sql .= "degree = '".$conn->real_escape_string($degree)."',";
     $sql .= "uni = '".$conn->real_escape_string($uni)."',";
     $sql .= "about = '".$conn->real_escape_string($about)."'";
@@ -84,7 +87,7 @@ if (isset($_POST['submit'])) {
         </div>
         <div class = "_prof_section _about">
             <h2>About</h2>
-            <p><?php echo $about; ?>A passionate, comitted, and highly motivated 2nd year mechanical engineering student at the University of Bath with hands-on experience in testing and analysing concept designs. Passionate about innovation in engineering, I am excited about applying my skills to new projects and seeing the results of my efforts put to use in a professional environment. Using my firm grasp of tools such as MATLAB and Excel, and product design know-how, I have excelled in delivering results throughout summer internships and my time at university.</p>
+            <p><?php echo $about; ?></p>
         </div>
         <div class = "_prof_section _skills">
             <h2 style = "grid-row: 1">Top Skills</h2>
