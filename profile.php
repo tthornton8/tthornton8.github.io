@@ -146,13 +146,13 @@ if (isset($_POST['submit'])) {
             <form method="post">
                 <br>
                 <label class="w3-text" style = "color: #0072B5;" for="inputname">Name</label>
-                <input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = <?php echo "$name"; ?>/>
+                <input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/>
 
                 <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputdegree">Degree</label>
-                <input type="text" class="w3-input w3-border w3-light-grey" id="inputdegree" name="degree" placeholder="Degree" value = <?php echo "$degree"; ?>/>
+                <input type="text" class="w3-input w3-border w3-light-grey" id="inputdegree" name="degree" placeholder="Degree" value = "<?php echo $degree; ?>"/>
 
                 <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputuni">University</label>
-                <input type="text" class="w3-input w3-border w3-light-grey" id="inputuni" name="uni" placeholder="University" value = <?php echo "$uni"; ?>/>
+                <input type="text" class="w3-input w3-border w3-light-grey" id="inputuni" name="uni" placeholder="University" value = "<?php echo $uni; ?>"/>
                 <br>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br>
