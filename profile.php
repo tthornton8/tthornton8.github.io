@@ -11,7 +11,7 @@ if (isset($_SESSION['id'])) {
     $logged_in = 'true';
     $id = $_SESSION['id'];
     
-    $sql = "SELECT * FROM test_user WHERE ID = '".$conn->real_escape_string($id)."'";
+    $sql = "SELECT * FROM user WHERE ID = '".$conn->real_escape_string($id)."'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $name = $row['name'];
@@ -27,7 +27,13 @@ if (isset($_POST['submit'])) {
  
     extract($_POST);
  
-    $sql = "UPDATE test_user SET name = '".$conn->real_escape_string($name)."', degree = '".$conn->real_escape_string($degree)."', uni = '".$conn->real_escape_string($uni)."' WHERE ID = '".$conn->real_escape_string($id)."'";
+    $sql =  "UPDATE user";
+    $sql .= "SET";
+    $sql .= "name = '".$conn->real_escape_string($name)."',";
+    $sql .= "degree = '".$conn->real_escape_string($degree)."',";
+    $sql .= "uni = '".$conn->real_escape_string($uni)."'";
+    $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
+
     $result = $conn->query($sql);
 }
 ?>
@@ -148,11 +154,17 @@ if (isset($_POST['submit'])) {
                 <label class="w3-text" style = "color: #0072B5;" for="inputname">Name</label>
                 <input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/>
 
+                <label class="w3-text" style = "color: #0072B5;" for="inputemail">Email</label>
+                <input type="email" class="w3-input w3-border w3-light-grey" id="inputemail" name="email" placeholder="Email" value = "<?php echo $email; ?>"/>
+
                 <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputdegree">Degree</label>
                 <input type="text" class="w3-input w3-border w3-light-grey" id="inputdegree" name="degree" placeholder="Degree" value = "<?php echo $degree; ?>"/>
 
                 <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputuni">University</label>
                 <input type="text" class="w3-input w3-border w3-light-grey" id="inputuni" name="uni" placeholder="University" value = "<?php echo $uni; ?>"/>
+
+                <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputabout">About</label>
+                <input type="text" class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About" value = "<?php echo $about; ?>"/>
                 <br>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br>

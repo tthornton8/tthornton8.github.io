@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     if (!empty($username) && !empty($email) && !empty($password)) {
          
         if ($password == $cpassword) {
-            $sql = "SELECT ID FROM test_user WHERE email = '".$conn->real_escape_string($email)."'";
+            $sql = "SELECT ID FROM user WHERE email = '".$conn->real_escape_string($email)."'";
             $result = $conn->query($sql);
  
             if ($result->num_rows > 0) {
@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
                 $email = $conn->real_escape_string($email);
                 $activation_key = sha1(mt_rand(10000,99999).time().$email);
  
-                $sql = "INSERT INTO test_user(username, email, pwd, activation_key) VALUES('".$conn->real_escape_string($username)."', '".$email."', '".md5($conn->real_escape_string($password))."', '".$activation_key."')";
+                $sql = "INSERT INTO user(username, email, pwd, activation_key) VALUES('".$conn->real_escape_string($username)."', '".$email."', '".md5($conn->real_escape_string($password))."', '".$activation_key."')";
                 $conn->query($sql);
                 // echo $sql;
  
