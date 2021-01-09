@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
 
     <div class = "_content">
         <div class = "_prof_section _head">
-            <img src="<?php echo "img.php?name={$name}"; ?>" alt="Profile Picture" class = "pp">
+            <img src="<?php echo "img.php?img={$photo}"; ?>" alt="Profile Picture" class = "pp">
             <h1><?php echo $name; ?> <div onclick="editWindow();" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div> </h1>
             <hr>
             <table>
