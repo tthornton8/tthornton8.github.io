@@ -37,8 +37,6 @@ if (isset($_POST['submit'])) {
     $sql .= "about = '".$conn->real_escape_string($about)."'\n";
     $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
 
-    echo $sql;
-
     $result = $conn->query($sql);
 }
 ?>
@@ -169,7 +167,7 @@ if (isset($_POST['submit'])) {
                 <input type="text" class="w3-input w3-border w3-light-grey" id="inputuni" name="uni" placeholder="University" value = "<?php echo $uni; ?>"/>
 
                 <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputabout">About</label>
-                <input type="text" class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About" value = "<?php echo $about; ?>"/>
+                <textarea class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About" value = "<?php echo $about; ?>"></textarea>
                 <br>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br>
