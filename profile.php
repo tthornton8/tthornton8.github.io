@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
     $sql .= "about = '".$conn->real_escape_string($about)."'";
     $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
 
-    echo $sql
+    echo $sql;
 
     $result = $conn->query($sql);
 }
