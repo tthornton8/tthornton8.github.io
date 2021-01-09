@@ -27,6 +27,7 @@ if (isset($_SESSION['id'])) {
 if (isset($_POST['submit'])) {
  
     extract($_POST);
+    require_once('uploads.php');
  
     $sql =  "UPDATE user\n";
     $sql .= "SET\n";
@@ -34,6 +35,7 @@ if (isset($_POST['submit'])) {
     $sql .= "email = '".$conn->real_escape_string($email)."',\n";
     $sql .= "degree = '".$conn->real_escape_string($degree)."',\n";
     $sql .= "uni = '".$conn->real_escape_string($uni)."',\n";
+    $sql .= "photo = '".$conn->real_escape_string($target_file)."',\n";
     $sql .= "about = '".$conn->real_escape_string($about)."'\n";
     $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
 
@@ -154,6 +156,9 @@ if (isset($_POST['submit'])) {
           <div class="modal-body">
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <br>
+                <label class="w3-text" style = "color: #0072B5;" for="fileToUpload">Upload new profile photo</label>
+                <input type="file" name="fileToUpload" id="fileToUpload">
+
                 <label class="w3-text" style = "color: #0072B5;" for="inputname">Name</label>
                 <input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/>
 
