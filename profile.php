@@ -29,12 +29,12 @@ if (isset($_POST['submit'])) {
     extract($_POST);
  
     $sql =  "UPDATE user\n";
-    $sql .= "SET";
-    $sql .= "name = '".$conn->real_escape_string($name)."',";
-    $sql .= "email = '".$conn->real_escape_string($email)."',";
-    $sql .= "degree = '".$conn->real_escape_string($degree)."',";
-    $sql .= "uni = '".$conn->real_escape_string($uni)."',";
-    $sql .= "about = '".$conn->real_escape_string($about)."'";
+    $sql .= "SET\n";
+    $sql .= "name = '".$conn->real_escape_string($name)."',\n";
+    $sql .= "email = '".$conn->real_escape_string($email)."',\n";
+    $sql .= "degree = '".$conn->real_escape_string($degree)."',\n";
+    $sql .= "uni = '".$conn->real_escape_string($uni)."',\n";
+    $sql .= "about = '".$conn->real_escape_string($about)."'\n";
     $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
 
     echo $sql;
