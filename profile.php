@@ -154,7 +154,7 @@ if (isset($_POST['submit'])) {
             <h2>Edit Profile</h2>
           </div>
           <div class="modal-body">
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                 <br>
                 <label class="w3-text" style = "color: #0072B5;" for="fileToUpload">Upload new profile photo</label>
                 <input type="file" name="fileToUpload" id="fileToUpload">
