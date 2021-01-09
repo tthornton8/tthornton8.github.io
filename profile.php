@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
  
     extract($_POST);
  
-    $sql =  "UPDATE user";
+    $sql =  "UPDATE user\n";
     $sql .= "SET";
     $sql .= "name = '".$conn->real_escape_string($name)."',";
     $sql .= "email = '".$conn->real_escape_string($email)."',";
