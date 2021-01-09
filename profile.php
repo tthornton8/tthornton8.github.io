@@ -19,7 +19,6 @@ if (isset($_SESSION['id'])) {
     $degree = $row['degree'];
     $uni = $row['uni'];
     $about = $row['about'];
-
 } else {
     $logged_in = 'false';
     header('Location: login_student.php');

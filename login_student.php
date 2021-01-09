@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
                         <div class="alert alert-danger"  style = "margin-top: 2em;"><?php echo $error_message; ?></div>
                     <?php } ?>
 
-                    <form method="post">
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <br>
                         <label class="w3-text" style = "color: #0072B5;" for="inputusername">Username</label>
                         <input type="text" class="w3-input w3-border w3-light-grey" id="inputusername" name="username" placeholder="Username" required />
