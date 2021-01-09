@@ -22,6 +22,14 @@ if (isset($_SESSION['id'])) {
     $logged_in = 'false';
     header('Location: login_student.php');
 }
+
+if (isset($_POST['submit'])) {
+ 
+    extract($_POST);
+ 
+    $sql = "UPDATE test_user SET name = '".$conn->real_escape_string($name)."', degree = '".$conn->real_escape_string($degree)."', uni = '".$conn->real_escape_string($uni)."' WHERE ID = '".$conn->real_escape_string($id)."'";
+    $result = $conn->query($sql);
+}
 ?>
 
 <!DOCTYPE html>

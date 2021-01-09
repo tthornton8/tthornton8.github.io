@@ -249,7 +249,8 @@ cursor: pointer;
 }
 
 ._edit_pencil {
-    cursor:pointer;
+    display: inline-block;
+    cursor: pointer;
     width: 1em;
   }
   
