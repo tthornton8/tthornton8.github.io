@@ -20,5 +20,5 @@
 
     header('content-type: '. $mimes[$ext]);
     header('content-disposition: inline; filename="'.$img.'";');
-    echo readfile($file);
+    echo readfile($img);
 ?>
