@@ -5,6 +5,8 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($fn,PATHINFO_EXTENSION));
 $target_file = $target_dir . md5($id . basename($_FILES["fileToUpload"]["name"])) . "." . $imageFileType;
 
+echo $target_file
+
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
