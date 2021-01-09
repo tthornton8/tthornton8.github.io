@@ -7,7 +7,7 @@
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $img = $row['photo'];
-    
+
     $mimes = array
     (
         'jpg' => 'image/jpg',
@@ -20,5 +20,5 @@
 
     header('content-type: '. $mimes[$ext]);
     header('content-disposition: inline; filename="'.$img.'";');
-    readfile($file);
+    echo readfile($file);
 ?>
