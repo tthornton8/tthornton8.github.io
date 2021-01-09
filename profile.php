@@ -160,6 +160,7 @@ if (isset($_POST['submit'])) {
                 <br>
                 <label class="w3-text" style = "color: #0072B5;" for="fileToUpload">Upload new profile photo</label>
                 <input type="file" name="fileToUpload" id="fileToUpload">
+                <br>
 
                 <label class="w3-text" style = "color: #0072B5;" for="inputname">Name</label>
                 <input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/>

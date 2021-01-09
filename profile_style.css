@@ -322,6 +322,10 @@ cursor: pointer;
   }
   
   .modal-body {padding: 2px 16px;}
+
+  .modal-body input[type="file"] {
+    
+}
   
   .modal-footer {
     padding: 2px 16px;
