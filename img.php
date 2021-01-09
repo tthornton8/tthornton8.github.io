@@ -1,5 +1,13 @@
 <?php
-    $img = $_GET['img'];
+    require_once('config.php');
+
+    $id = $_GET['id'];
+
+    $sql = "SELECT photo FROM user WHERE ID = '".$conn->real_escape_string($id)."'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $img = $row['photo'];
+    
     $mimes = array
     (
         'jpg' => 'image/jpg',
