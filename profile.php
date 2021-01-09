@@ -37,6 +37,8 @@ if (isset($_POST['submit'])) {
     $sql .= "about = '".$conn->real_escape_string($about)."'";
     $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
 
+    echo $sql
+
     $result = $conn->query($sql);
 }
 ?>
@@ -152,7 +154,7 @@ if (isset($_POST['submit'])) {
             <h2>Edit Profile</h2>
           </div>
           <div class="modal-body">
-            <form method="post">
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <br>
                 <label class="w3-text" style = "color: #0072B5;" for="inputname">Name</label>
                 <input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/>
