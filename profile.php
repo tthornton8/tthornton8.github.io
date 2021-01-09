@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
     $sql .= "name = '".$conn->real_escape_string($name)."',";
     $sql .= "degree = '".$conn->real_escape_string($degree)."',";
     $sql .= "uni = '".$conn->real_escape_string($uni)."',";
-    $sql .= "about = '".$conn->real_escape_string($about)."',";
+    $sql .= "about = '".$conn->real_escape_string($about)."'";
     $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
 
     $result = $conn->query($sql);
