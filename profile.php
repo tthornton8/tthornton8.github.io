@@ -216,19 +216,23 @@ function phpAlert($msg) {
                 <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputabout">About</label>
                 <textarea class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About"><?php echo $about; ?></textarea>
                 <br>
-
-                <p class="w3-text" style = "color: #0072B5; margin-top: 10px; font-size:150%">Skills</p>
-                <?php 
-                $i = 0;
-                foreach ($skills as &$row) {
-                    echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"skills[$i]\">Skill $i</label>\n";
-                    echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i][name]\" name=\"skills[$i][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
-                    echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i][icon]\" name=\"skills[$i][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
-                    $i += 1;
-                    // echo $row["name"];
-                }
-                ?>
-                <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "alert('add');">+</button>
+                
+                <div id = "skills_section">
+                    <p class="w3-text" style = "color: #0072B5; margin-top: 10px; font-size:150%">Skills</p>
+                    <?php 
+                    $i = 1;
+                    $j = 0;
+                    foreach ($skills as &$row) {
+                        echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"skills[$j][name]\">Skill $i</label>\n";
+                        echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][name]\" name=\"skills[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
+                        echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][icon]\" name=\"skills[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
+                        $i += 1;
+                        $j += 1;
+                        // echo $row["name"];
+                    }
+                    ?>
+                </div>
+                <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addSkill();">+</button>
                 <br>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br>
