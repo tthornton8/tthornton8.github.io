@@ -37,7 +37,9 @@ if (isset($_POST['submit'])) {
     $sql .= "email = '".$conn->real_escape_string($email)."',\n";
     $sql .= "degree = '".$conn->real_escape_string($degree)."',\n";
     $sql .= "uni = '".$conn->real_escape_string($uni)."',\n";
-    $sql .= "photo = '".$conn->real_escape_string($target_file)."',\n";
+    if ($uploadOk) {
+        $sql .= "photo = '".$conn->real_escape_string($target_file)."',\n";
+    }
     $sql .= "about = '".$conn->real_escape_string($about)."'\n";
     $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
 
@@ -46,7 +48,9 @@ if (isset($_POST['submit'])) {
 ?>
 <?php
 function phpAlert($msg) {
-    echo '<script type="text/javascript">alert("' . $msg . '")</script>';
+    if ($msg) {
+        echo '<script type="text/javascript">alert("' . htmlspecialchars($msg) . '")</script>';
+    }
 }
 ?>
 
