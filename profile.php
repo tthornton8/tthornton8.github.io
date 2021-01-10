@@ -24,11 +24,15 @@ if (isset($_SESSION['id'])) {
     $skills = [];
     $sql = "SELECT * FROM skill WHERE [user_ID] = ".$conn->real_escape_string($id);
     $result = $conn->query($sql);
-    while ($row = $result->fetch_assoc()) {
-        $skills[] = array (
-            "name" => $row["name"],
-            "icon" => $row["icon"],
-        );
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $skills[] = array (
+                "name" => $row["name"],
+                "icon" => $row["icon"],
+            );
+        }
+    } else {
+        echo $sql
     }
 
 } else {
