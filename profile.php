@@ -135,10 +135,6 @@ function phpAlert($msg) {
                     echo "<div class = \"_bubble _gr1\">".$row["name"]."<img src = ".$row["icon"]." alt = \"icon\"></div>";
                 }
             ?>
-            <!-- <div class = "_bubble _gr1">Machine Learning    <img src = "https://www.flaticon.com/svg/static/icons/svg/566/566082.svg" alt = "icon"></div>
-            <div class = "_bubble _gr1">Design              <img src = "https://www.flaticon.com/svg/static/icons/svg/681/681662.svg" alt = "icon"></div>
-            <div class = "_bubble _gr1">Python              <img src = "https://www.flaticon.com/svg/static/icons/svg/1336/1336494.svg" alt = "icon"></div>
-            <div class = "_bubble _gr1">CFD                 <img src = "https://www.flaticon.com/svg/static/icons/svg/1055/1055113.svg" alt = "icon"></div> -->
             <hr style = "grid-column: 1/5; grid-row: 3">
             <h2 style = "grid-row: 4">Top Projects</h2>
             <div class = "_bubble _gr2" onclick="clickBox('machine design')">Machine Design         <img src = "https://www.flaticon.com/svg/static/icons/svg/2099/2099058.svg" alt = "icon">
@@ -218,6 +214,17 @@ function phpAlert($msg) {
                 <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputabout">About</label>
                 <textarea class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About"><?php echo $about; ?></textarea>
                 <br>
+
+                <span class="w3-text" style = "color: #0072B5; margin-top: 10px; font-size:200%">Skills</span>
+                <?php 
+                $i = 0;
+                foreach ($skills as &$row) {
+                    echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"skills[$i]\">About</label>";
+                    echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i]\" name=\"skills[$i]\" placeholder=\"Skill \"$i:\" value = \"".$row["name"]."\"/>";
+                    // echo $row["name"];
+                }
+                ?>
+
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br>
             </form>
