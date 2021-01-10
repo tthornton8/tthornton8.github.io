@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) {
     echo '<pre>'; print_r($_POST); echo '</pre>';
     $sql = "INSERT INTO skill (user_ID, name, icon) VALUES ";
     foreach ($skills as &$row) {
-        $sql .= "\n(".$conn->real_escape_string($id).", '".$conn->real_escape_string($row["name"])."', '".$conn->real_escape_string($row["icon"])."),";
+        $sql .= "\n(".$conn->real_escape_string($id).", '".$conn->real_escape_string($row["name"])."', '".$conn->real_escape_string($row["icon"])."'),";
     }
     $sql = substr($sql, 0, -1);
     $sql .= ";";
@@ -224,7 +224,8 @@ function phpAlert($msg) {
                 $i = 0;
                 foreach ($skills as &$row) {
                     echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"skills[$i]\">Skill $i</label>\n";
-                    echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i]\" name=\"skills[$i]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
+                    echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i][\"name\"]\" name=\"skills[$i][\"name\"]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
+                    echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i][\"icon\"]\" name=\"skills[$i][\"icon\"]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["icon"])."\"/>\n";
                     $i += 1;
                     // echo $row["name"];
                 }
