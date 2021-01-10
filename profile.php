@@ -107,9 +107,9 @@ function phpAlert($msg) {
 </head>
 
 <body>
-    <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
     <script type="text/javascript" src="header.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 
     <div class = "_content">
         <div class = "_prof_section _head">
