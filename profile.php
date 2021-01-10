@@ -97,7 +97,6 @@ function phpAlert($msg) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="profile_style.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
@@ -108,6 +107,7 @@ function phpAlert($msg) {
 </head>
 
 <body>
+    <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
     <script type="text/javascript" src="header.js"></script>
 

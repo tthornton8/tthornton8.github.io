@@ -133,8 +133,8 @@ function addSkill() {
   skills = document.getElementById("skills_section");
   var els = createElementFromHTML(`
   <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="skills[${i}][name]">Skill ${i+1}</label>
-  <input type="text" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill "${i+1}" value = ""/>
-  <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill "${i+1}" value = ""/>
+  <input type="text" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill ${i+1}" value = ""/>
+  <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill ${i+1}" value = ""/>
   `);
   for (let item of els) {
     skills.appendChild(item);
