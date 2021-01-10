@@ -221,6 +221,7 @@ function phpAlert($msg) {
                 foreach ($skills as &$row) {
                     echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"skills[$i]\">Skill $i</label>\n";
                     echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i]\" name=\"skills[$i]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
+                    $i += 1;
                     // echo $row["name"];
                 }
                 ?>
