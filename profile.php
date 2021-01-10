@@ -139,7 +139,9 @@ function phpAlert($msg) {
                     echo "<div class = \"_bubble _gr1\">".$row["name"]."<img src = ".$row["icon"]." alt = \"icon\"></div>";
                 }
             ?>
-            <hr style = "grid-column: 1/5; grid-row: 3">
+        </div>
+        <div class = "_prof_section _skills">
+            <!-- <hr style = "grid-column: 1/5; grid-row: 3"> -->
             <h2 style = "grid-row: 4">Top Projects</h2>
             <div class = "_bubble _gr2" onclick="clickBox('machine design')">Machine Design         <img src = "https://www.flaticon.com/svg/static/icons/svg/2099/2099058.svg" alt = "icon">
                 <p>
