@@ -48,6 +48,7 @@ if (isset($_POST['submit'])) {
 ?>
 <?php
 function phpAlert($msg) {
+    echo "msg: $msg";
     if ($msg) {
         echo '<script type="text/javascript">alert("' . htmlspecialchars($msg) . '")</script>';
     }
