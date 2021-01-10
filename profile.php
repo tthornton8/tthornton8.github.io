@@ -32,7 +32,7 @@ if (isset($_SESSION['id'])) {
             );
         }
     } else {
-        echo $sql
+        echo $sql;
     }
 
 } else {
