@@ -224,8 +224,8 @@ function phpAlert($msg) {
                 $i = 0;
                 foreach ($skills as &$row) {
                     echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"skills[$i]\">Skill $i</label>\n";
-                    echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i][\"name\"]\" name=\"skills[$i][\"name\"]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
-                    echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i][\"icon\"]\" name=\"skills[$i][\"icon\"]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["icon"])."\"/>\n";
+                    echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i][&quot;name&quot;]\" name=\"skills[$i][&quot;name&quot;]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
+                    echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i][&quot;icon&quot;]\" name=\"skills[$i][&quot;icon&quot;]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
                     $i += 1;
                     // echo $row["name"];
                 }
