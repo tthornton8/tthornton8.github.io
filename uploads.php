@@ -12,21 +12,21 @@ if(isset($_POST["submit"])) {
   if($check !== false) {
     $uploadOk = 1;
   } else {
-    $fileAlert .=  "File is not an image.\n";
+    $fileAlert .=  "File is not an image.";
     $uploadOk = 0;
   }
 }
 
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
-  $fileAlert .=  "Sorry, your file is too large.\n";
+  $fileAlert .=  "Sorry, your file is too large.";
   $uploadOk = 0;
 }
 
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
-  $fileAlert .=  "Sorry, only JPG, JPEG, PNG & GIF files are allowed.\n";
+  $fileAlert .=  "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
   $uploadOk = 0;
 }
 
