@@ -31,9 +31,6 @@ for (let item of els) {
     document.body.appendChild(item);
   }
 
-
-
-
 if (typeof logged_in !== 'undefined') {
     if (logged_in == 'true') {
         x = document.getElementById("login_list")
