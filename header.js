@@ -1,4 +1,4 @@
-document.write(`
+var els = createElementFromHTML(`
     <div class = "_top" id = "top">
         <div class = "_heading ">
             <h1><a id = "home_link" href="http://thegradz.com">The GradZ</a></h1>
@@ -27,6 +27,13 @@ document.write(`
     </div>
 `);
 
+for (let item of els) {
+    document.body.appendChild(item);
+  }
+
+
+
+
 if (typeof logged_in !== 'undefined') {
     if (logged_in == 'true') {
         x = document.getElementById("login_list")
@@ -36,3 +43,11 @@ if (typeof logged_in !== 'undefined') {
         `
     }
 };
+
+function createElementFromHTML(htmlString) {
+    var div = document.createElement('div');
+    div.innerHTML = htmlString.trim();
+  
+    // Change this to div.childNodes to support multiple top-level nodes
+    return div.childNodes; 
+  };
