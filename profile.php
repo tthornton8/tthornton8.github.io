@@ -22,7 +22,7 @@ if (isset($_SESSION['id'])) {
     $photo = $row['photo'];
 
     $skills = [];
-    $sql = "SELECT * FROM skill WHERE [user_ID] = ".$conn->real_escape_string($id);
+    $sql = "SELECT * FROM skill WHERE user_ID = ".$conn->real_escape_string($id);
     $result = $conn->query($sql);
     if ($result) {
         while ($row = $result->fetch_assoc()) {
@@ -59,10 +59,10 @@ if (isset($_POST['submit'])) {
 
     $result = $conn->query($sql);
 
-    $sql = "DELETE FROM skill WHERE [user_ID] = '".$conn->real_escape_string($id)."'";
+    $sql = "DELETE FROM skill WHERE user_ID = '".$conn->real_escape_string($id)."'";
     $result = $conn->query($sql);
 
-    $sql = "INSERT INTO skill ([user_ID], name, icon) VALUES ";
+    $sql = "INSERT INTO skill (user_ID, name, icon) VALUES ";
     foreach ($skills as &$row) {
         $sql .= "\n(".$conn->real_escape_string($id).", '".$conn->real_escape_string($row["name"])."', '".$conn->real_escape_string($row["icon"])."),";
     }
