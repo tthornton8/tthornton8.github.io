@@ -62,13 +62,14 @@ if (isset($_POST['submit'])) {
     $sql = "DELETE FROM skill WHERE user_ID = '".$conn->real_escape_string($id)."'";
     $result = $conn->query($sql);
 
-    echo '<pre>'; print_r($_POST); echo '</pre>';
+    // echo '<pre>'; print_r($_POST); echo '</pre>';
     $sql = "INSERT INTO skill (user_ID, name, icon) VALUES ";
     foreach ($skills as &$row) {
         $sql .= "\n(".$conn->real_escape_string($id).", '".$conn->real_escape_string($row["name"])."', '".$conn->real_escape_string($row["icon"])."),";
     }
     $sql = substr($sql, 0, -1);
     $sql .= ";";
+    $result = $conn->query($sql);
     
 }
 ?>
