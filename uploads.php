@@ -38,6 +38,7 @@ if ($uploadOk == 0) {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     //$fileAlert =  "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
     $fileAlert = "";
+    unlink($photo)
   } else {
     $fileAlert .=  "There was an error uploading your file.";
   }
