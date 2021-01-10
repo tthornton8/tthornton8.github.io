@@ -215,16 +215,16 @@ function phpAlert($msg) {
                 <textarea class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About"><?php echo $about; ?></textarea>
                 <br>
 
-                <span class="w3-text" style = "color: #0072B5; margin-top: 10px; font-size:200%">Skills</span>
+                <p class="w3-text" style = "color: #0072B5; margin-top: 10px; font-size:150%">Skills</p>
                 <?php 
                 $i = 0;
                 foreach ($skills as &$row) {
-                    echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"skills[$i]\">About</label>";
-                    echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i]\" name=\"skills[$i]\" placeholder=\"Skill \"$i:\" value = \"".$row["name"]."\"/>";
+                    echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"skills[$i]\">Skill $i</label>\n";
+                    echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$i]\" name=\"skills[$i]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
                     // echo $row["name"];
                 }
                 ?>
-
+                <br>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br>
             </form>
