@@ -39,8 +39,10 @@ if ($fn) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
       //$fileAlert =  "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
       $fileAlert = "";
-      if ($photo != $target_file) {
-        unlink($photo);
+      if (isset($photo)) {
+        if ($photo != $target_file) {
+          unlink($photo);
+        }
       }
     } else {
       $fileAlert .=  "There was an error uploading your file.";
