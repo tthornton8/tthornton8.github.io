@@ -40,6 +40,8 @@
     'pp h1 h1'
     'pp hr hr'
     'pp h2 uni';
+    grid-template-rows: auto 10px auto;
+    grid-gap: 0;
 }
 
 ._head .pp {
@@ -58,20 +60,30 @@
 
 ._head h1 {
     grid-area: h1;
+    align-self: flex-end;
 }
 
 ._head ._uni {
+    padding-top: 0;
+    margin-top: 2em;
     grid-area: uni;
-    justify-content: right;
+    position: relative;
+    top: 0;
 }
 
 ._head hr {
     grid-area: hr;
     width: 95%;
+    /* margin-bottom: 10em;
+    padding-bottom: 10em; */
 }
 
 ._head ._head_desc {
+    margin-top: 2em;
+    padding-top: 0;
     grid-area: h2;
+    text-align: start;
+    top: 0;
 }
 
 ._skills { 
