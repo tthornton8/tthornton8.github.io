@@ -47,11 +47,13 @@
 ._head .pp {
     grid-area: pp;
     border-radius: 50%;
-    align-content: center;
+    justify-self: right;
+    padding-right: 0;
+    margin-right: 0;
     display: block;
     margin: 0 auto;
-    width: 350px;
-    height: 350px;
+    width: 250px;
+    height: 250px;
     height: auto;
     border: 15px solid grey;
     box-shadow: 0px 0px 5px 5px #88888844;
@@ -73,7 +75,7 @@
 
 ._head hr {
     grid-area: hr;
-    width: 95%;
+    width: 85%;
     /* margin-bottom: 10em;
     padding-bottom: 10em; */
 }
