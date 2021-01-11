@@ -34,18 +34,44 @@
 }
 
 ._head {
+    display: grid;
     grid-area: head;
+    grid-template-areas: 
+    'pp h1 h1'
+    'pp hr hr'
+    'pp h2 uni';
 }
 
 ._head .pp {
+    grid-area: pp;
     border-radius: 50%;
     align-content: center;
     display: block;
     margin: 0 auto;
     width: 350px;
+    height: 350px;
     height: auto;
     border: 15px solid grey;
     box-shadow: 0px 0px 5px 5px #88888844;
+    object-fit: cover;
+}
+
+._head h1 {
+    grid-area: h1;
+}
+
+._head ._uni {
+    grid-area: uni;
+    justify-content: right;
+}
+
+._head hr {
+    grid-area: hr;
+    width: 95%;
+}
+
+._head ._head_desc {
+    grid-area: h2;
 }
 
 ._skills { 
