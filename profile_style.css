@@ -25,6 +25,28 @@
     color:black;
 }
 
+._projects_section {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: grey;
+    display:inline;
+}
+
+._projects_section ._bubble {
+    padding-right: 5px;
+    padding-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 0px;
+    padding-top: 2px;
+    border-width: 2px;
+    text-align: center;
+}
+
+._projects_section ._edit_pencil {
+    display: inline;
+    margin-left: 10px;
+    font-size: 200%;
+}
+
 ._prof_section h1 {
     font-size: xx-large;
 }

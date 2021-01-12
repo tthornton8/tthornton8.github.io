@@ -33,6 +33,19 @@ if (isset($_SESSION['id'])) {
         }
     }
 
+    $projects = [];
+    $sql = "SELECT * FROM project WHERE user_ID = ".$conn->real_escape_string($id);
+    $result = $conn->query($sql);
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $projects[] = array (
+                "name"    => $row["name"],
+                "icon"    => $row["icon"],
+                "summary" => $row["summary"],
+            );
+        }
+    }
+
 } else {
     $logged_in = 'false';
     header('Location: login_student.php');
@@ -142,7 +155,7 @@ function phpAlert($msg) {
         <div class = "_prof_section _skills">
             <!-- <hr style = "grid-column: 1/5; grid-row: 3"> -->
             <h2 style = "grid-row: 4">Top Projects</h2>
-            <div class = "_bubble _gr2" onclick="clickBox('machine design')">Machine Design         <img src = "https://www.flaticon.com/svg/static/icons/svg/2099/2099058.svg" alt = "icon">
+            <!-- <div class = "_bubble _gr2" onclick="clickBox('machine design')">Machine Design         <img src = "https://www.flaticon.com/svg/static/icons/svg/2099/2099058.svg" alt = "icon">
                 <p>
                     Project Summary....
                 </p>
@@ -161,7 +174,15 @@ function phpAlert($msg) {
                 <p>
                     Project Summary....
                 </p>
-            </div>
+            </div> -->
+
+            <?php
+                foreach ($projects as &$row) {
+                    echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['name']."')\">".$row['name']."<img src = ".$row['icon']." alt = \"icon\">";
+                    echo "<p>".$row['summary']."</p>";
+                }
+            ?>
+
         </div>
         <div class = "_prof_section _quals">
             <h2>Qualifications</h2>
@@ -238,6 +259,19 @@ function phpAlert($msg) {
                 </div>
                 <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addSkill();">+</button>
                 <br>
+
+                <p class="w3-text" style = "color: #0072B5; margin-top: 10px; font-size:150%">Projects</p>
+
+                <div class = "_projects_section" id = "_projects_section">
+                    <?php
+                    foreach ($projects as &$row) {
+                        echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div><div onclick=\"editWindow();\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div>";
+                    }
+                    ?>
+                </div>
+                <br>
+                <button type="button" name="add_project" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addProject();">+</button>
+                <br>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br>
 
@@ -246,9 +280,9 @@ function phpAlert($msg) {
                     var i = document.querySelectorAll('[id^="skills\["]').length/2;
                     skills = document.getElementById("skills_section");
                     var els = createElementFromHTML(`
-                    <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="skills[${i}][name]">Skill ${i+1}</label>
-                    <input type="text" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill ${i+1}" value = ""/>
-                    <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill ${i+1}" value = ""/>
+                        <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="skills[${i}][name]">Skill ${i+1}</label>
+                        <input type="text" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill ${i+1}" value = ""/>
+                        <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill ${i+1}" value = ""/>
                     `);
                     for (let item of els) {
                         skills.appendChild(item);
