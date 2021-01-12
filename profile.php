@@ -322,7 +322,7 @@ function phpAlert($msg) {
             switch (name) {
                 <?php
                 foreach ($projects as &$row) {
-                    $html = "\t\t\t\tcase '".$row["name"]."':\n";
+                    $html =  "\t\t\t\tcase '".$row["name"]."':\n";
                     $html .= "\t\t\t\t\thtml = `\n";
                     $html .= "\t\t\t\t\t<h1>".$row["name"]."</h1>\n";
                     $html .= "\t\t\t\t\t<div class = \"_project_box_content\">".$row["details"]."</div>\n";
@@ -332,7 +332,10 @@ function phpAlert($msg) {
                 }
                 ?>
             }
-        }
+            html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
+            html += `<p>Extended project detail goes here...</p>`
+            return html
+            };
         </script>
 
 </body>

@@ -49,10 +49,7 @@ window.onscroll = function () {
 
 };
 
-  html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
-  html += `<p>Extended project detail goes here...</p>`
-  return html
-};
+
 
 function clickBox(name) {
   bg = document.getElementById("bg");
