@@ -325,38 +325,10 @@ function phpAlert($msg) {
                     echo "\t\t\t\tcase '".$row["name"]."':\n";
                     echo "\t\t\t\t\thtml = `\n";
                     echo "\t\t\t\t\t<h1>".$row["name"]."</h1>\n";
-                    echo "\t\t\t\t\t<div class = \"_project_box_content\">".$row["details"]."</div>`\n";
-                    echo "\t\t\t\tbreak;\n";
+                    echo "\t\t\t\t\t<div class = \"_project_box_content\">".$row["details"]."</div>\n";
+                    echo "\t\t\t\t`\n\t\t\t\tbreak;\n";
                 }
                 ?>
-                // case 'machine design':
-                // html = `
-                //     <h1>Machine Design</h1>   
-                //     <div class = "_project_box_content">
-                //     </div>     
-                //     `
-                // break;
-                // case 'aerocapture':
-                // html = `
-                //     <h1>Aerocapture</h1>
-                //     <div class = "_project_box_content">
-                //     <object type="application/pdf" data="pdf/aerocapture.pdf" style = "width: 100%; height: 100%;">
-                //     </div> 
-                //     `
-                // break;
-                // case 'feasibility study':
-                // html = `
-                //     <h1>Feasibility Study</h1>
-                //     <div class = "_project_box_content">
-                //     </div>
-                //     `
-                // break;
-                // case 'neural net':
-                // html = `
-                //     <h1>Neural Network</h1>
-                //     <div class = "_project_box_content">
-                //     </div>
-                //     `
             }
         </script>
 
