@@ -156,27 +156,6 @@ function phpAlert($msg) {
         <div class = "_prof_section _skills">
             <!-- <hr style = "grid-column: 1/5; grid-row: 3"> -->
             <h2 style = "grid-row: 4">Top Projects</h2>
-            <!-- <div class = "_bubble _gr2" onclick="clickBox('machine design')">Machine Design         <img src = "https://www.flaticon.com/svg/static/icons/svg/2099/2099058.svg" alt = "icon">
-                <p>
-                    Project Summary....
-                </p>
-            </div>
-            <div class = "_bubble _gr2" onclick="clickBox('aerocapture')">Aerocapture<span class = "_gradz_project">with the gradz</span><img src = "https://www.flaticon.com/svg/static/icons/svg/2285/2285485.svg" alt = "icon">
-                <p>
-                    Project Summary....
-                </p>
-            </div>
-            <div class = "_bubble _gr2" onclick="clickBox('feasibility study')">Feasibility Study<span class = "_gradz_project">with the gradz</span><img src = "https://www.flaticon.com/svg/static/icons/svg/752/752241.svg" alt = "icon">
-                <p>
-                    Project Summary....
-                </p>
-            </div>
-            <div class = "_bubble _gr2" onclick="clickBox('neural net')">Neural Net                 <img src = "https://www.flaticon.com/svg/static/icons/svg/566/566082.svg" alt = "icon">
-                <p>
-                    Project Summary....
-                </p>
-            </div> -->
-
             <?php
                 foreach ($projects as &$row) {
                     echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['name']."')\">".$row['name'];
@@ -338,6 +317,47 @@ function phpAlert($msg) {
             modal.style.display = "none";
           }
         }
+
+        function getProjContent(name) {
+            switch (name) {
+                <?php
+                foreach ($projects as &$row) {
+                    echo "case '".$row["name"]."':";
+                    echo "html = `";
+                    echo "<h1>".$row["name"]."</h1>";
+                    echo "<div class = \"_project_box_content\">".$row["details"]."</div>`";
+                    echo "break;";
+                }
+                ?>
+                // case 'machine design':
+                // html = `
+                //     <h1>Machine Design</h1>   
+                //     <div class = "_project_box_content">
+                //     </div>     
+                //     `
+                // break;
+                // case 'aerocapture':
+                // html = `
+                //     <h1>Aerocapture</h1>
+                //     <div class = "_project_box_content">
+                //     <object type="application/pdf" data="pdf/aerocapture.pdf" style = "width: 100%; height: 100%;">
+                //     </div> 
+                //     `
+                // break;
+                // case 'feasibility study':
+                // html = `
+                //     <h1>Feasibility Study</h1>
+                //     <div class = "_project_box_content">
+                //     </div>
+                //     `
+                // break;
+                // case 'neural net':
+                // html = `
+                //     <h1>Neural Network</h1>
+                //     <div class = "_project_box_content">
+                //     </div>
+                //     `
+            }
         </script>
 
 </body>

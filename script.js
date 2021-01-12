@@ -49,38 +49,6 @@ window.onscroll = function () {
 
 };
 
-function getProjContent(name) {
-  switch (name) {
-    case 'machine design':
-      html = `
-        <h1>Machine Design</h1>   
-        <div class = "_project_box_content">
-        </div>     
-        `
-      break;
-    case 'aerocapture':
-      html = `
-        <h1>Aerocapture</h1>
-        <div class = "_project_box_content">
-        <object type="application/pdf" data="pdf/aerocapture.pdf" style = "width: 100%; height: 100%;">
-        </div> 
-        `
-      break;
-    case 'feasibility study':
-      html = `
-        <h1>Feasibility Study</h1>
-        <div class = "_project_box_content">
-        </div>
-          `
-      break;
-    case 'neural net':
-      html = `
-        <h1>Neural Network</h1>
-        <div class = "_project_box_content">
-        </div>
-          `
-  }
-
   html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
   html += `<p>Extended project detail goes here...</p>`
   return html
