@@ -39,7 +39,10 @@ if (isset($_SESSION['id'])) {
     if ($result) {
         while ($row = $result->fetch_assoc()) {
             $projects[] = array (
+                "ID"      => $row["ID"],
                 "name"    => $row["name"],
+                "company" => $row["company"],
+                "details" => $row["details"],
                 "icon"    => $row["icon"],
                 "summary" => $row["summary"],
                 "gradz"   => $row["gradz"],
@@ -258,7 +261,7 @@ function phpAlert($msg) {
                 <div class = "_projects_section" id = "_projects_section">
                     <?php
                     foreach ($projects as &$row) {
-                        echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div><div onclick = \"modal2.style.display = 'block';\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
+                        echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div><div onclick = \"editProject(".$row['ID'].",".$row['details'].");\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
                     }
                     ?>
                 </div>
@@ -304,9 +307,10 @@ function phpAlert($msg) {
                 <span class="close_modal">&times;</span>
                 <h2>Edit Project</h2>
             </div>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" id = "projectEdit">
                 <input type="hidden" name="action" value="edit_project">
-                <textarea id = "tinymce">
+                <input type="hidden" name="project" value="">
+                <textarea id = "tinymce" name = "detail">
                     Project detail goes here...
                 </textarea>
                 <script>
@@ -381,7 +385,14 @@ function phpAlert($msg) {
             html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
             html += `<p>Extended project detail goes here...</p>`
             return html
-            };
+        };
+
+        function editProject(id, detail) {
+            var box = document.getElementById("projectEdit");
+            var tinymce = document.getElementById("tinymce");
+            box.name = id
+            tinymce.innerHTML = detail
+        }
         </script>
 
 </body>
