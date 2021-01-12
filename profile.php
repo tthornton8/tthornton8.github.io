@@ -332,6 +332,7 @@ function phpAlert($msg) {
                 }
                 ?>
             }
+        }
         </script>
 
 </body>
