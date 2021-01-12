@@ -181,10 +181,10 @@ function phpAlert($msg) {
                     echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['name']."')\">".$row['name'];
                     echo $row['gradz'];
                     if ($row['gradz']) {
-                        echo "<span class = \"_gradz_project\">with the gradz</span>";
+                        echo "\n<span class = \"_gradz_project\">with the gradz</span>";
                     }
-                    echo "<img src = ".$row['icon']." alt = \"icon\">";
-                    echo "<p>".$row['summary']."</p></div>";
+                    echo "\n<img src = ".$row['icon']." alt = \"icon\">";
+                    echo "\n<p>".$row['summary']."</p></div>";
                 }
             ?>
 
