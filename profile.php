@@ -309,20 +309,13 @@ function phpAlert($msg) {
             </div>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" id = "projectEdit">
                 <input type="hidden" name="action" value="edit_project">
-                <input type="hidden" name="project" value="">
+                <input type="hidden" name="project" value="" id = "projectID">
                 <textarea id = "tinymce" name = "detail">
                     Project detail goes here...
                 </textarea>
-                <script>
-                    tinymce.init({
-                    selector: 'textarea#tinymce',
-                    plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-                    toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
-                    toolbar_mode: 'floating',
-                    tinycomments_mode: 'embedded',
-                    tinycomments_author: 'Author name',
-                });
-                </script>
+                <!-- <script>
+                    
+                </script> -->
                 <br>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br>
@@ -388,10 +381,20 @@ function phpAlert($msg) {
         };
 
         function editProject(id, detail) {
-            var box = document.getElementById("projectEdit");
-            var tinymce = document.getElementById("tinymce");
-            box.name = id
-            tinymce.innerHTML = detail
+            modal2.style.display = "block";
+            var box = document.getElementById("projectID");
+            var mce = document.getElementById("tinymce");
+            box.value = id;
+            mce.innerHTML = detail;
+
+            tinymce.init({
+                    selector: 'textarea#tinymce',
+                    plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+                    toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+                    toolbar_mode: 'floating',
+                    tinycomments_mode: 'embedded',
+                    tinycomments_author: 'Author name',
+                });
         }
         </script>
 
