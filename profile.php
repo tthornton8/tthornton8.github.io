@@ -93,6 +93,8 @@ if (isset($_POST['submit'])) {
             $result = $conn->query($sql);
             break;
         case "edit_project":
+            $sql = "UPDATE project SET details = ".$conn->real_escape_string($detail)." WHERE ID = $project;";
+            $result = $conn->query($sql);
             break;
         default:
             echo "";
