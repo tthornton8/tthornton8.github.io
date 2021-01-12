@@ -48,6 +48,7 @@ if (isset($_SESSION['id'])) {
                 "gradz"   => $row["gradz"],
             );
         }
+        echo print_r($projects);
     }
 
 } else {
@@ -379,7 +380,7 @@ function phpAlert($msg) {
                 ?>
             }
             html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
-            html += `<p>Extended project detail goes here...</p>`
+            // html += `<p>Extended project detail goes here...</p>`
             return html
         };
 
