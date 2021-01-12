@@ -258,7 +258,7 @@ function phpAlert($msg) {
                 <div class = "_projects_section" id = "_projects_section">
                     <?php
                     foreach ($projects as &$row) {
-                        echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div><div onclick = \"modal2.style.display = \"block\";\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
+                        echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div><div onclick = \"modal2.style.display = 'block';\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
                     }
                     ?>
                 </div>
