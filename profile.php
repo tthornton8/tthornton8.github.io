@@ -305,12 +305,12 @@ function phpAlert($msg) {
                 </div>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <input type="hidden" name="action" value="edit_project">
-                    <textarea>
+                    <textarea id = "tinymce">
                         Project detail goes here...
                     </textarea>
                     <script>
                         tinymce.init({
-                        selector: 'textarea',
+                        selector: 'textarea#tinymce',
                         plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
                         toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
                         toolbar_mode: 'floating',
@@ -322,9 +322,9 @@ function phpAlert($msg) {
                     <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                     <br>
                 </form>
-                <div class="modal-footer">
-                    <h3>&nbsp;</h3>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <h3>&nbsp;</h3>
             </div>
         </div>
       
