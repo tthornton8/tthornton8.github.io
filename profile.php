@@ -178,7 +178,11 @@ function phpAlert($msg) {
 
             <?php
                 foreach ($projects as &$row) {
-                    echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['name']."')\">".$row['name']."<img src = ".$row['icon']." alt = \"icon\">";
+                    echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['name']."')\">".$row['name'];
+                    if ($row['gradz']) {
+                        echo "<span class = \"_gradz_project\">with the gradz</span>";
+                    }
+                    echo "<img src = ".$row['icon']." alt = \"icon\">";
                     echo "<p>".$row['summary']."</p></div>";
                 }
             ?>
