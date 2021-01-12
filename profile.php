@@ -179,7 +179,7 @@ function phpAlert($msg) {
             <?php
                 foreach ($projects as &$row) {
                     echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['name']."')\">".$row['name']."<img src = ".$row['icon']." alt = \"icon\">";
-                    echo "<p>".$row['summary']."</p>";
+                    echo "<p>".$row['summary']."</p></div>";
                 }
             ?>
 
