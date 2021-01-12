@@ -48,7 +48,7 @@ if (isset($_SESSION['id'])) {
                 "gradz"   => $row["gradz"],
             );
         }
-        echo print_r($projects);
+        // echo print_r($projects);
     }
 
 } else {
@@ -111,7 +111,6 @@ function phpAlert($msg) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <title>My Profile | GradZ</title>
