@@ -42,6 +42,7 @@ if (isset($_SESSION['id'])) {
                 "name"    => $row["name"],
                 "icon"    => $row["icon"],
                 "summary" => $row["summary"],
+                "gradz"   => $row["gradz"],
             );
         }
     }
@@ -179,7 +180,7 @@ function phpAlert($msg) {
             <?php
                 foreach ($projects as &$row) {
                     echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['name']."')\">".$row['name'];
-                    echo print_r($row);
+                    // echo print_r($row);
                     if ($row['gradz']) {
                         echo "\n<span class = \"_gradz_project\">with the gradz</span>";
                     }
