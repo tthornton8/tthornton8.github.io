@@ -375,8 +375,8 @@ function phpAlert($msg) {
                     $html .= "\t\t\t\t\t<div class = \"_project_box_content\">".$row["details"]."</div>\n";
                     $html .= "\t\t\t\t`";
                     $html .= "\n\t\t\t\tbreak;\n";
+                    echo $html;
                 }
-                echo substr($html, 0, -7);
                 ?>
             }
             html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
