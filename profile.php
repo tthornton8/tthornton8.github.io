@@ -55,38 +55,45 @@ if (isset($_SESSION['id'])) {
 if (isset($_POST['submit'])) {
  
     extract($_POST);
-    require_once('uploads.php');
+    switch ($action) {
+        case "edit_main":
+            require_once('uploads.php');
  
-    $sql =  "UPDATE user\n";
-    $sql .= "SET\n";
-    $sql .= "name = '".$conn->real_escape_string($name)."',\n";
-    $sql .= "email = '".$conn->real_escape_string($email)."',\n";
-    $sql .= "degree = '".$conn->real_escape_string($degree)."',\n";
-    $sql .= "uni = '".$conn->real_escape_string($uni)."',\n";
-    if ($uploadOk) {
-        $sql .= "photo = '".$conn->real_escape_string($target_file)."',\n";
-    }
-    $sql .= "about = '".$conn->real_escape_string($about)."'\n";
-    $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
-
-    $result = $conn->query($sql);
-
-    $sql = "DELETE FROM skill WHERE user_ID = '".$conn->real_escape_string($id)."'";
-    $result = $conn->query($sql);
-
-    // echo '<pre>'; print_r($_POST); echo '</pre>';
-    $sql = "INSERT INTO skill (user_ID, name, icon) VALUES ";
-    foreach ($skills as &$row) {
-        if ($row["name"]) {
-            $sql .= "\n(".$conn->real_escape_string($id).", '".$conn->real_escape_string($row["name"])."', '".$conn->real_escape_string($row["icon"])."'),";
-        }
-    }
-    $sql = substr($sql, 0, -1);
-    $sql .= ";";
-
-    // echo $sql;
-    $result = $conn->query($sql);
-    
+            $sql =  "UPDATE user\n";
+            $sql .= "SET\n";
+            $sql .= "name = '".$conn->real_escape_string($name)."',\n";
+            $sql .= "email = '".$conn->real_escape_string($email)."',\n";
+            $sql .= "degree = '".$conn->real_escape_string($degree)."',\n";
+            $sql .= "uni = '".$conn->real_escape_string($uni)."',\n";
+            if ($uploadOk) {
+                $sql .= "photo = '".$conn->real_escape_string($target_file)."',\n";
+            }
+            $sql .= "about = '".$conn->real_escape_string($about)."'\n";
+            $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
+        
+            $result = $conn->query($sql);
+        
+            $sql = "DELETE FROM skill WHERE user_ID = '".$conn->real_escape_string($id)."'";
+            $result = $conn->query($sql);
+        
+            // echo '<pre>'; print_r($_POST); echo '</pre>';
+            $sql = "INSERT INTO skill (user_ID, name, icon) VALUES ";
+            foreach ($skills as &$row) {
+                if ($row["name"]) {
+                    $sql .= "\n(".$conn->real_escape_string($id).", '".$conn->real_escape_string($row["name"])."', '".$conn->real_escape_string($row["icon"])."'),";
+                }
+            }
+            $sql = substr($sql, 0, -1);
+            $sql .= ";";
+        
+            // echo $sql;
+            $result = $conn->query($sql);
+            break;
+        case "edit_project":
+            break;
+        default:
+            echo "";
+    }   
 }
 ?>
 <?php
@@ -161,7 +168,7 @@ function phpAlert($msg) {
                     echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['name']."')\">".$row['name'];
                     // echo print_r($row);
                     if ($row['gradz']) {
-                        echo "\n<span class = \"_gradz_project\">with the gradz</span>";
+                        echo "\n<span class = \"_gradz_project\" onclick = \"modal2.style.display = \"block\"\";>with the gradz</span>";
                     }
                     echo "\n<img src = ".$row['icon']." alt = \"icon\">";
                     echo "\n<p>".$row['summary']."</p></div>";
@@ -205,6 +212,7 @@ function phpAlert($msg) {
           </div>
           <div class="modal-body">
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+                <input type="hidden" name="action" value="edit_main">
                 <br>
                 <label class="w3-text" style = "color: #0072B5;" for="fileToUpload">Upload new profile photo</label>
                 <input type="file" name="fileToUpload" id="fileToUpload">
@@ -288,18 +296,51 @@ function phpAlert($msg) {
             <h3>&nbsp;</h3>
           </div>
         </div>
+
+        <div id="projectWindow" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close_modal">&times;</span>
+                    <h2>Edit Project</h2>
+                </div>
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+                    <input type="hidden" name="action" value="edit_project">
+                    <textarea>
+                        Project detail goes here...
+                    </textarea>
+                    <script>
+                        tinymce.init({
+                        selector: 'textarea',
+                        plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+                        toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+                        toolbar_mode: 'floating',
+                        tinycomments_mode: 'embedded',
+                        tinycomments_author: 'Author name',
+                    });
+                    </script>
+                    <br>
+                    <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
+                    <br>
+                </form>
+                <div class="modal-footer">
+                    <h3>&nbsp;</h3>
+                </div>
+            </div>
+        </div>
       
     </div>
 
     <script>
         // Get the modal
         var modal = document.getElementById("editWindow");
+        var modal2 = document.getElementById("projectWindow");
         
         // Get the button that opens the modal
         var btn = document.getElementById("_edit_pencil");
         
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close_modal")[0];
+        var span2 = document.getElementsByClassName("close_modal")[1];
         
         // When the user clicks the button, open the modal 
         btn.onclick = function() {
@@ -310,11 +351,17 @@ function phpAlert($msg) {
         span.onclick = function() {
           modal.style.display = "none";
         }
+
+        // When the user clicks on <span> (x), close the modal
+        span2.onclick = function() {
+          modal2.style.display = "none";
+        }
         
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
           if (event.target == modal) {
             modal.style.display = "none";
+            modal2.style.display = "none";
           }
         }
 
@@ -328,8 +375,8 @@ function phpAlert($msg) {
                     $html .= "\t\t\t\t\t<div class = \"_project_box_content\">".$row["details"]."</div>\n";
                     $html .= "\t\t\t\t`";
                     $html .= "\n\t\t\t\tbreak;\n";
-                    echo substr($html, 0, -7);
                 }
+                echo substr($html, 0, -7);
                 ?>
             }
             html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
