@@ -322,11 +322,11 @@ function phpAlert($msg) {
             switch (name) {
                 <?php
                 foreach ($projects as &$row) {
-                    echo "case '".$row["name"]."':";
-                    echo "html = `";
-                    echo "<h1>".$row["name"]."</h1>";
-                    echo "<div class = \"_project_box_content\">".$row["details"]."</div>`";
-                    echo "break;";
+                    echo "case '".$row["name"]."':\n";
+                    echo "html = `\n";
+                    echo "<h1>".$row["name"]."</h1>\n";
+                    echo "<div class = \"_project_box_content\">".$row["details"]."</div>`\n";
+                    echo "break;\n";
                 }
                 ?>
                 // case 'machine design':
