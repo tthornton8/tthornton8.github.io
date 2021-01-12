@@ -22,29 +22,13 @@ if (isset($_SESSION['id'])) {
     $photo = $row['photo'];
 
     $skills = [];
-    $sql = "SELECT * FROM skill WHERE user_ID = ".$conn->real_escape_string($id);
+    $sql = "SELECT * FROM skill WHERE [user_ID] = '".$conn->real_escape_string($id)."'";
     $result = $conn->query($sql);
-    if ($result) {
-        while ($row = $result->fetch_assoc()) {
-            $skills[] = array (
-                "name" => $row["name"],
-                "icon" => $row["icon"],
-            );
-        }
-    }
-
-    $projects = [];
-    $sql = "SELECT * FROM project WHERE user_ID = ".$conn->real_escape_string($id);
-    $result = $conn->query($sql);
-    if ($result) {
-        while ($row = $result->fetch_assoc()) {
-            $projects[] = array (
-                "name"    => $row["name"],
-                "icon"    => $row["icon"],
-                "summary" => $row["summary"],
-                "gradz"   => $row["gradz"],
-            );
-        }
+    while ($row = mysql_fetch_assoc($result)) {
+        $skills[] = array (
+            "name" => $row["name"],
+            "icon" => $row["icon"],
+        );
     }
 
 } else {
@@ -71,21 +55,15 @@ if (isset($_POST['submit'])) {
 
     $result = $conn->query($sql);
 
-    $sql = "DELETE FROM skill WHERE user_ID = '".$conn->real_escape_string($id)."'";
+    $sql = "DELETE FROM skill WHERE [user_ID] = '".$conn->real_escape_string($id)."'";
     $result = $conn->query($sql);
 
-    // echo '<pre>'; print_r($_POST); echo '</pre>';
-    $sql = "INSERT INTO skill (user_ID, name, icon) VALUES ";
+    $sql = "INSERT INTO skill ([user_ID], name, icon) VALUES ";
     foreach ($skills as &$row) {
-        if ($row["name"]) {
-            $sql .= "\n(".$conn->real_escape_string($id).", '".$conn->real_escape_string($row["name"])."', '".$conn->real_escape_string($row["icon"])."'),";
-        }
+        $sql .= "\n(".$conn->real_escape_string($id).", '".$conn->real_escape_string($row["name"])."', '".$conn->real_escape_string($row["icon"])."),";
     }
     $sql = substr($sql, 0, -1);
     $sql .= ";";
-
-    // echo $sql;
-    $result = $conn->query($sql);
     
 }
 ?>
@@ -113,9 +91,9 @@ function phpAlert($msg) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="profile_style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
-    <script src="https://cdn.tiny.cloud/1/184b9akoev1y38p25nmv4os4h082uhrc9copbqe6hxbwl72t/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
         crossorigin="anonymous"> -->
@@ -126,48 +104,54 @@ function phpAlert($msg) {
 <body>
     <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
     <script type="text/javascript" src="header.js"></script>
-    <script type="text/javascript" src="script.js"></script>
 
     <div class = "_content">
-
         <div class = "_prof_section _head">
             <img src="<?php echo "img.php?id={$id}"; ?>" alt="Profile Picture" class = "pp">
             <h1><?php echo $name; ?> <div onclick="editWindow();" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div> </h1>
             <hr>
-            <div class = "_head_desc">
-                <h2><?php echo $degree; ?></h2>
-                <h2><?php echo $uni; ?></h2>
-            </div>
-            <img alt = "University Logo" src = "img/bath.png" style = "height: 80px;" class = "_uni">
+            <table>
+                <td>
+                    <h2><?php echo $degree; ?></h2>
+                    <h2><?php echo $uni; ?></h2>
+                </td>
+                <td>
+                    <img alt = "University Logo" src = "img/bath.png" style = "height: 80px;">
+                </td>
+            </table>
         </div>
-
         <div class = "_prof_section _about">
             <h2>About</h2>
             <p><?php echo $about; ?></p>
         </div>
         <div class = "_prof_section _skills">
             <h2 style = "grid-row: 1">Top Skills</h2>
-            <?php 
-                foreach ($skills as &$row) {
-                    echo "<div class = \"_bubble _gr1\">".$row["name"]."<img src = ".$row["icon"]." alt = \"icon\"></div>";
-                }
-            ?>
-        </div>
-        <div class = "_prof_section _skills">
-            <!-- <hr style = "grid-column: 1/5; grid-row: 3"> -->
+            <div class = "_bubble _gr1">Machine Learning    <img src = "https://www.flaticon.com/svg/static/icons/svg/566/566082.svg" alt = "icon"></div>
+            <div class = "_bubble _gr1">Design              <img src = "https://www.flaticon.com/svg/static/icons/svg/681/681662.svg" alt = "icon"></div>
+            <div class = "_bubble _gr1">Python              <img src = "https://www.flaticon.com/svg/static/icons/svg/1336/1336494.svg" alt = "icon"></div>
+            <div class = "_bubble _gr1">CFD                 <img src = "https://www.flaticon.com/svg/static/icons/svg/1055/1055113.svg" alt = "icon"></div>
+            <hr style = "grid-column: 1/5; grid-row: 3">
             <h2 style = "grid-row: 4">Top Projects</h2>
-            <?php
-                foreach ($projects as &$row) {
-                    echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['name']."')\">".$row['name'];
-                    // echo print_r($row);
-                    if ($row['gradz']) {
-                        echo "\n<span class = \"_gradz_project\">with the gradz</span>";
-                    }
-                    echo "\n<img src = ".$row['icon']." alt = \"icon\">";
-                    echo "\n<p>".$row['summary']."</p></div>";
-                }
-            ?>
-
+            <div class = "_bubble _gr2" onclick="clickBox('machine design')">Machine Design         <img src = "https://www.flaticon.com/svg/static/icons/svg/2099/2099058.svg" alt = "icon">
+                <p>
+                    Project Summary....
+                </p>
+            </div>
+            <div class = "_bubble _gr2" onclick="clickBox('aerocapture')">Aerocapture<span class = "_gradz_project">with the gradz</span><img src = "https://www.flaticon.com/svg/static/icons/svg/2285/2285485.svg" alt = "icon">
+                <p>
+                    Project Summary....
+                </p>
+            </div>
+            <div class = "_bubble _gr2" onclick="clickBox('feasibility study')">Feasibility Study<span class = "_gradz_project">with the gradz</span><img src = "https://www.flaticon.com/svg/static/icons/svg/752/752241.svg" alt = "icon">
+                <p>
+                    Project Summary....
+                </p>
+            </div>
+            <div class = "_bubble _gr2" onclick="clickBox('neural net')">Neural Net                 <img src = "https://www.flaticon.com/svg/static/icons/svg/566/566082.svg" alt = "icon">
+                <p>
+                    Project Summary....
+                </p>
+            </div>
         </div>
         <div class = "_prof_section _quals">
             <h2>Qualifications</h2>
@@ -225,63 +209,8 @@ function phpAlert($msg) {
                 <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputabout">About</label>
                 <textarea class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About"><?php echo $about; ?></textarea>
                 <br>
-                
-                <div id = "skills_section">
-                    <p class="w3-text" style = "color: #0072B5; margin-top: 10px; font-size:150%">Skills</p>
-                    <?php 
-                    $i = 1;
-                    $j = 0;
-                    foreach ($skills as &$row) {
-                        if ($row["name"]) {
-                            echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"skills[$j][name]\">Skill $i</label>\n";
-                            echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][name]\" name=\"skills[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
-                            echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][icon]\" name=\"skills[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
-                            $i += 1;
-                            $j += 1;
-                        }
-                    }
-                    ?>
-                </div>
-                <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addSkill();">+</button>
-                <br>
-
-                <p class="w3-text" style = "color: #0072B5; margin-top: 10px; font-size:150%">Projects</p>
-
-                <div class = "_projects_section" id = "_projects_section">
-                    <?php
-                    foreach ($projects as &$row) {
-                        echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div><div onclick=\"editWindow();\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
-                    }
-                    ?>
-                </div>
-                <br>
-                <button type="button" name="add_project" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addProject();">+</button>
-                <br>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br>
-
-                <script type="text/javascript" defer>
-                function addSkill() {
-                    var i = document.querySelectorAll('[id^="skills\["]').length/2;
-                    skills = document.getElementById("skills_section");
-                    var els = createElementFromHTML(`
-                        <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="skills[${i}][name]">Skill ${i+1}</label>
-                        <input type="text" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill ${i+1}" value = ""/>
-                        <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill ${i+1}" value = ""/>
-                    `);
-                    for (let item of els) {
-                        skills.appendChild(item);
-                    }
-                };
-
-                function createElementFromHTML(htmlString) {
-                    var div = document.createElement('div');
-                    div.innerHTML = htmlString.trim();
-
-                    // Change this to div.childNodes to support multiple top-level nodes
-                    return div.childNodes; 
-                };
-                </script>
             </form>
           </div>
           <div class="modal-footer">
@@ -317,21 +246,6 @@ function phpAlert($msg) {
             modal.style.display = "none";
           }
         }
-
-        function getProjContent(name) {
-            switch (name) {
-                <?php
-                foreach ($projects as &$row) {
-                    $html = "\t\t\t\tcase '".$row["name"]."':\n";
-                    $html .= "\t\t\t\t\thtml = `\n";
-                    $html .= "\t\t\t\t\t<h1>".$row["name"]."</h1>\n";
-                    $html .= "\t\t\t\t\t<div class = \"_project_box_content\">".$row["details"]."</div>\n";
-                    $html .= "\t\t\t\t`"
-                    $html .= "\n\t\t\t\tbreak;\n";
-                    echo substr($html, 0, -7);
-                }
-                ?>
-            }
         </script>
 
 </body>
