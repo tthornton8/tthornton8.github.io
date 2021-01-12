@@ -326,7 +326,7 @@ function phpAlert($msg) {
                     $html .= "\t\t\t\t\thtml = `\n";
                     $html .= "\t\t\t\t\t<h1>".$row["name"]."</h1>\n";
                     $html .= "\t\t\t\t\t<div class = \"_project_box_content\">".$row["details"]."</div>\n";
-                    $html .= "\t\t\t\t`"
+                    $html .= "\t\t\t\t`";
                     $html .= "\n\t\t\t\tbreak;\n";
                     echo substr($html, 0, -7);
                 }
