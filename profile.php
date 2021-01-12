@@ -168,7 +168,7 @@ function phpAlert($msg) {
                     echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['name']."')\">".$row['name'];
                     // echo print_r($row);
                     if ($row['gradz']) {
-                        echo "\n<span class = \"_gradz_project\" onclick = \"modal2.style.display = \"block\"\";>with the gradz</span>";
+                        echo "\n<span class = \"_gradz_project\">with the gradz</span>";
                     }
                     echo "\n<img src = ".$row['icon']." alt = \"icon\">";
                     echo "\n<p>".$row['summary']."</p></div>";
@@ -258,7 +258,7 @@ function phpAlert($msg) {
                 <div class = "_projects_section" id = "_projects_section">
                     <?php
                     foreach ($projects as &$row) {
-                        echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div><div onclick=\"editWindow();\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
+                        echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div><div onclick = \"modal2.style.display = \"block\";\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
                     }
                     ?>
                 </div>
