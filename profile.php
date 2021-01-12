@@ -98,7 +98,7 @@ if (isset($_POST['submit'])) {
             $allowedTags.='<li><ol><ul><span><div><br><ins><del>'; 
             $text = strip_tags(stripslashes($detail),$allowedTags);
             $sql = "UPDATE project SET details = '".$conn->real_escape_string($text)."' WHERE ID = $project;";
-            echo $sql;
+            // echo $sql;
             $result = $conn->query($sql);
             break;
         default:
