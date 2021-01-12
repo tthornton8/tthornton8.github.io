@@ -94,7 +94,11 @@ if (isset($_POST['submit'])) {
             $result = $conn->query($sql);
             break;
         case "edit_project":
-            $sql = "UPDATE project SET details = '".$conn->real_escape_string($detail)."' WHERE ID = $project;";
+            $allowedTags='<p><strong><em><u><h1><h2><h3><h4><h5><h6><img>';
+            $allowedTags.='<li><ol><ul><span><div><br><ins><del>'; 
+            $text = strip_tags(stripslashes($detail),$allowedTags);
+            echo $text
+            $sql = "UPDATE project SET details = '".$conn->real_escape_string($text)."' WHERE ID = $project;";
             // echo $sql;
             $result = $conn->query($sql);
             break;
@@ -395,6 +399,7 @@ function phpAlert($msg) {
             } catch (error) {
                 tinymce.init({
                         selector: 'textarea#tinymce',
+                        elements : "detail",
                         plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
                         toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
                         toolbar_mode: 'floating',
