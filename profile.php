@@ -100,7 +100,7 @@ if (isset($_POST['submit'])) {
             $text = strip_tags(stripslashes($detail),$allowedTags);
             $proj_file_id = md5($project.$id);
 
-            $f = fopen("../uploads/$proj_file_id.html", 'a');
+            $f = fopen("../uploads/$proj_file_id.html", 'w');
             fwrite($f, $text);
             fclose($f);
 
