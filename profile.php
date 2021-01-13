@@ -180,7 +180,7 @@ function phpAlert($msg) {
             <h2 style = "grid-row: 1">Top Skills</h2>
             <?php 
                 foreach ($skills as &$row) {
-                    echo "<div class = \"_bubble _gr1\">".$row["name"]."<img src = ".$row["icon"]." alt = \"icon\"></div>";
+                    echo "<div class = \"_bubble _gr1\">".$row["name"]."<img src = icon.php?id={".$row["icon"]."} alt = \"icon\"></div>";
                 }
             ?>
         </div>
