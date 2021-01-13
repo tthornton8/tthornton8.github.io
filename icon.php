@@ -3,7 +3,7 @@
 
     $id = $_GET['id'];
 
-    $sql = "SELECT photo FROM icon WHERE ID = '".$conn->real_escape_string($id)."'";
+    $sql = "SELECT icon FROM icon WHERE ID = '".$conn->real_escape_string($id)."'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $img = "../icon/".$row['icon'];
