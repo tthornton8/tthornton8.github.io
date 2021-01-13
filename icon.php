@@ -18,7 +18,11 @@
 
     $ext = strtolower(end(explode('.', $img)));
 
-    header('content-type: '. $mimes[$ext]);
-    header('content-disposition: inline; filename="'.$img.'";');
-    echo readfile($img);
+    if (explode == 'svg') {
+        echo file_get_contents($img);
+    } else {
+        header('content-type: '. $mimes[$ext]);
+        header('content-disposition: inline; filename="'.$img.'";');
+        echo readfile($img);
+    }
 ?>
