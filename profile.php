@@ -101,7 +101,7 @@ if (isset($_POST['submit'])) {
             $sql = "UPDATE project SET details = '".$conn->real_escape_string($text)."' WHERE ID = $project;";
             // echo $sql;
             $result = $conn->query($sql);
-            for ($i = 1; $i <= count($projects); $i++) {
+            for ($i = 0; $i <= count($projects); $i++) {
                 echo $projects[$i]["ID"];
                 echo $project;
                 if ($projects[$i]["ID"] == $project) {
