@@ -188,7 +188,7 @@ function phpAlert($msg) {
             <h2 style = "grid-row: 4">Top Projects</h2>
             <?php
                 foreach ($projects as &$row) {
-                    echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['name']."')\">".$row['name'];
+                    echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['details']."')\">".$row['name'];
                     // echo print_r($row);
                     if ($row['gradz']) {
                         echo "\n<span class = \"_gradz_project\">with the gradz</span>";
