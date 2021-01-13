@@ -147,7 +147,6 @@ function phpAlert($msg) {
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
     <script src="https://cdn.tiny.cloud/1/184b9akoev1y38p25nmv4os4h082uhrc9copbqe6hxbwl72t/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="svg-inject.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
         crossorigin="anonymous"> -->
@@ -159,6 +158,7 @@ function phpAlert($msg) {
     <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
     <script type="text/javascript" src="header.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <script src="svg-inject.min.js"></script>
 
     <div class = "_content">
 
