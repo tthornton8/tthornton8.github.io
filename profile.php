@@ -65,14 +65,14 @@ if (isset($_POST['submit'])) {
  
             $sql =  "UPDATE user\n";
             $sql .= "SET\n";
-            $sql .= "name = '".$conn->real_escape_string($name)."',\n";
-            $sql .= "email = '".$conn->real_escape_string($email)."',\n";
-            $sql .= "degree = '".$conn->real_escape_string($degree)."',\n";
-            $sql .= "uni = '".$conn->real_escape_string($uni)."',\n";
+            $sql .= "name =   '".htmlspecialchars($conn->real_escape_string($name))."',\n";
+            $sql .= "email =  '".htmlspecialchars($conn->real_escape_string($email))."',\n";
+            $sql .= "degree = '".htmlspecialchars($conn->real_escape_string($degree))."',\n";
+            $sql .= "uni =    '".htmlspecialchars($conn->real_escape_string($uni))."',\n";
             if ($uploadOk) {
                 $sql .= "photo = '".$conn->real_escape_string($target_file)."',\n";
             }
-            $sql .= "about = '".$conn->real_escape_string($about)."'\n";
+            $sql .= "about = '".htmlspecialchars($conn->real_escape_string($about))."'\n";
             $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
         
             $result = $conn->query($sql);
@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
             $sql = "INSERT INTO skill (user_ID, name, icon) VALUES ";
             foreach ($skills as &$row) {
                 if ($row["name"]) {
-                    $sql .= "\n(".$conn->real_escape_string($id).", '".$conn->real_escape_string($row["name"])."', '".$conn->real_escape_string($row["icon"])."'),";
+                    $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row["name"]))."', '".htmlspecialchars($conn->real_escape_string($row["icon"]))."'),";
                 }
             }
             $sql = substr($sql, 0, -1);
@@ -111,7 +111,8 @@ if (isset($_POST['submit'])) {
                 // echo $projects[$i]["ID"];
                 // echo $project;
                 if ($projects[$i]["ID"] == $project) {
-                    $projects[$i]["details"] = $conn->real_escape_string($proj_file_id);
+                    $projects[$i]["details"] = htmlspecialchars($conn->real_escape_string($proj_file_id));
+                    $projects[$i]["summary"] = htmlspecialchars($conn->real_escape_string($summary));
                 } 
             }
             break;
@@ -330,7 +331,7 @@ function phpAlert($msg) {
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" id = "projectEdit">
                 <input type="hidden" name="action" value="edit_project">
                 <input type="hidden" name="project" value="" id = "projectID">
-                <textarea id = "summary" name = "summary">
+                <textarea id = "summary" name = "summary" class="w3-input w3-border w3-light-grey">
                     Project Summary goes here...
                 </textarea>
                 <textarea id = "tinymce" name = "detail">
