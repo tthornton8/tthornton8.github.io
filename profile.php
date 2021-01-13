@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
     extract($_POST);
     switch ($action) {
         case "edit_main":
-            require_once('uploads.php');
+            require_once('upload_img.php');
  
             $sql =  "UPDATE user\n";
             $sql .= "SET\n";
@@ -98,14 +98,20 @@ if (isset($_POST['submit'])) {
             $allowedTags='<p><strong><em><u><h1><h2><h3><h4><h5><h6><img>';
             $allowedTags.='<li><ol><ul><span><div><br><ins><del>'; 
             $text = strip_tags(stripslashes($detail),$allowedTags);
-            $sql = "UPDATE project SET details = '".$conn->real_escape_string($text)."' WHERE ID = $project;";
+            $proj_file_id = md5($project.$id);
+
+            $f = fopen("../uploads/$proj_file_id.html", 'a');
+            fwrite($f, $text);
+            fclose($f);
+
+            $sql = "UPDATE project SET details = '".$conn->real_escape_string($proj_file_id)."' WHERE ID = $project;";
             // echo $sql;
             $result = $conn->query($sql);
             for ($i = 0; $i <= count($projects); $i++) {
                 // echo $projects[$i]["ID"];
                 // echo $project;
                 if ($projects[$i]["ID"] == $project) {
-                    $projects[$i]["details"] = $conn->real_escape_string($text);
+                    $projects[$i]["details"] = $conn->real_escape_string($proj_file_id);
                 } 
             }
             break;
@@ -324,6 +330,9 @@ function phpAlert($msg) {
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" id = "projectEdit">
                 <input type="hidden" name="action" value="edit_project">
                 <input type="hidden" name="project" value="" id = "projectID">
+                <textarea id = "summary" name = "summary">
+                    Project Summary goes here...
+                </textarea>
                 <textarea id = "tinymce" name = "detail">
                     Project detail goes here...
                 </textarea>
