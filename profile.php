@@ -381,20 +381,24 @@ function phpAlert($msg) {
           }
         }
 
-        function getProjContent(name) {
-            switch (name) {
-                <?php
-                foreach ($projects as &$row) {
-                    $html =  "\t\t\t\tcase '".$row["name"]."':\n";
-                    $html .= "\t\t\t\t\thtml = `\n";
-                    $html .= "\t\t\t\t\t<h1>".$row["name"]."</h1>\n";
-                    $html .= "\t\t\t\t\t<div class = \"_project_box_content\">".$row["details"]."</div>\n";
-                    $html .= "\t\t\t\t`";
-                    $html .= "\n\t\t\t\tbreak;\n";
-                    echo $html;
-                }
-                ?>
-            }
+        function getProjContent(detail) {
+            xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET", "project.php?id=" + detail, false);
+            xmlhttp.send();
+            var html = xmlhttp.responseText;
+            // switch (name) {
+            //     <?php
+            //     foreach ($projects as &$row) {
+            //         $html =  "\t\t\t\tcase '".$row["name"]."':\n";
+            //         $html .= "\t\t\t\t\thtml = `\n";
+            //         $html .= "\t\t\t\t\t<h1>".$row["name"]."</h1>\n";
+            //         $html .= "\t\t\t\t\t<div class = \"_project_box_content\">".$row["details"]."</div>\n";
+            //         $html .= "\t\t\t\t`";
+            //         $html .= "\n\t\t\t\tbreak;\n";
+            //         echo $html;
+            //     }
+            //     ?>
+            // }
             html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
             // html += `<p>Extended project detail goes here...</p>`
             return html
@@ -405,10 +409,15 @@ function phpAlert($msg) {
             var box = document.getElementById("projectID");
             var mce = document.getElementById("tinymce");
             box.value = id;
-            mce.innerHTML = detail;
+
+            xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET", "project.php?id=" + detail, false);
+            xmlhttp.send();
+            var text = xmlhttp.responseText;
+            mce.innerHTML = text;
 
             try {
-                tinymce.get("tinymce").setContent(detail);
+                tinymce.get("tinymce").setContent(text);
             } catch (error) {
                 tinymce.init({
                         selector: 'textarea#tinymce',
