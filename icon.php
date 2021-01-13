@@ -18,7 +18,7 @@
 
     $ext = strtolower(end(explode('.', $img)));
 
-    if (explode == 'svg') {
+    if ($ext == 'svg') {
         echo file_get_contents($img);
     } else {
         header('content-type: '. $mimes[$ext]);
