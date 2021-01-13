@@ -93,6 +93,7 @@ if (isset($_POST['submit'])) {
             // echo $sql;
             $result = $conn->query($sql);
             break;
+
         case "edit_project":
             $allowedTags='<p><strong><em><u><h1><h2><h3><h4><h5><h6><img>';
             $allowedTags.='<li><ol><ul><span><div><br><ins><del>'; 
@@ -100,6 +101,11 @@ if (isset($_POST['submit'])) {
             $sql = "UPDATE project SET details = '".$conn->real_escape_string($text)."' WHERE ID = $project;";
             // echo $sql;
             $result = $conn->query($sql);
+            for ($i = 1; $i <= count($projects); $i++) {
+                if ($projects[$i]["ID"] == $project) {
+                    $projects[$i]["details"] = $conn->real_escape_string($text);
+                } 
+            }
             break;
         default:
             echo "";
@@ -319,9 +325,6 @@ function phpAlert($msg) {
                 <textarea id = "tinymce" name = "detail">
                     Project detail goes here...
                 </textarea>
-                <!-- <script>
-                    
-                </script> -->
                 <br>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br>
