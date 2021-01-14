@@ -198,7 +198,7 @@ function phpAlert($msg) {
                     if ($row['gradz']) {
                         echo "\n<span class = \"_gradz_project\">with the gradz</span>";
                     }
-                    echo "\n<img src = ".$row['icon']." alt = \"icon\">";
+                    echo "\n<img src = icon.php?id=".$row["icon"]." alt = \"icon\">";
                     echo "\n<p>".$row['summary']."</p></div>";
                 }
             ?>
