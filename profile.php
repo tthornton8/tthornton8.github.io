@@ -335,9 +335,9 @@ function phpAlert($msg) {
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" id = "projectEdit">
                 <input type="hidden" name="action" value="edit_project">
                 <input type="hidden" name="project" value="" id = "projectID">
-                <label class="w3-text" style = "color: #0072B5;" for="icon">Project Summary</label>
+                <label class="w3-text" style = "color: #0072B5;" for="icon">Choose Icon <br></label>
                 <div class="dropdown">
-                    <button class="dropbtn">Dropdown</button>
+                    <button class="dropbtn" type="button" id = "dropbtn" name = "dropbtn" value = "dropbtn">Dropdown</button>
                     <div class="dropdown-content">
                         <?php
                             while ($row = $icons->fetch_assoc()) {
