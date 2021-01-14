@@ -286,7 +286,7 @@ function phpAlert($msg) {
                 <div class = "_projects_section" id = "_projects_section">
                     <?php
                     foreach ($projects as &$row) {
-                        echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div><div onclick = \"editProject(".$row['ID'].",`".$row['details']."`);\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
+                        echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div><div onclick = \"editProject(".$row['ID'].",`".$row['details']."`,`".$row['icon']."`);\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
                     }
                     ?>
                 </div>
@@ -436,11 +436,13 @@ function phpAlert($msg) {
             return html
         };
 
-        function editProject(id, detail) {
+        function editProject(id, detail, img) {
             modal2.style.display = "block";
             var box = document.getElementById("projectID");
             var mce = document.getElementById("tinymce");
             box.value = id;
+
+            document.getElementById('dropbtn').innerHTML = "<img src = icon.php?id=\"" + img + "\" width = '25px', height = '25px'>";
 
             xmlhttp=new XMLHttpRequest();
             xmlhttp.open("GET", "project.php?id=" + detail, false);
