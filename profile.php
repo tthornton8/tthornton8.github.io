@@ -337,11 +337,15 @@ function phpAlert($msg) {
                 <input type="hidden" name="project" value="" id = "projectID">
                 <label class="w3-text" style = "color: #0072B5;" for="icon">Choose Icon <br></label>
                 <div class="dropdown">
-                    <button class="dropbtn" type="button" id = "dropbtn" name = "dropbtn" value = "dropbtn">Dropdown</button>
+                    <button class="dropbtn" type="button" id = "dropbtn">Dropdown</button>
+                    <input type="hidden" name="icondropdown" value="" id = "icondropdown">
                     <div class="dropdown-content">
                         <?php
                             while ($row = $icons->fetch_assoc()) {
-                                echo "<a id = \"icon_".$row['ID']."\">".$row['descrip']."<img src = icon.php?id=".$row['ID']." width = \"15px\", height = \"15px\"></a>";
+                                $img_tag = "<img src = icon.php?id=".$row['ID']." width = \"15px\", height = \"15px\">";
+                                $img_tag_large = "<img src = icon.php?id=".$row['ID']." width = \"25px\", height = \"25px\">";
+                                $onclick = "\" document.getElementById(\"icondropdown\").value = \"".$row['ID']."\"; document.getElementById(\"dropbtn\").innerHTML = \"$img_tag_large\";";
+                                echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$row['ID']."\">".$row['descrip'].$img_tag."</a>\n";
                             }
                         ?>
                     </div>
