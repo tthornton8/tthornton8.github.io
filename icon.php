@@ -18,6 +18,8 @@
 
     $ext = strtolower(end(explode('.', $img)));
 
+    echo realpath(__DIR__ . DIRECTORY_SEPARATOR . '..'); 
+
     if ($ext == 'svg') {
         echo file_get_contents($img);
     } else {
