@@ -332,9 +332,11 @@ function phpAlert($msg) {
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" id = "projectEdit">
                 <input type="hidden" name="action" value="edit_project">
                 <input type="hidden" name="project" value="" id = "projectID">
+                <label class="w3-text" style = "color: #0072B5;" for="summary">Project Summary</label>
                 <textarea id = "summary" name = "summary" class="w3-input w3-border w3-light-grey">
                     Project Summary goes here...
                 </textarea>
+                <label class="w3-text" style = "color: #0072B5;" for="tinymce">Project Detail</label>
                 <textarea id = "tinymce" name = "detail">
                     Project detail goes here...
                 </textarea>
