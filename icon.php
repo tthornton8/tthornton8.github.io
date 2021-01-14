@@ -6,7 +6,7 @@
     $sql = "SELECT icon FROM icon WHERE ID = '".$conn->real_escape_string($id)."'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    $img = $row['icon'];
+    $img = realpath(__DIR__ . DIRECTORY_SEPARATOR . '../icon') .'/'.$row['icon'];
 
     $mimes = array
     (
