@@ -51,6 +51,9 @@ if (isset($_SESSION['id'])) {
         // echo print_r($projects);
     }
 
+    $sql = "SELECT * FROM icon";
+    $icons = $conn->query($sql);
+
 } else {
     $logged_in = 'false';
     header('Location: login_student.php');
@@ -332,10 +335,20 @@ function phpAlert($msg) {
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" id = "projectEdit">
                 <input type="hidden" name="action" value="edit_project">
                 <input type="hidden" name="project" value="" id = "projectID">
+                <label class="w3-text" style = "color: #0072B5;" for="icon">Project Summary</label>
+                <select id = "icon" name = "icon">
+                    <?php
+                        while ($row = $icons->fetch_assoc()) {
+                            echo "<option value = \"".$row['ID']."\">".$row['descrip']."<img src = icon.php?id=".$row['ID']." alt = \"icon\"></option>";
+                        }
+                    ?>
+                </select>
+                <br>
                 <label class="w3-text" style = "color: #0072B5;" for="summary">Project Summary</label>
                 <textarea id = "summary" name = "summary" class="w3-input w3-border w3-light-grey">
                     Project Summary goes here...
                 </textarea>
+                <br>
                 <label class="w3-text" style = "color: #0072B5;" for="tinymce">Project Detail</label>
                 <textarea id = "tinymce" name = "detail">
                     Project detail goes here...
