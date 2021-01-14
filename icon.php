@@ -18,7 +18,7 @@
 
     $ext = strtolower(end(explode('.', $img)));
 
-    echo realpath(__DIR__ . DIRECTORY_SEPARATOR . '..'); 
+    echo realpath(__DIR__ . DIRECTORY_SEPARATOR . '../icon/'.$row['icon']); 
 
     // if ($ext == 'svg') {
     //     echo file_get_contents($img);
