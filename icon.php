@@ -6,7 +6,7 @@
     $sql = "SELECT icon FROM icon WHERE ID = '".$conn->real_escape_string($id)."'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    $img = realpath(__DIR__ . DIRECTORY_SEPARATOR . '../icon') .'/'.$row['icon'];
+    $img = realpath(__DIR__ . DIRECTORY_SEPARATOR . '../uploads') .'/'.$row['icon'];
 
     $mimes = array
     (
@@ -18,13 +18,7 @@
 
     $ext = strtolower(end(explode('.', $img)));
 
-    // echo $img
-
-    if ($ext == 'svg') {
-        echo file_get_contents($img);
-    } else {
-        header('content-type: '. $mimes[$ext]);
-        header('content-disposition: inline; filename="'.$img.'";');
-        echo file_get_contents($img);
-    }
+    header('content-type: '. $mimes[$ext]);
+    header('content-disposition: inline; filename="'.$img.'";');
+    echo file_get_contents($img);
 ?>
