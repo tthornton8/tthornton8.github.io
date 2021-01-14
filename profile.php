@@ -336,13 +336,24 @@ function phpAlert($msg) {
                 <input type="hidden" name="action" value="edit_project">
                 <input type="hidden" name="project" value="" id = "projectID">
                 <label class="w3-text" style = "color: #0072B5;" for="icon">Project Summary</label>
-                <select id = "icon" name = "icon">
+                <div class="dropdown">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content">
+                        <?php
+                            while ($row = $icons->fetch_assoc()) {
+                                echo "<a id = \"icon_".$row['ID']."\">".$row['descrip']."<img src = icon.php?id=".$row['ID']."></a>";
+                            }
+                        ?>
+                    </div>
+                </div>
+
+                <!-- <select id = "icon" name = "icon">
                     <?php
-                        while ($row = $icons->fetch_assoc()) {
-                            echo "<option value = \"".$row['ID']."\">".$row['descrip']."<img src = icon.php?id=".$row['ID']." alt = \"icon\"></option>";
-                        }
+                        // while ($row = $icons->fetch_assoc()) {
+                        //     echo "<option value = \"".$row['ID']."\">".$row['descrip']."<img src = icon.php?id=".$row['ID']." alt = \"icon\"></option>";
+                        // }
                     ?>
-                </select>
+                </select> -->
                 <br>
                 <label class="w3-text" style = "color: #0072B5;" for="summary">Project Summary</label>
                 <textarea id = "summary" name = "summary" class="w3-input w3-border w3-light-grey">
