@@ -20,11 +20,11 @@
 
     echo realpath(__DIR__ . DIRECTORY_SEPARATOR . '..'); 
 
-    if ($ext == 'svg') {
-        echo file_get_contents($img);
-    } else {
-        header('content-type: '. $mimes[$ext]);
-        header('content-disposition: inline; filename="'.$img.'";');
-        echo file_get_contents($img);
-    }
+    // if ($ext == 'svg') {
+    //     echo file_get_contents($img);
+    // } else {
+    //     header('content-type: '. $mimes[$ext]);
+    //     header('content-disposition: inline; filename="'.$img.'";');
+    //     echo file_get_contents($img);
+    // }
 ?>
