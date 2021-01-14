@@ -341,7 +341,7 @@ function phpAlert($msg) {
                     <div class="dropdown-content">
                         <?php
                             while ($row = $icons->fetch_assoc()) {
-                                echo "<a id = \"icon_".$row['ID']."\">".$row['descrip']."<img src = icon.php?id=".$row['ID']."></a>";
+                                echo "<a id = \"icon_".$row['ID']."\">".$row['descrip']."<img src = icon.php?id=".$row['ID']." width = \"15px\", height = \"15px\"></a>";
                             }
                         ?>
                     </div>
