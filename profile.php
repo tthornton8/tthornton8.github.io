@@ -352,22 +352,15 @@ function phpAlert($msg) {
                     <div class="dropdown-content">
                         <?php
                             while ($row = $icons->fetch_assoc()) {
-                                $img_tag = "<img src = icon.php?id=".$row['ID']." width = '15px', height = '15px'>";
+                                $img_tag = "<img src = icon.php?id=".$row['ID']." width = '15px', height = '15px' style = 'padding-right: 16px;'>";
                                 $img_tag_large = "<img src = icon.php?id=".$row['ID']." width = '25px', height = '25px'>";
                                 $onclick = "\" document.getElementById('icondropdown').value = '".$row['ID']."'; document.getElementById('dropbtn').innerHTML = `$img_tag_large`;\"";
-                                echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$row['ID']."\">".$row['descrip'].$img_tag."</a>\n";
+                                echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$row['ID']."\">".$img_tag.$row['descrip']."</a>\n";
                             }
                         ?>
                     </div>
                 </div>
-
-                <!-- <select id = "icon" name = "icon">
-                    <?php
-                        // while ($row = $icons->fetch_assoc()) {
-                        //     echo "<option value = \"".$row['ID']."\">".$row['descrip']."<img src = icon.php?id=".$row['ID']." alt = \"icon\"></option>";
-                        // }
-                    ?>
-                </select> -->
+                <br>
                 <br>
                 <label class="w3-text" style = "color: #0072B5;" for="summary">Project Summary</label>
                 <textarea id = "summary" name = "summary" class="w3-input w3-border w3-light-grey">
