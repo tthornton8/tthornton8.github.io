@@ -107,7 +107,13 @@ if (isset($_POST['submit'])) {
             fwrite($f, $text);
             fclose($f);
 
-            $sql = "UPDATE project SET details = '".$conn->real_escape_string($proj_file_id)."' WHERE ID = $project;";
+            $sql = "UPDATE project SET\n";
+            $sql .= "details = '".$conn->real_escape_string($proj_file_id)."'\n";
+            $sql .= ", summary = '".$conn->htmlspecialchars(real_escape_string($summary))."'\n";
+            if ($icondropdown) {
+                $sql .= ", icon = '".$conn->real_escape_string($icondropdown)."'\n";
+            }
+            $sql .= "WHERE ID = $project;";
             // echo $sql;
             $result = $conn->query($sql);
             for ($i = 0; $i <= count($projects); $i++) {
@@ -442,7 +448,7 @@ function phpAlert($msg) {
             var mce = document.getElementById("tinymce");
             box.value = id;
 
-            document.getElementById('dropbtn').innerHTML = "<img src = icon.php?id=\"" + img + "\" width = '25px', height = '25px'>";
+            document.getElementById('dropbtn').innerHTML = "<img src = icon.php?id=" + img + " width = '25px', height = '25px'>";
 
             xmlhttp=new XMLHttpRequest();
             xmlhttp.open("GET", "project.php?id=" + detail, false);
