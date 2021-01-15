@@ -342,18 +342,18 @@ function phpAlert($msg) {
                 <span class="close_modal">&times;</span>
                 <h2>Edit Project</h2>
             </div>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" id = "projectEdit">
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" id = "projectEdit" style = 'padding:1em;'>
                 <input type="hidden" name="action" value="edit_project">
                 <input type="hidden" name="project" value="" id = "projectID">
-                <br>
                 <label class="w3-text" style = "color: #0072B5;" for="icon">Choose Icon <br></label>
+                <br>
                 <div class="dropdown">
                     <button class="dropbtn" type="button" id = "dropbtn">Dropdown</button>
                     <input type="hidden" name="icondropdown" value="" id = "icondropdown">
                     <div class="dropdown-content">
                         <?php
                             while ($row = $icons->fetch_assoc()) {
-                                $img_tag = "<img src = icon.php?id=".$row['ID']." width = '15px', height = '15px' style = 'margin-right: 16px;'>";
+                                $img_tag = "<img src = icon.php?id=".$row['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
                                 $img_tag_large = "<img src = icon.php?id=".$row['ID']." width = '25px', height = '25px'>";
                                 $onclick = "\" document.getElementById('icondropdown').value = '".$row['ID']."'; document.getElementById('dropbtn').innerHTML = `$img_tag_large`;\"";
                                 echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$row['ID']."\">".$img_tag.$row['descrip']."</a>\n";
