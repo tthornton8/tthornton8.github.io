@@ -115,7 +115,7 @@ if (isset($_POST['submit'])) {
             }
             $sql .= "WHERE ID = $project;";
 
-            echo $sql;
+            // echo $sql;
             $result = $conn->query($sql);
             for ($i = 0; $i <= count($projects); $i++) {
                 // echo $projects[$i]["ID"];
@@ -123,6 +123,9 @@ if (isset($_POST['submit'])) {
                 if ($projects[$i]["ID"] == $project) {
                     $projects[$i]["details"] = htmlspecialchars($conn->real_escape_string($proj_file_id));
                     $projects[$i]["summary"] = htmlspecialchars($conn->real_escape_string($summary));
+                    if ($icondropdown) {
+                        $projects[$i]["icon"] = htmlspecialchars($conn->real_escape_string($icondropdown));
+                    }
                 } 
             }
             break;
