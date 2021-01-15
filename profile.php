@@ -109,11 +109,12 @@ if (isset($_POST['submit'])) {
 
             $sql = "UPDATE project SET\n";
             $sql .= "details = '".$conn->real_escape_string($proj_file_id)."'\n";
-            $sql .= ", summary = '".$conn->htmlspecialchars(real_escape_string($summary))."'\n";
+            $sql .= ", summary = '".htmlspecialchars($conn->real_escape_string($summary))."'\n";
             if ($icondropdown) {
                 $sql .= ", icon = '".$conn->real_escape_string($icondropdown)."'\n";
             }
             $sql .= "WHERE ID = $project;";
+
             echo $sql;
             $result = $conn->query($sql);
             for ($i = 0; $i <= count($projects); $i++) {
