@@ -285,8 +285,8 @@ function phpAlert($msg) {
                     $j = 0;
                     foreach ($skills as &$row) {
                         if ($row["name"]) {
-                            echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"skills[$j][name]\">Skill $i</label>\n";
-                            echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][name]\" name=\"skills[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
+                            echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"skills[$j][name]\">Skill $i</label><br>\n";
+                            echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][name]\" name=\"skills[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
                             echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][icon]\" name=\"skills[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
                             
                             echo "<button onclick = \"toggleVis('dropdown-content_skills_$j');\" class=\"dropbtn\" type=\"button\" id = \"dropbtn_$j\"><img src = icon.php?id=".$row['icon']." width = '25px', height = '25px'></button>";
@@ -297,7 +297,7 @@ function phpAlert($msg) {
                                 $onclick = "\" document.getElementById('skills[$j][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_$j').innerHTML = `$img_tag_large`; toggleVis('dropdown-content_skills_$j');\"";
                                 echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
                             }
-                            echo "</div>";
+                            echo "</div><br>";
 
                             $i += 1;
                             $j += 1;
