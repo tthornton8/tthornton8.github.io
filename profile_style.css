@@ -498,5 +498,5 @@ cursor: pointer;
   .dropdown:hover .dropbtn {background-color: #ddd;}
 
   #skills_section input[type=text]{
-    width: 3em;
+    width: 15em;
   }
