@@ -1,80 +1,3 @@
-<?php
-session_start();
-
-require_once('config.php');
- 
-if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
-    unset($_SESSION['id']);
-}
- 
-if (isset($_SESSION['id'])) {
-    $logged_in = 'true';
-    $id = $_SESSION['id'];
-    
-    $sql = "SELECT * FROM user WHERE ID = '".$conn->real_escape_string($id)."'";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    $name = $row['name'];
-    $email = $row['email'];
-    $degree = $row['degree'];
-    $uni = $row['uni'];
-    $about = $row['about'];
-    $photo = $row['photo'];
-
-    $skills = [];
-    $sql = "SELECT * FROM skill WHERE [user_ID] = '".$conn->real_escape_string($id)."'";
-    $result = $conn->query($sql);
-    while ($row = mysql_fetch_assoc($result)) {
-        $skills[] = array (
-            "name" => $row["name"],
-            "icon" => $row["icon"],
-        );
-    }
-
-} else {
-    $logged_in = 'false';
-    header('Location: login_student.php');
-}
-
-if (isset($_POST['submit'])) {
- 
-    extract($_POST);
-    require_once('uploads.php');
- 
-    $sql =  "UPDATE user\n";
-    $sql .= "SET\n";
-    $sql .= "name = '".$conn->real_escape_string($name)."',\n";
-    $sql .= "email = '".$conn->real_escape_string($email)."',\n";
-    $sql .= "degree = '".$conn->real_escape_string($degree)."',\n";
-    $sql .= "uni = '".$conn->real_escape_string($uni)."',\n";
-    if ($uploadOk) {
-        $sql .= "photo = '".$conn->real_escape_string($target_file)."',\n";
-    }
-    $sql .= "about = '".$conn->real_escape_string($about)."'\n";
-    $sql .= "WHERE ID = '".$conn->real_escape_string($id)."'";
-
-    $result = $conn->query($sql);
-
-    $sql = "DELETE FROM skill WHERE [user_ID] = '".$conn->real_escape_string($id)."'";
-    $result = $conn->query($sql);
-
-    $sql = "INSERT INTO skill ([user_ID], name, icon) VALUES ";
-    foreach ($skills as &$row) {
-        $sql .= "\n(".$conn->real_escape_string($id).", '".$conn->real_escape_string($row["name"])."', '".$conn->real_escape_string($row["icon"])."),";
-    }
-    $sql = substr($sql, 0, -1);
-    $sql .= ";";
-    
-}
-?>
-<?php
-function phpAlert($msg) {
-    //echo "msg: $msg";
-    if ($msg != "") {
-        echo '<script type="text/javascript">alert("' . htmlspecialchars($msg) . '")</script>';
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,67 +14,57 @@ function phpAlert($msg) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="profile_style.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
+    <script src="https://cdn.tiny.cloud/1/184b9akoev1y38p25nmv4os4h082uhrc9copbqe6hxbwl72t/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
         crossorigin="anonymous"> -->
-    <?php phpAlert(   $fileAlert  );  ?>
-
+    
 </head>
 
 <body>
-    <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
+    <script type="text/javascript"> var logged_in = "true";</script>
     <script type="text/javascript" src="header.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="svg-inject.js"></script>
 
     <div class = "_content">
+
         <div class = "_prof_section _head">
-            <img src="<?php echo "img.php?id={$id}"; ?>" alt="Profile Picture" class = "pp">
-            <h1><?php echo $name; ?> <div onclick="editWindow();" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div> </h1>
+            <img src="img.php?id=1" alt="Profile Picture" class = "pp">
+            <h1>Timothy Thornton <div onclick="document.getElementById('editWindow').style.display = 'block';" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div> </h1>
             <hr>
-            <table>
-                <td>
-                    <h2><?php echo $degree; ?></h2>
-                    <h2><?php echo $uni; ?></h2>
-                </td>
-                <td>
-                    <img alt = "University Logo" src = "img/bath.png" style = "height: 80px;">
-                </td>
-            </table>
+            <div class = "_head_desc">
+                <h2>MEng Mechanical Engineering</h2>
+                <h2>University of Bath</h2>
+            </div>
+            <img alt = "University Logo" src = "img/bath.png" style = "height: 80px;" class = "_uni">
         </div>
+
         <div class = "_prof_section _about">
             <h2>About</h2>
-            <p><?php echo $about; ?></p>
+            <p>A passionate, committed, and highly motivated 2nd year mechanical engineering student at the University of Bath with hands-on experience in testing and analysing concept designs. Passionate about innovation in engineering, I am excited about applying my skills to new projects and seeing the results of my efforts put to use in a professional environment. Using my firm grasp of tools such as MATLAB and Excel, and product design know-how, I have excelled in delivering results throughout summer internships and my time at university.</p>
         </div>
         <div class = "_prof_section _skills">
             <h2 style = "grid-row: 1">Top Skills</h2>
-            <div class = "_bubble _gr1">Machine Learning    <img src = "https://www.flaticon.com/svg/static/icons/svg/566/566082.svg" alt = "icon"></div>
-            <div class = "_bubble _gr1">Design              <img src = "https://www.flaticon.com/svg/static/icons/svg/681/681662.svg" alt = "icon"></div>
-            <div class = "_bubble _gr1">Python              <img src = "https://www.flaticon.com/svg/static/icons/svg/1336/1336494.svg" alt = "icon"></div>
-            <div class = "_bubble _gr1">CFD                 <img src = "https://www.flaticon.com/svg/static/icons/svg/1055/1055113.svg" alt = "icon"></div>
-            <hr style = "grid-column: 1/5; grid-row: 3">
+            <div class = "_bubble _gr1">Machine Learning<img src = icon.php?id=1 alt = "icon" onload="SVGInject(this)"></div><div class = "_bubble _gr1">Design<img src = icon.php?id=4 alt = "icon" onload="SVGInject(this)"></div><div class = "_bubble _gr1">Python<img src = icon.php?id=3 alt = "icon" onload="SVGInject(this)"></div><div class = "_bubble _gr1">CFD<img src = icon.php?id=2 alt = "icon" onload="SVGInject(this)"></div><div class = "_bubble _gr1">Thermodynamics<img src = icon.php?id=6 alt = "icon" onload="SVGInject(this)"></div>        </div>
+        <div class = "_prof_section _skills">
+            <!-- <hr style = "grid-column: 1/5; grid-row: 3"> -->
             <h2 style = "grid-row: 4">Top Projects</h2>
-            <div class = "_bubble _gr2" onclick="clickBox('machine design')">Machine Design         <img src = "https://www.flaticon.com/svg/static/icons/svg/2099/2099058.svg" alt = "icon">
-                <p>
-                    Project Summary....
-                </p>
-            </div>
-            <div class = "_bubble _gr2" onclick="clickBox('aerocapture')">Aerocapture<span class = "_gradz_project">with the gradz</span><img src = "https://www.flaticon.com/svg/static/icons/svg/2285/2285485.svg" alt = "icon">
-                <p>
-                    Project Summary....
-                </p>
-            </div>
-            <div class = "_bubble _gr2" onclick="clickBox('feasibility study')">Feasibility Study<span class = "_gradz_project">with the gradz</span><img src = "https://www.flaticon.com/svg/static/icons/svg/752/752241.svg" alt = "icon">
-                <p>
-                    Project Summary....
-                </p>
-            </div>
-            <div class = "_bubble _gr2" onclick="clickBox('neural net')">Neural Net                 <img src = "https://www.flaticon.com/svg/static/icons/svg/566/566082.svg" alt = "icon">
-                <p>
-                    Project Summary....
-                </p>
-            </div>
+            <div class = "_bubble _gr2" onclick="clickBox('6512bd43d9caa6e02c990b0a82652dca')">Machine Design
+<img src = icon.php?id=8 alt = "icon">
+<p>                    Project Summary goes here...
+                </p></div><div class = "_bubble _gr2" onclick="clickBox('3c59dc048e8850243be8079a5c74d079')">Aerocapture
+<span class = "_gradz_project">with the gradz</span>
+<img src = icon.php?id=9 alt = "icon">
+<p>Project Summary....</p></div><div class = "_bubble _gr2" onclick="clickBox('c16a5320fa475530d9583c34fd356ef5')">Feasibility Study
+<span class = "_gradz_project">with the gradz</span>
+<img src = icon.php?id=8 alt = "icon">
+<p>                    Project Summary goes here...
+                </p></div><div class = "_bubble _gr2" onclick="clickBox('')">Neural Net
+<img src = icon.php?id=1 alt = "icon">
+<p>Project Summary....</p></div>
         </div>
         <div class = "_prof_section _quals">
             <h2>Qualifications</h2>
@@ -188,65 +101,148 @@ function phpAlert($msg) {
             <h2>Edit Profile</h2>
           </div>
           <div class="modal-body">
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+            <form method="post" action="/profile.php" enctype="multipart/form-data">
+                <input type="hidden" name="action" value="edit_main">
                 <br>
                 <label class="w3-text" style = "color: #0072B5;" for="fileToUpload">Upload new profile photo</label>
                 <input type="file" name="fileToUpload" id="fileToUpload">
                 <br>
 
                 <label class="w3-text" style = "color: #0072B5;" for="inputname">Name</label>
-                <input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/>
+                <input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "Timothy Thornton"/>
 
                 <label class="w3-text" style = "color: #0072B5;" for="inputemail">Email</label>
-                <input type="email" class="w3-input w3-border w3-light-grey" id="inputemail" name="email" placeholder="Email" value = "<?php echo $email; ?>"/>
+                <input type="email" class="w3-input w3-border w3-light-grey" id="inputemail" name="email" placeholder="Email" value = "timothythornton8@gmail.com"/>
 
                 <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputdegree">Degree</label>
-                <input type="text" class="w3-input w3-border w3-light-grey" id="inputdegree" name="degree" placeholder="Degree" value = "<?php echo $degree; ?>"/>
+                <input type="text" class="w3-input w3-border w3-light-grey" id="inputdegree" name="degree" placeholder="Degree" value = "MEng Mechanical Engineering"/>
 
                 <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputuni">University</label>
-                <input type="text" class="w3-input w3-border w3-light-grey" id="inputuni" name="uni" placeholder="University" value = "<?php echo $uni; ?>"/>
+                <input type="text" class="w3-input w3-border w3-light-grey" id="inputuni" name="uni" placeholder="University" value = "University of Bath"/>
 
                 <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputabout">About</label>
-                <textarea class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About"><?php echo $about; ?></textarea>
+                <textarea class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About">A passionate, committed, and highly motivated 2nd year mechanical engineering student at the University of Bath with hands-on experience in testing and analysing concept designs. Passionate about innovation in engineering, I am excited about applying my skills to new projects and seeing the results of my efforts put to use in a professional environment. Using my firm grasp of tools such as MATLAB and Excel, and product design know-how, I have excelled in delivering results throughout summer internships and my time at university.</textarea>
+                <br>
+                
+                <div id = "skills_section">
+                    <p class="w3-text" style = "color: #0072B5; margin-top: 10px; font-size:150%">Skills</p>
+                    <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="skills[0][name]">Skill 1</label>
+<input type="text" class="w3-input w3-border w3-light-grey" id="skills[0][name]" name="skills[0][name]" placeholder="Skill "1" value = "Machine Learning"/>
+<input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[0][icon]" name="skills[0][icon]" value = "1"/>
+
+<button onclick = "toggleVis('dropdown-content_skills_0');" class="dropbtn" type="button" id = "dropbtn_0"><img src = icon.php?id=1 width = '25px', height = '25px'></button><div class="dropdown-content" id = "dropdown-content_skills_0">								<a onclick = " document.getElementById('skills[0][icon]').value = '1'; document.getElementById('dropbtn_0').innerHTML = `<img src = icon.php?id=1 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_0');" id = "icon_0_1"><img src = icon.php?id=1 width = '20px', height = '20px' style = 'margin-right: 16px;'>Monitor</a>
+								<a onclick = " document.getElementById('skills[0][icon]').value = '2'; document.getElementById('dropbtn_0').innerHTML = `<img src = icon.php?id=2 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_0');" id = "icon_0_2"><img src = icon.php?id=2 width = '20px', height = '20px' style = 'margin-right: 16px;'>CAD</a>
+								<a onclick = " document.getElementById('skills[0][icon]').value = '3'; document.getElementById('dropbtn_0').innerHTML = `<img src = icon.php?id=3 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_0');" id = "icon_0_3"><img src = icon.php?id=3 width = '20px', height = '20px' style = 'margin-right: 16px;'>Code</a>
+								<a onclick = " document.getElementById('skills[0][icon]').value = '4'; document.getElementById('dropbtn_0').innerHTML = `<img src = icon.php?id=4 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_0');" id = "icon_0_4"><img src = icon.php?id=4 width = '20px', height = '20px' style = 'margin-right: 16px;'>Blueprints</a>
+								<a onclick = " document.getElementById('skills[0][icon]').value = '6'; document.getElementById('dropbtn_0').innerHTML = `<img src = icon.php?id=6 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_0');" id = "icon_0_6"><img src = icon.php?id=6 width = '20px', height = '20px' style = 'margin-right: 16px;'>Stocks</a>
+								<a onclick = " document.getElementById('skills[0][icon]').value = '8'; document.getElementById('dropbtn_0').innerHTML = `<img src = icon.php?id=8 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_0');" id = "icon_0_8"><img src = icon.php?id=8 width = '20px', height = '20px' style = 'margin-right: 16px;'>Cog</a>
+								<a onclick = " document.getElementById('skills[0][icon]').value = '9'; document.getElementById('dropbtn_0').innerHTML = `<img src = icon.php?id=9 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_0');" id = "icon_0_9"><img src = icon.php?id=9 width = '20px', height = '20px' style = 'margin-right: 16px;'>Rocket</a>
+</div><label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="skills[1][name]">Skill 2</label>
+<input type="text" class="w3-input w3-border w3-light-grey" id="skills[1][name]" name="skills[1][name]" placeholder="Skill "2" value = "Design"/>
+<input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[1][icon]" name="skills[1][icon]" value = "4"/>
+
+<button onclick = "toggleVis('dropdown-content_skills_1');" class="dropbtn" type="button" id = "dropbtn_1"><img src = icon.php?id=4 width = '25px', height = '25px'></button><div class="dropdown-content" id = "dropdown-content_skills_1">								<a onclick = " document.getElementById('skills[1][icon]').value = '1'; document.getElementById('dropbtn_1').innerHTML = `<img src = icon.php?id=1 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_1');" id = "icon_1_1"><img src = icon.php?id=1 width = '20px', height = '20px' style = 'margin-right: 16px;'>Monitor</a>
+								<a onclick = " document.getElementById('skills[1][icon]').value = '2'; document.getElementById('dropbtn_1').innerHTML = `<img src = icon.php?id=2 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_1');" id = "icon_1_2"><img src = icon.php?id=2 width = '20px', height = '20px' style = 'margin-right: 16px;'>CAD</a>
+								<a onclick = " document.getElementById('skills[1][icon]').value = '3'; document.getElementById('dropbtn_1').innerHTML = `<img src = icon.php?id=3 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_1');" id = "icon_1_3"><img src = icon.php?id=3 width = '20px', height = '20px' style = 'margin-right: 16px;'>Code</a>
+								<a onclick = " document.getElementById('skills[1][icon]').value = '4'; document.getElementById('dropbtn_1').innerHTML = `<img src = icon.php?id=4 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_1');" id = "icon_1_4"><img src = icon.php?id=4 width = '20px', height = '20px' style = 'margin-right: 16px;'>Blueprints</a>
+								<a onclick = " document.getElementById('skills[1][icon]').value = '6'; document.getElementById('dropbtn_1').innerHTML = `<img src = icon.php?id=6 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_1');" id = "icon_1_6"><img src = icon.php?id=6 width = '20px', height = '20px' style = 'margin-right: 16px;'>Stocks</a>
+								<a onclick = " document.getElementById('skills[1][icon]').value = '8'; document.getElementById('dropbtn_1').innerHTML = `<img src = icon.php?id=8 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_1');" id = "icon_1_8"><img src = icon.php?id=8 width = '20px', height = '20px' style = 'margin-right: 16px;'>Cog</a>
+								<a onclick = " document.getElementById('skills[1][icon]').value = '9'; document.getElementById('dropbtn_1').innerHTML = `<img src = icon.php?id=9 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_1');" id = "icon_1_9"><img src = icon.php?id=9 width = '20px', height = '20px' style = 'margin-right: 16px;'>Rocket</a>
+</div><label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="skills[2][name]">Skill 3</label>
+<input type="text" class="w3-input w3-border w3-light-grey" id="skills[2][name]" name="skills[2][name]" placeholder="Skill "3" value = "Python"/>
+<input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[2][icon]" name="skills[2][icon]" value = "3"/>
+
+<button onclick = "toggleVis('dropdown-content_skills_2');" class="dropbtn" type="button" id = "dropbtn_2"><img src = icon.php?id=3 width = '25px', height = '25px'></button><div class="dropdown-content" id = "dropdown-content_skills_2">								<a onclick = " document.getElementById('skills[2][icon]').value = '1'; document.getElementById('dropbtn_2').innerHTML = `<img src = icon.php?id=1 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_2');" id = "icon_2_1"><img src = icon.php?id=1 width = '20px', height = '20px' style = 'margin-right: 16px;'>Monitor</a>
+								<a onclick = " document.getElementById('skills[2][icon]').value = '2'; document.getElementById('dropbtn_2').innerHTML = `<img src = icon.php?id=2 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_2');" id = "icon_2_2"><img src = icon.php?id=2 width = '20px', height = '20px' style = 'margin-right: 16px;'>CAD</a>
+								<a onclick = " document.getElementById('skills[2][icon]').value = '3'; document.getElementById('dropbtn_2').innerHTML = `<img src = icon.php?id=3 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_2');" id = "icon_2_3"><img src = icon.php?id=3 width = '20px', height = '20px' style = 'margin-right: 16px;'>Code</a>
+								<a onclick = " document.getElementById('skills[2][icon]').value = '4'; document.getElementById('dropbtn_2').innerHTML = `<img src = icon.php?id=4 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_2');" id = "icon_2_4"><img src = icon.php?id=4 width = '20px', height = '20px' style = 'margin-right: 16px;'>Blueprints</a>
+								<a onclick = " document.getElementById('skills[2][icon]').value = '6'; document.getElementById('dropbtn_2').innerHTML = `<img src = icon.php?id=6 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_2');" id = "icon_2_6"><img src = icon.php?id=6 width = '20px', height = '20px' style = 'margin-right: 16px;'>Stocks</a>
+								<a onclick = " document.getElementById('skills[2][icon]').value = '8'; document.getElementById('dropbtn_2').innerHTML = `<img src = icon.php?id=8 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_2');" id = "icon_2_8"><img src = icon.php?id=8 width = '20px', height = '20px' style = 'margin-right: 16px;'>Cog</a>
+								<a onclick = " document.getElementById('skills[2][icon]').value = '9'; document.getElementById('dropbtn_2').innerHTML = `<img src = icon.php?id=9 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_2');" id = "icon_2_9"><img src = icon.php?id=9 width = '20px', height = '20px' style = 'margin-right: 16px;'>Rocket</a>
+</div><label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="skills[3][name]">Skill 4</label>
+<input type="text" class="w3-input w3-border w3-light-grey" id="skills[3][name]" name="skills[3][name]" placeholder="Skill "4" value = "CFD"/>
+<input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[3][icon]" name="skills[3][icon]" value = "2"/>
+
+<button onclick = "toggleVis('dropdown-content_skills_3');" class="dropbtn" type="button" id = "dropbtn_3"><img src = icon.php?id=2 width = '25px', height = '25px'></button><div class="dropdown-content" id = "dropdown-content_skills_3">								<a onclick = " document.getElementById('skills[3][icon]').value = '1'; document.getElementById('dropbtn_3').innerHTML = `<img src = icon.php?id=1 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_3');" id = "icon_3_1"><img src = icon.php?id=1 width = '20px', height = '20px' style = 'margin-right: 16px;'>Monitor</a>
+								<a onclick = " document.getElementById('skills[3][icon]').value = '2'; document.getElementById('dropbtn_3').innerHTML = `<img src = icon.php?id=2 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_3');" id = "icon_3_2"><img src = icon.php?id=2 width = '20px', height = '20px' style = 'margin-right: 16px;'>CAD</a>
+								<a onclick = " document.getElementById('skills[3][icon]').value = '3'; document.getElementById('dropbtn_3').innerHTML = `<img src = icon.php?id=3 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_3');" id = "icon_3_3"><img src = icon.php?id=3 width = '20px', height = '20px' style = 'margin-right: 16px;'>Code</a>
+								<a onclick = " document.getElementById('skills[3][icon]').value = '4'; document.getElementById('dropbtn_3').innerHTML = `<img src = icon.php?id=4 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_3');" id = "icon_3_4"><img src = icon.php?id=4 width = '20px', height = '20px' style = 'margin-right: 16px;'>Blueprints</a>
+								<a onclick = " document.getElementById('skills[3][icon]').value = '6'; document.getElementById('dropbtn_3').innerHTML = `<img src = icon.php?id=6 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_3');" id = "icon_3_6"><img src = icon.php?id=6 width = '20px', height = '20px' style = 'margin-right: 16px;'>Stocks</a>
+								<a onclick = " document.getElementById('skills[3][icon]').value = '8'; document.getElementById('dropbtn_3').innerHTML = `<img src = icon.php?id=8 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_3');" id = "icon_3_8"><img src = icon.php?id=8 width = '20px', height = '20px' style = 'margin-right: 16px;'>Cog</a>
+								<a onclick = " document.getElementById('skills[3][icon]').value = '9'; document.getElementById('dropbtn_3').innerHTML = `<img src = icon.php?id=9 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_3');" id = "icon_3_9"><img src = icon.php?id=9 width = '20px', height = '20px' style = 'margin-right: 16px;'>Rocket</a>
+</div><label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="skills[4][name]">Skill 5</label>
+<input type="text" class="w3-input w3-border w3-light-grey" id="skills[4][name]" name="skills[4][name]" placeholder="Skill "5" value = "Thermodynamics"/>
+<input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[4][icon]" name="skills[4][icon]" value = "6"/>
+
+<button onclick = "toggleVis('dropdown-content_skills_4');" class="dropbtn" type="button" id = "dropbtn_4"><img src = icon.php?id=6 width = '25px', height = '25px'></button><div class="dropdown-content" id = "dropdown-content_skills_4">								<a onclick = " document.getElementById('skills[4][icon]').value = '1'; document.getElementById('dropbtn_4').innerHTML = `<img src = icon.php?id=1 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_4');" id = "icon_4_1"><img src = icon.php?id=1 width = '20px', height = '20px' style = 'margin-right: 16px;'>Monitor</a>
+								<a onclick = " document.getElementById('skills[4][icon]').value = '2'; document.getElementById('dropbtn_4').innerHTML = `<img src = icon.php?id=2 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_4');" id = "icon_4_2"><img src = icon.php?id=2 width = '20px', height = '20px' style = 'margin-right: 16px;'>CAD</a>
+								<a onclick = " document.getElementById('skills[4][icon]').value = '3'; document.getElementById('dropbtn_4').innerHTML = `<img src = icon.php?id=3 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_4');" id = "icon_4_3"><img src = icon.php?id=3 width = '20px', height = '20px' style = 'margin-right: 16px;'>Code</a>
+								<a onclick = " document.getElementById('skills[4][icon]').value = '4'; document.getElementById('dropbtn_4').innerHTML = `<img src = icon.php?id=4 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_4');" id = "icon_4_4"><img src = icon.php?id=4 width = '20px', height = '20px' style = 'margin-right: 16px;'>Blueprints</a>
+								<a onclick = " document.getElementById('skills[4][icon]').value = '6'; document.getElementById('dropbtn_4').innerHTML = `<img src = icon.php?id=6 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_4');" id = "icon_4_6"><img src = icon.php?id=6 width = '20px', height = '20px' style = 'margin-right: 16px;'>Stocks</a>
+								<a onclick = " document.getElementById('skills[4][icon]').value = '8'; document.getElementById('dropbtn_4').innerHTML = `<img src = icon.php?id=8 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_4');" id = "icon_4_8"><img src = icon.php?id=8 width = '20px', height = '20px' style = 'margin-right: 16px;'>Cog</a>
+								<a onclick = " document.getElementById('skills[4][icon]').value = '9'; document.getElementById('dropbtn_4').innerHTML = `<img src = icon.php?id=9 width = '25px', height = '25px'>`; toggleVis('dropdown-content_skills_4');" id = "icon_4_9"><img src = icon.php?id=9 width = '20px', height = '20px' style = 'margin-right: 16px;'>Rocket</a>
+</div>
+                </div>
+                <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addSkill();">+</button>
+                <br>
+
+                <p class="w3-text" style = "color: #0072B5; margin-top: 10px; font-size:150%">Projects</p>
+
+                <div class = "_projects_section" id = "_projects_section">
+                    <div class = "_bubble">Machine Design&nbsp;</div><div onclick = "editProject(1,`6512bd43d9caa6e02c990b0a82652dca`,8);" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div><br>
+<div class = "_bubble">Aerocapture&nbsp;</div><div onclick = "editProject(2,`3c59dc048e8850243be8079a5c74d079`,9);" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div><br>
+<div class = "_bubble">Feasibility Study&nbsp;</div><div onclick = "editProject(3,`c16a5320fa475530d9583c34fd356ef5`,8);" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div><br>
+<div class = "_bubble">Neural Net&nbsp;</div><div onclick = "editProject(4,``,1);" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div><br>
+                </div>
+                <br>
+                <button type="button" name="add_project" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addProject();">+</button>
                 <br>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br>
+
+                <script type="text/javascript" defer>
+                function addSkill() {
+                    var i = document.querySelectorAll('[id^="skills\["]').length/2;
+                    skills = document.getElementById("skills_section");
+                    var els = createElementFromHTML(`
+                        <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="skills[${i}][name]">Skill ${i+1}</label>
+                        <input type="text" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill ${i+1}" value = ""/>
+                        <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill ${i+1}" value = ""/>
+                    `);
+                    for (let item of els) {
+                        skills.appendChild(item);
+                    }
+                };
+
+                function createElementFromHTML(htmlString) {
+                    var div = document.createElement('div');
+                    div.innerHTML = htmlString.trim();
+
+                    // Change this to div.childNodes to support multiple top-level nodes
+                    return div.childNodes; 
+                };
+                </script>
             </form>
           </div>
           <div class="modal-footer">
             <h3>&nbsp;</h3>
           </div>
         </div>
-      
     </div>
 
-    <script>
-        // Get the modal
-        var modal = document.getElementById("editWindow");
-        
-        // Get the button that opens the modal
-        var btn = document.getElementById("_edit_pencil");
-        
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close_modal")[0];
-        
-        // When the user clicks the button, open the modal 
-        btn.onclick = function() {
-          modal.style.display = "block";
-        }
-        
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
-        
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        }
-        </script>
-
-</body>
-</html>
+    <div id="projectWindow" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close_modal">&times;</span>
+                <h2>Edit Project</h2>
+            </div>
+            <form method="post" action="/profile.php" enctype="multipart/form-data" id = "projectEdit" style = 'padding:1em;'>
+                <input type="hidden" name="action" value="edit_project">
+                <input type="hidden" name="project" value="" id = "projectID">
+                <label class="w3-text" style = "color: #0072B5;" for="icon">Choose Icon <br></label>
+                <br>
+                <div class="dropdown">
+                    <button class="dropbtn" type="button" id = "dropbtn">Dropdown</button>
+                    <input type="hidden" name="icondropdown" value="" id = "icondropdown">
+                    <div class="dropdown-content">
+                        
