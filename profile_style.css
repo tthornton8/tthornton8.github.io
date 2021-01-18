@@ -467,6 +467,7 @@ cursor: pointer;
     font-size: 16px;
     border: none;
     border-radius: 3px;
+    margin-top: 0;
     border: 1px solid rgb(208, 208, 208);
   }
   
