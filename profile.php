@@ -289,7 +289,7 @@ function phpAlert($msg) {
                                 $img_tag = "<img src = icon.php?id=".$row['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
                                 $img_tag_large = "<img src = icon.php?id=".$row['ID']." width = '25px', height = '25px'>";
                                 $onclick = "\" document.getElementById('skills[$j][icon]').value = '".$row['ID']."'; document.getElementById('dropbtn_$j').innerHTML = `$img_tag_large`; toggleVis('dropdown-content_skills_$j');\"";
-                                echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$row['ID']."\">".$img_tag.$row['descrip']."</a>\n";
+                                echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$row['ID']."\">".$img_tag.$row['descrip']."</a>\n";
                             }
                             echo "</div>";
 
