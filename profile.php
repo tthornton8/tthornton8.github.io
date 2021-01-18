@@ -473,7 +473,7 @@ function phpAlert($msg) {
             }
         };
 
-        function toggleVis(elid) {
+        window.toggleVis = function(elid) {
             var el = document.getElementById(elid);
             var dd = document.getElementsByClassName("dropdown-content");
             if (el.style.display == 'none') {
