@@ -283,7 +283,7 @@ function phpAlert($msg) {
                             echo "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][name]\" name=\"skills[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
                             echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][icon]\" name=\"skills[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
                             
-                            echo "<button class=\"dropbtn\" type=\"button\" id = \"dropbtn_$j\">Dropdown</button>";
+                            echo "<button class=\"dropbtn\" type=\"button\" id = \"dropbtn_$j\"><img src = icon.php?id=".$row['icon']." width = '25px', height = '25px'></button>";
                             echo "<div class=\"dropdown-content\">";
                             while ($row = $icons->fetch_assoc()) {
                                 $img_tag = "<img src = icon.php?id=".$row['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
@@ -298,21 +298,6 @@ function phpAlert($msg) {
                         }
                     }
                     ?>
-
-                    <div class="dropdown">
-                        <button class="dropbtn" type="button" id = "dropbtn">Dropdown</button>
-                        <input type="hidden" name="icondropdown" value="" id = "icondropdown">
-                        <div class="dropdown-content">
-                            <?php
-                                while ($row = $icons->fetch_assoc()) {
-                                    $img_tag = "<img src = icon.php?id=".$row['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
-                                    $img_tag_large = "<img src = icon.php?id=".$row['ID']." width = '25px', height = '25px'>";
-                                    $onclick = "\" document.getElementById('icondropdown').value = '".$row['ID']."'; document.getElementById('dropbtn').innerHTML = `$img_tag_large`;\"";
-                                    echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$row['ID']."\">".$img_tag.$row['descrip']."</a>\n";
-                                }
-                            ?>
-                        </div>
-                    </div>
 
                 </div>
                 <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addSkill();">+</button>
