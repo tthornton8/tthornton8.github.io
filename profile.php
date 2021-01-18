@@ -48,7 +48,7 @@ if (isset($_SESSION['id'])) {
                 "gradz"   => $row["gradz"],
             );
         }
-        echo print_r($projects);
+        // echo print_r($projects);
     }
 
     $icons = [];
@@ -330,7 +330,7 @@ function phpAlert($msg) {
                             echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
                         }
                         echo "</div>";
-
+                        echo print_r($row);
                         echo "<div onclick = \"editProject(".$row['ID'].",`".$row['details']."`,".$row['icon'].");\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
 
                         $i += 1;
