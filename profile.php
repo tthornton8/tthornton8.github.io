@@ -482,7 +482,7 @@ function phpAlert($msg) {
         }
 
         function toggleVis(elid) {
-            var el = document.getElementByID(elid);
+            var el = document.getElementById(elid);
             if (el.style.display == 'none') {
                 el.style.display = 'inline-block';
             } else {
