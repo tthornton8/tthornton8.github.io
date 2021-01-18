@@ -400,7 +400,7 @@ function phpAlert($msg) {
         </div>
     </div>
 
-    <script>
+    <script >
         // Get the modal
         var modal = document.getElementById("editWindow");
         var modal2 = document.getElementById("projectWindow");
@@ -440,21 +440,7 @@ function phpAlert($msg) {
             xmlhttp.open("GET", "project.php?id=" + detail, false);
             xmlhttp.send();
             var html = xmlhttp.responseText;
-            // switch (name) {
-            //     <?php
-            //     foreach ($projects as &$row) {
-            //         $html =  "\t\t\t\tcase '".$row["name"]."':\n";
-            //         $html .= "\t\t\t\t\thtml = `\n";
-            //         $html .= "\t\t\t\t\t<h1>".$row["name"]."</h1>\n";
-            //         $html .= "\t\t\t\t\t<div class = \"_project_box_content\">".$row["details"]."</div>\n";
-            //         $html .= "\t\t\t\t`";
-            //         $html .= "\n\t\t\t\tbreak;\n";
-            //         echo $html;
-            //     }
-            //     ?>
-            // }
             html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
-            // html += `<p>Extended project detail goes here...</p>`
             return html
         };
 
@@ -485,7 +471,7 @@ function phpAlert($msg) {
                         tinycomments_author: 'Author name',
                 });
             }
-        }
+        };
 
         function toggleVis(elid) {
             var el = document.getElementById(elid);
