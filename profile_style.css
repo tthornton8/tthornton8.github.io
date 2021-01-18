@@ -496,3 +496,7 @@ cursor: pointer;
   .dropdown:hover .dropdown-content {display: block;}
   
   .dropdown:hover .dropbtn {background-color: #ddd;}
+
+  #skills_section input[type=text]{
+    width: 3em;
+  }
