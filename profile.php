@@ -475,11 +475,19 @@ function phpAlert($msg) {
 
         function toggleVis(elid) {
             var el = document.getElementById(elid);
+            var dd = document.getElementsByClassName("dropdown-content");
             if (el.style.display == 'none') {
-                el.style.display = 'inline-block';
+                on = true;
             } else {
-                el.style.display = 'none'
+                on = false;
             };
+            for (var i = 0; i < dd.length; i++) {
+                dd[i].style.display = 'none';
+            };
+            if (on) {
+                el.style.display = 'inline-block';
+            }
+
         };
         </script>
 
