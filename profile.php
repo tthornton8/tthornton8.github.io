@@ -402,90 +402,90 @@ function phpAlert($msg) {
 
     <script >
         // Get the modal
-        var modal = document.getElementById("editWindow");
-        var modal2 = document.getElementById("projectWindow");
+        // var modal = document.getElementById("editWindow");
+        // var modal2 = document.getElementById("projectWindow");
         
-        // Get the button that opens the modal
-        var btn = document.getElementById("_edit_pencil");
+        // // Get the button that opens the modal
+        // var btn = document.getElementById("_edit_pencil");
         
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close_modal")[0];
-        var span2 = document.getElementsByClassName("close_modal")[1];
+        // // Get the <span> element that closes the modal
+        // var span = document.getElementsByClassName("close_modal")[0];
+        // var span2 = document.getElementsByClassName("close_modal")[1];
         
-        // When the user clicks the button, open the modal 
-        btn.onclick = function() {
-          modal.style.display = "block";
-        }
+        // // When the user clicks the button, open the modal 
+        // btn.onclick = function() {
+        //   modal.style.display = "block";
+        // }
         
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
+        // // When the user clicks on <span> (x), close the modal
+        // span.onclick = function() {
+        //   modal.style.display = "none";
+        // }
 
-        // When the user clicks on <span> (x), close the modal
-        span2.onclick = function() {
-          modal2.style.display = "none";
-        }
+        // // When the user clicks on <span> (x), close the modal
+        // span2.onclick = function() {
+        //   modal2.style.display = "none";
+        // }
         
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-            modal2.style.display = "none";
-          }
-        }
+        // // When the user clicks anywhere outside of the modal, close it
+        // window.onclick = function(event) {
+        //   if (event.target == modal) {
+        //     modal.style.display = "none";
+        //     modal2.style.display = "none";
+        //   }
+        // }
 
-        function getProjContent(detail) {
-            xmlhttp=new XMLHttpRequest();
-            xmlhttp.open("GET", "project.php?id=" + detail, false);
-            xmlhttp.send();
-            var html = xmlhttp.responseText;
-            html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
-            return html
-        };
+        // function getProjContent(detail) {
+        //     xmlhttp=new XMLHttpRequest();
+        //     xmlhttp.open("GET", "project.php?id=" + detail, false);
+        //     xmlhttp.send();
+        //     var html = xmlhttp.responseText;
+        //     html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
+        //     return html
+        // };
 
-        function editProject(id, detail, img) {
-            modal2.style.display = "block";
-            var box = document.getElementById("projectID");
-            var mce = document.getElementById("tinymce");
-            box.value = id;
+        // function editProject(id, detail, img) {
+        //     modal2.style.display = "block";
+        //     var box = document.getElementById("projectID");
+        //     var mce = document.getElementById("tinymce");
+        //     box.value = id;
 
-            document.getElementById('dropbtn').innerHTML = "<img src = icon.php?id=" + img + " width = '25px', height = '25px'>";
+        //     document.getElementById('dropbtn').innerHTML = "<img src = icon.php?id=" + img + " width = '25px', height = '25px'>";
 
-            xmlhttp=new XMLHttpRequest();
-            xmlhttp.open("GET", "project.php?id=" + detail, false);
-            xmlhttp.send();
-            var text = xmlhttp.responseText;
-            mce.innerHTML = text;
+        //     xmlhttp=new XMLHttpRequest();
+        //     xmlhttp.open("GET", "project.php?id=" + detail, false);
+        //     xmlhttp.send();
+        //     var text = xmlhttp.responseText;
+        //     mce.innerHTML = text;
 
-            try {
-                tinymce.get("tinymce").setContent(text);
-            } catch (error) {
-                tinymce.init({
-                        selector: 'textarea#tinymce',
-                        elements : "detail",
-                        plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-                        toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
-                        toolbar_mode: 'floating',
-                        tinycomments_mode: 'embedded',
-                        tinycomments_author: 'Author name',
-                });
-            }
-        };
+        //     try {
+        //         tinymce.get("tinymce").setContent(text);
+        //     } catch (error) {
+        //         tinymce.init({
+        //                 selector: 'textarea#tinymce',
+        //                 elements : "detail",
+        //                 plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+        //                 toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+        //                 toolbar_mode: 'floating',
+        //                 tinycomments_mode: 'embedded',
+        //                 tinycomments_author: 'Author name',
+        //         });
+        //     }
+        // };
 
         window.toggleVis = function(elid) {
             var el = document.getElementById(elid);
             var dd = document.getElementsByClassName("dropdown-content");
-            if (el.style.display == 'none') {
+            if (el.style.display == "none") {
                 on = true;
             } else {
                 on = false;
             };
             for (var i = 0; i < dd.length; i++) {
-                dd[i].style.display = 'none';
+                dd[i].style.display = "none";
             };
             if (on) {
-                el.style.display = 'inline-block';
+                el.style.display = "inline-block";
             }
 
         };
