@@ -48,7 +48,7 @@ if (isset($_SESSION['id'])) {
                 "gradz"   => $row["gradz"],
             );
         }
-        // echo print_r($projects);
+        echo print_r($projects);
     }
 
     $icons = [];
@@ -338,7 +338,6 @@ function phpAlert($msg) {
                     }
                     ?>
                 </div>
-                <br>
                 <button type="button" name="add_project" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addProject();">+</button>
                 <br>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
