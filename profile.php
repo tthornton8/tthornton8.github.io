@@ -476,7 +476,7 @@ function phpAlert($msg) {
         window.toggleVis = function(elid) {
             var el = document.getElementById(elid);
             var dd = document.getElementsByClassName("dropdown-content");
-            if (el.style.display == "none" or el.style.display == "") {
+            if (el.style.display == "none" || el.style.display == "") {
                 on = true;
             } else {
                 on = false;
