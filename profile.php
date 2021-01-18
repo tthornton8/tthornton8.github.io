@@ -313,6 +313,7 @@ function phpAlert($msg) {
 
                 <div class = "_projects_section" id = "_projects_section">
                     <?php
+                    echo print_r($projects);
                     $i = 1;
                     $j = 0;
                     foreach ($projects as &$row) {
@@ -330,7 +331,6 @@ function phpAlert($msg) {
                             echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
                         }
                         echo "</div>";
-                        echo print_r($row);
                         echo "<div onclick = \"editProject(".$row['ID'].",`".$row['details']."`,".$row['icon'].");\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
 
                         $i += 1;
