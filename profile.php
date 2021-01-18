@@ -183,7 +183,7 @@ function phpAlert($msg) {
 
         <div class = "_prof_section _head">
             <img src="<?php echo "img.php?id={$id}"; ?>" alt="Profile Picture" class = "pp">
-            <h1><?php echo $name; ?> <div onclick="editWindow();" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div> </h1>
+            <h1><?php echo $name; ?> <div onclick="document.getElementById('editWindow').style.display = 'block';" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div> </h1>
             <hr>
             <div class = "_head_desc">
                 <h2><?php echo $degree; ?></h2>
