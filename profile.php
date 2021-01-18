@@ -51,8 +51,14 @@ if (isset($_SESSION['id'])) {
         // echo print_r($projects);
     }
 
+    $icons = [];
     $sql = "SELECT * FROM icon";
-    $icons = $conn->query($sql);
+    $result = $conn->query($sql);
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $icons[] = $row;
+        }
+    }
 
 } else {
     $logged_in = 'false';
@@ -285,11 +291,11 @@ function phpAlert($msg) {
                             
                             echo "<button onclick = \"toggleVis('dropdown-content_skills_$j');\" class=\"dropbtn\" type=\"button\" id = \"dropbtn_$j\"><img src = icon.php?id=".$row['icon']." width = '25px', height = '25px'></button>";
                             echo "<div class=\"dropdown-content\" id = \"dropdown-content_skills_$j\">";
-                            while ($row = $icons->fetch_assoc()) {
-                                $img_tag = "<img src = icon.php?id=".$row['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
-                                $img_tag_large = "<img src = icon.php?id=".$row['ID']." width = '25px', height = '25px'>";
-                                $onclick = "\" document.getElementById('skills[$j][icon]').value = '".$row['ID']."'; document.getElementById('dropbtn_$j').innerHTML = `$img_tag_large`; toggleVis('dropdown-content_skills_$j');\"";
-                                echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$row['ID']."\">".$img_tag.$row['descrip']."</a>\n";
+                            foreach ($icons as &$irow) {
+                                $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
+                                $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>";
+                                $onclick = "\" document.getElementById('skills[$j][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_$j').innerHTML = `$img_tag_large`; toggleVis('dropdown-content_skills_$j');\"";
+                                echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
                             }
                             echo "</div>";
 
