@@ -186,8 +186,7 @@ function phpAlert($msg) {
 
         <div class = "_prof_section _about">
             <h2>About</h2>
-            <p><?php echo $about; 
-            echo print_r($projects);?></p>
+            <p><?php echo $about; ?></p>
         </div>
         <div class = "_prof_section _skills">
             <h2 style = "grid-row: 1">Top Skills</h2>
@@ -203,7 +202,7 @@ function phpAlert($msg) {
             <?php
                 foreach ($projects as &$prow) {
                     echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$prow['details']."')\">".$prow['name'];
-                    echo print_r($prow);
+                    // echo print_r($prow);
                     if ($prow['gradz']) {
                         echo "\n<span class = \"_gradz_project\">with the gradz</span>";
                     }
