@@ -305,7 +305,7 @@ function phpAlert($msg) {
 
                 <div class = "_projects_section" id = "_projects_section">
                     <?php
-                    echo print_r($projects);
+                    // echo print_r($projects);
                     $i = 1;
                     $j = 0;
                     foreach ($projects as &$row) {
