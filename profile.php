@@ -210,7 +210,7 @@ function phpAlert($msg) {
             <?php
                 foreach ($projects as &$prow) {
                     echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$prow['details']."')\">".$prow['name'];
-                    // echo print_r($row);
+                    echo print_r($prow);
                     if ($prow['gradz']) {
                         echo "\n<span class = \"_gradz_project\">with the gradz</span>";
                     }
