@@ -38,17 +38,9 @@ if (isset($_SESSION['id'])) {
     $result = $conn->query($sql);
     if ($result) {
         while ($row = $result->fetch_assoc()) {
-            $projects[] = array (
-                "ID"      => $row["ID"],
-                "name"    => $row["name"],
-                "company" => $row["company"],
-                "details" => $row["details"],
-                "icon"    => $row["icon"],
-                "summary" => $row["summary"],
-                "gradz"   => $row["gradz"],
-            );
+            $projects[] = $row;
         }
-        // echo print_r($projects);
+        echo print_r($projects);
     }
 
     $icons = [];
