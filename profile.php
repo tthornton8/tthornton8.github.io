@@ -208,14 +208,14 @@ function phpAlert($msg) {
             <!-- <hr style = "grid-column: 1/5; grid-row: 3"> -->
             <h2 style = "grid-row: 4">Top Projects</h2>
             <?php
-                foreach ($projects as &$row) {
-                    echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$row['details']."')\">".$row['name'];
+                foreach ($projects as &$prow) {
+                    echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$prow['details']."')\">".$prow['name'];
                     // echo print_r($row);
-                    if ($row['gradz']) {
+                    if ($prow['gradz']) {
                         echo "\n<span class = \"_gradz_project\">with the gradz</span>";
                     }
-                    echo "\n<img src = icon.php?id=".$row["icon"]." alt = \"icon\">";
-                    echo "\n<p>".$row['summary']."</p></div>";
+                    echo "\n<img src = icon.php?id=".$prow["icon"]." alt = \"icon\">";
+                    echo "\n<p>".$prow['summary']."</p></div>";
                 }
             ?>
 
