@@ -40,7 +40,7 @@ if (isset($_SESSION['id'])) {
         while ($row = $result->fetch_assoc()) {
             $projects[] = $row;
         }
-        echo print_r($projects);
+        
     }
 
     $icons = [];
@@ -186,7 +186,8 @@ function phpAlert($msg) {
 
         <div class = "_prof_section _about">
             <h2>About</h2>
-            <p><?php echo $about; ?></p>
+            <p><?php echo $about; 
+            echo print_r($projects);?></p>
         </div>
         <div class = "_prof_section _skills">
             <h2 style = "grid-row: 1">Top Skills</h2>
