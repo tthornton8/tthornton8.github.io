@@ -465,7 +465,7 @@ function phpAlert($msg) {
             var mce = document.getElementById("tinymce");
             box.value = id;
 
-            document.getElementById('dropbtn').innerHTML = "<img src = icon.php?id=" + img + " width = '25px', height = '25px'>";
+            //document.getElementById('dropbtn').innerHTML = "<img src = icon.php?id=" + img + " width = '25px', height = '25px'>";
 
             xmlhttp=new XMLHttpRequest();
             xmlhttp.open("GET", "project.php?id=" + detail, false);
