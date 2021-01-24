@@ -390,13 +390,13 @@ function phpAlert($msg) {
 
                         <?php
                         foreach ($icons as &$irow) {
-                            $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>\n";
-                            $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>\n";
-                            $onclick = "\" document.getElementById('projects[\${i}][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_projects\${i}').innerHTML = \`$img_tag_large\`; toggleVis('dropdown-content_projects_\${i}');\"\n";
-                            echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_\${i}_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
+                            $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
+                            $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>";
+                            $onclick = "\" document.getElementById('projects[\${i}][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_projects\${i}').innerHTML = \`$img_tag_large\`; toggleVis('dropdown-content_projects_\${i}');\"";
+                            echo "\t\t\t\t\t\t<a onclick = $onclick id = \"icon_\${i}_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
                         }
                         ?>
-                        
+
                         </div>
                     `);
                     for (let item of els) {
