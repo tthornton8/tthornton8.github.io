@@ -96,7 +96,11 @@ if (isset($_POST['submit'])) {
 
             foreach ($projects as &$row) {
                 if ($row["name"]) {
-                    $sql = "UPDATE project SET name = '".htmlspecialchars($conn->real_escape_string($row["name"]))."', icon = '".htmlspecialchars($conn->real_escape_string($row["icon"]))."' WHERE ID = ".$conn->real_escape_string($row['ID']).";";
+                    if ($row['ID'] == 'NEW') {
+                        $sql = "INSERT INTO project (user_id, name, icon) VALUES (".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row["name"]))."', '".htmlspecialchars($conn->real_escape_string($row["icon"]))."')";
+                    } else {
+                        $sql = "UPDATE project SET name = '".htmlspecialchars($conn->real_escape_string($row["name"]))."', icon = '".htmlspecialchars($conn->real_escape_string($row["icon"]))."' WHERE ID = ".$conn->real_escape_string($row['ID']).";";
+                    }
                     $result = $conn->query($sql);
                     //echo $sql;
                 }
@@ -124,13 +128,14 @@ if (isset($_POST['submit'])) {
             fwrite($f, $text);
             fclose($f);
 
-            $sql = "UPDATE project SET\n";
-            $sql .= "details = '".$conn->real_escape_string($proj_file_id)."'\n";
-            $sql .= ", summary = '".htmlspecialchars($conn->real_escape_string($summary))."'\n";
-            if ($icondropdown) {
-                $sql .= ", icon = '".$conn->real_escape_string($icondropdown)."'\n";
+            if ($project == 'NEW') {
+                $sql = "INSERT INTO project (user_id, name, details, summary, icon) VALUES (".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($proj_name))."', '".$conn->real_escape_string($proj_file_id)."', '".htmlspecialchars($conn->real_escape_string($summary))."', ".htmlspecialchars($conn->real_escape_string($proj_icon)).");";
+            } else {
+                $sql = "UPDATE project SET\n";
+                $sql .= "details = '".$conn->real_escape_string($proj_file_id)."'\n";
+                $sql .= ", summary = '".htmlspecialchars($conn->real_escape_string($summary))."'\n";
+                $sql .= "WHERE ID = $project;";
             }
-            $sql .= "WHERE ID = $project;";
 
             // echo $sql;
             $result = $conn->query($sql);
@@ -422,6 +427,8 @@ function phpAlert($msg) {
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" id = "projectEdit" style = 'padding:1em;'>
                 <input type="hidden" name="action" value="edit_project">
                 <input type="hidden" name="project" value="" id = "projectID">
+                <input type="hidden" name="proj_name" value="" id = "proj_name">
+                <input type="hidden" name="proj_icon" value="" id = "proj_icon">
                 <br>
                 <label class="w3-text" style = "color: #0072B5;" for="summary">Project Summary</label>
                 <textarea id = "summary" name = "summary" class="w3-input w3-border w3-light-grey">
@@ -486,13 +493,18 @@ function phpAlert($msg) {
             return html
         };
 
-        function editProject(id, detail, img) {
+        function editProject(id, detail, name, icon) {
+            name = name || '';
+            icon = icon || '';
+
             modal2.style.display = "block";
             var box = document.getElementById("projectID");
             var mce = document.getElementById("tinymce");
             box.value = id;
 
             //document.getElementById('dropbtn').innerHTML = "<img src = icon.php?id=" + img + " width = '25px', height = '25px'>";
+            document.getElementById('proj_name').value = name;
+            document.getElementById('proj_icon').value = icon;
 
             xmlhttp=new XMLHttpRequest();
             xmlhttp.open("GET", "project.php?id=" + detail, false);
