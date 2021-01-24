@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
 
             foreach ($projects as &$row) {
                 if ($row["name"]) {
-                    $sql = "UPDATE project (name, icon) VALUES ('".htmlspecialchars($conn->real_escape_string($row["name"]))."', '".htmlspecialchars($conn->real_escape_string($row["icon"]))."') WHERE ID = ".$conn->real_escape_string($row['ID']).";";
+                    $sql = "UPDATE project SET name = '".htmlspecialchars($conn->real_escape_string($row["name"]))."', icon = '".htmlspecialchars($conn->real_escape_string($row["icon"]))."' WHERE ID = ".$conn->real_escape_string($row['ID']).";";
                     $result = $conn->query($sql);
                     echo $sql;
                 }
