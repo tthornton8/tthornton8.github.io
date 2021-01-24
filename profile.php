@@ -398,6 +398,7 @@ function phpAlert($msg) {
                         ?>
                     `);
                     for (let item of els) {
+                        console.log(item);
                         projects.appendChild(item);
                     }
                 };
