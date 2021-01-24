@@ -94,6 +94,14 @@ if (isset($_POST['submit'])) {
         
             // echo $sql;
             $result = $conn->query($sql);
+
+            foreach ($projects as &$row) {
+                if ($row["name"]) {
+                    $sql = "UPDATE project (name, icon) VALUES ('".htmlspecialchars($conn->real_escape_string($row["name"]))."', '".htmlspecialchars($conn->real_escape_string($row["icon"]))."') WHERE ID = ".$conn->real_escape_string($row['ID']).";";
+                    $result = $conn->query($sql);
+                    echo $sql;
+                }
+            }
             break;
 
         case "edit_project":
@@ -315,7 +323,8 @@ function phpAlert($msg) {
                         // echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div>";
                         echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"projects[$j][name]\">Project $i</label><br>\n";
                         echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"projects[$j][name]\" name=\"projects[$j][name]\" placeholder=\"Project \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
-                        echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"projects[$j][icon]\" name=\"projects[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
+                        echo "<input type=\"hidden\" id=\"projects[$j][icon]\" name=\"projects[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
+                        echo "<input type=\"hidden\" id=\"projects[$j][ID]\" name=\"projects[$j][ID]\" value = \"".htmlspecialchars($row["ID"])."\"/>\n\n";
 
                         echo "<button onclick = \"toggleVis('dropdown-content_projects_$j');\" class=\"dropbtn\" type=\"button\" id = \"dropbtn_projects$j\"><img src = icon.php?id=".$row['icon']." width = '25px', height = '25px'></button>";
                         echo "<div class=\"dropdown-content\" id = \"dropdown-content_projects_$j\">";
