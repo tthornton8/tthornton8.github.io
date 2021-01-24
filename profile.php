@@ -369,6 +369,32 @@ function phpAlert($msg) {
                         skills.appendChild(item);
                     }
                 };
+                function addProject() {
+                    var i = document.querySelectorAll('[id^="projects\["]').length/3;
+                    projects = document.getElementById("_projects_section");
+                    var els = createElementFromHTML(`
+                        <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="projects[${i}][name]">Project ${i+1}</label>
+                        <input type="text" class="w3-input w3-border w3-light-grey" id="projects[${i}][name]" name="projects[${i}][name]" placeholder="Project ${i+1}" value = ""/>
+                        <input type="hidden" class="w3-input w3-border w3-light-grey" id="projects[${i}][icon]" name="projects[${i}][icon]" placeholder="Project ${i+1}" value = ""/>
+                        <input type="hidden" id="projects[${i}][ID]" name="projects[${i}][ID]" value="NEW">
+
+                        <?php
+                        echo "<button onclick = \"toggleVis('dropdown-content_projects_\${i}');\" class=\"dropbtn\" type=\"button\" id = \"dropbtn_projects\${i}\"><img src = icon.php?id=0 width = '25px', height = '25px'></button>";
+                        echo "<div class=\"dropdown-content\" id = \"dropdown-content_projects_\${i}\">";
+                        foreach ($icons as &$irow) {
+                            $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
+                            $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>";
+                            $onclick = "\" document.getElementById('projects[\${i}][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_projects\${i}').innerHTML = `$img_tag_large`; toggleVis('dropdown-content_projects_\${i}');\"";
+                            echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_\${i}_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
+                        }
+                        echo "</div>";
+                        echo "<div onclick = \"editProject('NEW',``,0);\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
+                        ?>
+                    `);
+                    for (let item of els) {
+                        projects.appendChild(item);
+                    }
+                };
 
                 function createElementFromHTML(htmlString) {
                     var div = document.createElement('div');
