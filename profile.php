@@ -62,6 +62,7 @@ if (isset($_POST['submit'])) {
     extract($_POST);
     switch ($action) {
         case "edit_main":
+            echo "edit main";
             require_once('upload_img.php');
  
             $sql =  "UPDATE user\n";
