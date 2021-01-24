@@ -58,11 +58,10 @@ if (isset($_SESSION['id'])) {
 }
 
 if (isset($_POST['submit'])) {
- 
     extract($_POST);
     switch ($action) {
         case "edit_main":
-            echo "edit main";
+            //echo "edit main";
             require_once('upload_img.php');
  
             $sql =  "UPDATE user\n";
@@ -99,13 +98,23 @@ if (isset($_POST['submit'])) {
                 if ($row["name"]) {
                     $sql = "UPDATE project SET name = '".htmlspecialchars($conn->real_escape_string($row["name"]))."', icon = '".htmlspecialchars($conn->real_escape_string($row["icon"]))."' WHERE ID = ".$conn->real_escape_string($row['ID']).";";
                     $result = $conn->query($sql);
-                    echo $sql;
+                    //echo $sql;
                 }
+            }
+
+            $projects = [];
+            $sql = "SELECT * FROM project WHERE user_ID = ".$conn->real_escape_string($id);
+            $result = $conn->query($sql);
+            if ($result) {
+                while ($row = $result->fetch_assoc()) {
+                    $projects[] = $row;
+                }
+                
             }
             break;
 
         case "edit_project":
-            echo 'Edit Project';
+            //echo 'Edit Project';
             $allowedTags='<p><strong><em><u><h1><h2><h3><h4><h5><h6><img>';
             $allowedTags.='<li><ol><ul><span><div><br><ins><del>'; 
             $text = strip_tags(stripslashes($detail),$allowedTags);
@@ -211,7 +220,7 @@ function phpAlert($msg) {
             <h2 style = "grid-row: 4">Top Projects</h2>
             <?php
                 foreach ($projects as &$prow) {
-                    echo print_r($projects);
+                    //echo print_r($projects);
                     echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$prow['details']."')\">".$prow['name'];
                     // echo print_r($prow);
                     if ($prow['gradz']) {
