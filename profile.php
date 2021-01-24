@@ -351,6 +351,7 @@ function phpAlert($msg) {
                     }
                     ?>
                 </div>
+                <br>
                 <button type="button" name="add_project" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addProject();">+</button>
                 <br>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
@@ -380,6 +381,7 @@ function phpAlert($msg) {
 
                         <?php
                         echo "<button onclick = \"toggleVis('dropdown-content_projects_\${i}');\" class=\"dropbtn\" type=\"button\" id = \"dropbtn_projects\${i}\"><img src = icon.php?id=0 width = '25px', height = '25px'></button>\n";
+                        echo "<div onclick = \"editProject('NEW','',0);\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
                         echo "<div class=\"dropdown-content\" id = \"dropdown-content_projects_\${i}\">\n";
                         foreach ($icons as &$irow) {
                             $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>\n";
@@ -387,8 +389,7 @@ function phpAlert($msg) {
                             $onclick = "\" document.getElementById('projects[\${i}][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_projects\${i}').innerHTML = \`$img_tag_large\`; toggleVis('dropdown-content_projects_\${i}');\"\n";
                             echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_\${i}_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
                         }
-                        echo "</div>\n";
-                        echo "<div onclick = \"editProject('NEW','',0);\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
+                        echo "</div>";
                         ?>
                     `);
                     for (let item of els) {
