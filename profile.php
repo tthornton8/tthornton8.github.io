@@ -201,6 +201,7 @@ function phpAlert($msg) {
             <h2 style = "grid-row: 4">Top Projects</h2>
             <?php
                 foreach ($projects as &$prow) {
+                    echo $prow['details'];
                     echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$prow['details']."')\">".$prow['name'];
                     // echo print_r($prow);
                     if ($prow['gradz']) {
