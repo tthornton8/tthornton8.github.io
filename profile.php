@@ -380,7 +380,8 @@ function phpAlert($msg) {
                     projects = document.getElementById("_projects_section");
                     var els = createElementFromHTML(`
                         <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="projects[${i}][name]">Project ${i+1}</label>
-                        <input type="text" class="w3-input w3-border w3-light-grey" id="projects[${i}][name]" name="projects[${i}][name]" placeholder="Project ${i+1}" value = ""/>
+                        <br>
+                        <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="projects[${i}][name]" name="projects[${i}][name]" placeholder="Project ${i+1}" value = ""/>
 
                         <button onclick = "toggleVis('dropdown-content_projects_${i}');" class="dropbtn" type="button" id = "dropbtn_projects${i}"><img src = icon.php?id=0 width = '25px', height = '25px'></button>
                         <div onclick = "editProject('NEW','',0);" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div>
