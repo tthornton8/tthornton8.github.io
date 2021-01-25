@@ -370,6 +370,18 @@ function phpAlert($msg) {
                         <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="skills[${i}][name]">Skill ${i+1}</label>
                         <input type="text" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill ${i+1}" value = ""/>
                         <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill ${i+1}" value = ""/>
+
+                        <button onclick = "toggleVis('dropdown-content_skills_${i}');" class="dropbtn" type="button" id = "dropbtn_skills${i}"><img src = icon.php?id=0 width = '25px', height = '25px'></button>
+                        <div class="dropdown-content" id = "dropdown-content_skills_${i}">
+                            <?php
+                            foreach ($icons as &$irow) {
+                                $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
+                                $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>";
+                                $onclick = "\" document.getElementById('skills[\${i}][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_skills\${i}').innerHTML = \`$img_tag_large\`; toggleVis('dropdown-content_skills_\${i}');\"";
+                                echo "\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_\${i}_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
+                            }
+                            ?>
+                        </div>
                     `);
                     for (let item of els) {
                         skills.appendChild(item);
@@ -382,24 +394,22 @@ function phpAlert($msg) {
                         <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="projects[${i}][name]">Project ${i+1}</label>
                         <br>
                         <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="projects[${i}][name]" name="projects[${i}][name]" placeholder="Project ${i+1}" value = ""/>
+                        <input type="hidden" class="w3-input w3-border w3-light-grey" id="projects[${i}][icon]" name="projects[${i}][icon]" placeholder="Project ${i+1}" value = ""/>
+                        <input type="hidden" id="projects[${i}][ID]" name="projects[${i}][ID]" value="NEW">
 
                         <button onclick = "toggleVis('dropdown-content_projects_${i}');" class="dropbtn" type="button" id = "dropbtn_projects${i}"><img src = icon.php?id=0 width = '25px', height = '25px'></button>
                         <div onclick = "editProject('NEW','',0);" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div>
                         <br>
                         <div class="dropdown-content" id = "dropdown-content_projects_${i}">
-
-                        <?php
-                        foreach ($icons as &$irow) {
-                            $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
-                            $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>";
-                            $onclick = "\" document.getElementById('projects[\${i}][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_projects\${i}').innerHTML = \`$img_tag_large\`; toggleVis('dropdown-content_projects_\${i}');\"";
-                            echo "\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_\${i}_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
-                        }
-                        ?>
-
+                            <?php
+                            foreach ($icons as &$irow) {
+                                $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
+                                $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>";
+                                $onclick = "\" document.getElementById('projects[\${i}][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_projects\${i}').innerHTML = \`$img_tag_large\`; toggleVis('dropdown-content_projects_\${i}');\"";
+                                echo "\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_\${i}_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
+                            }
+                            ?>
                         </div>
-                        <input type="hidden" class="w3-input w3-border w3-light-grey" id="projects[${i}][icon]" name="projects[${i}][icon]" placeholder="Project ${i+1}" value = ""/>
-                        <input type="hidden" id="projects[${i}][ID]" name="projects[${i}][ID]" value="NEW">
                         <br>
                     `);
                     for (let item of els) {
