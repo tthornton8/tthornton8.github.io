@@ -625,6 +625,17 @@ a.button_company:hover {
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 1100px) {
+  ._top_scroll {
+    grid-template-areas:
+        'login'
+        'logo'
+        'bar';
+  }
+
+  ._top_scroll ._heading p {
+    display: none
+  }
+
   ._top_scroll ._nav.responsive {position: relative;}
   ._top_scroll ._nav.responsive a.icon {
     position: absolute;
@@ -673,6 +684,10 @@ a.button_company:hover {
     padding: 8px 16px;
     text-decoration: none;
   }
+
+  ._top_scroll ._login {
+    height: 2.5rem;
+    justify-content: center;
 }
 
 #_table1 {
@@ -884,6 +899,40 @@ a.button_company:hover {
 }
 
 @media screen and (max-width: 850px) {
+  ._top {
+    grid-template-areas: 
+    'login'
+    'logo'
+    'bar';
+  }
+  ._top ._login {
+    height: 2.5rem;
+    display:block;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-bottom: 0;
+    clip-path: inset(-100px -100px 0px -100px);
+  }
+
+  ._top ._heading {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 0;
+    clip-path: inset(0px -100px -100px -100px);
+    grid-template-areas:
+        'name'
+        'text';
+  }
+
+  ._heading h1, ._heading p {
+    justify-content: center;
+    text-align: center;
+  }
+
+  ._heading p {
+    padding-bottom: 10px;
+  }
+
   ._sc_grid {
     display: grid;
     grid-auto-rows: 1fr 20px 1fr;
@@ -925,6 +974,11 @@ a.button_company:hover {
 }
 
 @media screen and (max-width: 665px) {
+    ._top_scroll ._heading p br {
+    font-size: 100px;
+    line-height: 200%;
+  }
+
   ._boxgrid {
     grid-template-areas: 
       'sk1'
