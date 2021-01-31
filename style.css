@@ -904,7 +904,9 @@ a.button_company:hover {
     'login'
     'logo'
     'bar';
+    height: auto
   }
+
   ._top ._login {
     height: 2.5rem;
     display:block;
@@ -922,6 +924,7 @@ a.button_company:hover {
     grid-template-areas:
         'name'
         'text';
+    height: auto
   }
 
   ._heading h1, ._heading p {
