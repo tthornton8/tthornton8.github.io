@@ -899,6 +899,11 @@ a.button_company:hover {
 }
 
 @media screen and (max-width: 850px) {
+  ._content {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+  
   ._top {
     grid-template-areas: 
     'login'
