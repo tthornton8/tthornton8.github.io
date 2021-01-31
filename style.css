@@ -908,23 +908,22 @@ a.button_company:hover {
   }
 
   ._top ._login {
-    height: 2.5rem;
+    height: 1.8rem;
     display:block;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     margin-bottom: 0;
     clip-path: inset(-100px -100px 0px -100px);
   }
 
   ._top ._heading {
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin: 1rem;
     margin-top: 0;
     clip-path: inset(0px -100px -100px -100px);
     grid-template-areas:
         'name'
         'text';
-    height: auto
+    height: auto;
   }
 
   ._heading h1, ._heading p {
