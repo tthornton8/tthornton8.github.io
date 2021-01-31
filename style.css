@@ -150,6 +150,7 @@ body {
   grid-area: logo;
   box-shadow: none;
   margin: auto;
+  height: auto;
 }
 
 ._top_scroll ._heading p {
@@ -383,7 +384,7 @@ a.button_company:hover {
 
 ._heading p{
   /* margin-top: 10px; */
-  margin-left: 4rem;
+  margin-left: 1rem;
   margin-top: 0px;
   font-size: 110%;
   color: grey;
@@ -759,7 +760,7 @@ a.button_company:hover {
 ._sc_grid_buttons {
   display: grid;
   grid-area: buttons;
-  justify-items: left;
+  align-items: right;
 }
 
 ._sc_student {
@@ -892,6 +893,13 @@ a.button_company:hover {
     background-position: 0% 40%;
   }
 
+  ._sc_grid_item {
+    align-items: center;
+    grid-template-areas: 
+    'title title buttons'
+    'text text buttons';
+  }
+
   ._sc_grid_title {
     font-size: 65px;
   }
@@ -940,22 +948,31 @@ a.button_company:hover {
 
   ._sc_grid_text {
     font-size: 18px;
-    justify-items: center;
-    justify-items: center;
+    text-align:center;
+    width: 100%;
   }
 
   a.button_intouch {
     margin: 20px;
     display: inline-block;
     width: 100px;
+    margin: 5px;
+    margin-top: 10px;
     padding: 0.5rem 0.5rem;
   }
 
   a.button_company {
     margin: 20px;
     display: inline-block;
-    width: 130px;
+    width: 110px;
+    margin: 5px;
+    margin-top: 10px;
     padding: 0.5rem 0.5rem;
+  }
+
+  a span {
+    float: right;
+    text-align: right;
   }
 
   ._sc_grid_item {
