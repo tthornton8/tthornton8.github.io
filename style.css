@@ -689,6 +689,7 @@ a.button_company:hover {
     height: 2.5rem;
     justify-content: center;
 }
+}
 
 #_table1 {
   width: 100%;
@@ -903,7 +904,6 @@ a.button_company:hover {
     margin-right: 1rem;
     margin-left: 1rem;
   }
-  
   ._top {
     grid-template-areas: 
     'login'
