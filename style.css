@@ -288,7 +288,7 @@ a.button_intouch {
   appearance: button;
   text-decoration: none;
 
-  display: inline-block;
+  display: block;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   margin: 0.5rem 0.25rem;
@@ -313,7 +313,7 @@ a.button_company {
   appearance: button;
   text-decoration: none;
 
-  display: inline-block;
+  display: block;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   margin: 0.5rem 0.25rem;
@@ -860,6 +860,28 @@ a.button_company:hover {
 }
 
 
+@media screen and (max-width: 950px) {
+  ._row {
+    padding: 1em;
+  }
+
+  ._row h1 {
+    /* font-family: Helvetica, sans-serif; */
+    font-size: 225%;
+  }
+  
+  ._row p {
+    font-size: 23px;
+    line-height: 130%;
+  }
+
+  ._boxgrid {
+    grid-template-areas: 
+      'sk1 sk2'
+      'sk3 sk4';
+  }
+}
+
 @media screen and (max-width: 850px) {
   ._sc_grid {
     display: grid;
@@ -871,7 +893,7 @@ a.button_company:hover {
   }
 
   ._sc_grid_title {
-    font-size: 55px;
+    font-size: 65px;
   }
 
   ._sc_company {
@@ -889,28 +911,8 @@ a.button_company:hover {
     background-color: white;
   }
 
-  ._boxgrid {
-    grid-template-areas: 
-      'sk1 sk2'
-      'sk3 sk4';
-  }
-
   ._sc_grid_text {
-    font-size: 17px;
-  }
-
-  ._row {
-    padding: 1em;
-  }
-
-  ._row h1 {
-    /* font-family: Helvetica, sans-serif; */
-    font-size: 225%;
-  }
-  
-  ._row p {
-    font-size: 23px;
-    line-height: 130%;
+    font-size: 18px;
   }
 }
 
@@ -932,10 +934,38 @@ a.button_company:hover {
   }
 
   ._sc_grid_title {
-    font-size: 40px;
+    font-size: 50px;
+    justify-items: center;
   }
 
   ._sc_grid_text {
-    font-size: 16px;
+    font-size: 18px;
+    justify-items: center;
+    justify-items: center;
+  }
+
+  a.button_intouch {
+    margin: 20px;
+    display: inline-block;
+    width: 100px;
+    padding: 0.5rem 0.5rem;
+  }
+
+  a.button_company {
+    margin: 20px;
+    display: inline-block;
+    width: 130px;
+    padding: 0.5rem 0.5rem;
+  }
+
+  ._sc_grid_item {
+    grid-template-areas: 
+    'title'
+    'text'
+    'buttons';
+  }
+
+  ._sc_grid_buttons{
+    justify-items: center;
   }
 }
