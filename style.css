@@ -3,14 +3,20 @@ body {
 }
 
 ._top {
+  padding-top: 1rem;
   display: grid;
-  transition: 0.4s;
+  transition: all 0.4s ease-in;
   grid-template-areas:
-    'logo login'
-    'bar bar';
+    'logo bar login';
   /* grid-gap: 10px; */
   align-items: center;
   width: 100%;
+  margin-top: 0;
+  grid-gap: 0;
+  background-color: #316CB0;
+  text-align: center;
+  border: 7px solid #316CB0;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
 }
 
 /* ._top > div {
@@ -18,7 +24,7 @@ body {
 } */
 
 ._top ._nav {
-  transition: 0.4s;
+  transition: all 0.4s ease-in;
   overflow: hidden;
   margin-top: 0px;
   grid-area: bar;
@@ -29,17 +35,11 @@ body {
 }
 
 ._top ._nav ul {
-  transition: 0.4s;
+  transition: all 0.4s ease-in;
   border-radius: 0px;    
   list-style-type: none;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  background-color: #316CB0;
-  text-align: center;
-  font-size: 200%;
-  border: 7px solid #316CB0;
-  width: 100%;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
 }
 
 ._top ._nav li {
@@ -92,12 +92,8 @@ body {
 ._top ._login {
   display: grid;
   grid-area: login;
-  background-color: #F1F1F1B2;
-  height: 142px;
   margin-right: 3rem;
   margin-left: 0;
-  box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  clip-path: inset(-100px -100px -100px 0px);
   justify-items: right;
 }
 
@@ -119,155 +115,15 @@ body {
   width: auto;
   height: auto;
   background-color: #316CB000;
-  color: grey;
+  color: white;
   padding: 8px 16px;
   text-decoration: none;
 }
 
 ._top_scroll {
-  transition: 0.4s;
-  background-color: #316CB0F8;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  margin-left: 1rem;
-  margin-right: 1rem;
   position: sticky;
   top: 0;
-  display: grid;
-  grid-template-areas:
-    'login login'
-    'logo bar'
-    'blank bar';
-  justify-items: center;
-  align-items: center;
-  box-shadow:  0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
   z-index: 100;
-
-}
-
-._top_scroll ._heading {
-  transition: 0.0s;
-  grid-area: logo;
-  box-shadow: none;
-  margin: auto;
-  height: auto;
-}
-
-._top_scroll ._heading p {
-  color: white;
-  font-size: 100%;
-}
-
-._top_scroll ._heading h1 {
-  font-size: 350%;
-  background-color: white;
-  border-radius: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding-left: 7px;
-  width: 280px;
-}
-
-._top_scroll ._nav {
-  transition: 0.4s;
-  overflow: hidden;
-  margin-top: 0px;
-  grid-area: bar;
-  display: flex;            /* new */
-  align-items: center;      /* new */
-  justify-content: center;  /* new */
-  
-}
-
-._top_scroll ._nav ul {
-  /* border-radius: 0px;     */
-  list-style-type: none;
-  background-color: #ffffff00;
-  text-align: right;
-  font-size: 110%;
-  border: 7px solid #ffffff00;
-}
-
-._top_scroll ._nav li {
-  transition: 0.4s;
-  width: auto;
-  border-right: 1px solid #FFF;
-  background-color: #316CB000;
-  margin: 0px;
-  display: inline-block;
-}
-
-._top_scroll ._nav li:last-child {
-  border-right: none;
-  width:fit-content;
-}
-
-._top_scroll ._nav li:nth-child(6) {
-  border-right: none;
-  width:fit-content;
-}
-
-._top_scroll ._nav li:first-child {
-  width:fit-content;
-}
-
-._top_scroll ._nav li a {
-  transition: 0.4s;
-  transition: 0.6s background-color;
-  display: flex;
-  justify-content: center;
-  margin-left: 0px;
-  width: auto;
-  height: auto;
-  background-color: #316CB000;
-  color: white;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-._top_scroll ._nav li a:hover:not(.active) {
-  background-color: #8fb5e0F8;
-  color: white;
-}
-
-._top_scroll ._nav li a.active {
-  background-color: #8fb5e0F8;
-  color: white;
-}
-
-._top_scroll ._nav .icon {
-  display: none;
-}
-
-._top_scroll ._login {
-  display: grid;
-  grid-area: login;
-  background-color: #F1F1F100;
-  height: 20px;
-  margin-right: 3rem;
-  margin-left: 0rem;
-  justify-content: end;
-  justify-items: right;
-  color: white;
-  width: 100%;
-  
-}
-
-._top_scroll ._login ul {
-  margin-top: 10px;
-  list-style-type: none;
-  text-align: right;
-}
-
-._top_scroll ._login ul li {
-  display: inline-block;
-}
-
-._top_scroll ._login ul li a {
-  transition: 0.6s background-color;
-  color: white;
-  padding: 8px 16px;
-  text-decoration: none;
 }
 
 .sel_page{
@@ -347,26 +203,15 @@ a.button_company:hover {
 
 ._heading {
   grid-area: logo;
-  box-shadow: inset 0 0 0 1000px #F1F1F1B2, 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  clip-path: inset(-100px 0px -100px -100px);
-  margin-left: 3rem;
   margin-bottom: 1rem;
-  margin-top: 1rem;
-  margin-right: 0;
-  height: 142px;
-
-  display: grid;
-  grid-template-areas: 
-  'name login login login'
-  'text text text dummy'
 }
 
 ._heading h1{
   margin-top: 20px;
   margin-left: 1rem;
   font-family: 'Roboto', sans-serif;
-  font-size: 400%;
-  color: #008AFC;
+  font-size: 200%;
+  color: white;
   margin-bottom: 0px;
   margin-top: 0px;
 
@@ -386,7 +231,7 @@ a.button_company:hover {
   /* margin-top: 10px; */
   margin-left: 1rem;
   margin-top: 0px;
-  font-size: 110%;
+  font-size: 90%;
   color: grey;
 
   display: grid;
@@ -394,33 +239,59 @@ a.button_company:hover {
 }
 
 ._row {
-  margin-top: 1rem;
+  margin-top: 0;
   display: grid;
   grid-auto-rows: 50px auto auto auto;
-  box-shadow: inset 0 0 0 1000px #F1F1F1B2, 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  /* min-height: 555px; */
-  min-height: 450px;
-  color: rgb(125, 125, 125);
+  min-height: 550px;
   padding-left: 3rem;
 
-  background-image: url("img/homepage.png") ;
+  color: #1d2127;
+
+  background-image: url("bokeh.jpg") ;
   background-repeat: no-repeat;
-  background-position: right;
-  background-size: contain;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: 100% auto;
 }
 
 ._row div {
+  padding: 100px;
+  margin-top: 150px;
   display: grid;
-  width: min(850px, 60%);
+  width: 65%;
+  justify-self: center;
+  background-color: white;
+  height: 400px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 ._row h1 {
   font-size: 250%;
+  font-family: 'Montserrat Alternates', sans-serif;
+  text-align: center;
 }
 
 ._row p {
-  font-size: 25px;
-  line-height: 167%;
+  font-size: 18px;
+  line-height: 37px;
+  font-family: 'Noto Sans JP', sans-serif;
+  align-self: flex-start;
+  text-align: center;
+}
+
+._row button {
+  color: #FFFFFF;
+  background-color: #337ab7;
+  border-color: #337ab7;
+  width: 85px;
+  text-align: center;
+  vertical-align: middle;
+  justify-self:center;
+  border-radius: 0.125rem;
+  font-size: 0.875rem;
+  height: 2rem;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 ._col {
@@ -913,7 +784,6 @@ a.button_company:hover {
   }
 
   ._top ._login {
-    height: 1.8rem;
     display:block;
     margin-left: 1rem;
     margin-right: 1rem;

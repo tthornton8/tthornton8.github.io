@@ -27,6 +27,9 @@ if (isset($_SESSION['id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
     <script type="text/javascript" src="script.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
@@ -42,90 +45,91 @@ if (isset($_SESSION['id'])) {
         sel.style.background = "#8fb5e0";
     </script>
 
-    <div class = "_content">
+    <hr class = "_sep_bar" style = "margin-top: 0px;">
 
-        <hr class = "_sep_bar" style = "margin-top: 0px;">
+    <div class="_row">
+        <div>
+            <h1>Could we do it?</h1>
+            <p>Could we build a company out of graduates? <br/>
 
-        <div class="_row">
-            <div><h1>Why The Gradz?</h1></div>
-            <div><p style = " margin-top: 1em">Many students have part time jobs, jobs that give them an income but may not help in their development for future careers.</p></div>
-            <div><p>Companies are looking for that next talented graduate that is going to bring a fresh new angle and idea to their organisation.</p></div>
-            <div><p>So, why not bring them together in an environment that gives the student a platform to engage in part time work that is relevant to their studies? 
-                All whilst supporting career development and giving companies access to up and coming enthusiasm, skills, and fresh ideas.</p></div>
+            Could we...?.<br/>
+
+            Could we...?</p>
+            <button id = 'find-out'>Find out</button>
         </div>
-
-        <hr class = "_sep_bar">
-
-        <div class="_sc_grid">
-            <div class="_sc_grid_item _sc_student">
-                <div class = "_sc_grid_title">
-                    Students
-                </div>
-                <div class = "_sc_grid_text">
-                    Build and view your student profile. Add new skills and projects, ideas to promote yourself!
-                </div>
-                <div class = "_sc_grid_buttons">
-                    <span><a href = "signup_student.php" class="button_intouch">Sign up  <span>&#10095;</span></a>
-                    <a href = "login_student.php" class="button_intouch">Log in   <span>&#10095;</span></a></span>
-                </div>
-            </div>
-            <div class = "_sc_sep"></div>
-            <div class="_sc_grid_item _sc_company">
-                <div class = "_sc_grid_title">
-                    Companies
-                </div>
-                <div class = "_sc_grid_text">
-                    Upload new projects, build your company skills requirements and search for new and fresh talent
-                </div>
-                <div class = "_sc_grid_buttons">
-                    <span><a href = "profile.php" class="button_company">Get in touch  <span>&#10095;</span></a>
-                    <a href = "profile.php" class="button_company">Log in   <span>&#10095;</span></a></span>
-                </div>
-            </div>
-        </div>
-
-        <hr class = "_sep_bar">
-
-        <div class = "_boxgrid">
-            <div class = "sk1 sk" onclick="window.location = 'engineering.html'">
-                <h2 class = "_boxtitle">Engineering</h2>
-                <p class = "_boxitem">Engineering opportunities...</p>
-                <p class = "_boxarrow">&#10137;</p>
-                <p class = "sk_hover">I’m a paragraph. Double click here or click Edit Text to add some text of your own or to change the font. Tell your visitors a bit about your services.</p>
-            </div>
-            <div class = "sk2 sk" onclick="window.location = 'business.html'">
-                <h2 class = "_boxtitle">Business</h2>
-                <p class = "_boxitem">Business opportunities...</p>
-                <p class = "_boxarrow">&#10137;</p>
-                <p class = "sk_hover">I’m a paragraph. Double click here or click Edit Text to add some text of your own or to change the font. Tell your visitors a bit about your services.</p>
-            </div>
-            <div class = "sk3 sk" onclick="window.location = 'economics.html'">
-                <h2 class = "_boxtitle">Economics</h2>
-                <p class = "_boxitem">Economics opportunities...</p>
-                <p class = "_boxarrow">&#10137;</p>
-                <p class = "sk_hover">I’m a paragraph. Double click here or click Edit Text to add some text of your own or to change the font. Tell your visitors a bit about your services.</p>
-            </div>
-            <div class = "sk4 sk" onclick="window.location = 'natsci.html'">
-                <h2 class = "_boxtitle">Natural Sciences</h2>
-                <p class = "_boxitem">Natural Sciences opportunities...</p>
-                <p class = "_boxarrow">&#10137;</p>
-                <p class = "sk_hover">I’m a paragraph. Double click here or click Edit Text to add some text of your own or to change the font. Tell your visitors a bit about your services.</p>
-            </div>
-        </div>
-
-        <hr class = "_sep_bar">
-
-        <!-- <p>avertisments</p>
-
-        <hr class = "_sep_bar"> -->
-
-        <p style = "text-align: center;">
-            <img src="img/fb.png" alt="Students" width= 22px> &nbsp;
-            <img src="img/in.png" alt="Students" width= 22px> &nbsp;
-            <img src="img/tw.png" alt="Students" width= 22px> &nbsp; <br>
-            ©2020 by Gradz.
-        </p>
-        
     </div>
+
+    <hr class = "_sep_bar">
+
+    <div class="_sc_grid">
+        <div class="_sc_grid_item _sc_student">
+            <div class = "_sc_grid_title">
+                Students
+            </div>
+            <div class = "_sc_grid_text">
+                Build and view your student profile. Add new skills and projects, ideas to promote yourself!
+            </div>
+            <div class = "_sc_grid_buttons">
+                <span><a href = "signup_student.php" class="button_intouch">Sign up  <span>&#10095;</span></a>
+                <a href = "login_student.php" class="button_intouch">Log in   <span>&#10095;</span></a></span>
+            </div>
+        </div>
+        <div class = "_sc_sep"></div>
+        <div class="_sc_grid_item _sc_company">
+            <div class = "_sc_grid_title">
+                Companies
+            </div>
+            <div class = "_sc_grid_text">
+                Upload new projects, build your company skills requirements and search for new and fresh talent
+            </div>
+            <div class = "_sc_grid_buttons">
+                <span><a href = "profile.php" class="button_company">Get in touch  <span>&#10095;</span></a>
+                <a href = "profile.php" class="button_company">Log in   <span>&#10095;</span></a></span>
+            </div>
+        </div>
+    </div>
+
+    <hr class = "_sep_bar">
+
+    <div class = "_boxgrid">
+        <div class = "sk1 sk" onclick="window.location = 'engineering.html'">
+            <h2 class = "_boxtitle">Engineering</h2>
+            <p class = "_boxitem">Engineering opportunities...</p>
+            <p class = "_boxarrow">&#10137;</p>
+            <p class = "sk_hover">I’m a paragraph. Double click here or click Edit Text to add some text of your own or to change the font. Tell your visitors a bit about your services.</p>
+        </div>
+        <div class = "sk2 sk" onclick="window.location = 'business.html'">
+            <h2 class = "_boxtitle">Business</h2>
+            <p class = "_boxitem">Business opportunities...</p>
+            <p class = "_boxarrow">&#10137;</p>
+            <p class = "sk_hover">I’m a paragraph. Double click here or click Edit Text to add some text of your own or to change the font. Tell your visitors a bit about your services.</p>
+        </div>
+        <div class = "sk3 sk" onclick="window.location = 'economics.html'">
+            <h2 class = "_boxtitle">Economics</h2>
+            <p class = "_boxitem">Economics opportunities...</p>
+            <p class = "_boxarrow">&#10137;</p>
+            <p class = "sk_hover">I’m a paragraph. Double click here or click Edit Text to add some text of your own or to change the font. Tell your visitors a bit about your services.</p>
+        </div>
+        <div class = "sk4 sk" onclick="window.location = 'natsci.html'">
+            <h2 class = "_boxtitle">Natural Sciences</h2>
+            <p class = "_boxitem">Natural Sciences opportunities...</p>
+            <p class = "_boxarrow">&#10137;</p>
+            <p class = "sk_hover">I’m a paragraph. Double click here or click Edit Text to add some text of your own or to change the font. Tell your visitors a bit about your services.</p>
+        </div>
+    </div>
+
+    <hr class = "_sep_bar">
+
+    <!-- <p>avertisments</p>
+
+    <hr class = "_sep_bar"> -->
+
+    <p style = "text-align: center;">
+        <img src="img/fb.png" alt="Students" width= 22px> &nbsp;
+        <img src="img/in.png" alt="Students" width= 22px> &nbsp;
+        <img src="img/tw.png" alt="Students" width= 22px> &nbsp; <br>
+        ©2020 by Gradz.
+    </p>
+        
 </body>
 </html>

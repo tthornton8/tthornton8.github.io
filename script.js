@@ -26,15 +26,13 @@ window.onscroll = function () {
     var th = 0;
   }
 
-  if (window.scrollY > th){
+  if (window.scrollY > 150){
     // console.log(navBar.classList);
     navBar.classList.add("_top_scroll");
-    navBar.classList.remove("_top");
     var state = 1;
   } 
   else {
     // console.log(navBar.classList);
-    navBar.classList.add("_top");
     navBar.classList.remove("_top_scroll");
     var state = 0;
   }
