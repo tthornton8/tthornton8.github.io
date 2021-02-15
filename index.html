@@ -14,7 +14,7 @@ if (isset($_SESSION['id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-<title>Home | GradZ</title>
+<title>Home | Could We Do It</title>
 
 <head>
     <meta charset="utf-8">
@@ -45,16 +45,14 @@ if (isset($_SESSION['id'])) {
         sel.style.background = "#8fb5e0";
     </script>
 
-    <hr class = "_sep_bar" style = "margin-top: 0px;">
-
     <div class="_row">
         <div>
             <h1>Could we do it?</h1>
             <p>Could we build a company out of graduates? <br/>
 
-            Could we...?.<br/>
+            Could we become a hub for students to find rewarding work and development opportunities?.<br/>
 
-            Could we...?</p>
+            Could we provide companies a source of quality placement students and graduates?</p>
             <button id = 'find-out'>Find out</button>
         </div>
     </div>
@@ -62,31 +60,87 @@ if (isset($_SESSION['id'])) {
     <div class = "_4_boxes">
         <div>
             <img src="box1.png"/>
-            <h1>Test</h1>
-            <p>Test</p>
+            <h1>Feature One</h1>
+            <p>Adapt these three columns to fit your design need. To duplicate, delete or move columns, select the column and use the top icons to perform your action.</p>
         </div>
         <div>
             <img src="box2.png"/>
-            <h1>Test</h1>
-            <p>Test</p>
+            <h1>Feature Two</h1>
+            <p>Adapt these three columns to fit your design need. To duplicate, delete or move columns, select the column and use the top icons to perform your action.</p>
         </div>
         <div>
             <img src="box3.png"/>
-            <h1>Test</h1>
-            <p>Test</p>
+            <h1>Feature Three</h1>
+            <p>Adapt these three columns to fit your design need. To duplicate, delete or move columns, select the column and use the top icons to perform your action.</p>
         </div>
         <div>
             <img src="box1.png"/>
-            <h1>Test</h1>
-            <p>Test</p>
+            <h1>Feature Four</h1>
+            <p>Adapt these three columns to fit your design need. To duplicate, delete or move columns, select the column and use the top icons to perform your action.</p>
+        </div>
+    </div>
+
+    <div class = "_carousel_bg">
+        <div class = "_row" style = "height: fit-content; min-height: fit-content; margin-bottom: 120px">
+            <div style = "margin-top: 0;
+            padding: 25px;
+            height: fit-content; 
+            border-radius: 0;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;"><h1 style = "padding:0; margin:0; font-size: auto; font-family: 'Noto Sans JP', sans-serif;">Take a Look at Some of Our Students</h1></div>
+        </div>
+        <div id = "carousel">
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <div>
+                <div>
+                    <img src="cv.png"/>
+                </div>
+                <div>
+                    <img src="cv.png"/>
+                </div>
+                <div>
+                    <img src="cv.png"/>
+                </div>
+                <div>
+                    <img src="cv.png"/>
+                </div>
+                <div>
+                    <img src="cv.png"/>
+                </div>
+            </div>
+            <div style = "display:none">
+                <div>
+                    <img src="box2.png"/>
+                    <h1>Test</h1>
+                </div>
+                <div>
+                    <img src="box3.png"/>
+                    <h1>Test</h1>
+                </div>
+                <div>
+                    <img src="box1.png"/>
+                    <h1>Test</h1>
+                </div>
+                <div>
+                    <img src="box2.png"/>
+                    <h1>Test</h1>
+                </div>
+            </div>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div style="text-align:center; width:100%; display:flex; justify-content: center; padding-bottom: 1.25%">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
         </div>
     </div>
 
     <div class="_sc_grid">
         <div class="_sc_grid_item _sc_student">
+            <img src="graduate-icon-7833.png" width="350" alt="Graduate Icon Library" />
             <div class = "_sc_grid_title">
                 Students
             </div>
+            <hr/>
             <div class = "_sc_grid_text">
                 Build and view your student profile. Add new skills and projects, ideas to promote yourself!
             </div>
@@ -97,9 +151,11 @@ if (isset($_SESSION['id'])) {
         </div>
         <div class = "_sc_sep"></div>
         <div class="_sc_grid_item _sc_company">
+            <img src="skyscraper-icon-7197.png" width="350" alt="Drawing Skyscraper Vector" />
             <div class = "_sc_grid_title">
                 Companies
             </div>
+            <hr/>
             <div class = "_sc_grid_text">
                 Upload new projects, build your company skills requirements and search for new and fresh talent
             </div>
@@ -110,36 +166,36 @@ if (isset($_SESSION['id'])) {
         </div>
     </div>
 
-    <hr class = "_sep_bar">
-
     <div class = "_boxgrid">
         <div class = "sk1 sk" onclick="window.location = 'engineering.html'">
+            <img src = "icon_cog.png"/>
             <h2 class = "_boxtitle">Engineering</h2>
             <p class = "_boxitem">Engineering opportunities...</p>
             <p class = "_boxarrow">&#10137;</p>
             <p class = "sk_hover">I’m a paragraph. Double click here or click Edit Text to add some text of your own or to change the font. Tell your visitors a bit about your services.</p>
         </div>
         <div class = "sk2 sk" onclick="window.location = 'business.html'">
+            <img src = "icon_business.png"/>
             <h2 class = "_boxtitle">Business</h2>
             <p class = "_boxitem">Business opportunities...</p>
             <p class = "_boxarrow">&#10137;</p>
             <p class = "sk_hover">I’m a paragraph. Double click here or click Edit Text to add some text of your own or to change the font. Tell your visitors a bit about your services.</p>
         </div>
         <div class = "sk3 sk" onclick="window.location = 'economics.html'">
+            <img src = "incon_economics.png"/>
             <h2 class = "_boxtitle">Economics</h2>
             <p class = "_boxitem">Economics opportunities...</p>
             <p class = "_boxarrow">&#10137;</p>
             <p class = "sk_hover">I’m a paragraph. Double click here or click Edit Text to add some text of your own or to change the font. Tell your visitors a bit about your services.</p>
         </div>
         <div class = "sk4 sk" onclick="window.location = 'natsci.html'">
+            <img src = "icon_natsci.png"/>
             <h2 class = "_boxtitle">Natural Sciences</h2>
             <p class = "_boxitem">Natural Sciences opportunities...</p>
             <p class = "_boxarrow">&#10137;</p>
             <p class = "sk_hover">I’m a paragraph. Double click here or click Edit Text to add some text of your own or to change the font. Tell your visitors a bit about your services.</p>
         </div>
     </div>
-
-    <hr class = "_sep_bar">
 
     <!-- <p>avertisments</p>
 
