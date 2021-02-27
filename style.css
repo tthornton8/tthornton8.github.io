@@ -13,9 +13,10 @@ body {
   width: 100%;
   margin-top: 0;
   grid-gap: 0;
-  background-color: #316CB0;
+  background-color: #d21f3c;
+  /* #316CB0; */
   text-align: center;
-  border: 7px solid #316CB0;
+  border: 7px solid #d21f3c;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
 }
 
@@ -69,19 +70,19 @@ body {
   margin-left: 0px;
   width: auto;
   height: auto;
-  background-color: #316CB0;
+  background-color: #d21f3c;
   color: white;
   padding: 8px 16px;
   text-decoration: none;
 }
 
 ._top ._nav li a:hover:not(.active) {
-  background-color: #8fb5e0;
+  background-color: #ff4261;
   color: white;
 }
 
 ._top ._nav li a.active {
-  background-color: #8fb5e0;
+  background-color: #ff4261;
   color: white;
 }
 
@@ -127,7 +128,7 @@ body {
 }
 
 .sel_page{
-  background-color: #8fb5e0
+  background-color: #eb96af
 }
 
 
@@ -242,28 +243,42 @@ a.button_company:hover {
   margin-top: 0;
   display: grid;
   grid-auto-rows: 50px auto auto auto;
-  min-height: 550px;
-  padding-left: 3rem;
+  /* min-height: 550px; */
+  /* padding-left: 3rem; */
 
   color: #1d2127;
 
-  background-image: url("bokeh.jpg") ;
+  /* background-color: white; */
+
+  background-image: url("bg_opp.jpg") ;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   background-size: 100% auto;
 }
 
+._row img {
+  background-color: #F7F7F7;
+  border-radius: 50%;
+  margin-top: 200px;
+  margin-left: 100px
+}
+
 ._row div {
-  padding: 100px;
-  margin-top: 150px;
+  padding: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 10px;
   display: grid;
-  width: 65%;
-  justify-self: center;
-  background-color: white;
-  height: 400px;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+  width: 55%;
+  justify-self: right;
+  margin-right:50px;
+  background-color:#F7F7F7;
+  /* height: 450px; */
+  margin-bottom: 50px;
+  border-radius: 5px;
+  /* border-top-right-radius: 5px;
+  border-top-left-radius: 5px; */
 }
 
 ._row h1 {
@@ -274,7 +289,7 @@ a.button_company:hover {
 
 ._row p {
   font-size: 18px;
-  line-height: 37px;
+  line-height: 30px;
   font-family: 'Noto Sans JP', sans-serif;
   align-self: flex-start;
   text-align: center;
@@ -282,16 +297,18 @@ a.button_company:hover {
 
 ._row button {
   color: #FFFFFF;
-  background-color: #337ab7;
-  border-color: #337ab7;
-  width: 85px;
+  background-color: #d21f3c;
+  border-color: #d21f3c;
+  width: 150px;
   text-align: center;
   vertical-align: middle;
   justify-self:center;
   border-radius: 0.125rem;
-  font-size: 0.875rem;
-  height: 2rem;
+  font-size: 1.5rem;
+  height: 3rem;
   font-family: 'Noto Sans JP', sans-serif;
+  border-radius: 5px;
+  margin-top: 13px;
 }
 
 ._col {
@@ -475,6 +492,7 @@ a.button_company:hover {
 }
 
 ._4_boxes div{
+  padding-top: 2.5%;
   background-color: white;
   border-radius: 3px;
 }
@@ -499,11 +517,13 @@ a.button_company:hover {
 }
 
 ._carousel_bg {
-  background-image: url("bokeh.jpg") ;
+  /* background-image: url("bokeh.jpg") ;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  background-size: 100% auto;
+  background-size: 100% auto; */
+  background-color: #F7F7F7;
+  /* border-top: 3px solid black; */
 }
 
 #carousel {
@@ -527,6 +547,7 @@ a.button_company:hover {
 
 #carousel div div{
   background-color: white;
+  margin: 10px;
   border-radius: 3px;
   border-right: 3px solid rgb(232, 232, 232);
 }
@@ -743,10 +764,12 @@ a.button_company:hover {
   background-repeat: no-repeat;
   background-position: 0% 40%; */
 
-  background-color: rgb(242, 242, 242);
-  margin-left: 17.5%;
-  margin-right: 17.5%;
-  margin-top: 25px;
+  background-color: WHITE;
+  /* rgb(242, 242, 242); */
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 2.5%;
+  padding-bottom: 2.5% ;
 }
 
 ._sc_grid_item {
@@ -776,7 +799,7 @@ a.button_company:hover {
 
 ._sc_sep {
   grid-area: 1 / 2 ;
-  background-color: white;
+  background-color:  #F7F7F7;
 }
 
 /* ._sc_grid_item:first-child {
