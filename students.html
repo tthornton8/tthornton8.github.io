@@ -48,7 +48,9 @@ if (isset($_SESSION['id'])) {
 
     <div class = "_main">
         <div class = "dd">
-            Dropdown menus
+            <h1>Skill Search</h1>
+            <br/>
+            <p>Needs restyling</p>
             <br/>
             <select>
                 <option value="0">Skill</option>
@@ -61,10 +63,10 @@ if (isset($_SESSION['id'])) {
 
             <select>
                 <option value="0">Location</option>
-                <option value="1">...</option>
-                <option value="2">...</option>
-                <option value="3">...</option>
-                <option value="4">...</option>
+                <option value="1">England</option>
+                <option value="2">Scotland</option>
+                <option value="3">Wales</option>
+                <option value="4">Northern Ireland</option>
             </select>
             <br/>
 
@@ -101,18 +103,89 @@ if (isset($_SESSION['id'])) {
                 <option value="2">2+</option>
                 <option value="3">3+</option>
                 <option value="4">4+</option>
-                <option value="4">5</option>
+                <option value="4">5 </option>
             </select>
             <br/>
 
         </div>
         <div class = "chart">
-            Circular charts in this style
+            <h1>Students available</h1>
+            <br/>
+            <p>Chart in this style</p>
             <br/>
             <img src = "chart.png">
         </div>
         <div class = "st">
-            Carousel of student's meeting search profile. Expand option to view list or grid
+                <div id = "carousel" style = "margin-bottom: 0; padding-bottom: 0;">
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <div>
+                        <div>
+                            <h2>Joe Bloggs </h2>
+                            <img src = "avatar.png">
+                            <h3 style = "grid-area: r1"> Top Skills: </h3>
+                            <h4 style = "grid-area: r2"> Skill 1<br/>Skill 2<br/>Skill 3</h4>
+                            <h3 style = "grid-area: r3"> Top Projects: </h3>
+                            <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
+                        </div>
+                        <div>
+                            <h2>Joe Bloggs </h2>
+                            <img src = "avatar.png">
+                            <h3 style = "grid-area: r1"> Top Skills: </h3>
+                            <h4 style = "grid-area: r2"> Skill 1<br/>Skill 2<br/>Skill 3</h4>
+                            <h3 style = "grid-area: r3"> Top Projects: </h3>
+                            <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
+                        </div>
+                        <div>
+                            <h2>Joe Bloggs </h2>
+                            <img src = "avatar.png">
+                            <h3 style = "grid-area: r1"> Top Skills: </h3>
+                            <h4 style = "grid-area: r2"> Skill 1<br/>Skill 2<br/>Skill 3</h4>
+                            <h3 style = "grid-area: r3"> Top Projects: </h3>
+                            <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
+                        </div>
+                        <div>
+                            <h2>Joe Bloggs </h2>
+                            <img src = "avatar.png">
+                            <h3 style = "grid-area: r1"> Top Skills: </h3>
+                            <h4 style = "grid-area: r2"> Skill 1<br/>Skill 2<br/>Skill 3</h4>
+                            <h3 style = "grid-area: r3"> Top Projects: </h3>
+                            <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
+                        </div>
+                        <div>
+                            <h2>Joe Bloggs </h2>
+                            <img src = "avatar.png">
+                            <h3 style = "grid-area: r1"> Top Skills: </h3>
+                            <h4 style = "grid-area: r2"> Skill 1<br/>Skill 2<br/>Skill 3</h4>
+                            <h3 style = "grid-area: r3"> Top Projects: </h3>
+                            <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
+                        </div>
+                    </div>
+                    <div style = "display:none">
+                        <div>
+                            <img src="box2.png"/>
+                            <h1>Test</h1>
+                        </div>
+                        <div>
+                            <img src="box3.png"/>
+                            <h1>Test</h1>
+                        </div>
+                        <div>
+                            <img src="box1.png"/>
+                            <h1>Test</h1>
+                        </div>
+                        <div>
+                            <img src="box2.png"/>
+                            <h1>Test</h1>
+                        </div>
+                    </div>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <div style="text-align:center; width:100%; display:flex; justify-content: center; padding-bottom: 0; margin-top: 0; padding-top: 1%;">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+
         </div>
         <div class = "com">
             Students comments relating to the experience they are looking for
