@@ -16,6 +16,10 @@ body {
     grid-area: dd;
 }
 
+.dd select {
+    width: 175px;
+}
+
 .chart {
     grid-area: chart;
 }
