@@ -23,7 +23,7 @@ if (isset($_SESSION['id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-<li> giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="style.css" rel="stylesheet" type="text/css">
@@ -43,69 +43,73 @@ if (isset($_SESSION['id'])) {
     <script type="text/javascript" src="header.js"></script>
     <script>
         var sel = document.getElementById("students")
-        sel.style.background = "#ff4261";
+        sel.style.background = "var(--fadedCherry)";
     </script>
 
     <div class = "_main">
         <div class = "dd">
             <h1>Skill Search</h1>
-            <br/>
-            <p>Needs restyling</p>
-            <br/>
-            <select>
-                <option value="0">Skill</option>
-                <option value="1">...</option>
-                <option value="2">...</option>
-                <option value="3">...</option>
-                <option value="4">...</option>
-            </select>
-            <br/>
+            <ul>
+                <li> Skill
+                    <ul>
+                        <li>...</li>
+                        <li>...</li>
+                        <li>...</li>
+                        <li>...</li>
+                    </ul>
+                </li>
+                
 
-            <select>
-                <option value="0">Location</option>
-                <option value="1">England</option>
-                <option value="2">Scotland</option>
-                <option value="3">Wales</option>
-                <option value="4">Northern Ireland</option>
-            </select>
-            <br/>
+                <li> Location
+                    <ul>
+                        <li>England</li>
+                        <li>Scotland</li>
+                        <li>Wales</li>
+                        <li>Northern Ireland</li>
+                    </ul>
+                </li>
+                
 
-            <select>
-                <option value="0">University</option>
-                <option value="1">...</option>
-                <option value="2">...</option>
-                <option value="3">...</option>
-                <option value="4">...</option>
-            </select>
-            <br/>
+                <li> University
+                    <ul>
+                        <li>...</li>
+                        <li>...</li>
+                        <li>...</li>
+                        <li>...</li>
+                    </ul>
+                </li>
+                
 
-            <select>
-                <option value="0">Year of study</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-            <br/>
+                <li> Year of study
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                </li>
+                
 
-            <select>
-                <option value="0">Course</option>
-                <option value="1">...</option>
-                <option value="2">...</option>
-                <option value="3">...</option>
-                <option value="4">...</option>
-            </select>
-            <br/>
+                <li> Course
+                    <ul>
+                        <li>...</li>
+                        <li>...</li>
+                        <li>...</li>
+                        <li>...</li>
+                    </ul>
+                </li>
+                
 
-            <select>
-                <option value="0">Feedback rating</option>
-                <option value="1">1+</option>
-                <option value="2">2+</option>
-                <option value="3">3+</option>
-                <option value="4">4+</option>
-                <option value="4">5 </option>
-            </select>
-            <br/>
+                <li> Feedback rating
+                    <ul>
+                        <li>1+</li>
+                        <li>2+</li>
+                        <li>3+</li>
+                        <li>4+</li>
+                        <li>5 </li>
+                    </ul>
+                </li>
+            </li>
 
         </div>
         <div class = "chart">
@@ -203,16 +207,16 @@ if (isset($_SESSION['id'])) {
           /*for each element, create a new DIV that will act as the selected item:*/
           a = document.createElement("DIV");
           a.setAttribute("class", "select-selected");
-          a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+          a.innerHTML = selElmnt.li>[selElmnt.selectedIndex].innerHTML;
           x[i].appendChild(a);
-          /*for each element, create a new DIV that will contain the option list:*/
+          /*for each element, create a new DIV that will contain the li>list:*/
           b = document.createElement("DIV");
           b.setAttribute("class", "select-items select-hide");
           for (j = 1; j < ll; j++) {
-            /*for each option in the original select element,
-            create a new DIV that will act as an option item:*/
+            /*for each li>in the original select element,
+            create a new DIV that will act as an li>item:*/
             c = document.createElement("DIV");
-            c.innerHTML = selElmnt.options[j].innerHTML;
+            c.innerHTML = selElmnt.li>[j].innerHTML;
             c.addEventListener("click", function(e) {
                 /*when an item is clicked, update the original select box,
                 and the selected item:*/
@@ -221,7 +225,7 @@ if (isset($_SESSION['id'])) {
                 sl = s.length;
                 h = this.parentNode.previousSibling;
                 for (i = 0; i < sl; i++) {
-                  if (s.options[i].innerHTML == this.innerHTML) {
+                  if (s.li>[i].innerHTML == this.innerHTML) {
                     s.selectedIndex = i;
                     h.innerHTML = this.innerHTML;
                     y = this.parentNode.getElementsByClassName("same-as-selected");

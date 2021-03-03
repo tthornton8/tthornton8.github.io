@@ -2,6 +2,15 @@ body {
   font-family: Helvetica;
 }
 
+:root {
+  --darkCherry: #3F0141;
+  --fadedCherry: #612063;
+  --morefadedCherry: #876188;
+  --lightCherry: #A80000;
+  --fadedlightCherry: #d69292;
+  --lightCherryButton: #d21f3c;
+}
+
 ._top {
   padding-top: 1rem;
   display: grid;
@@ -13,10 +22,10 @@ body {
   width: 100%;
   margin-top: 0;
   grid-gap: 0;
-  background-color: #d21f3c;
+  background-color: var(--darkCherry);
   /* #316CB0; */
   text-align: center;
-  border: 7px solid #d21f3c;
+  border: 7px solid var(--darkCherry);
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
 }
 
@@ -70,19 +79,19 @@ body {
   margin-left: 0px;
   width: auto;
   height: auto;
-  background-color: #d21f3c;
+  background-color: var(--darkCherry);
   color: white;
   padding: 8px 16px;
   text-decoration: none;
 }
 
 ._top ._nav li a:hover:not(.active) {
-  background-color: #ff4261;
+  background-color: var(--fadedCherry);
   color: white;
 }
 
 ._top ._nav li a.active {
-  background-color: #ff4261;
+  background-color: var(--fadedCherry);
   color: white;
 }
 
@@ -128,7 +137,7 @@ body {
 }
 
 .sel_page{
-  background-color: #eb96af
+  background-color: var(--fadedCherry)
 }
 
 
@@ -297,8 +306,8 @@ a.button_company:hover {
 
 ._row button {
   color: #FFFFFF;
-  background-color: #d21f3c;
-  border-color: #d21f3c;
+  background-color: var(--lightCherryButton);
+  border-color: var(--lightCherryButton);
   width: 150px;
   text-align: center;
   vertical-align: middle;
