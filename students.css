@@ -17,6 +17,54 @@ body {
     grid-area: dd;
 }
 
+.dd input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.dd input:checked ~ span:after {
+    display: block;
+}
+
+.dd input:checked ~ span {
+    background-color: var(--darkCherry);
+}
+
+.dd span {
+    display: inline-block;
+    position: relative;
+    top: 4.5px;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    color: #eee;
+    border-radius: 3px;
+    line-height: 50px;
+    margin-right: 5px;
+}
+
+.dd span:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.dd span:after {
+    left: 6px;
+    top: 2px;
+    width: 8px;
+    height: 13px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    /* border-radius: 1px; */
+    -webkit-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    transform: rotate(40deg);
+  }
+
 .dd ul {
     color: white;
     list-style: none;
@@ -25,8 +73,9 @@ body {
     width: 200px;
 }
 
-.dd > ul > li > ul > li {
+.dd > ul > li > ul li {
     font-size: 80%;
+    /* padding-left: 3rem; */
 }
 
 .dd ul li {
@@ -53,10 +102,13 @@ body {
     background: var(--lightCherry);
 }
 
+.dd > ul > li > ul > label {
+    width: 200px;
+}
+
 .dd li:hover {
     cursor: pointer;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border-radius: 0px;
 }
 
 .dd > ul > li:hover::after {
@@ -96,6 +148,11 @@ body {
 .dd ul li ul li:hover {
     background: var(--fadedlightCherry);
 }
+
+/* .dd ul >  li > ul > label > li:hover span {
+    transition: all 0.2s ease;
+    background-color: #fff;
+} */
 
 
 .chart {
