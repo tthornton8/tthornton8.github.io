@@ -9,6 +9,7 @@ body {
   --lightCherry: #A80000;
   --fadedlightCherry: #d69292;
   --lightCherryButton: #d21f3c;
+  --fadedlightCherryButton: #ff9090;
 }
 
 ._top {
@@ -163,15 +164,16 @@ a.button_intouch {
   transition-duration: 0.3s;
 
   background-color: white;
-  color: #316CB0;
-  border-color: #316CB0;
+  color: var(--fadedCherry);
+  border-color: var(--fadedCherry);
   width: 125px;
   height: 2.5rem;
 }
 
 a.button_intouch:hover {
   color: white;
-  background-color: #316CB0;
+  background-color: var(--fadedCherry);
+   /* #316CB0; */
 }
 
 a.button_company {
@@ -188,7 +190,8 @@ a.button_company {
   transition-duration: 0.3s;
 
   background-color: white;
-  color: #ff9090;
+  color: var(--fadedlightCherryButton);
+  /* #ff9090; */
   border-color: #ff9090;
   width: 160px;
   height: 2.5rem;
@@ -196,7 +199,7 @@ a.button_company {
 
 a.button_company:hover {
   color: white;
-  background-color: #ff9090;
+  background-color:var(--fadedlightCherryButton);;
 }
 
 .button {
@@ -871,7 +874,8 @@ a.button_company:hover {
 
 ._sc_student {
   grid-area: 1 / 1 ;
-  background-color: #045184D9
+  background-color: var(--darkCherry);
+  /* #045184D9 */
 }
 
 ._sc_student ._scgrid_title {
@@ -880,7 +884,8 @@ a.button_company:hover {
 
 ._sc_company {
   grid-area: 1 / 3 ;
-  background-color: #E21C21A6
+  background-color: var(--lightCherryButton);
+   /* #E21C21A6 */
 }
 
 ._sc_company ._scgrid_title {
