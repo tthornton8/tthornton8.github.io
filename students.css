@@ -191,7 +191,7 @@ body {
     grid-area: com;
 }
 
-._main div {
+._main > div {
     padding: 20px;
     background-color:#F7F7F7;
     border-radius: 5px;

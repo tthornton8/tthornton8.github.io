@@ -359,23 +359,22 @@ a.button_company:hover {
   margin: 0 auto 10px auto;
   text-align: center;
   width: fit-content;
-  align-content: top;
   display: grid;
   grid-auto-columns:  1fr 1fr 1fr;
   place-items: center;
   grid-gap: 10px;
+  text-justify: center;
 }
 
-._student_counter  ._title {
+._student_counter ._title {
   grid-row: 1/1;
   background-color: white;
   border-radius: 5px;
   padding: 8px 16px 8px 16px;
-  width: fit-content;
   font-size: 200%;
   color: var(--fadedCherry);
   font-family: 'Montserrat Alternates', sans-serif;
-  /* margin: 0 0 10px 0; */
+  border: 3px solid var(--fadedCherry);
 }
 
 ._counter_el {
@@ -390,25 +389,21 @@ a.button_company:hover {
   width: 150px;
   height: 175px;
   margin-top: 0;
+  border: 3px solid var(--fadedCherry);
 }
 
 ._counter_el:first-child {
   margin-left: 0;
 }
 
-._circle_label {
-  
-}
-
 ._circle {
   position: relative;
-  font-weight: bold;
+  /* font-weight: bold; */
   background-color: var(--fadedCherry);
   width: 90px;
   height: 90px;
   border-radius: 50%;
   /* overflow: hidden; */
-  border: 0px solid white;
 }
 
 ._circle_inner {
