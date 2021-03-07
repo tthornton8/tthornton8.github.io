@@ -11,7 +11,7 @@ body {
   --fadedlightCherry: #d69292;
   --lightCherryButton: #d21f3c;
   --fadedlightCherryButton: #ff9090;
-  --radius: 90px;
+  --radius: 120px;
 }
 
 ._top {
@@ -256,7 +256,9 @@ a.button_company:hover {
 ._row {
   margin-top: 0;
   display: grid;
-  grid-auto-rows: 50px auto auto auto;
+  grid-auto-rows: auto auto auto;
+  grid-auto-columns: 45% 55%;
+  place-items: center;
   /* min-height: 550px; */
   /* padding-left: 3rem; */
 
@@ -271,24 +273,34 @@ a.button_company:hover {
   background-size: 100% auto;
 }
 
+.roll_bg {
+  background-image: url("bg_opp.jpg") ;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: 100% auto;
+}
+
 ._row img {
-  /* background-color: #F7F7F7;
-  border-radius: 50%; */
-  margin-top: 100px;
-  margin-left: 100px
+  grid-row: 1/1;
+  grid-column: 1/1;
+  /* margin-top: 100px; */
+  /* margin-left: 100px */
 }
 
 ._row .header_box {
+  grid-column: 2/2;
   padding: 50px;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 10px;
   display: grid;
-  width: 55%;
+  /* width: 55%; */
   justify-self: right;
   margin-right:50px;
   background-color:#F7F7F7;
-  /* height: 450px; */
+  border: 3px solid var(--fadedCherry);
+  
   margin-bottom: 50px;
   border-radius: 5px;
   /* border-top-right-radius: 5px;
@@ -302,6 +314,7 @@ a.button_company:hover {
   margin-top: 10px;
   background-color:#F7F7F7;
   margin-bottom: 50px;
+  
 }
 
 ._row h1 {
@@ -369,7 +382,9 @@ a.button_company:hover {
 
 ._student_counter ._title {
   grid-row: 1/1;
+  grid-column: 1/5;
   background-color: white;
+  margin: 0 auto;
   border-radius: 5px;
   padding: 8px 16px 8px 16px;
   font-size: 200%;
