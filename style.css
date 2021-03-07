@@ -11,6 +11,7 @@ body {
   --fadedlightCherry: #d69292;
   --lightCherryButton: #d21f3c;
   --fadedlightCherryButton: #ff9090;
+  --radius: 90px;
 }
 
 ._top {
@@ -386,8 +387,8 @@ a.button_company:hover {
   border-radius: 5px;
   font-size: 140%;
   color: var(--fadedCherry);
-  width: 150px;
-  height: 175px;
+  width: calc(var(--radius) + 50px);
+  height: calc(var(--radius) * 1.9);
   margin-top: 0;
   border: 3px solid var(--fadedCherry);
 }
@@ -400,8 +401,8 @@ a.button_company:hover {
   position: relative;
   /* font-weight: bold; */
   background-color: var(--fadedCherry);
-  width: 90px;
-  height: 90px;
+  width: var(--radius);
+  height: var(--radius);
   border-radius: 50%;
   /* overflow: hidden; */
 }
@@ -410,8 +411,8 @@ a.button_company:hover {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 80px;
-  height: 80px;
+  width: calc(var(--radius)*0.88);
+  height: calc(var(--radius)*0.88);
   background: white;
   transform: translateX(-50%) translateY(-50%);
   border-radius: 50%;
@@ -423,7 +424,7 @@ a.button_company:hover {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   font-weight: bold;
-  font-size: 150%;
+  font-size: calc(var(--radius)*0.4);
 }
 
 ._circle_prog {
@@ -441,6 +442,10 @@ a.button_company:hover {
   height: 100vw;
   background: var(--evenmorefadedCherry);
   transform-origin: 0 0;
+}
+
+._circle_label {
+  font-size: calc(var(--radius)*0.22);
 }
 
 /* .grid-container {

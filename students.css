@@ -2,6 +2,10 @@ body {
     background-color: white;
 }
 
+:root {
+    --radius: 150px;
+  }
+
 ._main {
     display:grid;
     grid-template-areas: 
