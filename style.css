@@ -276,7 +276,7 @@ a.button_company:hover {
   margin-left: 100px
 }
 
-._row div {
+._row .header_box {
   padding: 50px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -291,6 +291,15 @@ a.button_company:hover {
   border-radius: 5px;
   /* border-top-right-radius: 5px;
   border-top-left-radius: 5px; */
+}
+
+._row > div {
+  padding: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 10px;
+  background-color:#F7F7F7;
+  margin-bottom: 50px;
 }
 
 ._row h1 {
@@ -336,6 +345,106 @@ a.button_company:hover {
 ._smallbox {
   width: 175px;
   font-size: large;
+}
+
+._student_counter {
+  background-image: url("bg_opp.jpg") ;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: 100% auto;
+  margin: 0;
+  padding: 0;
+  margin: 0 auto 10px auto;
+}
+
+._student_counter > div {
+  background-color: white;
+  border-radius: 5px;
+  padding: 8px 16px 8px 16px;
+  width: fit-content;
+  font-size: 200%;
+  color: var(--fadedCherry);
+  font-family: 'Montserrat Alternates', sans-serif;
+  margin: 0 auto 10px auto;
+}
+
+._student_counter ul {
+  list-style-type: none;
+  text-align: center;
+  /* border: 3px solid grey; */
+  width: fit-content;
+  padding: 0px;
+  margin:0;
+  align-content: top;
+}
+
+._student_counter ul li {
+  display: inline-block;
+  margin-left: 10px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 140%;
+  color: var(--fadedCherry);
+  width: 150px;
+  height: 200px;
+  margin-top: 0;
+}
+
+._student_counter ul li:first-child {
+  margin-left: 0;
+}
+
+._circle_label {
+  
+}
+
+._circle {
+  position: relative;
+  font-weight: bold;
+  background-color: var(--fadedCherry);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  /* overflow: hidden; */
+  border: 0px solid white;
+}
+
+._circle_inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  background: white;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 50%;
+}
+
+._circle_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-weight: bold;
+  font-size: 150%;
+}
+
+._circle_prog {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.segment {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vw;
+  background: white;
+  transform-origin: 0 0;
 }
 
 /* .grid-container {
@@ -541,6 +650,7 @@ a.button_company:hover {
   background-attachment: fixed;
   background-size: 100% auto; */
   background-color: #F7F7F7;
+  margin:0;
   /* border-top: 3px solid black; */
 }
 

@@ -39,23 +39,22 @@ if (isset($_SESSION['id'])) {
         var sel = document.getElementById("home")
         sel.style.background = "var(--fadedCherry)";
     </script>
-
     <div class="_row">
         <img src = "gradcherry.png">
 
-        <div style = "margin-top: 0px;">
+        <div class = "header_box" style = "margin-top: 0px;">
             <h1>Could we do it?</h1>
             <p>What could students who are innovative, enthusiastic, skilled, and highly motivated to achieve something amazing do for your company? <br/>
             <br/>
-            We believe there are some incredible students out there, constantly learning and developing new ideas, and we think you should be able to not only see what they are skilled ASAP, but be able to bring them in to your business in a flexible way that works for the student, and for you!<br/>
+            We believe there are some incredible students out there, constantly learning and developing new ideas, and we think you should be able to not only see what they are skilled in asap, but be able to bring them in to your business in a flexible way that works for the student, and for you!<br/>
             <br/>
-            So we're building a business around students, for students! Because we believe that they can do some amazing things, starting with us! So, could we do it? What else is possible?</p>
+            So we're building a business around students, for students! Because we believe that they can do some amazing things, starting with us! So could we do it... and what else is possible? </p>
             <button id = 'find-out'>Find out</button>
         </div>
         <!-- <div>
             <p>Could a network of students with the same drive and enthusiasm to become successful build a business together? Or maybe they can help build your business for the future… Well, could we? </p>			
         </div> -->
-        <div style = "margin-top: 0px; padding-top: 10px;">
+        <div class = "header_box" style = "margin-top: 0px; padding-top: 10px;">
             <h1>Our goals for now… But what could you add?</h1>
             <p style = "text-align: left">
                 <span style = "color: green">  &nbsp;&nbsp;&nbsp;&nbsp; &#10686; </span> Build a website that meets our vision<br/>
@@ -63,30 +62,53 @@ if (isset($_SESSION['id'])) {
                 <span style = "color: orange"> &nbsp;&nbsp;&nbsp;&nbsp; &#10686; </span> Promote our capabilities and skills<br/>
                 <span style = "color: orange"> &nbsp;&nbsp;&nbsp;&nbsp; &#10686; </span> Turn a vision into a working company </p>
         </div>
+    
+    <div class = "_student_counter">
+        <div>Subject Counter</div>
+        <ul>
+            <li>
+                <div class = "_circle_prog">
+                    <div class = "_circle">
+                        <div class = "segment" style = "transform: rotate(0deg) skew(-45deg)"></div>
+                    </div>
+                    <div class = "_circle_inner"></div>
+                    <div class = "_circle_text">9</div>
+                </div> 
+                <div class = "_circle_label">Engineering</div>
+            </li>
+            <li>
+                <div class = "_circle_prog">
+                    <div class = "_circle">
+                        <div class = "segment" style = "transform: rotate(0deg) skew(20deg)"></div>
+                    </div>
+                    <div class = "_circle_inner"></div>
+                    <div class = "_circle_text">12</div>
+                </div> 
+                <div class = "_circle_label">Computer Science</div>
+            </li>
+            <li>
+                <div class = "_circle_prog">
+                    <div class = "_circle">
+                        <div class = "segment" style = "transform: rotate(0deg) skew(-65deg)"></div>
+                    </div>
+                    <div class = "_circle_inner"></div>
+                    <div class = "_circle_text">6</div>
+                </div> 
+                <div class = "_circle_label">Maths</div>
+            </li>
+            <li>
+                <div class = "_circle_prog">
+                    <div class = "_circle">
+                        <div class = "segment" style = "transform: rotate(0deg) skew(30deg)"></div>
+                    </div>
+                    <div class = "_circle_inner"></div>
+                    <div class = "_circle_text">16</div>
+                </div> 
+                <div class = "_circle_label">Business</div>
+            </li>
+        </ul>
     </div>
-
-    <!-- <div class = "_4_boxes">
-        <div>
-            <img src="box1.png"/>
-            <h1>Feature One</h1>
-            <p>Adapt these three columns to fit your design need. To duplicate, delete or move columns, select the column and use the top icons to perform your action.</p>
-        </div>
-        <div>
-            <img src="box2.png"/>
-            <h1>Feature Two</h1>
-            <p>Adapt these three columns to fit your design need. To duplicate, delete or move columns, select the column and use the top icons to perform your action.</p>
-        </div>
-        <div>
-            <img src="box3.png"/>
-            <h1>Feature Three</h1>
-            <p>Adapt these three columns to fit your design need. To duplicate, delete or move columns, select the column and use the top icons to perform your action.</p>
-        </div>
-        <div>
-            <img src="box1.png"/>
-            <h1>Feature Four</h1>
-            <p>Adapt these three columns to fit your design need. To duplicate, delete or move columns, select the column and use the top icons to perform your action.</p>
-        </div>
-    </div> -->
+    </div>
 
     <div class = "_carousel_bg">
         <div class = "_row" style = "height: fit-content; min-height: fit-content; margin-bottom: 50px">
