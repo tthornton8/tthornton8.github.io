@@ -43,6 +43,16 @@ if (isset($_SESSION['id'])) {
         
     }
 
+    $qual = [];
+    $sql = "SELECT * FROM qual WHERE user_ID = ".$conn->real_escape_string($id);
+    $result = $conn->query($sql);
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $qual[] = $row;
+        }
+        
+    }
+
     $icons = [];
     $sql = "SELECT * FROM icon";
     $result = $conn->query($sql);
@@ -120,7 +130,7 @@ if (isset($_POST['submit'])) {
         case "edit_project":
             //echo 'Edit Project';
             $allowedTags='<p><strong><em><u><h1><h2><h3><h4><h5><h6><img>';
-            $allowedTags.='<li><ol><ul><span><div><br><ins><del>'; 
+            $allowedTags.='<li><ol><ul><span><div><br/><ins><del>'; 
             $text = strip_tags(stripslashes($detail),$allowedTags);
             $proj_file_id = md5($project.$id);
 
@@ -245,6 +255,27 @@ function phpAlert($msg) {
             </ul>
             <h5> GCSEs </h5>
             <p>11 GCSEs A*-B including Further Maths, Spanish, History and Computer Science</p>
+
+            <?php 
+                $html = '';
+                $out = array();
+                foreach ($qual as&$row) {
+                    if (array_key_exists($row['type'], $array)) {
+                        $array[$row['type']][] = $row['value'];
+                    } else {
+                        $array[$row['type']] = [$row['value']];
+                    }
+                }
+                foreach ($out as $key => $quals) {
+                    $html .= "<h5>$key</h5> \n <ul>";
+                    foreach ($quals as&$value) {
+                        $html .= "\n<li>$value</li>";
+                    }
+                    $html .= "</ul>";
+                }
+
+                echo $html;
+            ?>
         </div>
         <div class = "_prof_section _companies">
             <h2>Worked With</h2>
@@ -271,10 +302,10 @@ function phpAlert($msg) {
           <div class="modal-body">
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="edit_main">
-                <br>
+                <br/>
                 <input type="file" name="fileToUpload" id="fileToUpload">
                 <label class="w3-text _file_upload" for="fileToUpload">Upload new profile photo</label>
-                <br>
+                <br/>
 
                 <label class="w3-text" style = "color: var(--darkCherry);" for="inputname">Name</label>
                 <input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/>
@@ -290,7 +321,31 @@ function phpAlert($msg) {
 
                 <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="inputabout">About</label>
                 <textarea class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About"><?php echo $about; ?></textarea>
-                <br>
+
+                <div id = "qualifications_section">
+                    <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" >Qualifications</p>
+                    <?php 
+                        $html = '';
+                        $out = array();
+                        foreach ($qual as&$row) {
+                            if (array_key_exists($row['type'], $array)) {
+                                $array[$row['type']][] = $row['value'];
+                            } else {
+                                $array[$row['type']] = [$row['value']];
+                            }
+                        }
+                        foreach ($out as $key => $quals) {
+                            $html .= "<h5>$key</h5> \n <ul>";
+                            foreach ($quals as&$value) {
+                                $html .= "\n<li>$value</li>";
+                            }
+                            $html .= "</ul>";
+                        }
+
+                        echo $html;
+                    ?>
+                </div>
+                <br/>
                 
                 <div id = "skills_section">
                     <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Skills</p>
@@ -299,7 +354,7 @@ function phpAlert($msg) {
                     $j = 0;
                     foreach ($skills as &$row) {
                         if ($row["name"]) {
-                            echo "<label class=\"w3-text\" style = \"color: var(--darkCherry); margin-top: 10px;\" for=\"skills[$j][name]\">Skill $i</label><br>\n";
+                            echo "<label class=\"w3-text\" style = \"color: var(--darkCherry); margin-top: 10px;\" for=\"skills[$j][name]\">Skill $i</label><br/>\n";
                             echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][name]\" name=\"skills[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
                             echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][icon]\" name=\"skills[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
                             
@@ -311,7 +366,7 @@ function phpAlert($msg) {
                                 $onclick = "\" document.getElementById('skills[$j][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_skills$j').innerHTML = `$img_tag_large`; toggleVis('dropdown-content_skills_$j');\"";
                                 echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
                             }
-                            echo "</div><br>";
+                            echo "</div><br/>";
 
                             $i += 1;
                             $j += 1;
@@ -321,7 +376,7 @@ function phpAlert($msg) {
 
                 </div>
                 <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addSkill();">+</button>
-                <br>
+                <br/>
 
                 <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Projects</p>
 
@@ -332,7 +387,7 @@ function phpAlert($msg) {
                     $j = 0;
                     foreach ($projects as &$row) {
                         // echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div>";
-                        echo "<label class=\"w3-text\" style = \"color: var(--darkCherry); margin-top: 10px;\" for=\"projects[$j][name]\">Project $i</label><br>\n";
+                        echo "<label class=\"w3-text\" style = \"color: var(--darkCherry); margin-top: 10px;\" for=\"projects[$j][name]\">Project $i</label><br/>\n";
                         echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"projects[$j][name]\" name=\"projects[$j][name]\" placeholder=\"Project \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
                         echo "<input type=\"hidden\" id=\"projects[$j][icon]\" name=\"projects[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
                         echo "<input type=\"hidden\" id=\"projects[$j][ID]\" name=\"projects[$j][ID]\" value = \"".htmlspecialchars($row["ID"])."\"/>\n\n";
@@ -346,18 +401,18 @@ function phpAlert($msg) {
                             echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
                         }
                         echo "</div>";
-                        echo "<div onclick = \"editProject(".$row['ID'].",`".$row['details']."`,".$row['icon'].");\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br>\n";
+                        echo "<div onclick = \"editProject(".$row['ID'].",`".$row['details']."`,".$row['icon'].");\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br/>\n";
 
                         $i += 1;
                         $j += 1;
                     }
                     ?>
                 </div>
-                <br>
+                <br/>
                 <button type="button" name="add_project" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addProject();">+</button>
-                <br>
+                <br/>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
-                <br>
+                <br/>
 
                 <script type="text/javascript" defer>
                 function addSkill() {
@@ -365,7 +420,7 @@ function phpAlert($msg) {
                     skills = document.getElementById("skills_section");
                     var els = createElementFromHTML(`
                         <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="skills[${i}][name]">Skill ${i+1}</label>
-                        <br>
+                        <br/>
                         <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill ${i+1}" value = ""/>\n
                         <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill ${i+1}" value = ""/>
 
@@ -380,7 +435,7 @@ function phpAlert($msg) {
                             }
                             ?>
                         </div>
-                        <br>
+                        <br/>
                     `);
                     for (let item of els) {
                         skills.appendChild(item);
@@ -391,14 +446,14 @@ function phpAlert($msg) {
                     projects = document.getElementById("_projects_section");
                     var els = createElementFromHTML(`
                         <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="projects[${i}][name]">Project ${i+1}</label>
-                        <br>
+                        <br/>
                         <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="projects[${i}][name]" name="projects[${i}][name]" placeholder="Project ${i+1}" value = ""/>\n
                         <input type="hidden" class="w3-input w3-border w3-light-grey" id="projects[${i}][icon]" name="projects[${i}][icon]" placeholder="Project ${i+1}" value = ""/>
                         <input type="hidden" id="projects[${i}][ID]" name="projects[${i}][ID]" value="NEW">
 
                         <button onclick = "toggleVis('dropdown-content_projects_${i}');" class="dropbtn" type="button" id = "dropbtn_projects${i}"><img src = icon.php?id=0 width = '25px', height = '25px'></button>
                         <div onclick = "editProject('NEW','',0);" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div>
-                        <br>
+                        <br/>
                         <div class="dropdown-content" id = "dropdown-content_projects_${i}">
                             <?php
                             foreach ($icons as &$irow) {
@@ -409,7 +464,7 @@ function phpAlert($msg) {
                             }
                             ?>
                         </div>
-                        <br>
+                        <br/>
                     `);
                     for (let item of els) {
                         console.log(item);
@@ -444,19 +499,19 @@ function phpAlert($msg) {
                 <input type="hidden" name="project" value="" id = "projectID">
                 <input type="hidden" name="proj_name" value="" id = "proj_name">
                 <input type="hidden" name="proj_icon" value="" id = "proj_icon">
-                <br>
+                <br/>
                 <label class="w3-text" style = "color: var(--darkCherry);" for="summary">Project Summary</label>
                 <textarea id = "summary" name = "summary" class="w3-input w3-border w3-light-grey">
                     Project Summary goes here...
                 </textarea>
-                <br>
+                <br/>
                 <label class="w3-text" style = "color: var(--darkCherry);" for="tinymce">Project Detail</label>
                 <textarea id = "tinymce" name = "detail">
                     Project detail goes here...
                 </textarea>
-                <br>
+                <br/>
                 <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
-                <br>
+                <br/>
             </form>
             <div class="modal-footer">
                 <h3>&nbsp;</h3>
