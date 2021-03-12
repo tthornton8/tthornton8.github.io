@@ -229,7 +229,7 @@ function phpAlert($msg) {
                     echo "<div class = \"_bubble _gr2\" onclick=\"clickBox('".$prow['details']."')\">".$prow['name'];
                     // echo print_r($prow);
                     if ($prow['gradz']) {
-                        echo "\n<span class = \"_gradz_project\">with the gradz</span>";
+                        echo "\n<span class = \"_gradz_project\">GradCherry</span>";
                     }
                     echo "\n<img src = icon.php?id=".$prow["icon"]." alt = \"icon\">";
                     echo "\n<p>".$prow['summary']."</p></div>";
