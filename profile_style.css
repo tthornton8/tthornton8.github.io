@@ -471,6 +471,8 @@ cursor: pointer;
 ._file_upload {
   font-weight: 700;
   color: var(--darkCherry);
+  padding: 8px 16px;
+  margin-bottom: 20px;
   /* background-color: var(--darkCherry); */
   border: 3px solid var(--darkCherry);
   border-radius: 5px;
