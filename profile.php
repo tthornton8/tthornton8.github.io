@@ -265,6 +265,7 @@ function phpAlert($msg) {
                     } else {
                         $array[$row["type"]] = [$row["value"]];
                     }
+                    echo $row["type"];
                 }
                 foreach ($out as $key => $quals) {
                     $html .= "<h5>$key</h5> \n <ul>";
