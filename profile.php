@@ -265,7 +265,7 @@ function phpAlert($msg) {
                     } else {
                         $array[$row["type"]] = [$row["value"]];
                     }
-                    echo $row["type"];
+                    echo array_key_exists($row["type"], $array);
                 }
                 foreach ($out as $key => $quals) {
                     $html .= "<h5>$key</h5> \n <ul>";
