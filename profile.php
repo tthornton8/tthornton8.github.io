@@ -259,7 +259,7 @@ function phpAlert($msg) {
             <?php 
                 $html = '';
                 $out = array();
-                foreach ($qual as&$row) {
+                foreach ($qual as &$row) {
                     if (array_key_exists($row["type"], $array)) {
                         $array[$row["type"]][] = $row["value"];
                     } else {
@@ -268,7 +268,7 @@ function phpAlert($msg) {
                 }
                 foreach ($out as $key => $quals) {
                     $html .= "<h5>$key</h5> \n <ul>";
-                    foreach ($quals as&$value) {
+                    foreach ($quals as &$value) {
                         $html .= "\n<li>$value</li>";
                     }
                     $html .= "</ul>";
