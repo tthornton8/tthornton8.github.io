@@ -332,12 +332,15 @@ function phpAlert($msg) {
                                 $out[$row["type"]] = [$row["value"]];
                             }
                         }
+                        $i = 0;
+                        $j = 0;
                         foreach ($out as $key => $quals) {
-                            $html .= "<h5>$key</h5> \n <ul>";
+                            $html .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey _qual_type\" id=\"qual_type[$i]\" name=\"qual_type[$i]\" placeholder=\"Qualification type\" value = \"$key\"/>";
+                            $i += 1;
                             foreach ($quals as &$value) {
-                                $html .= "\n<li>$value</li>";
+                                $html .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey _qual_value\" id=\"qual_value[$i][$j]\" name=\"qual_value[$i][$j]\" placeholder=\"Qualification detail\" value = \"$value\"/>";
+                                $j += 1;
                             }
-                            $html .= "</ul>";
                         }
                         echo $html;
                     ?>
