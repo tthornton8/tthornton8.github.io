@@ -275,34 +275,34 @@ function phpAlert($msg) {
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="edit_main">
                 <br>
-                <label class="w3-text" style = "color: #0072B5;" for="fileToUpload">Upload new profile photo</label>
+                <label class="w3-text" style = "color: var(--darkCherry);" for="fileToUpload">Upload new profile photo</label>
                 <input type="file" name="fileToUpload" id="fileToUpload">
                 <br>
 
-                <label class="w3-text" style = "color: #0072B5;" for="inputname">Name</label>
+                <label class="w3-text" style = "color: var(--darkCherry);" for="inputname">Name</label>
                 <input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/>
 
-                <label class="w3-text" style = "color: #0072B5;" for="inputemail">Email</label>
+                <label class="w3-text" style = "color: var(--darkCherry);" for="inputemail">Email</label>
                 <input type="email" class="w3-input w3-border w3-light-grey" id="inputemail" name="email" placeholder="Email" value = "<?php echo $email; ?>"/>
 
-                <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputdegree">Degree</label>
+                <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="inputdegree">Degree</label>
                 <input type="text" class="w3-input w3-border w3-light-grey" id="inputdegree" name="degree" placeholder="Degree" value = "<?php echo $degree; ?>"/>
 
-                <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputuni">University</label>
+                <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="inputuni">University</label>
                 <input type="text" class="w3-input w3-border w3-light-grey" id="inputuni" name="uni" placeholder="University" value = "<?php echo $uni; ?>"/>
 
-                <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="inputabout">About</label>
+                <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="inputabout">About</label>
                 <textarea class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About"><?php echo $about; ?></textarea>
                 <br>
                 
                 <div id = "skills_section">
-                    <p class="w3-text" style = "color: #0072B5; margin-top: 10px; font-size:150%">Skills</p>
+                    <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Skills</p>
                     <?php 
                     $i = 1;
                     $j = 0;
                     foreach ($skills as &$row) {
                         if ($row["name"]) {
-                            echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"skills[$j][name]\">Skill $i</label><br>\n";
+                            echo "<label class=\"w3-text\" style = \"color: var(--darkCherry); margin-top: 10px;\" for=\"skills[$j][name]\">Skill $i</label><br>\n";
                             echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][name]\" name=\"skills[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
                             echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][icon]\" name=\"skills[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
                             
@@ -326,7 +326,7 @@ function phpAlert($msg) {
                 <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addSkill();">+</button>
                 <br>
 
-                <p class="w3-text" style = "color: #0072B5; margin-top: 10px; font-size:150%">Projects</p>
+                <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Projects</p>
 
                 <div class = "_projects_section" id = "_projects_section">
                     <?php
@@ -335,7 +335,7 @@ function phpAlert($msg) {
                     $j = 0;
                     foreach ($projects as &$row) {
                         // echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div>";
-                        echo "<label class=\"w3-text\" style = \"color: #0072B5; margin-top: 10px;\" for=\"projects[$j][name]\">Project $i</label><br>\n";
+                        echo "<label class=\"w3-text\" style = \"color: var(--darkCherry); margin-top: 10px;\" for=\"projects[$j][name]\">Project $i</label><br>\n";
                         echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"projects[$j][name]\" name=\"projects[$j][name]\" placeholder=\"Project \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
                         echo "<input type=\"hidden\" id=\"projects[$j][icon]\" name=\"projects[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
                         echo "<input type=\"hidden\" id=\"projects[$j][ID]\" name=\"projects[$j][ID]\" value = \"".htmlspecialchars($row["ID"])."\"/>\n\n";
@@ -367,7 +367,7 @@ function phpAlert($msg) {
                     var i = document.querySelectorAll('[id^="skills\["]').length/2;
                     skills = document.getElementById("skills_section");
                     var els = createElementFromHTML(`
-                        <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="skills[${i}][name]">Skill ${i+1}</label>
+                        <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="skills[${i}][name]">Skill ${i+1}</label>
                         <br>
                         <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill ${i+1}" value = ""/>\n
                         <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill ${i+1}" value = ""/>
@@ -393,7 +393,7 @@ function phpAlert($msg) {
                     var i = document.querySelectorAll('[id^="projects\["]').length/3;
                     projects = document.getElementById("_projects_section");
                     var els = createElementFromHTML(`
-                        <label class="w3-text" style = "color: #0072B5; margin-top: 10px;" for="projects[${i}][name]">Project ${i+1}</label>
+                        <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="projects[${i}][name]">Project ${i+1}</label>
                         <br>
                         <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="projects[${i}][name]" name="projects[${i}][name]" placeholder="Project ${i+1}" value = ""/>\n
                         <input type="hidden" class="w3-input w3-border w3-light-grey" id="projects[${i}][icon]" name="projects[${i}][icon]" placeholder="Project ${i+1}" value = ""/>
@@ -448,12 +448,12 @@ function phpAlert($msg) {
                 <input type="hidden" name="proj_name" value="" id = "proj_name">
                 <input type="hidden" name="proj_icon" value="" id = "proj_icon">
                 <br>
-                <label class="w3-text" style = "color: #0072B5;" for="summary">Project Summary</label>
+                <label class="w3-text" style = "color: var(--darkCherry);" for="summary">Project Summary</label>
                 <textarea id = "summary" name = "summary" class="w3-input w3-border w3-light-grey">
                     Project Summary goes here...
                 </textarea>
                 <br>
-                <label class="w3-text" style = "color: #0072B5;" for="tinymce">Project Detail</label>
+                <label class="w3-text" style = "color: var(--darkCherry);" for="tinymce">Project Detail</label>
                 <textarea id = "tinymce" name = "detail">
                     Project detail goes here...
                 </textarea>

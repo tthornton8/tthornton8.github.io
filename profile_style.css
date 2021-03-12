@@ -7,15 +7,17 @@
     'companies';
 }
 
+._content{
+  margin-top: 1em;
+}
+
 ._prof_section {
     width: 85%;
     margin-left: 7.5%;
     display: grid;
     background-color: #f7f7f7b2;
-    box-shadow: 0px 0px 5px 0.5px #88888844;
     margin-bottom: 1em;
-    border: 1px solid #88888844;
-    border-radius: 2px;
+    border: 3px solid var(--darkCherry);
     padding: 1em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: grey;
@@ -222,46 +224,6 @@
     z-index: 100;
 }
 
-/* ._bubble:after {
-    content: "";
-    position: absolute;
-    top: -110%;
-    left: -210%;
-    width: 200%;
-    height: 200%;
-    opacity: 0;
-    transform: rotate(30deg);
-    
-    background: rgba(255, 255, 255, 0.13);
-    background: linear-gradient(
-      to right, 
-      rgba(255, 255, 255, 0.13) -20%,
-      rgba(255, 255, 255, 0.13) -77%,
-      rgba(220, 240, 255, 0.2) -192%,
-      rgba(255, 255, 255, 0.0) 210%
-    );
-  }
-  
-  /* Hover state - trigger effect */
-/*   
-  ._bubble:hover:after {
-    opacity: 1;
-    top: -30%;
-    left: -30%;
-    transition-property: left, top, opacity;
-    transition-duration: 0.7s, 0.7s, 0.15s;
-    transition-timing-function: ease;
-  } */ 
-
-/* ._bubble:hover:after {
-    width: 120%;
-    background-color: rgba(255,255,255,0);
-    
-      -webkit-transition: all 0.4s ease-in-out;
-         -moz-transition: all 0.4s ease-in-out;
-              transition: all 0.4s ease-in-out;
-  } */
-
 ._gr2:hover p {
     display: block;
     background-color: white;
@@ -273,21 +235,9 @@
     border-top: 1px solid rgb(177, 177, 177);
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    /* -webkit-box-shadow: 0px -4px 5px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow: 0px -4px 5px rgba(50, 50, 50, 0.75);
-    box-shadow: 0px -4px 5px rgba(50, 50, 50, 0.75); */
     font-size: small;
 }
 
-/* ._img_grid {
-    display: grid;
-    grid-template-columns:  repeat(auto-fit, minmax(auto, 1px)) 1fr;
-}
-
-._img_grid_itm {
-    display: grid;
-    grid-row: 1;
-} */
 
 ._img_grid_itm img {
     float: left;
