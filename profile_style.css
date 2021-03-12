@@ -485,3 +485,7 @@ cursor: pointer;
     background-color: var(--darkCherry);
     color: white;
 }
+
+._file_upload:hover {
+  cursor: pointer;
+}
