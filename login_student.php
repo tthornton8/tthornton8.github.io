@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login | GradZ</title>
+        <title>Login | GradCherry</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
         <link href="style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
