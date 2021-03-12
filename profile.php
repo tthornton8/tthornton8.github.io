@@ -260,10 +260,10 @@ function phpAlert($msg) {
                 $html = '';
                 $out = array();
                 foreach ($qual as&$row) {
-                    if (array_key_exists($row['type'], $array)) {
-                        $array[$row['type']][] = $row['value'];
+                    if (array_key_exists($row["type"], $array)) {
+                        $array[$row["type"]][] = $row["value"];
                     } else {
-                        $array[$row['type']] = [$row['value']];
+                        $array[$row["type"]] = [$row["value"]];
                     }
                 }
                 foreach ($out as $key => $quals) {
