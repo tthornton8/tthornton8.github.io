@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
                 $subject = 'Activate Your Account';
                 $message = 'Hello '.ucwords($username).',<br> 
                             <p>Click the below link to activate your account.</p>
-                            <a href="thegradz.com/activate.php?key='.$activation_key.'">Activate Account</a><br><br>
+                            <a href="gradcherry.com/activate.php?key='.$activation_key.'">Activate Account</a><br><br>
                             Thanks,<br>Admin';
  
                 $headers[] = 'MIME-Version: 1.0';
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sign up | Gradz</title>
+        <title>Sign up | GradCherry</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
         <link href="style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -68,9 +68,9 @@ if (isset($_POST['submit'])) {
         <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
         <script type="text/javascript" src="header.js"></script>
 
-        <div class="_content">
+        <div class="_content" style = "margin-top: 3rem;">
             <div class="w3-card-4">
-                <div class="w3-container w3-2021-french-blue">
+                <div class="w3-container _dark_cherry">
                     <h2>Sign Up</h2>
                 </div>
 
@@ -82,16 +82,16 @@ if (isset($_POST['submit'])) {
 
                     <form method="post"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <br>
-                        <label class="w3-text" style = "color: #0072B5;" for="exampleInputusername">Full Name</label>
+                        <label class="w3-text" style = "color: var(--darkCherry);" for="exampleInputusername">Full Name</label>
                         <input type="text" class="w3-input w3-border w3-light-grey" id="exampleInputusername" name="username" placeholder="Full Name" value="<?php if(isset($username)) echo $username; ?>" required>
 
-                        <label class="w3-text" style = "color: #0072B5;" for="exampleInputEmail1">Email address</label>
+                        <label class="w3-text" style = "color: var(--darkCherry);" for="exampleInputEmail1">Email address</label>
                         <input type="email" class="w3-input w3-border w3-light-grey" id="exampleInputEmail1" name="email" placeholder="Email" value="<?php if(isset($email)) echo $email; ?>" required>
 
-                        <label class="w3-text" style = "color: #0072B5;" for="exampleInputPassword1">Password</label>
+                        <label class="w3-text" style = "color: var(--darkCherry);" for="exampleInputPassword1">Password</label>
                         <input type="password" class="w3-input w3-border w3-light-grey" id="exampleInputPassword1" name="password" placeholder="Password" required>
 
-                        <label class="w3-text" style = "color: #0072B5;" for="exampleInputPassword2">Confirm Password</label>
+                        <label class="w3-text" style = "color: var(--darkCherry);" for="exampleInputPassword2">Confirm Password</label>
                         <input type="password" class="w3-input w3-border w3-light-grey" id="exampleInputPassword2" name="cpassword" placeholder="Confirm Password" required>
                         <br>
                         <button type="submit" name="submit" class="w3-btn w3-blue-grey" style = "margin-bottom: 1em;">Register</button>
