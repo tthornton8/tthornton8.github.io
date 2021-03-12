@@ -489,3 +489,7 @@ cursor: pointer;
 ._file_upload:hover {
   cursor: pointer;
 }
+
+#qualifications_section input[type=text] {
+  width: 10em;
+}

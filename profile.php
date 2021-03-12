@@ -336,11 +336,13 @@ function phpAlert($msg) {
                         $j = 0;
                         foreach ($out as $key => $quals) {
                             $html .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey _qual_type\" id=\"qual_type[$i]\" name=\"qual_type[$i]\" placeholder=\"Qualification type\" value = \"$key\"/>";
+                            $html .= "\n<ul>";
                             $i += 1;
                             foreach ($quals as &$value) {
-                                $html .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey _qual_value\" id=\"qual_value[$i][$j]\" name=\"qual_value[$i][$j]\" placeholder=\"Qualification detail\" value = \"$value\"/>";
+                                $html .= "\n<li><input type=\"text\" class=\"w3-input w3-border w3-light-grey _qual_value\" id=\"qual_value[$i][$j]\" name=\"qual_value[$i][$j]\" placeholder=\"Qualification detail\" value = \"$value\"/></li>";
                                 $j += 1;
                             }
+                            $html .= "\n</ul>";
                         }
                         echo $html;
                     ?>
