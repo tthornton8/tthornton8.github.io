@@ -14,6 +14,11 @@ body {
   --radius: 120px;
 }
 
+._dark_cherry {
+  color: #ffff;
+  background-color: var(--darkCherry);
+}
+
 ._top {
   padding-top: 1rem;
   display: grid;

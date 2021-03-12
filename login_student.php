@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
 
         <div class="_content">
             <div class="w3-card-4">
-                <div class="w3-container w3-2021-french-blue">
+                <div class="w3-container _dark_cherry">
                     <h2>Please Login</h2>
                 </div>
 
@@ -63,10 +63,10 @@ if (isset($_POST['submit'])) {
 
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <br>
-                        <label class="w3-text" style = "color: #0072B5;" for="inputusername">Username</label>
+                        <label class="w3-text" style = "color: var(--darkCherry);" for="inputusername">Username</label>
                         <input type="text" class="w3-input w3-border w3-light-grey" id="inputusername" name="username" placeholder="Username" required />
 
-                        <label class="w3-text" style = "color: #0072B5;" for="inputpassword">Password</label>
+                        <label class="w3-text" style = "color: var(--darkCherry);" for="inputpassword">Password</label>
                         <input type="password" class="w3-input w3-border w3-light-grey" id="inputpassword" name="password" placeholder="Password" required />
                         <br>
                         <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Login</button>
