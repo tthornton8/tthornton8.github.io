@@ -182,9 +182,6 @@ function phpAlert($msg) {
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
     <script src="https://cdn.tiny.cloud/1/184b9akoev1y38p25nmv4os4h082uhrc9copbqe6hxbwl72t/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
-        crossorigin="anonymous"> -->
     <?php phpAlert(   $fileAlert  );  ?>
 
 </head>
@@ -275,8 +272,8 @@ function phpAlert($msg) {
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="edit_main">
                 <br>
-                <label class="w3-text" style = "color: var(--darkCherry);" for="fileToUpload">Upload new profile photo</label>
                 <input type="file" name="fileToUpload" id="fileToUpload">
+                <label class="w3-text _file_upload" style = "color: var(--darkCherry);" for="fileToUpload">Upload new profile photo</label>
                 <br>
 
                 <label class="w3-text" style = "color: var(--darkCherry);" for="inputname">Name</label>

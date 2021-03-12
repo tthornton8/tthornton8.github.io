@@ -458,3 +458,29 @@ cursor: pointer;
   #_projects_section input[type=text]{
     width: 15em;
   }
+
+#fileToUpload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+._file_upload {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: var(--darkCherry);
+  /* background-color: var(--darkCherry); */
+  border: 3px solid var(--darkCherry);
+  border-radius: 5px;
+  display: inline-block;
+  background-color: white;
+}
+
+#fileToUpload:focus + ._file_upload,
+#fileToUpload + ._file_upload:hover {
+    background-color: var(--darkCherry);
+    color: white;
+}
