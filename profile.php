@@ -536,8 +536,8 @@ function phpAlert($msg) {
                 tinymce.init({
                         selector: 'textarea#tinymce',
                         elements : "detail",
-                        plugins: '  casechange autolink lists media table tinycomments tinymcespellchecker',
-                        toolbar: 'addcomment showcomments casechange code formatpainter table',
+                        plugins: 'autolink lists media table',
+                        toolbar: 'addcomment showcomments  code formatpainter table',
                         toolbar_mode: 'floating',
                         tinycomments_mode: 'embedded',
                         tinycomments_author: 'Author name',
