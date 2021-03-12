@@ -50,7 +50,6 @@ if (isset($_SESSION['id'])) {
         while ($row = $result->fetch_assoc()) {
             $qual[] = $row;
         }
-        print_r($qual);
     }
 
     $icons = [];
@@ -265,7 +264,6 @@ function phpAlert($msg) {
                     } else {
                         $out[$row["type"]] = [$row["value"]];
                     }
-                    echo array_key_exists($row["type"], $out);
                 }
                 foreach ($out as $key => $quals) {
                     $html .= "<h5>$key</h5> \n <ul>";
@@ -274,7 +272,6 @@ function phpAlert($msg) {
                     }
                     $html .= "</ul>";
                 }
-                print_r($out);
                 echo $html;
             ?>
         </div>
@@ -328,21 +325,20 @@ function phpAlert($msg) {
                     <?php 
                         $html = '';
                         $out = array();
-                        foreach ($qual as&$row) {
-                            if (array_key_exists($row['type'], $array)) {
-                                $array[$row['type']][] = $row['value'];
+                        foreach ($qual as &$row) {
+                            if (array_key_exists($row["type"], $out)) {
+                                $out[$row["type"]][] = $row["value"];
                             } else {
-                                $array[$row['type']] = [$row['value']];
+                                $out[$row["type"]] = [$row["value"]];
                             }
                         }
                         foreach ($out as $key => $quals) {
                             $html .= "<h5>$key</h5> \n <ul>";
-                            foreach ($quals as&$value) {
+                            foreach ($quals as &$value) {
                                 $html .= "\n<li>$value</li>";
                             }
                             $html .= "</ul>";
                         }
-
                         echo $html;
                     ?>
                 </div>
