@@ -273,7 +273,7 @@ function phpAlert($msg) {
                     }
                     $html .= "</ul>";
                 }
-
+                print_r($out);
                 echo $html;
             ?>
         </div>
