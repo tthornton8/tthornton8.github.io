@@ -395,7 +395,7 @@ cursor: pointer;
   
   .modal-header {
     padding: 2px 16px;
-    background-color: #316CB0;
+    background-color: var(--darkCherry);;
     color: white;
   }
   
@@ -407,7 +407,7 @@ cursor: pointer;
   
   .modal-footer {
     padding: 2px 16px;
-    background-color: #316CB0;
+    background-color: var(--darkCherry);
     color: white;
   }
 
