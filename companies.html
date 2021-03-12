@@ -27,6 +27,7 @@ if (isset($_SESSION['id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="companies.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&family=Roboto:wght@100&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
@@ -40,58 +41,20 @@ if (isset($_SESSION['id'])) {
         sel.style.background = "var(--fadedCherry)";
     </script>
 
-<div class = "_content">
-    <div class = "_content _content_side">
-        <div class = "_sidebar" id = "side">
-            <span id = "text">
-                <h1>Industry</h1>
-                <form>
-                    <input type="checkbox" id="engineering" name="engineering" value="engineering" onchange = "expand('engineering');">
-                    <label for="engineering">Engineering</label><br>
-    
-                    <div class = "_check_sub" id = "_check_eng">
-                        <input type="checkbox" id="aero" name="aero" value="aero" onchange = "expand('aero');">
-                        <label for="aero">Aeronautical</label><br>
-    
-                        <input type="checkbox" id="mech" name="mech" value="mech" onchange = "expand('mech');">
-                        <label for="mech">Mechanical</label><br>
-    
-                        <input type="checkbox" id="civ" name="civ" value="civ" onchange = "expand('civ');">
-                        <label for="civ">Civil</label><br>
-    
-                        <input type="checkbox" id="Chemical" name="Chemical" value="Chemical" onchange = "expand('chemical');">
-                        <label for="Chemical">Chemical</label><br>
-                    </div>
-    
-                    <input type="checkbox" id="business" name="business" value="business" onchange = "expand('business');">
-                    <label for="business">Business</label><br>
-    
-                    <input type="checkbox" id="economics" name="economics" value="economics" onchange = "expand('economics');">
-                    <label for="economics">Economics</label><br>
-    
-                    <input type="checkbox" id="natsci" name="natsci" value="natsci" onchange = "expand('natsci');">
-                    <label for="natsci">Natural Sciences</label><br>
-    
-                    <input type="checkbox" id="compsci" name="compsci" value="compsci" onchange = "expand('compsci');">
-                    <label for="compsci">Computer Science</label><br>
-                </form>
-            </span>
+    <div class = "_main">
+        <div class = "_interested">
+            <h1>Interested and Participating Companies</h1>
         </div>
-        <div class  = "_boxes">
-            <?php 
-                for($i=0; $i<20; $i++){ 
-                    $htmlElement =  "<div class = '_box'>";
-                    $htmlElement .= "<img src='img/company.jpeg' alt='Students'>";
-                    $htmlElement .= "<h1>Company Name</h1>";
-                    $htmlElement .= "<p>Company Description</p>";
-                    $htmlElement .= "</div>"; 
-                    echo $htmlElement; 
-                } 
-            ?> 
+        <div class = "_feedback">
+            <h1>Company Feedback Examples</h1>
+        </div>
+        <div class = "_adverts">
+            <h1>Company Adverts: Promotion Oportunities</h1>
+        </div>
+        <div class = "_thoughts">
+            <h1>Company Thoughts & Interested Topics/Skills</h1>
         </div>
     </div>
-
-</div>
 
 </body>
 </html>
