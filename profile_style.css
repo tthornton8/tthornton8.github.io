@@ -491,5 +491,6 @@ cursor: pointer;
 }
 
 #qualifications_section input[type=text] {
-  width: 10em;
+  width: 8em;
+  margin-bottom: 8px;
 }
