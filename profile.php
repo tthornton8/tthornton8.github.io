@@ -273,7 +273,7 @@ function phpAlert($msg) {
                 <input type="hidden" name="action" value="edit_main">
                 <br>
                 <input type="file" name="fileToUpload" id="fileToUpload">
-                <label class="w3-text _file_upload" style = "color: var(--darkCherry);" for="fileToUpload">Upload new profile photo</label>
+                <label class="w3-text _file_upload" for="fileToUpload">Upload new profile photo</label>
                 <br>
 
                 <label class="w3-text" style = "color: var(--darkCherry);" for="inputname">Name</label>

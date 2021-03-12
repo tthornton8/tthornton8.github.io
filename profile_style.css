@@ -469,7 +469,6 @@ cursor: pointer;
 }
 
 ._file_upload {
-  font-size: 1.25em;
   font-weight: 700;
   color: var(--darkCherry);
   /* background-color: var(--darkCherry); */
