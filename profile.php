@@ -50,7 +50,7 @@ if (isset($_SESSION['id'])) {
         while ($row = $result->fetch_assoc()) {
             $qual[] = $row;
         }
-        print_r($qual)
+        print_r($qual);
     }
 
     $icons = [];
