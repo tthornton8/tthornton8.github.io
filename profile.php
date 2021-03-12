@@ -260,12 +260,12 @@ function phpAlert($msg) {
                 $html = '';
                 $out = array();
                 foreach ($qual as &$row) {
-                    if (array_key_exists($row["type"], $array)) {
-                        $array[$row["type"]][] = $row["value"];
+                    if (array_key_exists($row["type"], $out)) {
+                        $out[$row["type"]][] = $row["value"];
                     } else {
-                        $array[$row["type"]] = [$row["value"]];
+                        $out[$row["type"]] = [$row["value"]];
                     }
-                    echo array_key_exists($row["type"], $array);
+                    echo array_key_exists($row["type"], $out);
                 }
                 foreach ($out as $key => $quals) {
                     $html .= "<h5>$key</h5> \n <ul>";
