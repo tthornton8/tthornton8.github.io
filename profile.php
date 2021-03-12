@@ -166,7 +166,7 @@ function phpAlert($msg) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<title>My Profile | GradZ</title>
+<title>My Profile | GradCherry</title>
 
 <head>
     <meta charset="utf-8">
