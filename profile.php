@@ -451,13 +451,13 @@ function phpAlert($msg) {
                 <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Companies Worked With</p>
                 <div class = "_logo_section" id = "logo_section">
                     <?php
-                        $html .= "";
+                        $html_c .= "";
                         $i = 0;
                         foreach ($usercompanies as &$row) {
-                            $html .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies[\"logourl\"][$i]\" name=\"usercompanies[\"logourl\"][$i]\" placeholder=\"Detail\" value = \"".$row["logourl"]."\"/>";
+                            $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies[\"logourl\"][$i]\" name=\"usercompanies[\"logourl\"][$i]\" placeholder=\"Detail\" value = \"".$row["logourl"]."\"/>";
                             $i = 0;
                         }
-                        echo $html;
+                        echo $html_c;
                     ?>
                 </div>
                 <br/>
