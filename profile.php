@@ -125,6 +125,22 @@ if (isset($_POST['submit'])) {
                 
             }
 
+            $qual = [];
+            foreach ($qualvalue as $key => $value){
+                $qual[] = array (
+                    "type" => $qualtype[$key],
+                    "value" => $value,
+                );
+            }
+
+            $sql = "INSERT INTO qual (userID, type, value) VALUES ";
+            foreach ($qual as &$row) {
+                $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row["type"]))."', '".htmlspecialchars($conn->real_escape_string($row["value"]))."'),";
+            }
+            $sql = substr($sql, 0, -1);
+            $sql .= ";";
+            $result = $conn->query($sql);
+
 
             break;
 
