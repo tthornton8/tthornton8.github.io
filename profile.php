@@ -476,7 +476,7 @@ function phpAlert($msg) {
                         $i = 0;
                         foreach ($usercompanies as &$row) {
                             $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies[$i]\" name=\"usercompanies[$i]\" placeholder=\"URL of company logo\" value = \"".$row["logourl"]."\"/>";
-                            $i = 0;
+                            $i += 1;
                         }
                         echo $html_c;
                     ?>
