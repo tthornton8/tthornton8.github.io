@@ -267,17 +267,6 @@ function phpAlert($msg) {
 
         </div>
         <div class = "_prof_section _quals">
-            <h2>Qualifications</h2>
-            <h5> A-Levels </h5>
-            <ul>
-                <li>Maths: A*</li>
-                <li>Further Maths: A*</li>
-                <li>Physics: A</li>
-                <li>Spanish: A</li>
-            </ul>
-            <h5> GCSEs </h5>
-            <p>11 GCSEs A*-B including Further Maths, Spanish, History and Computer Science</p>
-
             <?php 
                 $html = '';
                 $out = array();
