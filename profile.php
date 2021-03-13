@@ -337,10 +337,10 @@ function phpAlert($msg) {
                         $i = 0;
                         $j = 0;
                         foreach ($out as $key => $quals) {
-                            $html .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey _qual_type\" id=\"qual_type[$i]\" name=\"qual_type[$i]\" placeholder=\"Type\" value = \"$key\"/>";
+                            $html .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey _qual_type\" id=\"qualtype[$i]\" name=\"qualtype[$i]\" placeholder=\"Type\" value = \"$key\"/>";
                             $html .= "\n<ul id = \"qual_$i\">";
                             foreach ($quals as &$value) {
-                                $html .= "\n<li><input type=\"text\" class=\"w3-input w3-border w3-light-grey _qualvalue\" id=\"qual_value[$i][$j]\" name=\"qualvalue[$i][$j]\" placeholder=\"Detail\" value = \"$value\"/></li>";
+                                $html .= "\n<li><input type=\"text\" class=\"w3-input w3-border w3-light-grey _qualvalue\" id=\"qualvalue[$i][$j]\" name=\"qualvalue[$i][$j]\" placeholder=\"Detail\" value = \"$value\"/></li>";
                                 $j += 1;
                             }
                             $html .= "\n</ul>";
