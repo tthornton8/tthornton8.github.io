@@ -157,7 +157,6 @@ if (isset($_POST['submit'])) {
             $sql .= ";";
             $result = $conn->query($sql);
 
-            echo "usercompanies";
             print_r($usercompanies);
             break;
 
@@ -457,7 +456,7 @@ function phpAlert($msg) {
                         $html_c .= "";
                         $i = 0;
                         foreach ($usercompanies as &$row) {
-                            $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies[\"logourl\"][$i]\" name=\"usercompanies[\"logourl\"][$i]\" placeholder=\"URL of company logo\" value = \"".$row["logourl"]."\"/>";
+                            $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies[$i][\"logourl\"]\" name=\"usercompanies[$i][\"logourl\"]\" placeholder=\"URL of company logo\" value = \"".$row["logourl"]."\"/>";
                             $i = 0;
                         }
                         echo $html_c;
@@ -475,7 +474,7 @@ function phpAlert($msg) {
                     var i = document.querySelectorAll('[id^="usercompanies').length;
                     var section = document.getElementById('logo_section')
                     var els = createElementFromHTML(`
-                        <input type="text" class="w3-input w3-border w3-light-grey" id="usercompanies["logourl"][${i}]" name="usercompanies["logourl"][${i}]" placeholder="Detail" value = ""/>
+                        <input type="text" class="w3-input w3-border w3-light-grey" id="usercompanies[${i}]["logourl"]" name="usercompanies[${i}]["logourl"]" placeholder="Detail" value = ""/>
                     `)
                     for (let item of els) {
                         section.appendChild(item);
