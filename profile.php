@@ -61,6 +61,15 @@ if (isset($_SESSION['id'])) {
         }
     }
 
+    $usercompanies = [];
+    $sql = "SELECT * FROM usercompanies";
+    $result = $conn->query($sql);
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $usercompanies[] = $row;
+        }
+    }
+
 } else {
     $logged_in = 'false';
     header('Location: login_student.php');
@@ -268,6 +277,7 @@ function phpAlert($msg) {
 
         </div>
         <div class = "_prof_section _quals">
+        <h2>Qualifications</h2>
             <?php 
                 $html = '';
                 $out = array();
@@ -288,13 +298,23 @@ function phpAlert($msg) {
                 echo $html;
             ?>
         </div>
+
         <div class = "_prof_section _companies">
             <h2>Worked With</h2>
             <table>
-                <td style = "width: 25%; text-align:center"><img alt = "University Logo" src = "https://www.militarysystems-tech.com/sites/militarysystems/files/styles/supplier_logo_large/public/supplier_logos/Allan_Webb_Logo_2019%20Silver%20Font.png?itok=YdYSedgt" style = "max-height: 100px"></td>
-                <td style = "width: 25%; text-align:center"><img alt = "University Logo" src = "https://teignbridge.co.uk/wp-content/uploads/tp-logo-447x93.png" style = "max-height: 100px"></td>
-                <td style = "width: 25%; text-align:center"><img alt = "University Logo" src = "https://media.cylex-uk.co.uk/companies/1966/1300/logo/logo.jpg" style = "max-height: 100px"></td>
-                <td style = "width: 25%; text-align:center"><img alt = "University Logo" src = "http://www.spenco.co.uk/images/img_logo.jpg" style = "max-height: 100px"></td>
+                <?php
+                    $html = '';
+                    foreach ($usercompanies as &$row) {
+                        $html .= "<td style = \"width: 25%; text-align:center\"><img alt = \"Company Logo\" src = \"".$row["logourl"]."\" style =\"max-height: 100px\"></td>";
+                    }
+                    echo $html;
+                ?>
+            </table>
+            <table>
+                <td style = "width: 25%; text-align:center"><img alt = "Company Logo" src = "https://www.militarysystems-tech.com/sites/militarysystems/files/styles/supplier_logo_large/public/supplier_logos/Allan_Webb_Logo_2019%20Silver%20Font.png?itok=YdYSedgt" style = "max-height: 100px"></td>
+                <td style = "width: 25%; text-align:center"><img alt = "Company Logo" src = "https://teignbridge.co.uk/wp-content/uploads/tp-logo-447x93.png" style = "max-height: 100px"></td>
+                <td style = "width: 25%; text-align:center"><img alt = "Company Logo" src = "https://media.cylex-uk.co.uk/companies/1966/1300/logo/logo.jpg" style = "max-height: 100px"></td>
+                <td style = "width: 25%; text-align:center"><img alt = "Company Logo" src = "http://www.spenco.co.uk/images/img_logo.jpg" style = "max-height: 100px"></td>
             </table>
     
     </div>
