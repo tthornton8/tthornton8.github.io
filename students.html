@@ -237,34 +237,42 @@ if (isset($_SESSION['id'])) {
         <div class = "com">
             Students comments relating to the experience they are looking for
         </div>
-        <div id="editWindow" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close_modal">&times;</span>
-                    <h2>GradCherry CV</h2>
-                </div>
-                <div class="modal-footer">
-                    <h3>&nbsp;</h3>
+        <?php
+            $html = <<<EOT
+            <div id="CVwindow$id" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close_modal">&times;</span>
+                        <h2>GradCherry CV</h2>
+                    </div>
+                    $id = 1;
+                    list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, 1);
+                    require_once('return_profile.php');
+                    <div class="modal-footer">
+                        <h3>&nbsp;</h3>
+                    </div>
                 </div>
             </div>
-        </div>
+            EOT;
+            echo $html;
+        ?>
     </div>
 
     <script>
-        var span = document.getElementsByClassName("close_modal")[0];
-        var modal = document.getElementById("editWindow");
         function showCV(id) {
+            var modal = document.getElementById(`CVwindow${id}`);
+            var span = modal.getElementsByClassName("close_modal")[0];
             modal.style.display = "block";
-        }
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        }
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
 
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>
