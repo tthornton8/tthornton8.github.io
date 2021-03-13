@@ -344,11 +344,11 @@ function phpAlert($msg) {
                             }
                             $html .= "\n<li><button type=\"button\" name=\"add_qual_detail\" style = \"margin-bottom: 1em; margin-top: 0.3em;\" class=\"w3-btn w3-blue-grey\" onclick = \"addQualDetail($i);\">+</button></li>";
                             $html .= "\n</ul>";
-                        }
-                        $html .= "\n<button type=\"button\" name=\"add_qual\" style = \"margin-bottom: 1em; margin-top: 0.3em;\" class=\"w3-btn w3-blue-grey\" onclick = \"addQual();\">+</button>";
+                        };
                         echo $html;
                     ?>
                 </div>
+                <button type="button" name="add_qual" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addQual();">+</button>"
                 <br/>
                 
                 <div id = "skills_section">
