@@ -157,13 +157,15 @@ if (isset($_POST['submit'])) {
             $sql .= ";";
             $result = $conn->query($sql);
 
-            print_r($usercompanies);
-            // $sql = "DELETE FROM usercompanies WHERE user_ID = '".$conn->real_escape_string($id)."'";
-            // $result = $conn->query($sql);
+            // print_r($usercompanies);
+            $sql = "DELETE FROM usercompanies WHERE user_ID = '".$conn->real_escape_string($id)."'";
+            $result = $conn->query($sql);
 
             $sql = "INSERT INTO usercompanies (user_ID, logourl) VALUES ";
             foreach ($usercompanies as &$row) {
-                $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row))."'),";
+                if ($row) {
+                    $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row))."'),";
+                }
             }
             $sql = substr($sql, 0, -1);
             $sql .= ";";
