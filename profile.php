@@ -134,6 +134,7 @@ if (isset($_POST['submit'])) {
                     "value" => $value,
                 );
             }
+            print_r($qual);
 
             $sql = "INSERT INTO qual (userID, type, value) VALUES ";
             foreach ($qual as &$row) {
