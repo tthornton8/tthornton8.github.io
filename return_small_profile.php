@@ -9,7 +9,6 @@
         }
     ?>
     </h4>
-    Skill 1<br/>Skill 2<br/>Skill 3</h4>
     <h3 style = "grid-area: r3"> Top Projects: </h3>
     <h4 style = "grid-area: r4">
     <?php 
