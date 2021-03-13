@@ -42,6 +42,7 @@ if (isset($_POST['submit'])) {
         <link href="style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
         <script type="text/javascript" src="script.js"></script>
     </head>
 

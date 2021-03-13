@@ -60,6 +60,7 @@ if (isset($_POST['submit'])) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
         <link href="style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
         <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
         <script type="text/javascript" src="script.js"></script>
     </head>
