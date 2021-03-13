@@ -475,7 +475,7 @@ function phpAlert($msg) {
                         $html_c .= "";
                         $i = 0;
                         foreach ($usercompanies as &$row) {
-                            $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies[$i][\"logourl\"]\" name=\"usercompanies[$i]\" placeholder=\"URL of company logo\" value = \"".$row["logourl"]."\"/>";
+                            $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies[$i]\" name=\"usercompanies[$i]\" placeholder=\"URL of company logo\" value = \"".$row["logourl"]."\"/>";
                             $i = 0;
                         }
                         echo $html_c;
@@ -493,7 +493,7 @@ function phpAlert($msg) {
                     var i = document.querySelectorAll('[id^="usercompanies').length;
                     var section = document.getElementById('logo_section')
                     var els = createElementFromHTML(`
-                        <input type="text" class="w3-input w3-border w3-light-grey" id="usercompanies[${i}]["logourl"]" name="usercompanies[${i}] placeholder="URL of company logo" value = ""/>
+                        <input type="text" class="w3-input w3-border w3-light-grey" id="usercompanies[${i}] name="usercompanies[${i}] placeholder="URL of company logo" value = ""/>
                     `)
                     for (let item of els) {
                         section.appendChild(item);
