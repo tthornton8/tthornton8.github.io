@@ -42,7 +42,6 @@ if (isset($_POST['submit'])) {
             $sql = "DELETE FROM skill WHERE user_ID = '".$conn->real_escape_string($id)."'";
             $result = $conn->query($sql);
         
-            // echo '<pre>'; print_r($_POST); echo '</pre>';
             $sql = "INSERT INTO skill (user_ID, name, icon) VALUES ";
             foreach ($skills as &$row) {
                 if ($row["name"]) {
@@ -52,7 +51,6 @@ if (isset($_POST['submit'])) {
             $sql = substr($sql, 0, -1);
             $sql .= ";";
         
-            // echo $sql;
             $result = $conn->query($sql);
 
             foreach ($projects as &$row) {
@@ -63,7 +61,6 @@ if (isset($_POST['submit'])) {
                         $sql = "UPDATE project SET name = '".htmlspecialchars($conn->real_escape_string($row["name"]))."', icon = '".htmlspecialchars($conn->real_escape_string($row["icon"]))."' WHERE ID = ".$conn->real_escape_string($row['ID']).";";
                     }
                     $result = $conn->query($sql);
-                    //echo $sql;
                 }
             }
 

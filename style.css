@@ -712,6 +712,12 @@ a.button_company:hover {
   grid-template-columns: repeat(5, 1fr);
 }
 
+#carousel > div > div:hover {
+  transition: all 0.1s;
+  cursor: pointer;
+  margin: 5px;
+}
+
 #carousel div div {
   display: grid;
   grid-template-areas:

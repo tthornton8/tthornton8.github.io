@@ -177,12 +177,6 @@ body {
     background: var(--fadedlightCherry);
 }
 
-/* .dd ul >  li > ul > label > li:hover span {
-    transition: all 0.2s ease;
-    background-color: #fff;
-} */
-
-
 .chart {
     grid-area: chart;
 }
@@ -195,7 +189,7 @@ body {
     grid-area: com;
 }
 
-._main > div {
+._main > div:not(.modal) {
     padding: 20px;
     background-color:#F7F7F7;
     border-radius: 5px;

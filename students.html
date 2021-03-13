@@ -31,6 +31,7 @@ if (isset($_SESSION['id'])) {
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="students.css" rel="stylesheet" type="text/css">
+    <link href="profile_style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -168,7 +169,7 @@ if (isset($_SESSION['id'])) {
                 <div id = "carousel" style = "margin-bottom: 0; padding-bottom: 0;">
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <div>
-                        <div>
+                        <div  id = "miniCV_1" onclick="showCV(1);">
                             <h2>Joe Bloggs </h2>
                             <img src = "avatar.png">
                             <h3 style = "grid-area: r1"> Top Skills: </h3>
@@ -176,7 +177,7 @@ if (isset($_SESSION['id'])) {
                             <h3 style = "grid-area: r3"> Top Projects: </h3>
                             <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
                         </div>
-                        <div>
+                        <div id = "miniCV_2" >
                             <h2>Joe Bloggs </h2>
                             <img src = "avatar.png">
                             <h3 style = "grid-area: r1"> Top Skills: </h3>
@@ -184,7 +185,7 @@ if (isset($_SESSION['id'])) {
                             <h3 style = "grid-area: r3"> Top Projects: </h3>
                             <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
                         </div>
-                        <div>
+                        <div id = "miniCV_3" >
                             <h2>Joe Bloggs </h2>
                             <img src = "avatar.png">
                             <h3 style = "grid-area: r1"> Top Skills: </h3>
@@ -197,7 +198,7 @@ if (isset($_SESSION['id'])) {
                             list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, 1);
                             require_once('return_small_profile.php');
                         ?>
-                        <div>
+                        <div id = "miniCV_4" >
                             <h2>Joe Bloggs </h2>
                             <img src = "avatar.png">
                             <h3 style = "grid-area: r1"> Top Skills: </h3>
@@ -236,6 +237,34 @@ if (isset($_SESSION['id'])) {
         <div class = "com">
             Students comments relating to the experience they are looking for
         </div>
+        <div id="editWindow" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close_modal">&times;</span>
+                    <h2>GradCherry CV</h2>
+                </div>
+                <div class="modal-footer">
+                    <h3>&nbsp;</h3>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        var span = document.getElementsByClassName("close_modal")[0];
+        var modal = document.getElementById("editWindow");
+        function showCV(id) {
+            modal.style.display = "block";
+        }
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+    </script>
 </body>
 </html>
