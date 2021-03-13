@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+require_once('config.php');
+require_once('get_profile.php');
  
 if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
     unset($_SESSION['id']);
@@ -189,14 +192,10 @@ if (isset($_SESSION['id'])) {
                             <h3 style = "grid-area: r3"> Top Projects: </h3>
                             <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
                         </div>
-                        <div>
-                            <h2>Joe Bloggs </h2>
-                            <img src = "avatar.png">
-                            <h3 style = "grid-area: r1"> Top Skills: </h3>
-                            <h4 style = "grid-area: r2"> Skill 1<br/>Skill 2<br/>Skill 3</h4>
-                            <h3 style = "grid-area: r3"> Top Projects: </h3>
-                            <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
-                        </div>
+                        <?php
+                            list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, 1);
+                            require_once('return_small_profile.php');
+                        ?>
                         <div>
                             <h2>Joe Bloggs </h2>
                             <img src = "avatar.png">
