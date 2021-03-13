@@ -132,7 +132,7 @@ if (isset($_POST['submit'])) {
                 foreach ($value as &$detail) {
                     $qual[] = array (
                         "type" => $qualtype[$key],
-                        "value" => $value,
+                        "value" => $detail,
                     );
                 }
             }
