@@ -193,6 +193,7 @@ if (isset($_SESSION['id'])) {
                             <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
                         </div>
                         <?php
+                            $id = 1;
                             list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, 1);
                             require_once('return_small_profile.php');
                         ?>
