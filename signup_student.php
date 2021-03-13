@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
  
                 $arr_message = [
                     'class' => 'alert-success',
-                    'msg' => 'We have sent an activation link to your email. Please activate your account.',
+                    'msg' => 'We are currently in BETA testing, please wait for a confirmation email for your account to be confirmed.',
                 ];
                 $username = $email = '';
             }
