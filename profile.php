@@ -341,9 +341,9 @@ function phpAlert($msg) {
                                 $html .= "\n<li><input type=\"text\" class=\"w3-input w3-border w3-light-grey _qual_value\" id=\"qual_value[$i][$j]\" name=\"qual_value[$i][$j]\" placeholder=\"Detail\" value = \"$value\"/></li>";
                                 $j += 1;
                             }
-                            $i += 1;
-                            $html .= "\n<li><button type=\"button\" name=\"add_qual_detail\" style = \"margin-bottom: 1em; margin-top: 0.3em;\" class=\"w3-btn w3-blue-grey\" onclick = \"addQualDetail($i);\">+</button></li>";
                             $html .= "\n</ul>";
+                            $html .= "\n<ul><li><button type=\"button\" name=\"add_qual_detail\" style = \"margin-bottom: 1em; margin-top: 0.3em;\" class=\"w3-btn w3-blue-grey\" onclick = \"addQualDetail($i);\">+</button></li></ul>";
+                            $i += 1;
                         };
                         echo $html;
                     ?>
