@@ -191,6 +191,8 @@ if (isset($_POST['submit'])) {
                     }
                 } 
             }
+
+            print_r($usercompanies);
             break;
         default:
             echo "";
@@ -454,7 +456,7 @@ function phpAlert($msg) {
                         $html_c .= "";
                         $i = 0;
                         foreach ($usercompanies as &$row) {
-                            $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies[\"logourl\"][$i]\" name=\"usercompanies[\"logourl\"][$i]\" placeholder=\"Detail\" value = \"".$row["logourl"]."\"/>";
+                            $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies[\"logourl\"][$i]\" name=\"usercompanies[\"logourl\"][$i]\" placeholder=\"URL of company logo\" value = \"".$row["logourl"]."\"/>";
                             $i = 0;
                         }
                         echo $html_c;
