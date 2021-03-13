@@ -1,4 +1,22 @@
 <?php
+
+function get_from_table ($table, $user_id="") {
+    $out = [];
+    if ($user_id) {
+        $sql = "SELECT * FROM $table WHERE user_ID = ".$conn->real_escape_string($user_id);
+    } else {
+        $sql = "SELECT * FROM $table";
+    }
+    
+    $result = $conn->query($sql);
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $out[] = $row;
+        }
+    }
+    return $out;
+}
+
 $sql = "SELECT * FROM user WHERE ID = '".$conn->real_escape_string($id)."'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
@@ -21,15 +39,15 @@ if ($result) {
     }
 }
 
-$projects = [];
-$sql = "SELECT * FROM project WHERE user_ID = ".$conn->real_escape_string($id);
-$result = $conn->query($sql);
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $projects[] = $row;
-    }
-    
-}
+// $projects = [];
+// $sql = "SELECT * FROM project WHERE user_ID = ".$conn->real_escape_string($id);
+// $result = $conn->query($sql);
+// if ($result) {
+//     while ($row = $result->fetch_assoc()) {
+//         $projects[] = $row;
+//     }
+// }
+$projects = get_from_table("project", $id);
 
 $qual = [];
 $sql = "SELECT * FROM qual WHERE user_ID = ".$conn->real_escape_string($id);
@@ -49,7 +67,7 @@ if ($result) {
     }
 }
 
-$usercompanies = [];
+4$usercompanies = [];
 $sql = "SELECT * FROM usercompanies";
 $result = $conn->query($sql);
 if ($result) {
