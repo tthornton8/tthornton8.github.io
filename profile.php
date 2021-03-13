@@ -425,7 +425,7 @@ function phpAlert($msg) {
                     var ul_i = document.getElementById(`qual_${i}`)
                     var j = ul_i.getElementsByTagName('li').length;
                     var els = createElementFromHTML(`
-                    <li><input type="text" class="w3-input w3-border w3-light-grey _qual_value" id="qual_value[${i}][${j}]" name="qual_value[${i}][${j}]" placeholder="Detail" value = ""/></li>
+                    <li><input type="text" class="w3-input w3-border w3-light-grey _qual_value" id="qualvalue[${i}][${j}]" name="qualvalue[${i}][${j}]" placeholder="Detail" value = ""/></li>
                     `);
                     for (let item of els) {
                         ul_i.appendChild(item);
@@ -435,7 +435,7 @@ function phpAlert($msg) {
                     var i = document.querySelectorAll('[id^="qual_"]').length;
                     var quals = document.getElementById("qualifications_section");
                     var els = createElementFromHTML(`
-                        <input type="text" class="w3-input w3-border w3-light-grey _qual_type" id="qual_type[${i}]" name=\"qual_type[${i}]" placeholder="Type" value = ""/>
+                        <input type="text" class="w3-input w3-border w3-light-grey _qual_type" id="qualtype[${i}]" name=\"qualtype[${i}]" placeholder="Type" value = ""/>
                         <ul id = qual_${i}></ul>
                         <ul><li><button type="button" name="add_qual_detail" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addQualDetail(${i});">+</button></li></ul>
                     `);
