@@ -340,7 +340,7 @@ function phpAlert($msg) {
                             $html .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey _qual_type\" id=\"qual_type[$i]\" name=\"qual_type[$i]\" placeholder=\"Type\" value = \"$key\"/>";
                             $html .= "\n<ul id = \"qual_$i\">";
                             foreach ($quals as &$value) {
-                                $html .= "\n<li><input type=\"text\" class=\"w3-input w3-border w3-light-grey _qual_value\" id=\"qual_value[$i][$j]\" name=\"qual_value[$i][$j]\" placeholder=\"Detail\" value = \"$value\"/></li>";
+                                $html .= "\n<li><input type=\"text\" class=\"w3-input w3-border w3-light-grey _qualvalue\" id=\"qual_value[$i][$j]\" name=\"qualvalue[$i][$j]\" placeholder=\"Detail\" value = \"$value\"/></li>";
                                 $j += 1;
                             }
                             $html .= "\n</ul>";
@@ -432,7 +432,7 @@ function phpAlert($msg) {
                     }
                 }
                 function addQual() {
-                    var i = document.querySelectorAll('[id^="qual_[0-9]"]').length;
+                    var i = document.querySelectorAll('[id^="qual_"]').length;
                     var quals = document.getElementById("qualifications_section");
                     var els = createElementFromHTML(`
                         <input type="text" class="w3-input w3-border w3-light-grey _qual_type" id="qual_type[${i}]" name=\"qual_type[${i}]" placeholder="Type" value = ""/>
