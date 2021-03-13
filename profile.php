@@ -469,7 +469,7 @@ function phpAlert($msg) {
 
                 <script type="text/javascript" defer>
                 function addCompany() {
-                    var i = document.querySelectorAll('[id^="usercompanies\[\"logourl\"\]"]').length;
+                    var i = document.querySelectorAll('[id^="usercompanies').length;
                     var section = document.getElementById('logo_section')
                     var els = createElementFromHTML(`
                         <input type="text" class="w3-input w3-border w3-light-grey" id="usercompanies["logourl"][${i}]" name="usercompanies["logourl"][${i}]" placeholder="Detail" value = ""/>
