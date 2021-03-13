@@ -126,8 +126,6 @@ if (isset($_POST['submit'])) {
             }
 
             $qual = [];
-            print_r($qualvalue);
-            print_r($qualtype);
             foreach ($qualvalue as $key => $value){
                 foreach ($value as &$detail) {
                     $qual[] = array (
@@ -136,7 +134,9 @@ if (isset($_POST['submit'])) {
                     );
                 }
             }
-            print_r($qual);
+
+            $sql = "DELETE FROM qual WHERE user_ID = '".$conn->real_escape_string($id)."'";
+            $result = $conn->query($sql);
 
             $sql = "INSERT INTO qual (user_ID, type, value) VALUES ";
             foreach ($qual as &$row) {
