@@ -128,10 +128,12 @@ if (isset($_POST['submit'])) {
             $qual = [];
             foreach ($qualvalue as $key => $value){
                 foreach ($value as &$detail) {
-                    $qual[] = array (
-                        "type" => $qualtype[$key],
-                        "value" => $detail,
-                    );
+                    if ($detail) {
+                        $qual[] = array (
+                            "type" => $qualtype[$key],
+                            "value" => $detail,
+                        );
+                    }
                 }
             }
 
