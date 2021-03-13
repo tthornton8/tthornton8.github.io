@@ -126,6 +126,7 @@ if (isset($_POST['submit'])) {
             }
 
             $qual = [];
+            print_r($qualvalue);
             foreach ($qualvalue as $key => $value){
                 $qual[] = array (
                     "type" => $qualtype[$key],
