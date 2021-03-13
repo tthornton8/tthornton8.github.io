@@ -39,40 +39,9 @@ if ($result) {
     }
 }
 
-// $projects = [];
-// $sql = "SELECT * FROM project WHERE user_ID = ".$conn->real_escape_string($id);
-// $result = $conn->query($sql);
-// if ($result) {
-//     while ($row = $result->fetch_assoc()) {
-//         $projects[] = $row;
-//     }
-// }
+
 $projects = get_from_table("project", $conn, $id);
-
-$qual = [];
-$sql = "SELECT * FROM qual WHERE user_ID = ".$conn->real_escape_string($id);
-$result = $conn->query($sql);
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $qual[] = $row;
-    }
-}
-
-$icons = [];
-$sql = "SELECT * FROM icon";
-$result = $conn->query($sql);
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $icons[] = $row;
-    }
-}
-
-$usercompanies = [];
-$sql = "SELECT * FROM usercompanies";
-$result = $conn->query($sql);
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $usercompanies[] = $row;
-    }
-}
+$qual = get_from_table("qual", $conn, $id);
+$icons = get_from_table("icon", $conn);
+$usercompanies = get_from_table("usercompanies", $conn, $id);
 ?>
