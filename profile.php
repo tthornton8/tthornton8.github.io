@@ -156,6 +156,9 @@ if (isset($_POST['submit'])) {
             $sql = substr($sql, 0, -1);
             $sql .= ";";
             $result = $conn->query($sql);
+
+            echo "usercompanies";
+            print_r($usercompanies);
             break;
 
         case "edit_project":
@@ -191,8 +194,6 @@ if (isset($_POST['submit'])) {
                     }
                 } 
             }
-
-            print_r($usercompanies);
             break;
         default:
             echo "";
