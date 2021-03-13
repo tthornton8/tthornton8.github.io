@@ -162,7 +162,7 @@ if (isset($_POST['submit'])) {
             $result = $conn->query($sql);
 
             $sql = "INSERT INTO usercompanies (user_ID, logourl) VALUES ";
-            foreach ($usercompanies as &$row) {
+            foreach ($usercompanies_new as &$row) {
                 if ($row) {
                     $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row))."'),";
                 }
@@ -477,7 +477,7 @@ function phpAlert($msg) {
                         $html_c .= "";
                         $i = 0;
                         foreach ($usercompanies as &$row) {
-                            $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies[$i]\" name=\"usercompanies[$i]\" placeholder=\"URL of company logo\" value = \"".$row["logourl"]."\"/>";
+                            $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies_new[$i]\" name=\"usercompanies_new[$i]\" placeholder=\"URL of company logo\" value = \"".$row["logourl"]."\"/>";
                             $i += 1;
                         }
                         echo $html_c;
@@ -492,10 +492,10 @@ function phpAlert($msg) {
 
                 <script type="text/javascript" defer>
                 function addCompany() {
-                    var i = document.querySelectorAll('[id^="usercompanies').length;
+                    var i = document.querySelectorAll('[id^="usercompanies_new').length;
                     var section = document.getElementById('logo_section')
                     var els = createElementFromHTML(`
-                        <input type="text" class="w3-input w3-border w3-light-grey" id="usercompanies[${i}]" name="usercompanies[${i}]" placeholder="URL of company logo" value = ""/>
+                        <input type="text" class="w3-input w3-border w3-light-grey" id="usercompanies_new[${i}]" name="usercompanies_new[${i}]" placeholder="URL of company logo" value = ""/>
                     `)
                     for (let item of els) {
                         section.appendChild(item);
