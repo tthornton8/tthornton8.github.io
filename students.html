@@ -13,6 +13,15 @@ if (isset($_SESSION['id'])) {
 } else { //redirect to login page
     $logged_in = 'false';
 }
+
+$sql = "SELECT ID FROM user WHERE status = ";
+$result = $conn->query($sql);
+$ids = [];
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $ids[] = $row['ID'];
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -186,43 +195,12 @@ if (isset($_SESSION['id'])) {
                 <div id = "carousel" style = "margin-bottom: 0; padding-bottom: 0;">
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <div>
-                        <div  id = "miniCV_1" onclick="showCV(1);">
-                            <h2>Joe Bloggs </h2>
-                            <img src = "avatar.png">
-                            <h3 style = "grid-area: r1"> Top Skills: </h3>
-                            <h4 style = "grid-area: r2"> Skill 1<br/>Skill 2<br/>Skill 3</h4>
-                            <h3 style = "grid-area: r3"> Top Projects: </h3>
-                            <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
-                        </div>
-                        <div id = "miniCV_2" >
-                            <h2>Joe Bloggs </h2>
-                            <img src = "avatar.png">
-                            <h3 style = "grid-area: r1"> Top Skills: </h3>
-                            <h4 style = "grid-area: r2"> Skill 1<br/>Skill 2<br/>Skill 3</h4>
-                            <h3 style = "grid-area: r3"> Top Projects: </h3>
-                            <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
-                        </div>
-                        <div id = "miniCV_3" >
-                            <h2>Joe Bloggs </h2>
-                            <img src = "avatar.png">
-                            <h3 style = "grid-area: r1"> Top Skills: </h3>
-                            <h4 style = "grid-area: r2"> Skill 1<br/>Skill 2<br/>Skill 3</h4>
-                            <h3 style = "grid-area: r3"> Top Projects: </h3>
-                            <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
-                        </div>
                         <?php
-                            $id = 1;
-                            list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, 1);
-                            require_once('return_small_profile.php');
+                            foreach ($ids as &$id) {
+                                list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, 1);
+                                require_once('return_small_profile.php');
+                            }
                         ?>
-                        <div id = "miniCV_4" >
-                            <h2>Joe Bloggs </h2>
-                            <img src = "avatar.png">
-                            <h3 style = "grid-area: r1"> Top Skills: </h3>
-                            <h4 style = "grid-area: r2"> Skill 1<br/>Skill 2<br/>Skill 3</h4>
-                            <h3 style = "grid-area: r3"> Top Projects: </h3>
-                            <h4 style = "grid-area: r4"> Project 1<br/>Project 2<br/>Project 3</h4>
-                        </div>
                     </div>
                     <div style = "display:none">
                         <div>
@@ -255,24 +233,26 @@ if (isset($_SESSION['id'])) {
             Students comments relating to the experience they are looking for
         </div>
         <?php
-            echo <<<EOT
-            <div id="CVwindow$id" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close_modal">&times;</span>
-                        <h2>GradCherry CV</h2>
-                    </div>
-            EOT;
-                    $id = 1;
-                    list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, 1);
-                    require_once('return_profile.php');
-            echo <<<EOT
-                    <div class="modal-footer">
-                        <h3>&nbsp;</h3>
+            foreach ($ids as &$id) {
+                echo <<<EOT
+                <div id="CVwindow$id" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close_modal">&times;</span>
+                            <h2>GradCherry CV</h2>
+                        </div>
+                EOT;
+                        $id = 1;
+                        list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, 1);
+                        require_once('return_profile.php');
+                echo <<<EOT
+                        <div class="modal-footer">
+                            <h3>&nbsp;</h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-            EOT;
+                EOT;
+            }
         ?>
     </div>
 </body>

@@ -1,4 +1,4 @@
-<div>
+<div id = "miniCV_<?php echo $id; ?>" onclick="showCV(<?php echo $id; ?>);">
     <h2><?php echo $name; ?></h2>
     <img src = "<?php echo "img.php?id={$id}"; ?>">
     <h3 style = "grid-area: r1"> Top Skills: </h3>
