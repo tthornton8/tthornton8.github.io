@@ -332,14 +332,7 @@ function phpAlert($msg) {
                     }
                     echo $html;
                 ?>
-            </table>
-            <table>
-                <td style = "width: 25%; text-align:center"><img alt = "Company Logo" src = "https://www.militarysystems-tech.com/sites/militarysystems/files/styles/supplier_logo_large/public/supplier_logos/Allan_Webb_Logo_2019%20Silver%20Font.png?itok=YdYSedgt" style = "max-height: 100px"></td>
-                <td style = "width: 25%; text-align:center"><img alt = "Company Logo" src = "https://teignbridge.co.uk/wp-content/uploads/tp-logo-447x93.png" style = "max-height: 100px"></td>
-                <td style = "width: 25%; text-align:center"><img alt = "Company Logo" src = "https://media.cylex-uk.co.uk/companies/1966/1300/logo/logo.jpg" style = "max-height: 100px"></td>
-                <td style = "width: 25%; text-align:center"><img alt = "Company Logo" src = "http://www.spenco.co.uk/images/img_logo.jpg" style = "max-height: 100px"></td>
-            </table>
-    
+            </table>    
     </div>
 
     <div class = "_bg" id = "bg" onclick="closeBox()"></div>
