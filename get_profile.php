@@ -1,6 +1,6 @@
 <?php
 
-function get_from_table ($table, $user_id="") {
+function get_from_table ($table, $conn, $user_id="") {
     $out = [];
     if ($user_id) {
         $sql = "SELECT * FROM $table WHERE user_ID = ".$conn->real_escape_string($user_id);
@@ -47,7 +47,7 @@ if ($result) {
 //         $projects[] = $row;
 //     }
 // }
-$projects = get_from_table("project", $id);
+$projects = get_from_table("project", $conn, $id);
 
 $qual = [];
 $sql = "SELECT * FROM qual WHERE user_ID = ".$conn->real_escape_string($id);
