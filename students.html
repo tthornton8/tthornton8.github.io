@@ -50,6 +50,23 @@ if (isset($_SESSION['id'])) {
         var sel = document.getElementById("students")
         sel.style.background = "var(--fadedCherry)";
     </script>
+    <script type="text/javascript" defer>
+
+        function showCV(id) {
+            var modal = document.getElementById(`CVwindow${id}`);
+            var span = modal.getElementsByClassName("close_modal")[0];
+            modal.style.display = "block";
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
     <div class = "_main">
         <div class = "dd">
@@ -257,22 +274,5 @@ if (isset($_SESSION['id'])) {
             echo $html;
         ?>
     </div>
-
-    <script>
-        function showCV(id) {
-            var modal = document.getElementById(`CVwindow${id}`);
-            var span = modal.getElementsByClassName("close_modal")[0];
-            modal.style.display = "block";
-
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
-        }
-    </script>
 </body>
 </html>
