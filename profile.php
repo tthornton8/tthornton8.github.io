@@ -147,9 +147,6 @@ if (isset($_POST['submit'])) {
             $sql = substr($sql, 0, -1);
             $sql .= ";";
             $result = $conn->query($sql);
-            echo $sql;
-
-
             break;
 
         case "edit_project":
