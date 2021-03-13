@@ -419,6 +419,16 @@ function phpAlert($msg) {
                 <br/>
 
                 <script type="text/javascript" defer>
+                function addQualDetail(i) {
+                    var ul_i = document.getElementById(`qual_${i}`)
+                    var j = ul_i.getElementsByTagName('li').length;
+                    var els = createElementFromHTML(`
+                    <li><input type="text" class="w3-input w3-border w3-light-grey _qual_value" id="qual_value[${i}][${j}]" name="qual_value[${i}][${j}]" placeholder="Detail" value = ""/></li>
+                    `);
+                    for (let item of els) {
+                        ul_i.appendChild(item);
+                    }
+                }
                 function addQual() {
                     var i = document.querySelectorAll('[id^="qual_"]').length;
                     var quals = document.getElementById("qualifications_section");
