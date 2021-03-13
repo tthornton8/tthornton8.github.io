@@ -138,7 +138,7 @@ if (isset($_POST['submit'])) {
             }
             print_r($qual);
 
-            $sql = "INSERT INTO qual (userID, type, value) VALUES ";
+            $sql = "INSERT INTO qual (user_ID, type, value) VALUES ";
             foreach ($qual as &$row) {
                 $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row["type"]))."', '".htmlspecialchars($conn->real_escape_string($row["value"]))."'),";
             }
