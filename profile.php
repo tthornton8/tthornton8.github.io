@@ -124,6 +124,8 @@ if (isset($_POST['submit'])) {
                 }
                 
             }
+
+
             break;
 
         case "edit_project":
@@ -430,7 +432,7 @@ function phpAlert($msg) {
                     }
                 }
                 function addQual() {
-                    var i = document.querySelectorAll('[id^="qual_"]').length;
+                    var i = document.querySelectorAll('[id^="qual_[0-9]"]').length;
                     var quals = document.getElementById("qualifications_section");
                     var els = createElementFromHTML(`
                         <input type="text" class="w3-input w3-border w3-light-grey _qual_type" id="qual_type[${i}]" name=\"qual_type[${i}]" placeholder="Type" value = ""/>
