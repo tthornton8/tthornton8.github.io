@@ -67,7 +67,7 @@ if ($result) {
     }
 }
 
-4$usercompanies = [];
+$usercompanies = [];
 $sql = "SELECT * FROM usercompanies";
 $result = $conn->query($sql);
 if ($result) {
