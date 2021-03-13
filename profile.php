@@ -2,6 +2,7 @@
 session_start();
 
 require_once('config.php');
+require_once('get_profile.php');
  
 if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
     unset($_SESSION['id']);
@@ -10,8 +11,7 @@ if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
 if (isset($_SESSION['id'])) {
     $logged_in = 'true';
     $id = $_SESSION['id'];
-    require_once('get_profile.php');
-    
+    list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
 
 } else {
     $logged_in = 'false';
