@@ -1,3 +1,4 @@
+<?php
 $sql = "SELECT * FROM user WHERE ID = '".$conn->real_escape_string($id)."'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
@@ -56,3 +57,4 @@ if ($result) {
         $usercompanies[] = $row;
     }
 }
+?>
