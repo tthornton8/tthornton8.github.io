@@ -3,6 +3,7 @@ session_start();
 
 require_once('config.php');
 require_once('get_profile.php');
+require_once('return_profile.php');
  
 if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
     unset($_SESSION['id']);
@@ -198,7 +199,7 @@ function phpAlert($msg) {
     <script src="svg-inject.js"></script>
 
     <?php
-        require_once('return_profile.php');
+        return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies);
     ?>
 
     <div class = "_bg" id = "bg" onclick="closeBox()"></div>

@@ -3,6 +3,7 @@ session_start();
 
 require_once('config.php');
 require_once('get_profile.php');
+require_once('return_profile.php');
  
 if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
     unset($_SESSION['id']);
@@ -244,7 +245,7 @@ if ($result) {
                 EOT;
                         unset($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies);
                         list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, 1);
-                        require('return_profile.php');
+                        return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies);
                 echo <<<EOT
                         </div>
                         <div class="modal-footer">
