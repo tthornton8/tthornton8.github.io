@@ -244,7 +244,7 @@ if ($result) {
                         </div>
                 EOT;
                         unset($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies);
-                        list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, 1);
+                        list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
                         return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id);
                 echo <<<EOT
                         </div>
