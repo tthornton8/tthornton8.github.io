@@ -11,7 +11,11 @@ function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $
             <h2>$degree</h2>
             <h2>$uni</h2>
         </div>
-        <img alt = "University Logo" src = "img/bath.png" style = "height: 80px;" class = "_uni">
+    EOT;
+    if ($uni == 'University of Bath') {
+        echo '<img alt = "University Logo" src = "img/bath.png" style = "height: 80px;" class = "_uni">';
+    }
+    echo <<<EOT
     </div>
 
     <div class = "_prof_section _about">
