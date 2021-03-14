@@ -1,5 +1,5 @@
 <?php 
-function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) {
+function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id) {
     echo <<<EOT
     <div class = "_content">
 

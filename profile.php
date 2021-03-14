@@ -199,7 +199,7 @@ function phpAlert($msg) {
     <script src="svg-inject.js"></script>
 
     <?php
-        return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies);
+        return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id);
     ?>
 
     <div class = "_bg" id = "bg" onclick="closeBox()"></div>
