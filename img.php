@@ -21,7 +21,7 @@
     header('content-type: '. $mimes[$ext]);
     header('content-disposition: inline; filename="'.$img.'";');
     if (is_null($img)) {
-        echo readfile("avatar.png")
+        echo readfile("avatar.png");
     } else {
         echo readfile($img);
     }
