@@ -718,6 +718,10 @@ a.button_company:hover {
   margin: 5px;
 }
 
+#carousel > div > div:first-child:hover {
+  margin-left:10px;
+}
+
 #carousel div div {
   display: grid;
   grid-template-areas:
