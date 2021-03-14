@@ -14,7 +14,7 @@ if (isset($_SESSION['id'])) {
     $logged_in = 'false';
 }
 
-$sql = "SELECT ID FROM user WHERE status = ";
+$sql = "SELECT ID FROM user WHERE status = 1;
 $result = $conn->query($sql);
 $ids = [];
 if ($result) {
