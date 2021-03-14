@@ -198,8 +198,7 @@ if ($result) {
                         <?php
                             foreach ($ids as &$id) {
                                 list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
-                                print_r(array($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies));
-                                require_once('return_small_profile.php');
+                                require('return_small_profile.php');
                             }
                         ?>
                     </div>
@@ -245,7 +244,7 @@ if ($result) {
                 EOT;
                         $id = 1;
                         list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, 1);
-                        require_once('return_profile.php');
+                        require('return_profile.php');
                 echo <<<EOT
                         <div class="modal-footer">
                             <h3>&nbsp;</h3>
