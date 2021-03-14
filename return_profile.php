@@ -4,7 +4,7 @@ function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $
     <div class = "_content">
 
     <div class = "_prof_section _head">
-        <img src=img.php?id={$id}" alt="Profile Picture" class = "pp">
+        <img src="img.php?id=$id" alt="Profile Picture" class = "pp">
         <h1>$name <div onclick="document.getElementById('editWindow').style.display = 'block';" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div> </h1>
         <hr>
         <div class = "_head_desc">
