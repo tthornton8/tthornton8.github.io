@@ -242,7 +242,7 @@ if ($result) {
                             <h2>GradCherry CV</h2>
                         </div>
                 EOT;
-                        unset($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies)
+                        unset($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies);
                         list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, 1);
                         require('return_profile.php');
                 echo <<<EOT
