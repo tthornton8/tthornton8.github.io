@@ -1,11 +1,17 @@
 <?php 
-function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id) {
+function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id, $edit = True) {
     echo <<<EOT
     <div class = "_content">
 
     <div class = "_prof_section _head">
         <img src="img.php?id=$id" alt="Profile Picture" class = "pp">
-        <h1>$name <div onclick="document.getElementById('editWindow').style.display = 'block';" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div> </h1>
+        <h1>$name 
+    EOT;
+    if ($edit) {
+        echo '<div onclick="document.getElementById(\'editWindow\').style.display = \'block\';" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div>';
+    }
+    echo <<<EOT
+      </h1>
         <hr>
         <div class = "_head_desc">
             <h2>$degree</h2>
