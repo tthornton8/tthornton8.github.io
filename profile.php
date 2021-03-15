@@ -196,7 +196,6 @@ function phpAlert($msg) {
     <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
     <script type="text/javascript" src="header.js"></script>
     <script type="text/javascript" src="script.js"></script>
-    <script src="svg-inject.js"></script>
 
     <?php
         return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id);
