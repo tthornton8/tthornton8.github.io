@@ -23,6 +23,7 @@
 }
 
 ._right > ul > li {
+  transition: 0.1s background-color;
   padding: 16px 0px 16px 20px;
   border-bottom: 2px solid lightgrey;
 }

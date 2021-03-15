@@ -82,6 +82,7 @@ body {
 }
 
 ._top ._nav li a {
+  transition: 0.2s background-color;
   display: flex;
   justify-content: center;
   margin-left: 0px;
