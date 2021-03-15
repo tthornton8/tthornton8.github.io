@@ -197,9 +197,13 @@ function phpAlert($msg) {
     <script type="text/javascript" src="header.js"></script>
     <script type="text/javascript" src="script.js"></script>
 
-    <?php
-        return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id);
-    ?>
+    <div class = "_profile_main">
+        <div id ="_right">
+        </div>
+        <?php
+            return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id);
+        ?>
+    </div>
 
     <div class = "_bg" id = "bg" onclick="closeBox()"></div>
     <div class = "_project_box_unclick animate" id = "project_box"></div>

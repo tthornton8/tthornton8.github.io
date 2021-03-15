@@ -1,3 +1,16 @@
+._profile_main {
+  grid-template-areas: 
+  'cv side';
+}
+
+._right {
+  grid-area: side;
+}
+
+._profile {
+  grid-area: cv;
+}
+
 ._page {
     display: grid;
     grid-template-areas: 
