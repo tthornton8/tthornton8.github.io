@@ -72,7 +72,7 @@ body {
   width:fit-content;
 }
 
-._top ._nav li:nth-child(6) {
+._top ._nav li:nth-child(7) {
   border-right: none;
   width:fit-content;
 }
@@ -136,6 +136,11 @@ body {
   color: white;
   padding: 8px 16px;
   text-decoration: none;
+}
+
+._top ._login ul li a:hover {
+  background-color: var(--fadedCherry);
+  transition: 0.1s all ease-in-out;
 }
 
 ._top_scroll {
