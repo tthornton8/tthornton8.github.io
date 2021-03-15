@@ -142,14 +142,12 @@ if ($result) {
         <div id = "carousel">
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <div>
-                <div>
-                    <?php
-                        foreach ($ids as &$id) {
-                            list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
-                            require('return_small_profile.php');
-                        }
-                    ?>
-                </div>
+                <?php
+                    foreach ($ids as &$id) {
+                        list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
+                        require('return_small_profile.php');
+                    }
+                ?>
             </div>
             <div style = "display:none">
                 <div>
