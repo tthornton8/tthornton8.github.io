@@ -198,7 +198,7 @@ function phpAlert($msg) {
     <script type="text/javascript" src="script.js"></script>
 
     <div class = "_profile_main">
-        <div id ="_right">
+        <div class ="_right">
             <ul>
                 <li>Export CV</li>
                 <li>Edit Profile</li>

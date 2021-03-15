@@ -3,13 +3,38 @@
   grid-template-areas: 'cv side';
   grid-template-columns: 80% 20%;
   padding-top: 15px;
+  margin-right: 2.5%;
 }
 
 ._right {
   grid-area: side;
   background-color: #f7f7f7;
   border-radius: 15px;
-  padding: 1em;
+  border: 3px solid var(--darkCherry);
+
+}
+
+._right > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 140%;
+}
+
+._right > ul > li {
+  padding: 16px 0px 16px 20px;
+  border-bottom: 2px solid lightgrey;
+}
+
+._right > ul > li:hover {
+  cursor: pointer;
+  background-color: #e8e6e6;
+  transition: all 0.1s ease-in-out;
+}
+
+._right > ul > li:first-child:hover {
+  border-radius: 15px 15px 0 0;
 }
 
 ._profile {
