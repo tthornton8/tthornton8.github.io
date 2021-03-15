@@ -16,7 +16,6 @@ if (side) {
 
 window.onscroll = function () { 
   "use strict";
-  console.log(window.scrollY);
 
   var navBar = document.getElementById("top");
 
