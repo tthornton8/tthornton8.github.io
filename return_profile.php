@@ -29,7 +29,7 @@ function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $
         <p>$about</p>
     </div>
     <div class = "_prof_section _skills">
-        <h2 style = "grid-row: 1; grid-column: 1/2">Top Skills</h2>
+        <h2 style = "grid-row: 1; grid-column: 1/3">Top Skills</h2>
     EOT;
     foreach ($skills as &$row) {
         echo "<div class = \"_bubble _gr1\">".$row["name"]."<img src = icon.php?id=".$row["icon"]." alt = \"icon\" onload=\"SVGInject(this)\"></div>";
@@ -38,7 +38,7 @@ function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $
     </div>
     <div class = "_prof_section _skills _projects">
         <!-- <hr style = "grid-column: 1/5; grid-row: 3"> -->
-        <h2 style = "grid-row: 1; grid-column: 1/2">Top Projects</h2>
+        <h2 style = "grid-row: 1; grid-column: 1/3">Top Projects</h2>
     EOT;
     foreach ($projects as &$prow) {
         //echo print_r($projects);
