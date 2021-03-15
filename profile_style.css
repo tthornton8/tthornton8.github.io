@@ -163,8 +163,10 @@
 ._skills { 
     position: relative;
     grid-area: skills;
-    grid-template-columns: 
+    grid-template-rows: 
     repeat(auto-fit, minmax(0, 1fr));
+    width: 90%;
+    margin-left: 5%;
 }
 
 ._projects {
@@ -177,12 +179,10 @@
 } */
 
 ._gr1 {
-    grid-row: 2;
     overflow: hidden;
 }
 
 ._gr2 {
-    grid-row: 5;
     cursor: pointer;
     overflow: hidden;
 }
