@@ -167,6 +167,10 @@
     repeat(auto-fit, minmax(0, 1fr));
 }
 
+._projects {
+  grid-area: projects;
+}
+
 /* ._skills hr {
     grid-area: hr;
     width: 100%;
@@ -193,7 +197,7 @@
 }
 
 ._companies { 
-    grid-area: companies;
+    grid-area: company;
     text-align: left;
 }
 

@@ -36,7 +36,7 @@ function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $
     }
     echo <<<EOT
     </div>
-    <div class = "_prof_section _skills">
+    <div class = "_prof_section _skills _projects">
         <!-- <hr style = "grid-column: 1/5; grid-row: 3"> -->
         <h2 style = "grid-row: 4">Top Projects</h2>
     EOT;

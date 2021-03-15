@@ -502,6 +502,12 @@ a.button_company:hover {
   margin-left: 3rem;
   grid-auto-columns: 1fr 1fr;
   display: grid;
+  grid-template-areas: 
+  'head head'
+  'about about'
+  'skills projects'
+  'quals quals'
+  'company company';
 }
 
 .sk img {
