@@ -1,7 +1,7 @@
 <?php 
 function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id, $edit = True) {
     echo <<<EOT
-    <div class = "_content">
+    <div class = "_profile">
 
     <div class = "_prof_section _head">
         <img src="img.php?id=$id" alt="Profile Picture" class = "pp">

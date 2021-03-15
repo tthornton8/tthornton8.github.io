@@ -497,7 +497,7 @@ a.button_company:hover {
   height:2px;
 }
 
-._content {
+._profile {
   margin-right: 3rem;
   margin-left: 3rem;
 }
@@ -1103,7 +1103,7 @@ a.button_company:hover {
   line-height: 1.4;
 }
 
-._content_side {
+._profile_side {
   display: grid;
   grid-template-columns: 0.2fr 1fr;
   grid-auto-flow: row;
@@ -1162,7 +1162,7 @@ a.button_company:hover {
 }
 
 @media screen and (max-width: 850px) {
-  ._content {
+  ._profile {
     margin-right: 1rem;
     margin-left: 1rem;
   }
