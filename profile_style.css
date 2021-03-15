@@ -1,11 +1,15 @@
 ._profile_main {
-  display:grid;
-  grid-template-areas: 
-  'cv side';
+  display: grid;
+  grid-template-areas: 'cv side';
+  grid-template-columns: 80% 20%;
+  padding-top: 15px;
 }
 
 ._right {
   grid-area: side;
+  background-color: #f7f7f7;
+  border-radius: 15px;
+  padding: 1em;
 }
 
 ._profile {
@@ -26,8 +30,8 @@
 }
 
 ._prof_section {
-    width: 85%;
-    margin-left: 7.5%;
+    width: 95%;
+    margin-left: 2.5%;
     display: grid;
     background-color: #f7f7f7b2;
     margin-bottom: 1em;

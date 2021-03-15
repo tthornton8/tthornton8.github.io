@@ -199,6 +199,15 @@ function phpAlert($msg) {
 
     <div class = "_profile_main">
         <div id ="_right">
+            <ul>
+                <li>Export CV</li>
+                <li>Edit Profile</li>
+                <li>My Favorite Students</li>
+                <li>My Favorite Companies</li>
+                <li>My Projects</li>
+                <li>My Feedback</li>
+                <li>My Ideas / Blog Posts</li>
+            </ul>
         </div>
         <?php
             return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id);
