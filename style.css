@@ -498,8 +498,6 @@ a.button_company:hover {
 }
 
 ._profile {
-  margin-right: 3rem;
-  margin-left: 3rem;
   grid-auto-columns: 1fr 1fr;
   display: grid;
   grid-template-areas: 
