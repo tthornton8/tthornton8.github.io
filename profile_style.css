@@ -180,11 +180,13 @@
 
 ._gr1 {
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 ._gr2 {
     cursor: pointer;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 ._gr2 p {
