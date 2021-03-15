@@ -1,4 +1,5 @@
 ._profile_main {
+  display:grid;
   grid-template-areas: 
   'cv side';
 }
