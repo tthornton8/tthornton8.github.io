@@ -1,8 +1,8 @@
 ._main {
     display:grid;
     grid-template-areas: 
-    'ideas actual'
-    'forum actual';
+    'actual actual'
+    'ideas forum';
     grid-template-columns: 1ft 1fr;
     grid-gap: 20px;
     margin: 20px;
