@@ -171,6 +171,9 @@
 
 ._projects {
   grid-area: projects;
+  margin-left: 0;
+    margin-right: 0;
+    width: 95%;
 }
 
 /* ._skills hr {
