@@ -596,5 +596,12 @@ function phpAlert($msg) {
         };
         </script>
 
+    <p style = "text-align: center;">
+        <img src="img/fb.png" alt="Students" width= 22px> &nbsp;
+        <img src="img/in.png" alt="Students" width= 22px> &nbsp;
+        <img src="img/tw.png" alt="Students" width= 22px> &nbsp; <br>
+        ©2021 by G-CHERRY SOLUTIONS LTD.
+    </p>
+
 </body>
 </html>
