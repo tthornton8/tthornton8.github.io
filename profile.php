@@ -254,7 +254,7 @@ function phpAlert($msg) {
                 <input type="hidden" name="action" value="edit_main">
                 <br/>
                 <input type="file" name="fileToUpload" id="fileToUpload">
-                <label class="w3-text _file_upload" for="fileToUpload">Upload new profile photo</label>
+                <label class="w3-text _file_upload" for="fileToUpload"><img src="img.php?id=<?php echo $id; ?>" alt="Profile Picture" class = "pp"></label>
                 <br/>
                 <div class="_prof_section _head">
                     <h1><input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/></h1>
