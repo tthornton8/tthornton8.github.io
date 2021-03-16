@@ -213,7 +213,7 @@ function phpAlert($msg) {
         <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "Export">
             Export
         </div>
-        <div class = "tabEl w3-animate-opacity" style = "" id = "GCcv">
+        <div class = "tabEl w3-animate-opacity ignore_tabEl" style = "" id = "GCcv">
             <?php
                 return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id);
             ?>
