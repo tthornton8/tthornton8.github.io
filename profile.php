@@ -425,21 +425,21 @@ function phpAlert($msg) {
                         var i = document.querySelectorAll('[id^="skills\["]').length/2;
                         skills = document.getElementById("skills_section");
                         var els = createElementFromHTML(`
-                            <div class = "_gr1>
-                            <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill ${i+1}" value = ""/>\n
-                            <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill ${i+1}" value = ""/>
+                            <div class = "_gr1">
+                                <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill ${i+1}" value = ""/>\n
+                                <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill ${i+1}" value = ""/>
 
-                            <button onclick = "toggleVis('dropdown-content_skills_${i}');" class="dropbtn" type="button" id = "dropbtn_skills${i}"><img src = icon.php?id=0 width = '25px', height = '25px'></button>
-                            <div class="dropdown-content" id = "dropdown-content_skills_${i}">
-                                <?php
-                                foreach ($icons as &$irow) {
-                                    $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
-                                    $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>";
-                                    $onclick = "\" document.getElementById('skills[\${i}][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_skills\${i}').innerHTML = \`$img_tag_large\`; toggleVis('dropdown-content_skills_\${i}');\"";
-                                    echo "\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_\${i}_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
-                                }
-                                ?>
-                            </div>
+                                <button onclick = "toggleVis('dropdown-content_skills_${i}');" class="dropbtn" type="button" id = "dropbtn_skills${i}"><img src = icon.php?id=0 width = '25px', height = '25px'></button>
+                                <div class="dropdown-content" id = "dropdown-content_skills_${i}">
+                                    <?php
+                                    foreach ($icons as &$irow) {
+                                        $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
+                                        $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>";
+                                        $onclick = "\" document.getElementById('skills[\${i}][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_skills\${i}').innerHTML = \`$img_tag_large\`; toggleVis('dropdown-content_skills_\${i}');\"";
+                                        echo "\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_\${i}_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
+                                    }
+                                    ?>
+                                </div>
                             </div>
                         `);
                         for (let item of els) {
@@ -450,7 +450,7 @@ function phpAlert($msg) {
                         var i = document.querySelectorAll('[id^="projects\["]').length/3;
                         projects = document.getElementById("_projects_section");
                         var els = createElementFromHTML(`
-                            <div class = "_gr1>
+                            <div class = "_gr1">
                             <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="projects[${i}][name]" name="projects[${i}][name]" placeholder="Project ${i+1}" value = ""/>\n
                             <input type="hidden" class="w3-input w3-border w3-light-grey" id="projects[${i}][icon]" name="projects[${i}][icon]" placeholder="Project ${i+1}" value = ""/>
                             <input type="hidden" id="projects[${i}][ID]" name="projects[${i}][ID]" value="NEW">
