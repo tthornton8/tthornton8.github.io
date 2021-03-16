@@ -200,18 +200,42 @@ function phpAlert($msg) {
     <div class = "_profile_main">
         <div class ="_right">
             <ul>
-                <li>Export CV</li>
-                <li>Edit Profile</li>
-                <li>My Favorite Students</li>
-                <li>My Favorite Companies</li>
-                <li>My Projects</li>
-                <li>My Feedback</li>
-                <li>My Ideas / Blog Posts</li>
+                <li class = "tabLink" onclick = "openLink(event, 'Export');">Export CV</li>
+                <li class = "tabLink" onclick = "openLink(event, 'GCcv');">GradCherry CV</li>
+                <li class = "tabLink" onclick = "openLink(event, 'Edit');">Edit Profile</li>
+                <li class = "tabLink" onclick = "openLink(event, 'FavStudents');">My Favorite Students</li>
+                <li class = "tabLink" onclick = "openLink(event, 'FavCompanies');">My Favorite Companies</li>
+                <li class = "tabLink" onclick = "openLink(event, 'Proj');">My Projects</li>
+                <li class = "tabLink" onclick = "openLink(event, 'Feedback');">My Feedback</li>
+                <li class = "tabLink" onclick = "openLink(event, 'Ideas');">My Ideas / Blog Posts</li>
             </ul>
         </div>
-        <?php
-            return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id);
-        ?>
+        <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "Export">
+            Export
+        </div>
+        <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "GCcv">
+            <?php
+                return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id);
+            ?>
+        </div>
+        <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "Edit">
+            Edit
+        </div>
+        <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "FavStudents">
+            Favorite Students
+        </div>
+        <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "FavCompanies">
+            Favorite Companies
+        </div>
+        <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "Proj">
+            My Projects
+        </div>
+        <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "Feedback">
+            Feedback
+        </div>
+        <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "Ideas">
+            Ideas
+        </div>
     </div>
 
     <div class = "_bg" id = "bg" onclick="closeBox()"></div>
@@ -223,7 +247,7 @@ function phpAlert($msg) {
         <div class="modal-content">
           <div class="modal-header">
             <span class="close_modal">&times;</span>
-            <h2>Edit Profile</h2>
+            <h2>Edit CV</h2>
           </div>
           <div class="modal-body">
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
@@ -593,6 +617,20 @@ function phpAlert($msg) {
                 el.style.display = "inline-block";
             }
 
+        };
+
+        function openLink(evt, animName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("tabEl");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tabLink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+            }
+            document.getElementById(animName).style.display = "block";
+            evt.currentTarget.className += " w3-red";
         };
         </script>
 
