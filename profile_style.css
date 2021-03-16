@@ -518,16 +518,8 @@ cursor: pointer;
     z-index: -1;
 }
 
-._file_upload {
-  font-weight: 700;
-  color: var(--darkCherry);
-  padding: 8px 16px;
-  margin-bottom: 20px;
-  /* background-color: var(--darkCherry); */
-  border: 3px solid var(--darkCherry);
-  border-radius: 5px;
-  display: inline-block;
-  background-color: white;
+._file_upload img:hover {
+  cursor: pointer;  
 }
 
 #fileToUpload:focus + ._file_upload,

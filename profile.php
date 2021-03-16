@@ -253,7 +253,7 @@ function phpAlert($msg) {
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="edit_main">
                 <div class="_prof_section _head">
-                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="file" name="fileToUpload" id="fileToUpload" style = "grid-area:pp; border-radius:50%;">
                     <label class="w3-text _file_upload" for="fileToUpload"><img src="img.php?id=<?php echo $id; ?>" alt="Profile Picture" class = "pp"></label>
                     <h1><input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/></h1>
                     <hr/>
