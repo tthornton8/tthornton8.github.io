@@ -304,7 +304,7 @@ function phpAlert($msg) {
                     <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addSkill();">+</button>
                     <br/>
                         
-                    <div class = "_projects_section _prof_section _skills _projects" id = "_projects_section">
+                    <div class = "_prof_section _skills _projects" id = "_projects_section">
                         <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%; grid-row: 1; grid-column: 1/3">Projects</p>
                         <?php
                         // echo print_r($projects);
@@ -425,8 +425,6 @@ function phpAlert($msg) {
                         var i = document.querySelectorAll('[id^="skills\["]').length/2;
                         skills = document.getElementById("skills_section");
                         var els = createElementFromHTML(`
-                            <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="skills[${i}][name]">Skill ${i+1}</label>
-                            <br/>
                             <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill ${i+1}" value = ""/>\n
                             <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill ${i+1}" value = ""/>
 
@@ -451,8 +449,6 @@ function phpAlert($msg) {
                         var i = document.querySelectorAll('[id^="projects\["]').length/3;
                         projects = document.getElementById("_projects_section");
                         var els = createElementFromHTML(`
-                            <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="projects[${i}][name]">Project ${i+1}</label>
-                            <br/>
                             <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="projects[${i}][name]" name="projects[${i}][name]" placeholder="Project ${i+1}" value = ""/>\n
                             <input type="hidden" class="w3-input w3-border w3-light-grey" id="projects[${i}][icon]" name="projects[${i}][icon]" placeholder="Project ${i+1}" value = ""/>
                             <input type="hidden" id="projects[${i}][ID]" name="projects[${i}][ID]" value="NEW">
