@@ -69,7 +69,7 @@ if (isset($_POST['submit'])) {
         <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
         <script type="text/javascript" src="header.js"></script>
 
-        <div class="_content" style = "margin-top: 3rem;">
+        <div class="_content" style = "margin: 0 auto; width: 50%; margin-top: 3rem;">
             <div class="w3-card-4">
                 <div class="w3-container _dark_cherry">
                     <h2>Sign Up</h2>
