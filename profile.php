@@ -425,6 +425,7 @@ function phpAlert($msg) {
                         var i = document.querySelectorAll('[id^="skills\["]').length/2;
                         skills = document.getElementById("skills_section");
                         var els = createElementFromHTML(`
+                            <div class = "_gr1>
                             <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="skills[${i}][name]" name="skills[${i}][name]" placeholder="Skill ${i+1}" value = ""/>\n
                             <input type="hidden" class="w3-input w3-border w3-light-grey" id="skills[${i}][icon]" name="skills[${i}][icon]" placeholder="Skill ${i+1}" value = ""/>
 
@@ -439,7 +440,7 @@ function phpAlert($msg) {
                                 }
                                 ?>
                             </div>
-                            <br/>
+                            </div>
                         `);
                         for (let item of els) {
                             skills.appendChild(item);
@@ -449,6 +450,7 @@ function phpAlert($msg) {
                         var i = document.querySelectorAll('[id^="projects\["]').length/3;
                         projects = document.getElementById("_projects_section");
                         var els = createElementFromHTML(`
+                            <div class = "_gr1>
                             <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="projects[${i}][name]" name="projects[${i}][name]" placeholder="Project ${i+1}" value = ""/>\n
                             <input type="hidden" class="w3-input w3-border w3-light-grey" id="projects[${i}][icon]" name="projects[${i}][icon]" placeholder="Project ${i+1}" value = ""/>
                             <input type="hidden" id="projects[${i}][ID]" name="projects[${i}][ID]" value="NEW">
@@ -466,7 +468,7 @@ function phpAlert($msg) {
                                 }
                                 ?>
                             </div>
-                            <br/>
+                            </div>
                         `);
                         for (let item of els) {
                             console.log(item);
