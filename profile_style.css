@@ -36,7 +36,7 @@
 
 .tab-selected {
   color: #fff!important;
-  background-color: var(--fadedCherry!important;
+  background-color: var(--fadedCherry)!important;
 }
 
 .tabEl:not(.ignore_tabEl) {
