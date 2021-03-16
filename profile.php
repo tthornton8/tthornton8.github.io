@@ -257,20 +257,11 @@ function phpAlert($msg) {
                 <label class="w3-text _file_upload" for="fileToUpload">Upload new profile photo</label>
                 <br/>
                 <div class="_prof_section _head">
-                    <h1>
-                        <label class="w3-text" style = "color: var(--darkCherry);" for="inputname">Name</label>
-                        <input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/>
-                    </h1>
+                    <h1><input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/></h1>
                     <hr/>
                     <div class="_head_desc">
-                        <h1>
-                            <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="inputdegree">Degree</label>
-                            <input type="text" class="w3-input w3-border w3-light-grey" id="inputdegree" name="degree" placeholder="Degree" value = "<?php echo $degree; ?>"/>
-                        </h1>
-                        <h1>
-                            <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="inputuni">University</label>
-                            <input type="text" class="w3-input w3-border w3-light-grey" id="inputuni" name="uni" placeholder="University" value = "<?php echo $uni; ?>"/>
-                        </h1>
+                        <h2><input type="text" class="w3-input w3-border w3-light-grey" id="inputdegree" name="degree" placeholder="Degree" value = "<?php echo $degree; ?>"/></h2>
+                        <h2><input type="text" class="w3-input w3-border w3-light-grey" id="inputuni" name="uni" placeholder="University" value = "<?php echo $uni; ?>"/></h2>
                     </div>
                 </div>
 
