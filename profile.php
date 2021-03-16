@@ -254,7 +254,7 @@ function phpAlert($msg) {
                 <input type="hidden" name="action" value="edit_main">
                 <div class="_prof_section _head">
                     <input type="file" name="fileToUpload" id="fileToUpload" >
-                    <label class="w3-text _file_upload" for="fileToUpload" style = "grid-area:pp; border-radius:50%;">
+                    <label class="w3-text _file_upload" for="fileToUpload" style = "grid-area:pp;">
                         <img src="img.php?id=<?php echo $id; ?>" alt="Profile Picture" class = "pp">
                     </label>
                     <h1><input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/></h1>
@@ -265,11 +265,12 @@ function phpAlert($msg) {
                     </div>
                 </div>
 
-                <label class="w3-text" style = "color: var(--darkCherry);" for="inputemail">Email</label>
-                <input type="email" class="w3-input w3-border w3-light-grey" id="inputemail" name="email" placeholder="Email" value = "<?php echo $email; ?>"/>
-
-                <label class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" for="inputabout">About</label>
-                <textarea class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About"><?php echo $about; ?></textarea>
+                <!-- <label class="w3-text" style = "color: var(--darkCherry);" for="inputemail">Email</label>
+                <input type="email" class="w3-input w3-border w3-light-grey" id="inputemail" name="email" placeholder="Email" value = "<?php echo $email; ?>"/> -->
+                <div class="_prof_section _about">
+                    <h2>About</h2>
+                    <textarea class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About"><?php echo $about; ?></textarea>
+                </div>
 
                 <div id = "qualifications_section">
                     <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" >Qualifications</p>
