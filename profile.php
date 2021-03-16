@@ -275,12 +275,13 @@ function phpAlert($msg) {
                     
                     <div class="_prof_section _skills">
                         <div id = "skills_section">
-                            <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Skills</p>
+                            <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%; grid-row: 1; grid-column: 1/3">Skills</p>
                             <?php 
                             $i = 1;
                             $j = 0;
                             foreach ($skills as &$row) {
                                 if ($row["name"]) {
+                                    echo "<div class = \"_gr1\">";
                                     echo "<label class=\"w3-text\" style = \"color: var(--darkCherry); margin-top: 10px;\" for=\"skills[$j][name]\">Skill $i</label><br/>\n";
                                     echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][name]\" name=\"skills[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
                                     echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][icon]\" name=\"skills[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
@@ -293,7 +294,7 @@ function phpAlert($msg) {
                                         $onclick = "\" document.getElementById('skills[$j][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_skills$j').innerHTML = `$img_tag_large`; toggleVis('dropdown-content_skills_$j');\"";
                                         echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
                                     }
-                                    echo "</div><br/>";
+                                    echo "</div></div>";
 
                                     $i += 1;
                                     $j += 1;
@@ -307,7 +308,7 @@ function phpAlert($msg) {
                     </div>
                     
                     <div class="_prof_section _skills _projects">
-                        <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Projects</p>
+                        <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%; grid-row: 1; grid-column: 1/3">Projects</p>
                         <div class = "_projects_section" id = "_projects_section">
                             <?php
                             // echo print_r($projects);
