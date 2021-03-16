@@ -272,6 +272,74 @@ function phpAlert($msg) {
                         <h2>About</h2>
                         <textarea class="w3-input w3-border w3-light-grey" id="inputabout" name="about" placeholder="About"><?php echo $about; ?></textarea>
                     </div>
+                    
+                    <div class="_prof_section _skills">
+                        <div id = "skills_section">
+                            <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Skills</p>
+                            <?php 
+                            $i = 1;
+                            $j = 0;
+                            foreach ($skills as &$row) {
+                                if ($row["name"]) {
+                                    echo "<label class=\"w3-text\" style = \"color: var(--darkCherry); margin-top: 10px;\" for=\"skills[$j][name]\">Skill $i</label><br/>\n";
+                                    echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][name]\" name=\"skills[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
+                                    echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][icon]\" name=\"skills[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
+                                    
+                                    echo "<button onclick = \"toggleVis('dropdown-content_skills_$j');\" class=\"dropbtn\" type=\"button\" id = \"dropbtn_skills$j\"><img src = icon.php?id=".$row['icon']." width = '25px', height = '25px'></button>";
+                                    echo "<div class=\"dropdown-content\" id = \"dropdown-content_skills_$j\">";
+                                    foreach ($icons as &$irow) {
+                                        $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
+                                        $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>";
+                                        $onclick = "\" document.getElementById('skills[$j][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_skills$j').innerHTML = `$img_tag_large`; toggleVis('dropdown-content_skills_$j');\"";
+                                        echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
+                                    }
+                                    echo "</div><br/>";
+
+                                    $i += 1;
+                                    $j += 1;
+                                }
+                            }
+                            ?>
+
+                        </div>
+                        <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addSkill();">+</button>
+                        <br/>
+                    </div>
+                    
+                    <div class="_prof_section _skills _projects">
+                        <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Projects</p>
+                        <div class = "_projects_section" id = "_projects_section">
+                            <?php
+                            // echo print_r($projects);
+                            $i = 1;
+                            $j = 0;
+                            foreach ($projects as &$row) {
+                                // echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div>";
+                                echo "<label class=\"w3-text\" style = \"color: var(--darkCherry); margin-top: 10px;\" for=\"projects[$j][name]\">Project $i</label><br/>\n";
+                                echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"projects[$j][name]\" name=\"projects[$j][name]\" placeholder=\"Project \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
+                                echo "<input type=\"hidden\" id=\"projects[$j][icon]\" name=\"projects[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
+                                echo "<input type=\"hidden\" id=\"projects[$j][ID]\" name=\"projects[$j][ID]\" value = \"".htmlspecialchars($row["ID"])."\"/>\n\n";
+
+                                echo "<button onclick = \"toggleVis('dropdown-content_projects_$j');\" class=\"dropbtn\" type=\"button\" id = \"dropbtn_projects$j\"><img src = icon.php?id=".$row['icon']." width = '25px', height = '25px'></button>";
+                                echo "<div class=\"dropdown-content\" id = \"dropdown-content_projects_$j\">";
+                                foreach ($icons as &$irow) {
+                                    $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
+                                    $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>";
+                                    $onclick = "\" document.getElementById('projects[$j][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_projects$j').innerHTML = `$img_tag_large`; toggleVis('dropdown-content_projects_$j');\"";
+                                    echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
+                                }
+                                echo "</div>";
+                                echo "<div onclick = \"editProject(".$row['ID'].",`".$row['details']."`,".$row['icon'].");\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br/>\n";
+
+                                $i += 1;
+                                $j += 1;
+                            }
+                            ?>
+                        </div>
+                        <br/>
+                        <button type="button" name="add_project" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addProject();">+</button>
+                        <br/>
+                    </div>
 
                     <div id = "qualifications_section">
                         <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" >Qualifications</p>
@@ -302,70 +370,6 @@ function phpAlert($msg) {
                         ?>
                     </div>
                     <button type="button" name="add_qual" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addQual();">+</button>
-                    <br/>
-                    
-                    <div id = "skills_section">
-                        <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Skills</p>
-                        <?php 
-                        $i = 1;
-                        $j = 0;
-                        foreach ($skills as &$row) {
-                            if ($row["name"]) {
-                                echo "<label class=\"w3-text\" style = \"color: var(--darkCherry); margin-top: 10px;\" for=\"skills[$j][name]\">Skill $i</label><br/>\n";
-                                echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][name]\" name=\"skills[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
-                                echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"skills[$j][icon]\" name=\"skills[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
-                                
-                                echo "<button onclick = \"toggleVis('dropdown-content_skills_$j');\" class=\"dropbtn\" type=\"button\" id = \"dropbtn_skills$j\"><img src = icon.php?id=".$row['icon']." width = '25px', height = '25px'></button>";
-                                echo "<div class=\"dropdown-content\" id = \"dropdown-content_skills_$j\">";
-                                foreach ($icons as &$irow) {
-                                    $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
-                                    $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>";
-                                    $onclick = "\" document.getElementById('skills[$j][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_skills$j').innerHTML = `$img_tag_large`; toggleVis('dropdown-content_skills_$j');\"";
-                                    echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
-                                }
-                                echo "</div><br/>";
-
-                                $i += 1;
-                                $j += 1;
-                            }
-                        }
-                        ?>
-
-                    </div>
-                    <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addSkill();">+</button>
-                    <br/>
-
-                    <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Projects</p>
-                    <div class = "_projects_section" id = "_projects_section">
-                        <?php
-                        // echo print_r($projects);
-                        $i = 1;
-                        $j = 0;
-                        foreach ($projects as &$row) {
-                            // echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div>";
-                            echo "<label class=\"w3-text\" style = \"color: var(--darkCherry); margin-top: 10px;\" for=\"projects[$j][name]\">Project $i</label><br/>\n";
-                            echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"projects[$j][name]\" name=\"projects[$j][name]\" placeholder=\"Project \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
-                            echo "<input type=\"hidden\" id=\"projects[$j][icon]\" name=\"projects[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
-                            echo "<input type=\"hidden\" id=\"projects[$j][ID]\" name=\"projects[$j][ID]\" value = \"".htmlspecialchars($row["ID"])."\"/>\n\n";
-
-                            echo "<button onclick = \"toggleVis('dropdown-content_projects_$j');\" class=\"dropbtn\" type=\"button\" id = \"dropbtn_projects$j\"><img src = icon.php?id=".$row['icon']." width = '25px', height = '25px'></button>";
-                            echo "<div class=\"dropdown-content\" id = \"dropdown-content_projects_$j\">";
-                            foreach ($icons as &$irow) {
-                                $img_tag = "<img src = icon.php?id=".$irow['ID']." width = '20px', height = '20px' style = 'margin-right: 16px;'>";
-                                $img_tag_large = "<img src = icon.php?id=".$irow['ID']." width = '25px', height = '25px'>";
-                                $onclick = "\" document.getElementById('projects[$j][icon]').value = '".$irow['ID']."'; document.getElementById('dropbtn_projects$j').innerHTML = `$img_tag_large`; toggleVis('dropdown-content_projects_$j');\"";
-                                echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
-                            }
-                            echo "</div>";
-                            echo "<div onclick = \"editProject(".$row['ID'].",`".$row['details']."`,".$row['icon'].");\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div><br/>\n";
-
-                            $i += 1;
-                            $j += 1;
-                        }
-                        ?>
-                    </div>
-                    <br/>
-                    <button type="button" name="add_project" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addProject();">+</button>
                     <br/>
 
                     <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Companies Worked With</p>
