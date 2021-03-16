@@ -34,6 +34,11 @@
   transition: all 0.1s ease-in-out;
 }
 
+.tab-selected {
+  color: #fff!important;
+  background-color: var(--lightCherryButton)!important;
+}
+
 ._right > ul > li:first-child:hover {
   border-radius: 5px 5px 0 0;
 }

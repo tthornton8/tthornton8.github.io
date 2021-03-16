@@ -201,7 +201,7 @@ function phpAlert($msg) {
         <div class ="_right">
             <ul>
                 <li class = "tabLink" onclick = "openLink(event, 'Export');">Export CV</li>
-                <li class = "tabLink" onclick = "openLink(event, 'GCcv');">GradCherry CV</li>
+                <li class = "tabLink tab-selected" onclick = "openLink(event, 'GCcv');">GradCherry CV</li>
                 <li class = "tabLink" onclick = "openLink(event, 'Edit');">Edit Profile</li>
                 <li class = "tabLink" onclick = "openLink(event, 'FavStudents');">My Favorite Students</li>
                 <li class = "tabLink" onclick = "openLink(event, 'FavCompanies');">My Favorite Companies</li>
@@ -213,7 +213,7 @@ function phpAlert($msg) {
         <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "Export">
             Export
         </div>
-        <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "GCcv">
+        <div class = "tabEl w3-animate-opacity" style = "" id = "GCcv">
             <?php
                 return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id);
             ?>
@@ -627,10 +627,10 @@ function phpAlert($msg) {
             }
             tablinks = document.getElementsByClassName("tabLink");
             for (i = 0; i < x.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+                tablinks[i].className = tablinks[i].className.replace(" tab-selected", "");
             }
             document.getElementById(animName).style.display = "block";
-            evt.currentTarget.className += " w3-red";
+            evt.currentTarget.className += " tab-selected";
         };
         </script>
 
