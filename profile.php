@@ -312,7 +312,7 @@ function phpAlert($msg) {
                         $j = 0;
                         foreach ($projects as &$row) {
                             // echo "<div class = \"_bubble\">".$row['name']."&nbsp;</div>";
-                            echo "<div class = \"_gr1\">";
+                            echo "<div class = \"_gr2\">";
                             echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"projects[$j][name]\" name=\"projects[$j][name]\" placeholder=\"Project \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
                             echo "<input type=\"hidden\" id=\"projects[$j][icon]\" name=\"projects[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
                             echo "<input type=\"hidden\" id=\"projects[$j][ID]\" name=\"projects[$j][ID]\" value = \"".htmlspecialchars($row["ID"])."\"/>\n\n";
