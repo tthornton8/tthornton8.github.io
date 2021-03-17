@@ -394,7 +394,7 @@ a.button_company:hover {
   text-align: center;
   width: fit-content;
   display: grid;
-  grid-auto-columns:  1fr 1fr 1fr;
+  grid-template-columns:  1fr 1fr 1fr 1fr;
   place-items: center;
   grid-gap: 10px;
   text-justify: center;
@@ -1143,8 +1143,14 @@ a.button_company:hover {
 }
 
 @media screen and (max-width: 1550px) {
-  ._row {
-    background-size: 40% auto;
+  ._row,
+  ._student_counter,
+  .roll_bg {
+    background-size: auto;
+  }
+
+  ._student_counter {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
