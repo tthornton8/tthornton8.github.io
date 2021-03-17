@@ -502,7 +502,7 @@ function phpAlert($msg) {
                     Project detail goes here...
                 </textarea>
                 <br/>
-                <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
+                <button type="submit" name="btnsubmit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br/>
             </form>
             <div class="modal-footer">
