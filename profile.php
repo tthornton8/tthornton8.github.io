@@ -237,19 +237,7 @@ function phpAlert($msg) {
             Ideas
         </div>
     </div>
-
-    <div class = "_bg" id = "bg" onclick="closeBox()"></div>
-    <div class = "_project_box_unclick animate" id = "project_box"></div>
-
-    <div id="editWindow" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="close_modal">&times;</span>
-            <h2>Edit CV</h2>
-          </div>
-          <div class="modal-body">
+    <div class = "tabEl w3-animate-opacity" style = "display:none;" id="editWindow">
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                 <div class="_profile">
                     <input type="hidden" name="action" value="edit_main">
@@ -486,11 +474,6 @@ function phpAlert($msg) {
                     </script>
                 </div>
             </form>
-          </div>
-          <div class="modal-footer">
-            <h3>&nbsp;</h3>
-          </div>
-        </div>
     </div>
 
     <div id="projectWindow" class="modal">
