@@ -239,7 +239,7 @@ function phpAlert($msg) {
         </div>
     </div>
     <div class = "tabEl w3-animate-opacity" style = "display:none;" id="editWindow">
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+            <form method="post" id = "cvForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                 <div class="_profile">
                     <input type="hidden" name="action" value="edit_main">
                     <div class="_prof_section _head">
@@ -372,9 +372,11 @@ function phpAlert($msg) {
                         <button type="button" name="add_company" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addCompany();">+</button>
                         <br/>
                     </div>
-
-                    <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
-                    <br/>
+                    
+                    <div class = "_save_bar">
+                        <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-flat-emerald">Save</button>
+                        <button type="button" name="cancel" style = "margin-bottom: 1em;" class="w3-btn w3-flat-alizarin" onclick = "document.getElementById(\"cvForm\").reset(); document.getElementById(\"cvForm\").submit();">Cancel</button>
+                    </div>
 
                     <script type="text/javascript" defer>
                     function addCompany() {
