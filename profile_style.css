@@ -179,6 +179,17 @@ form ._edit_pencil {
     top: 0;
 }
 
+._save_bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--darkCherry);
+  padding: 8px;
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 ._skills { 
     position: relative;
     grid-area: skills;
