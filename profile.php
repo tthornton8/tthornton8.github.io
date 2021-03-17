@@ -202,6 +202,7 @@ function phpAlert($msg) {
             <ul>
                 <li class = "tabLink" onclick = "openLink(event, 'Export');">Export CV</li>
                 <li class = "tabLink tab-selected" onclick = "openLink(event, 'GCcv');">GradCherry CV</li>
+                <li class = "tabLink" onclick = "openLink(event, 'editWindow');">Edit CV</li>
                 <li class = "tabLink" onclick = "openLink(event, 'Edit');">Edit Profile</li>
                 <li class = "tabLink" onclick = "openLink(event, 'FavStudents');">My Favorite Students</li>
                 <li class = "tabLink" onclick = "openLink(event, 'FavCompanies');">My Favorite Companies</li>
