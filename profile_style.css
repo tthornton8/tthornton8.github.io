@@ -189,6 +189,14 @@ form ._edit_pencil {
     margin-left: 5%;
 }
 
+._skills ._addbtn {
+  grid-row: 100/100;
+  grid-column: 1/3;
+  width: 33%;
+  margin: 0px auto;
+  margin-top: 10px;
+}
+
 ._projects {
   grid-area: projects;
   margin-left: 0;

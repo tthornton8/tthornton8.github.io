@@ -300,9 +300,9 @@ function phpAlert($msg) {
                         }
                         ?>
 
+                        <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey _addbtn" onclick = "addSkill();">+</button>
+
                     </div>
-                    <button type="button" name="add_skill" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addSkill();">+</button>
-                    <br/>
                         
                     <div class = "_prof_section _skills _projects" id = "_projects_section">
                         <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%; grid-row: 1; grid-column: 1/3">Projects</p>
@@ -332,10 +332,9 @@ function phpAlert($msg) {
                             $j += 1;
                         }
                         ?>
+
+                        <button type="button" name="add_project" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey _addbtn" onclick = "addProject();">+</button>
                     </div>
-                    <br/>
-                    <button type="button" name="add_project" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addProject();">+</button>
-                    <br/>
 
                     <div id = "qualifications_section">
                         <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" >Qualifications</p>
