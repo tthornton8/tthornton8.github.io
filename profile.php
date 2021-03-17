@@ -238,6 +238,13 @@ function phpAlert($msg) {
         </div>
     </div>
     <div class = "tabEl w3-animate-opacity" style = "display:none;" id="editWindow">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close_modal">&times;</span>
+            <h2>Edit CV</h2>
+          </div>
+          <div class="modal-body">
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                 <div class="_profile">
                     <input type="hidden" name="action" value="edit_main">
@@ -474,6 +481,11 @@ function phpAlert($msg) {
                     </script>
                 </div>
             </form>
+          </div>
+          <div class="modal-footer">
+            <h3>&nbsp;</h3>
+          </div>
+        </div>
     </div>
 
     <div id="projectWindow" class="modal">
