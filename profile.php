@@ -336,7 +336,7 @@ function phpAlert($msg) {
                         <button type="button" name="add_project" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey _addbtn" onclick = "addProject();">+</button>
                     </div>
 
-                    <div id = "qualifications_section">
+                    <div class="_prof_section _quals" id = "qualifications_section">
                         <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" >Qualifications</p>
                         <?php 
                             $html = '';
@@ -366,22 +366,24 @@ function phpAlert($msg) {
                     </div>
                     <button type="button" name="add_qual" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addQual();">+</button>
                     <br/>
-
-                    <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Companies Worked With</p>
-                    <div class = "_logo_section" id = "logo_section">
-                        <?php
-                            $html_c .= "";
-                            $i = 0;
-                            foreach ($usercompanies as &$row) {
-                                $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies_new[$i]\" name=\"usercompanies_new[$i]\" placeholder=\"URL of company logo\" value = \"".$row["logourl"]."\"/>";
-                                $i += 1;
-                            }
-                            echo $html_c;
-                        ?>
+                    
+                    <div class="_prof_section _companies">
+                        <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Companies Worked With</p>
+                        <div class = "_logo_section" id = "logo_section">
+                            <?php
+                                $html_c .= "";
+                                $i = 0;
+                                foreach ($usercompanies as &$row) {
+                                    $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies_new[$i]\" name=\"usercompanies_new[$i]\" placeholder=\"URL of company logo\" value = \"".$row["logourl"]."\"/>";
+                                    $i += 1;
+                                }
+                                echo $html_c;
+                            ?>
+                        </div>
+                        <br/>
+                        <button type="button" name="add_company" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addCompany();">+</button>
+                        <br/>
                     </div>
-                    <br/>
-                    <button type="button" name="add_company" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addCompany();">+</button>
-                    <br/>
 
                     <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                     <br/>
