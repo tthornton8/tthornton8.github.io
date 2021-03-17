@@ -363,10 +363,9 @@ function phpAlert($msg) {
                             };
                             echo $html;
                         ?>
+                        <button type="button" name="add_qual" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addQual();">+</button>
                     </div>
-                    <button type="button" name="add_qual" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addQual();">+</button>
-                    <br/>
-                    
+                                        
                     <div class="_prof_section _companies">
                         <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Companies Worked With</p>
                         <div class = "_logo_section" id = "logo_section">
