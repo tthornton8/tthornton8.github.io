@@ -187,6 +187,7 @@ function phpAlert($msg) {
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
     <script src="https://cdn.tiny.cloud/1/184b9akoev1y38p25nmv4os4h082uhrc9copbqe6hxbwl72t/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <?php phpAlert(   $fileAlert  );  ?>
 
@@ -375,7 +376,7 @@ function phpAlert($msg) {
                     
                     <div class = "_save_bar">
                         <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-flat-emerald">Save</button>
-                        <button type="button" name="cancel" style = "margin-bottom: 1em;" class="w3-btn w3-flat-alizarin" onclick = "document.getElementById(\"cvForm\").reset(); document.getElementById(\"cvForm\").submit();">Cancel</button>
+                        <button type="button" name="cancel" style = "margin-bottom: 1em;" onclick = "document.getElementById('cvForm').reset(); document.getElementById('cvForm').submit();" class="w3-btn w3-flat-alizarin">Cancel</button>
                     </div>
 
                     <script type="text/javascript" defer>
