@@ -375,8 +375,8 @@ function phpAlert($msg) {
                     </div>
                     
                     <div class = "_save_bar">
-                        <button type="submit" name="btnsubmit" style = "margin-bottom: 1em;" class="w3-btn w3-flat-emerald">Save</button>
-                        <button type="button" name="cancel" style = "margin-bottom: 1em;" onclick = "document.getElementById('cvForm').reset(); document.getElementById('cvForm').submit();" class="w3-btn w3-flat-alizarin">Cancel</button>
+                        <button type="submit" name="btnsubmit" style = "margin-bottom: 1em; margin: 0 auto; margin-right: -43%;" class="w3-btn w3-flat-emerald">Save</button>
+                        <button type="button" name="cancel" style = "margin-bottom: 1em; margin: 0 auto;" onclick = "document.getElementById('cvForm').reset(); document.getElementById('cvForm').submit();" class="w3-btn w3-flat-alizarin">Cancel</button>
                     </div>
 
                     <script type="text/javascript" defer>
