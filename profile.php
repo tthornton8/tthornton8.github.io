@@ -326,33 +326,35 @@ function phpAlert($msg) {
                         <button type="button" name="add_project" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey _addbtn" onclick = "addProject();">+</button>
                     </div>
 
-                    <div class="_prof_section _quals" id = "qualifications_section">
-                        <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" >Qualifications</p>
-                        <?php 
-                            $html = '';
-                            $out = array();
-                            foreach ($qual as &$row) {
-                                if (array_key_exists($row["type"], $out)) {
-                                    $out[$row["type"]][] = $row["value"];
-                                } else {
-                                    $out[$row["type"]] = [$row["value"]];
+                    <div class="_prof_section _quals">
+                        <div  id = "qualifications_section">
+                            <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px;" >Qualifications</p>
+                            <?php 
+                                $html = '';
+                                $out = array();
+                                foreach ($qual as &$row) {
+                                    if (array_key_exists($row["type"], $out)) {
+                                        $out[$row["type"]][] = $row["value"];
+                                    } else {
+                                        $out[$row["type"]] = [$row["value"]];
+                                    }
                                 }
-                            }
-                            $i = 0;
-                            $j = 0;
-                            foreach ($out as $key => $quals) {
-                                $html .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey _qual_type\" id=\"qualtype[$i]\" name=\"qualtype[$i]\" placeholder=\"Type\" value = \"$key\"/>";
-                                $html .= "\n<ul id = \"qual_$i\">";
-                                foreach ($quals as &$value) {
-                                    $html .= "\n<li><input type=\"text\" class=\"w3-input w3-border w3-light-grey _qualvalue\" id=\"qualvalue[$i][$j]\" name=\"qualvalue[$i][$j]\" placeholder=\"Detail\" value = \"$value\"/></li>";
-                                    $j += 1;
-                                }
-                                $html .= "\n</ul>";
-                                $html .= "\n<ul><li><button type=\"button\" name=\"add_qual_detail\" style = \"margin-bottom: 1em; margin-top: 0.3em;\" class=\"w3-btn w3-blue-grey\" onclick = \"addQualDetail($i);\">+</button></li></ul>";
-                                $i += 1;
-                            };
-                            echo $html;
-                        ?>
+                                $i = 0;
+                                $j = 0;
+                                foreach ($out as $key => $quals) {
+                                    $html .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey _qual_type\" id=\"qualtype[$i]\" name=\"qualtype[$i]\" placeholder=\"Type\" value = \"$key\"/>";
+                                    $html .= "\n<ul id = \"qual_$i\">";
+                                    foreach ($quals as &$value) {
+                                        $html .= "\n<li><input type=\"text\" class=\"w3-input w3-border w3-light-grey _qualvalue\" id=\"qualvalue[$i][$j]\" name=\"qualvalue[$i][$j]\" placeholder=\"Detail\" value = \"$value\"/></li>";
+                                        $j += 1;
+                                    }
+                                    $html .= "\n</ul>";
+                                    $html .= "\n<ul><li><button type=\"button\" name=\"add_qual_detail\" style = \"margin-bottom: 1em; margin-top: 0.3em;\" class=\"w3-btn w3-blue-grey\" onclick = \"addQualDetail($i);\">+</button></li></ul>";
+                                    $i += 1;
+                                };
+                                echo $html;
+                            ?>    
+                        </div>
                         <button type="button" name="add_qual" style = "margin-bottom: 1em; margin-top: 0.3em;" class="w3-btn w3-blue-grey" onclick = "addQual();">+</button>
                     </div>
                                         
