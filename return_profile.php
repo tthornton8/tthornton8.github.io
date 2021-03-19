@@ -80,6 +80,7 @@ function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $
     echo <<<EOT
         </table>    
     </div>
+    </div>
     EOT;
 }
 ?>
