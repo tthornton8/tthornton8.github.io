@@ -1,9 +1,9 @@
 <div class = "_prof_section">
     <div class = "_forum_title_block">
-        <h1 style = "grid-area: _name">Name</h1>
-        <h1 style = "grid-area: _threads">Threads</h1>
-        <h1 style = "grid-area: _posts">Posts</h1>
-        <h1 style = "grid-area: _last">Last Post</h1>
+        <h2 style = "grid-area: _name">Name</h2>
+        <h2 style = "grid-area: _threads">Threads</h2>
+        <h2 style = "grid-area: _posts">Posts</h2>
+        <h2 style = "grid-area: _last">Last Post</h2>
     </div>
     <div class="_prof_section">
         <h2> <i class="fa fa-comments"></i> New Ideas </h2>
