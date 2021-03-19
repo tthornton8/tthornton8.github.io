@@ -1162,7 +1162,9 @@ a.button_company:hover {
 @media screen and (max-width: 1433px) {
   ._row,
   ._student_counter,
-  .roll_bg {
+  .roll_bg,
+  body,
+  ._profile_main {
     background-size: auto;
   }
 
