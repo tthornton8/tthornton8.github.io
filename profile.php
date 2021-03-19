@@ -189,6 +189,7 @@ function phpAlert($msg) {
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
     <script src="https://cdn.tiny.cloud/1/184b9akoev1y38p25nmv4os4h082uhrc9copbqe6hxbwl72t/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://kit.fontawesome.com/dfef441bb4.js" crossorigin="anonymous"></script>
     <?php phpAlert(   $fileAlert  );  ?>
 
 </head>
