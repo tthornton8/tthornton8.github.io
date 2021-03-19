@@ -32,9 +32,13 @@
   margin-right: 10px
 }
 
+._nomargin {
+  margin: 0;
+}
+
 .center_section {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
 
@@ -48,13 +52,15 @@
   grid-area: posts
 }
 #Ideas ._title {
-  grid-area: last_title
+  grid-area: last_title;
+  justify-content: right;
 }
 #Ideas ._user {
   grid-area: last_user
 }
 #Ideas ._time {
-  grid-area: last_time
+  grid-area: last_time;
+  justify-content: right;
 }
 
 ._right {
