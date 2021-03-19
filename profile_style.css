@@ -55,15 +55,12 @@
 }
 #Ideas ._title {
   grid-area: last_title;
-  justify-self: center;
 }
 #Ideas ._user {
   grid-area: last_user
 }
 #Ideas ._time {
   grid-area: last_time;
-  justify-self: right;
-  padding-right: 14px;
 }
 
 ._right {

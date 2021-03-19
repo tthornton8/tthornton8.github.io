@@ -3,7 +3,7 @@
         <h2 style = "grid-area: _name">Name</h2>
         <h2 style = "grid-area: _threads">Threads</h2>
         <h2 style = "grid-area: _posts">Posts</h2>
-        <h2 style = "grid-area: _last">Last Post</h2>
+        <h2 style = "grid-area: _last; justify-self: center;">Last Post</h2>
     </div>
     <div class="_prof_section _forum_name">
         <h2 class = "_name center_section _nomargin"> <i class="fa fa-comments"></i> New Ideas </h2>
