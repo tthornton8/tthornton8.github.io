@@ -6,14 +6,12 @@
         <h2 style = "grid-area: _last">Last Post</h2>
     </div>
     <div class="_prof_section _forum_name">
-        <h2> <i class="fa fa-comments"></i> New Ideas </h2>
-        <h3> 8 </h3>
-        <h3> 12 </h3>
-        <div class = '_latest_post'>
-            <h4> title </h4>
-            <h4> user </h4>
-            <h4> time </h4>
-        </div>
+        <h2 style = "grid-area:name"> <i class="fa fa-comments"></i> New Ideas </h2>
+        <h3 class = "_threads"> 8 </h3>
+        <h3 class = "_posts"> 12 </h3>
+        <h4 class = "_title"> title </h4>
+        <h4 class = "_user"> user </h4>
+        <h4 class = "_time"> time </h4>
     </div>
     <div class="_prof_section _forum_name">
         <h2> Projects Discussion </h2>

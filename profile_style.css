@@ -32,6 +32,22 @@
   margin-right: 10px
 }
 
+#Ideas ._threds {
+  grid-area: threads
+}
+#Ideas ._post {
+  grid-area: posts
+}
+#Ideas ._title {
+  grid-area: last_title
+}
+#Ideas ._user {
+  grid-area: last_user
+}
+#Ideas ._time {
+  grid-area: last_time
+}
+
 ._right {
   grid-area: side;
   background-color: #f7f7f7;
