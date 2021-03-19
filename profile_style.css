@@ -6,6 +6,11 @@
   margin-right: 2.5%;
 }
 
+
+#Ideas ._prof_section {
+  min-height: 1100px;
+}
+
 ._right {
   grid-area: side;
   background-color: #f7f7f7;
