@@ -53,14 +53,16 @@
 }
 #Ideas ._title {
   grid-area: last_title;
-  justify-content: right;
+  justify-self: right;
+    padding-right: 14px;
 }
 #Ideas ._user {
   grid-area: last_user
 }
 #Ideas ._time {
   grid-area: last_time;
-  justify-content: right;
+  justify-self: right;
+    padding-right: 14px;
 }
 
 ._right {
