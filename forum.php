@@ -6,9 +6,9 @@
         <h2 style = "grid-area: _last">Last Post</h2>
     </div>
     <div class="_prof_section _forum_name">
-        <h2 style = "grid-area:name"> <i class="fa fa-comments"></i> New Ideas </h2>
-        <h3 class = "_threads"> 8 </h3>
-        <h3 class = "_posts"> 12 </h3>
+        <h2 class = "_name center_section"> <i class="fa fa-comments"></i> New Ideas </h2>
+        <h3 class = "_threads center_section"> 8 </h3>
+        <h3 class = "_post center_section"> 12 </h3>
         <h4 class = "_title"> title </h4>
         <h4 class = "_user"> user </h4>
         <h4 class = "_time"> time </h4>

@@ -32,7 +32,16 @@
   margin-right: 10px
 }
 
-#Ideas ._threds {
+.center_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Ideas ._name {
+  grid-area:name
+}
+#Ideas ._threads {
   grid-area: threads
 }
 #Ideas ._post {
