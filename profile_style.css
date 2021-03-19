@@ -12,10 +12,20 @@
   padding-left: 0.5em;
 }
 
-#Ideas > ._prof_section > ._prof_section {
+._forum_name {
   padding: 8px 16px;
   height: fit-content;
   margin-left: 5px;
+  display: grid;
+  grid-template-areas: 
+  'name threads posts last_title last_title'
+  'name threads posts last_time last_user';
+  grid-template-areas: 1fr 1fr 1fr 0.5fr 0.5fr;
+}
+
+._forum_title_block {
+  display: grid;
+  grid-template-areas: '_name _threads _posts _last';
 }
 
 #Ideas > ._prof_section > ._prof_section > h2 > i {
