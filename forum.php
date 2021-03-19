@@ -4,7 +4,7 @@
         <h1 style = "grid-area: _threads">Threads</h1>
         <h1 style = "grid-area: _posts">Posts</h1>
         <h1 style = "grid-area: _last">Last Post</h1>
-    <div>
+    </div>
     <div class="_prof_section">
         <h2> <i class="fa fa-comments"></i> New Ideas </h2>
         <h3> 8 </h3>
