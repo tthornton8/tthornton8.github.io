@@ -7,8 +7,14 @@
 }
 
 
-#Ideas ._prof_section {
+#Ideas > ._prof_section {
   min-height: 1100px;
+  padding-left: 0.5em;
+}
+
+#Ideas > ._prof_section > ._prof_section {
+  min-height: 1100px;
+  padding: 8px 4px;
 }
 
 ._right {
