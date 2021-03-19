@@ -8,12 +8,13 @@
 
 
 #Ideas > ._prof_section {
-  min-height: 1100px;
+  min-height: fit-content;
   padding-left: 0.5em;
 }
 
 #Ideas > ._prof_section > ._prof_section {
   padding: 8px 4px;
+  height: fit-content;
 }
 
 ._right {

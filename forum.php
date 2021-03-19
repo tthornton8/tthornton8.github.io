@@ -4,13 +4,13 @@
         <h2> New Ideas </h2>
     </div>
     <div class="_prof_section">
-        <h2> New Ideas </h2>
+        <h2> Projects Discussion </h2>
     </div>
     <div class="_prof_section">
-        <h2> New Ideas </h2>
+        <h2> Skills Discussion </h2>
     </div>
     <div class="_prof_section">
-        <h2> New Ideas </h2>
+        <h2> Mentoring </h2>
     </div>
     <div class="_prof_section">
         <h2> New Ideas </h2>
