@@ -49,6 +49,13 @@ if ($result) {
     }  
 }
 
+if ($thread and ! $name) {
+    $sql = "SELECT name_ID from forum_post WHERE ID = $thread;";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $name = $row['name_ID'];
+}
+
 $forum_threads = [];
 if ($name) {
     $name_link_title = $forum_names[$name-1]['title'];
@@ -64,15 +71,9 @@ if ($name) {
 
 $forum_posts = [];
 if ($thread) {
-    if (! $name) {
-        $sql = "SELECT name_ID from forum_post WHERE ID = $thread;";
-        $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        $name = $row['name_ID'];
-    }
     $name_link_title = $forum_names[$name-1]['title'];
     $thread_link_title = $forum_threads[$threads-1]['title'];
-    echo "<h4 style=\"margin-left:2.5%;\"><a href = \"./discussion.html\"> Discussion </a> > <a href = \"./discussion.html?name=$name\">$name_link_title</a>$thread_link_title</h4>";
+    echo "<h4 style=\"margin-left:2.5%;\"><a href = \"./discussion.html\"> Discussion </a> > <a href = \"./discussion.html?name=$name\">$name_link_title</a> > $thread_link_title</h4>";
     $sql = "UPDATE forum_thread SET views = views + 1 WHERE ID = $thread;";
     $result = $conn->query($sql);
 }
