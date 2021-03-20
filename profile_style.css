@@ -45,7 +45,8 @@
 }
 
 #Ideas ._name {
-  grid-area:name
+  grid-area:name;
+  text-decoration: none;
 }
 #Ideas ._name:hover {
   cursor: pointer;
