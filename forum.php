@@ -52,7 +52,7 @@ if ($result) {
 $forum_threads = [];
 if ($name) {
     $name_link_title = $forum_names[$name-1]['title'];
-    echo "<a href = \"./discussion.html\"> Discussion </a> > $name_link_title";
+    echo "<h4 style=\"margin-left:1em;\"><a href = \"./discussion.html\"> Discussion </a> > $name_link_title</h4>";
     $sql = "SELECT * from forum_thread WHERE name_ID = $name;";
     $result = $conn->query($sql);
     if ($result) {
