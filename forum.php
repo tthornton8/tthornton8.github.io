@@ -20,12 +20,22 @@ echo "name = $name";
 echo "post = $post";
 echo "thread = $thread";
 
-$sections = array (
-    'New Ideas',
-    'Projects Discussion',
-    'Skills Discussion',
-    'Mentoring',
-);
+// $sections = array (
+//     'New Ideas',
+//     'Projects Discussion',
+//     'Skills Discussion',
+//     'Mentoring',
+// );
+
+$forum_names = [];
+$sql = "SELECT * from forum_name;";
+$result = $conn->query($sql);
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $forum_names[] = $row;
+    }
+    
+}
 ?>
 
 <div class = "_prof_section">
@@ -44,8 +54,8 @@ $sections = array (
             } elseif ($name) {
                 echo "name placeholder";
             } else {
-                foreach ($sections as &$row) {
-                    return_forum_name($row, '8', '12', 'title', 'user', 'time');
+                foreach ($forum_names as &$row) {
+                    return_forum_name($row['title'], '8', '12', 'title', 'user', 'time');
                 }
             }
         ?>
