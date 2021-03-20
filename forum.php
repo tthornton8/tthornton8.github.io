@@ -12,6 +12,8 @@ function return_forum_name($section_name, $threads, $posts, $last_title, $last_u
     EOT;
 }
 
+require_once('config.php');
+
 $name = $_GET['name'];
 $post = $_GET['post'];
 $thread = $_GET['thread'];
