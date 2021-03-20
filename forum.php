@@ -20,7 +20,7 @@ function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $
     <div class="_prof_section _forum_name">
         <a href = "./discussion.html?thread=$ID" class="_name center_section _nomargin">
             <h2 class = "_name center_section _nomargin">
-            <i class="fa fa-comments"></i> $section_name </h2>
+            <i class="fas fa-comment-dots"></i> $section_name </h2>
         </a>
         <h3 class = "_threads center_section _nomargin"> $replies </h3>
         <h3 class = "_post center_section _nomargin"> $views </h3>
@@ -51,6 +51,7 @@ if ($result) {
 
 $forum_threads = [];
 if ($name) {
+    $name_link_title = $forum_names[$name]['ID'];
     $sql = "SELECT * from forum_thread WHERE name_ID = $name;";
     $result = $conn->query($sql);
     if ($result) {
@@ -75,6 +76,7 @@ if ($thread) {
             echo "thread placeholder";
         } elseif ($name) {
             echo <<<EOT
+            <a href = "./discussion.html> Discussion </a> > name_link_title
             <div class = "_forum_title_block">
                 <h2 class = "_nomargin" style = "grid-area: _name">Thread/Author</h2>
                 <h2 class = "_nomargin" style = "grid-area: _threads">Replies</h2>
