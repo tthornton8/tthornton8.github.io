@@ -45,11 +45,20 @@
   'pp name'
   'pp course'
   'pp uni';
+  grid-template-columns: 100px 1fr;
+}
+
+._forum_post_header h5,
+._forum_post_header h6 {
+  margin: auto 0
 }
 
 ._forum_post_header .pp {
   grid-area: pp;
+  width: 80px;
+  border-radius: 50%;
 }
+
 
 ._forum_post_content {
   grid-area: content;
