@@ -8,6 +8,21 @@ function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $l
         </a>
         <h3 class = "_threads center_section _nomargin"> $threads </h3>
         <h3 class = "_post center_section _nomargin"> $posts </h3>
+        <h4 class = "_title _nomargin"> $last_user </h4>
+        <h4 class = "_time _nomargin"> $last_time </h4>
+    </div>
+    EOT;
+}
+
+function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $last_time) {
+    echo <<<EOT
+    <div class="_prof_section _forum_name">
+        <a href = "./discussion.html?thread=$ID" class="_name center_section _nomargin">
+            <h2 class = "_name center_section _nomargin">
+            <i class="fa fa-comments"></i> $section_name </h2>
+        </a>
+        <h3 class = "_threads center_section _nomargin"> $replies </h3>
+        <h3 class = "_post center_section _nomargin"> $views </h3>
         <h4 class = "_title _nomargin"> $last_title </h4>
         <h4 class = "_user _nomargin"> $last_user </h4>
         <h4 class = "_time _nomargin"> $last_time </h4>
@@ -31,8 +46,18 @@ $result = $conn->query($sql);
 if ($result) {
     while ($row = $result->fetch_assoc()) {
         $forum_names[] = $row;
+    }  
+}
+
+$forum_threads = [];
+if ($name) {
+    $sql = "SELECT * from forum_thread WHERE name_ID = $name;";
+    $result = $conn->query($sql);
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $forum_threads[] = $row;
+        }  
     }
-    
 }
 ?>
 
@@ -51,6 +76,9 @@ if ($result) {
                 <h2 class = "_nomargin" style = "grid-area: _last; justify-self: left;">Last Post</h2>
             </div>
             EOT;
+            foreach ($forum_threads as &$row) {
+                return_forum_thread($row['title'], $row['ID'], '8', '12', 'user', 'time');
+            }
         } else {
             echo <<<EOT
             <div class = "_forum_title_block">
