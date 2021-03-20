@@ -2,7 +2,10 @@
 function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $last_user, $last_time) {
     echo <<<EOT
     <div class="_prof_section _forum_name">
-        <h2 class = "_name center_section _nomargin" onclick = "alert();"> <i class="fa fa-comments"></i> $section_name </h2>
+        <a href = "./discussion.html?name=$ID" class="_name center_section _nomargin">
+            <h2 class = "_name center_section _nomargin">
+            <i class="fa fa-comments"></i> $section_name </h2>
+        </a>
         <h3 class = "_threads center_section _nomargin"> $threads </h3>
         <h3 class = "_post center_section _nomargin"> $posts </h3>
         <h4 class = "_title _nomargin"> $last_title </h4>
