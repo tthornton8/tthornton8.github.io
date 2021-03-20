@@ -8,7 +8,8 @@ function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $l
         </a>
         <h3 class = "_threads center_section _nomargin"> $threads </h3>
         <h3 class = "_post center_section _nomargin"> $posts </h3>
-        <h4 class = "_title _nomargin"> $last_user </h4>
+        <h4 class = "_title _nomargin"> $last_title </h4>
+        <h4 class = "_user _nomargin"> $last_user </h4>
         <h4 class = "_time _nomargin"> $last_time </h4>
     </div>
     EOT;
@@ -23,8 +24,7 @@ function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $
         </a>
         <h3 class = "_threads center_section _nomargin"> $replies </h3>
         <h3 class = "_post center_section _nomargin"> $views </h3>
-        <h4 class = "_title _nomargin"> $last_title </h4>
-        <h4 class = "_user _nomargin"> $last_user </h4>
+        <h4 class = "_title _nomargin"> $last_user </h4>
         <h4 class = "_time _nomargin"> $last_time </h4>
     </div>
     EOT;
@@ -59,6 +59,12 @@ if ($name) {
         }  
     }
 }
+
+$forum_posts = [];
+if ($thread) {
+    $sql = "UPDATE forum_thread SET views = views + 1 WHERE ID = $thread;";
+    $result = $conn->query($sql);
+}
 ?>
 
 <div class = "_prof_section">
@@ -77,7 +83,7 @@ if ($name) {
             </div>
             EOT;
             foreach ($forum_threads as &$row) {
-                return_forum_thread($row['title'], $row['ID'], '8', '12', 'user', 'time');
+                return_forum_thread($row['title'], $row['ID'], $row['replies'], $row['views'], 'user', 'time');
             }
         } else {
             echo <<<EOT
