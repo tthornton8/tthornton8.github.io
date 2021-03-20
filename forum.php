@@ -96,13 +96,15 @@ if ($thread) {
     echo "<h4 style=\"margin-left:2.5%;\"><a href = \"./discussion.html\"> Discussion </a> > <a href = \"./discussion.html?name=$name\">$name_link_title</a> > $thread_link_title</h4>";
     $sql = "UPDATE forum_thread SET views = views + 1 WHERE ID = $thread;";
     $result = $conn->query($sql);
+    $sql = "SELECT * from forum_post WHERE thread_ID = $thread;";
+    $result = $conn->query($sql);
     if ($result) {
         while ($row = $result->fetch_assoc()) {
             $forum_posts[] = $row;
         }  
     }
 }
-print_r($forum_posts);
+// print_r($forum_posts);
 ?>
 
 <div class = "_prof_section">
