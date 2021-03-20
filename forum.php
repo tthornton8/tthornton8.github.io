@@ -44,6 +44,9 @@ function return_forum_post($ID, $user_ID, $content, $date, $conn) {
             <h6> $uni </h6>
         </div>
         <div class = "_forum_post_content">
+        <h6> $date </h6>
+        <hr/>
+        <p> $content </p>
         </div>
         <div class = "_forum_post_buttons">
         </div>
