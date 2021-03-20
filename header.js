@@ -18,6 +18,7 @@ var els = createElementFromHTML(`
                 <li><a href="students.html"  id = "students"  >Students </a></li>
                 <li><a href="#0"             id = "mentoring" >Mentoring</a></li>
                 <li><a href="companies.html" id = "companies" >Companies</a></li>
+                <li><a href="discussion.html" id = "discussion" >Discussion</a></li>
                 <li><a href="projects.html"  id = "projects"  >Projects </a></li>
                 <li><a href="news.html"      id = "news"      >News     </a></li>
                 <li><a href="javascript:void(0);" class="icon" onclick="expandBar()"><i class="fa fa-bars"></i></a></li>
