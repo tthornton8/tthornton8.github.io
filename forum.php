@@ -1,8 +1,8 @@
 <?php 
-function return_forum_name($section_name, $threads, $posts, $last_title, $last_user, $last_time) {
+function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $last_user, $last_time) {
     echo <<<EOT
     <div class="_prof_section _forum_name">
-        <h2 class = "_name center_section _nomargin"> <i class="fa fa-comments"></i> $section_name </h2>
+        <h2 class = "_name center_section _nomargin" onclick = "alert();"> <i class="fa fa-comments"></i> $section_name </h2>
         <h3 class = "_threads center_section _nomargin"> $threads </h3>
         <h3 class = "_post center_section _nomargin"> $posts </h3>
         <h4 class = "_title _nomargin"> $last_title </h4>
@@ -21,13 +21,6 @@ $thread = $_GET['thread'];
 echo "name = $name";
 echo "post = $post";
 echo "thread = $thread";
-
-// $sections = array (
-//     'New Ideas',
-//     'Projects Discussion',
-//     'Skills Discussion',
-//     'Mentoring',
-// );
 
 $forum_names = [];
 $sql = "SELECT * from forum_name;";
@@ -57,7 +50,7 @@ if ($result) {
                 echo "name placeholder";
             } else {
                 foreach ($forum_names as &$row) {
-                    return_forum_name($row['title'], '8', '12', 'title', 'user', 'time');
+                    return_forum_name($row['title'], $row['ID'], '8', '12', 'title', 'user', 'time');
                 }
             }
         ?>
