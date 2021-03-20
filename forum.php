@@ -52,6 +52,7 @@ if ($result) {
 $forum_threads = [];
 if ($name) {
     $name_link_title = $forum_names[$name]['ID'];
+    echo "<a href = \"./discussion.html\"> Discussion </a> > $name_link_title";
     $sql = "SELECT * from forum_thread WHERE name_ID = $name;";
     $result = $conn->query($sql);
     if ($result) {
@@ -76,7 +77,6 @@ if ($thread) {
             echo "thread placeholder";
         } elseif ($name) {
             echo <<<EOT
-            <a href = "./discussion.html> Discussion </a> - name_link_title
             <div class = "_forum_title_block">
                 <h2 class = "_nomargin" style = "grid-area: _name">Thread/Author</h2>
                 <h2 class = "_nomargin" style = "grid-area: _threads">Replies</h2>
