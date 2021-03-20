@@ -1,4 +1,7 @@
 <?php 
+require_once('get_profile.php');
+require_once('config.php');
+
 function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $last_user, $last_time) {
     echo <<<EOT
     <div class="_prof_section _forum_name">
@@ -30,7 +33,23 @@ function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $
     EOT;
 }
 
-require_once('config.php');
+function return_forum_post($ID, $user_ID, $content, $date, $conn) {
+    list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $user_ID);
+    echo <<<EOT
+    <div class="_prof_section _forum_post">
+        <div class = "_forum_post_header">
+            <img src="img.php?id=$user_ID" alt="Profile Picture" class = "pp">
+            <h5> $name </h5>
+            <h6> $degree </h6>
+            <h6> $uni </h6>
+        </div>
+        <div class = "_forum_post_content">
+        </div>
+        <div class = "_forum_post_buttons">
+        </div>
+    </div>
+    EOT;
+}
 
 $name = $_GET['name'];
 $post = $_GET['post'];
@@ -85,7 +104,9 @@ if ($thread) {
         if ($post) {
             echo "post placeholder";
         } elseif ($thread) {
-            echo "thread placeholder";
+            foreach ($forum_posts as &$row) {
+                return_forum_post($row['ID'], $row['user_ID'], $row['content'], $row['date'], $conn);
+            }
         } elseif ($name) {
             echo <<<EOT
             <div class = "_forum_title_block">

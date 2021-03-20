@@ -30,6 +30,35 @@
   margin-left: 5px;
 }
 
+._forum_post {
+  display: grid;
+  grid-template-areas:
+  'header'
+  'content'
+  'buttons';
+}
+
+._forum_post_header {
+  grid-area: header;
+  display: grid;
+  grid-template-areas: 
+  'pp name'
+  'pp course'
+  'pp uni';
+}
+
+._forum_post_header .pp {
+  grid-area: pp;
+}
+
+._forum_post_content {
+  grid-area: content;
+}
+
+._forum_post_buttons {
+  grid-area: buttons;
+}
+
 #Ideas h2 > i {
   margin-right: 10px
 }
