@@ -37,8 +37,16 @@ $sections = array (
             <h2 class = "_nomargin" style = "grid-area: _last; justify-self: left;">Last Post</h2>
         </div>
         <?php 
-            foreach ($sections as &$row) {
-                return_forum_name($row, '8', '12', 'title', 'user', 'time');
+            if ($post) {
+                echo "post placeholder";
+            } elseif ($thread) {
+                echo "thread placeholder";
+            } elseif ($name) {
+                echo "name placeholder";
+            } else {
+                foreach ($sections as &$row) {
+                    return_forum_name($row, '8', '12', 'title', 'user', 'time');
+                }
             }
         ?>
     </form>
