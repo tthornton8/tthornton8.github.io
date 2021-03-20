@@ -37,25 +37,32 @@ if ($result) {
 ?>
 
 <div class = "_prof_section">
-    <form method="post" id = "cvForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
-        <div class = "_forum_title_block">
-            <h2 class = "_nomargin" style = "grid-area: _name">Name</h2>
-            <h2 class = "_nomargin" style = "grid-area: _threads">Threads</h2>
-            <h2 class = "_nomargin" style = "grid-area: _posts">Posts</h2>
-            <h2 class = "_nomargin" style = "grid-area: _last; justify-self: left;">Last Post</h2>
-        </div>
-        <?php 
-            if ($post) {
-                echo "post placeholder";
-            } elseif ($thread) {
-                echo "thread placeholder";
-            } elseif ($name) {
-                echo "name placeholder";
-            } else {
-                foreach ($forum_names as &$row) {
-                    return_forum_name($row['title'], $row['ID'], '8', '12', 'title', 'user', 'time');
-                }
+    <?php 
+        if ($post) {
+            echo "post placeholder";
+        } elseif ($thread) {
+            echo "thread placeholder";
+        } elseif ($name) {
+            echo <<<EOT
+            <div class = "_forum_title_block">
+                <h2 class = "_nomargin" style = "grid-area: _name">Thread/Author</h2>
+                <h2 class = "_nomargin" style = "grid-area: _threads">Replies</h2>
+                <h2 class = "_nomargin" style = "grid-area: _posts">Views</h2>
+                <h2 class = "_nomargin" style = "grid-area: _last; justify-self: left;">Last Post</h2>
+            </div>
+            EOT;
+        } else {
+            echo <<<EOT
+            <div class = "_forum_title_block">
+                <h2 class = "_nomargin" style = "grid-area: _name">Name</h2>
+                <h2 class = "_nomargin" style = "grid-area: _threads">Threads</h2>
+                <h2 class = "_nomargin" style = "grid-area: _posts">Posts</h2>
+                <h2 class = "_nomargin" style = "grid-area: _last; justify-self: left;">Last Post</h2>
+            </div>
+            EOT;
+            foreach ($forum_names as &$row) {
+                return_forum_name($row['title'], $row['ID'], '8', '12', 'title', 'user', 'time');
             }
-        ?>
-    </form>
+        }
+    ?>
 </div>
