@@ -35,6 +35,8 @@ function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $
 
 function return_forum_post($ID, $user_ID, $content, $date, $conn) {
     list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $user_ID);
+    $d=strtotime($date);
+    $dstr=date('l jS \of F Y h:i:s A', $d);
     echo <<<EOT
     <div class="_prof_section _forum_post">
         <div class = "_forum_post_header">
@@ -44,7 +46,7 @@ function return_forum_post($ID, $user_ID, $content, $date, $conn) {
             <h6> $uni </h6>
         </div>
         <div class = "_forum_post_content">
-        <h6> $date </h6>
+        <h6> $dstr </h6>
         <hr/>
         <p> $content </p>
         </div>
