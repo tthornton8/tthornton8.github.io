@@ -12,6 +12,14 @@ function return_forum_name($section_name, $threads, $posts, $last_title, $last_u
     EOT;
 }
 
+$name = $_GET['name'];
+$post = $_GET['post'];
+$thread = $_GET['thread'];
+
+echo "name = $name";
+echo "post = $post";
+echo "thread = $thread";
+
 $sections = array (
     'New Ideas',
     'Projects Discussion',
