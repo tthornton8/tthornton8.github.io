@@ -64,6 +64,14 @@ if ($name) {
 
 $forum_posts = [];
 if ($thread) {
+    if (! $name) {
+        $sql = "SELECT name_ID from forum_post WHERE ID = $thread;";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        print_r($row);
+    }
+    $name_link_title = $forum_names[$name-1]['title'];
+    $thread_link_title = $forum_threads[$threads-1]['title'];
     $sql = "UPDATE forum_thread SET views = views + 1 WHERE ID = $thread;";
     $result = $conn->query($sql);
 }
