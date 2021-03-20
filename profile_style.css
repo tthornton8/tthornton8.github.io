@@ -47,6 +47,9 @@
 #Ideas ._name {
   grid-area:name
 }
+#Ideas ._name:hover {
+  cursor: pointer;
+}
 #Ideas ._threads {
   grid-area: threads
 }
