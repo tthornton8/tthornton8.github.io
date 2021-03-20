@@ -51,7 +51,7 @@ if ($result) {
 
 $forum_threads = [];
 if ($name) {
-    $name_link_title = $forum_names[$name]['title'];
+    $name_link_title = $forum_names[$name-1]['title'];
     echo "<a href = \"./discussion.html\"> Discussion </a> > $name_link_title";
     $sql = "SELECT * from forum_thread WHERE name_ID = $name;";
     $result = $conn->query($sql);
