@@ -36,9 +36,9 @@ $name = $_GET['name'];
 $post = $_GET['post'];
 $thread = $_GET['thread'];
 
-echo "name = $name";
-echo "post = $post";
-echo "thread = $thread";
+// echo "name = $name";
+// echo "post = $post";
+// echo "thread = $thread";
 
 $forum_names = [];
 $sql = "SELECT * from forum_name;";
@@ -51,7 +51,7 @@ if ($result) {
 
 $forum_threads = [];
 if ($name) {
-    $name_link_title = $forum_names[$name]['ID'];
+    $name_link_title = $forum_names[$name]['title'];
     echo "<a href = \"./discussion.html\"> Discussion </a> > $name_link_title";
     $sql = "SELECT * from forum_thread WHERE name_ID = $name;";
     $result = $conn->query($sql);
