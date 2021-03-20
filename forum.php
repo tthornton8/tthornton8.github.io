@@ -97,6 +97,7 @@ if ($thread) {
     $sql = "UPDATE forum_thread SET views = views + 1 WHERE ID = $thread;";
     $result = $conn->query($sql);
 }
+print_r($forum_posts);
 ?>
 
 <div class = "_prof_section">
