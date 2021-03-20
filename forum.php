@@ -76,7 +76,7 @@ if ($thread) {
             echo "thread placeholder";
         } elseif ($name) {
             echo <<<EOT
-            <a href = "./discussion.html> Discussion </a> > name_link_title
+            <a href = "./discussion.html> Discussion </a> - name_link_title
             <div class = "_forum_title_block">
                 <h2 class = "_nomargin" style = "grid-area: _name">Thread/Author</h2>
                 <h2 class = "_nomargin" style = "grid-area: _threads">Replies</h2>
