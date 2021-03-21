@@ -146,7 +146,7 @@ if ($thread) {
                 return_forum_post($row['ID'], $row['user_ID'], $row['content'], $row['date'], $conn);
             }
             echo <<<EOT
-            <div class="_prof_section _forum_new_post">
+            <div class="_prof_section _forum_new_post hidden">
                 edit box
             </div>
             EOT;
@@ -183,6 +183,6 @@ if ($thread) {
 <script>
 function replyPost(ID) {
     box = document.getElementsByClassName('_forum_new_post')[0];
-    box.style.display = 'block!important';
+    .classList.remove("hidden");
 }
 </script>

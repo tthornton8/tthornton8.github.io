@@ -31,6 +31,10 @@
 }
 
 ._forum_new_post {
+  
+}
+
+.hidden {
   display: none!important;
 }
 
