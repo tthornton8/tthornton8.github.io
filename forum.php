@@ -2,10 +2,14 @@
 require_once('get_profile.php');
 require_once('config.php');
 
-function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $last_user, $last_time, $conn) {
+function return_forum_name($section_name, $ID, $threads, $posts, $last_ID, $last_user, $last_time, $conn) {
     list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $last_user);
     $d=strtotime($last_time);
     $dstr=date('l jS \of F Y h:i A', $d);
+    $sql = "SELECT title from forum_thread where ID = $last_ID;";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $last_title = $row['title'];
     echo <<<EOT
     <div class="_prof_section _forum_name">
         <a href = "./discussion.html?name=$ID" class="_name center_section _nomargin">
@@ -14,7 +18,7 @@ function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $l
         </a>
         <h3 class = "_threads center_section _nomargin"> $threads </h3>
         <h3 class = "_post center_section _nomargin"> $posts </h3>
-        <h4 class = "_title _nomargin"> $last_title </h4>
+        <h4 class = "_title _nomargin"> <a href "./discussion.html?thread=$last_ID"> $last_title <a></h4>
         <h4 class = "_user _nomargin"> <a href = "#0"> $user_name </a> </h4>
         <h4 class = "_time _nomargin"> $dstr </h4>
     </div>
