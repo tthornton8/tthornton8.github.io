@@ -56,7 +56,7 @@ function return_forum_post($ID, $user_ID, $content, $date, $conn) {
         </div>
     </div>
     EOT;
-}
+}    
 
 $name = $_GET['name'];
 $post = $_GET['post'];
@@ -135,6 +135,28 @@ if ($thread) {
         }  
     }
 }
+
+if (isset($_POST['submit'])) {
+    if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
+        unset($_SESSION['id']);
+    }
+     
+    if (isset($_SESSION['id'])) {
+        $logged_in = 'true';
+        $id = $_SESSION['id'];
+        list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
+    
+    } else {
+        $logged_in = 'false';
+        header('Location: login_student.php');
+    }
+
+    extract($_POST);
+    $d = date("Y-m-d");
+    $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, $thread, $name, $reply_text, $d);";
+    $result = $conn->query($sql);
+    header("Refresh:0");
+}
 ?>
 
 <div class = "_prof_section">
@@ -153,7 +175,7 @@ if ($thread) {
                         <h5> Reply to this thread </h6>
                     </div>
                     <div class = "reply_buttons">
-                        <button type="submit" name="btnsubmit" style = "margin-bottom: 1em; margin: 0 auto; margin-right: -43%;" class="w3-btn w3-flat-emerald">Save</button>
+                        <button type="submit" name="btnsubmit" style = "margin-bottom: 1em; margin: 0 auto; margin-right: -43%;" class="w3-btn w3-flat-emerald">Send</button>
                     </div>
                     <div class = "reply_text">
                         <textarea id = "reply_text" name = "reply_text" class="w3-input w3-border w3-light-grey" placeholder = "Reply here..."></textarea>
