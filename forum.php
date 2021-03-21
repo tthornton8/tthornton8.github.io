@@ -125,14 +125,14 @@ if (isset($_POST['btnsubmit'])) {
         $d = date("Y-m-d");
         print_r($_POST);
         print_r($forum_action);
-        if ($forum_action = 'new_reply') {
+        if ($forum_action == 'new_reply') {
             $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, ".htmlspecialchars($conn->real_escape_string($thread)).", ".htmlspecialchars($conn->real_escape_string($name)).", \"".htmlspecialchars($conn->real_escape_string($reply_text))."\", \"$d\");";
             $result = $conn->query($sql);
             $sql = "UPDATE forum_thread SET replies = replies + 1 WHERE ID = $thread;";
             $result = $conn->query($sql);
             $sql = "UPDATE forum_name SET posts = posts + 1 WHERE ID = $name;";
             $result = $conn->query($sql);
-        } elseif ($forum_action = 'new_thread') {
+        } elseif ($forum_action == 'new_thread') {
             print_r($forum_action);
             $sql = "INSERT INTO forum_thread (name_ID, title, replies, view) VALUES (\"".htmlspecialchars($conn->real_escape_string($name))."\", \"".htmlspecialchars($conn->real_escape_string($thread_title))."\", 0, 0);";
             print_r($sql);
