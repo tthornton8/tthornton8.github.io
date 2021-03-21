@@ -90,6 +90,24 @@ if ($result) {
     }  
 }
 
+$latest_thread = [];
+$sql = <<<EOT
+SELECT tt.*
+FROM forum_post tt
+INNER JOIN
+    (SELECT thread_ID, MAX(Date) AS MaxDateTime
+    FROM forum_post
+    GROUP BY thread_ID) groupedtt 
+ON tt.thread_ID = groupedtt.thread_ID 
+AND tt.Date = groupedtt.MaxDateTime
+EOT;
+$result = $conn->query($sql);
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $latest_thread[] = $row;
+    }  
+}
+
 $forum_names = [];
 $sql = "SELECT * from forum_name;";
 $result = $conn->query($sql);
@@ -212,8 +230,10 @@ if ($thread) {
                 <h2 class = "_nomargin" style = "grid-area: _last; justify-self: left;">Last Post</h2>
             </div>
             EOT;
-            foreach ($forum_threads as &$row) {
-                return_forum_thread($row['title'], $row['ID'], $row['replies'], $row['views'], 'user', 'time', $conn);
+            for ($i = 0; $i <= count($forum_threads)-1; $i+=1) {
+                $row = $forum_threads[$i];
+                $row_last = $latest_thread[$i];
+                return_forum_thread($row['title'], $row['ID'], $row['replies'], $row['views'], $row_last['user_ID'], $row_last['date'], $conn);
             }
             $action = htmlspecialchars($_SERVER["PHP_SELF"]);
             echo <<<EOT
