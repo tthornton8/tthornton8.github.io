@@ -76,42 +76,6 @@ $thread = $_GET['thread'];
 // echo "post = $post";
 // echo "thread = $thread";
 
-$latest_post = [];
-$sql = <<<EOT
-SELECT tt.*
-FROM forum_post tt
-INNER JOIN
-    (SELECT name_ID, MAX(Date) AS MaxDateTime
-    FROM forum_post
-    GROUP BY name_ID) groupedtt 
-ON tt.name_ID = groupedtt.name_ID 
-AND tt.Date = groupedtt.MaxDateTime
-EOT;
-$result = $conn->query($sql);
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $latest_post[] = $row;
-    }  
-}
-
-$latest_thread = [];
-$sql = <<<EOT
-SELECT tt.*
-FROM forum_post tt
-INNER JOIN
-    (SELECT thread_ID, MAX(Date) AS MaxDateTime
-    FROM forum_post
-    GROUP BY thread_ID) groupedtt 
-ON tt.thread_ID = groupedtt.thread_ID 
-AND tt.Date = groupedtt.MaxDateTime
-EOT;
-$result = $conn->query($sql);
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $latest_thread[] = $row;
-    }  
-}
-
 $forum_names = [];
 $sql = "SELECT * from forum_name;";
 $result = $conn->query($sql);
@@ -126,6 +90,33 @@ if ($thread and ! $name) {
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $name = $row['name_ID'];
+}
+
+$latest_post = [];
+$sql = <<<EOT
+SELECT name_ID, max(thread_ID) as thread_ID, max(user_ID) as user_ID, MAX(date) AS date
+FROM forum_post
+GROUP BY name_ID DESC;
+EOT;
+$result = $conn->query($sql);
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $latest_post[] = $row;
+    }  
+}
+
+$latest_thread = [];
+$sql = <<<EOT
+SELECT thread_ID, max(name_ID) as name_ID, max(user_ID) as user_ID, MAX(date) AS date
+FROM forum_post
+WHERE name_ID = $name
+GROUP BY thread_ID DESC;
+EOT;
+$result = $conn->query($sql);
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $latest_thread[] = $row;
+    }  
 }
 
 if (isset($_POST['btnsubmit'])) {  
