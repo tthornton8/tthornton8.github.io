@@ -51,8 +51,8 @@ function return_forum_post($ID, $user_ID, $content, $date, $conn) {
         <p> $content </p>
         </div>
         <div class = "_forum_post_buttons">
-            <a href = ""> <i class="fa fa-reply"></i> Reply </a>
-            <a href = ""> <i class="fa fa-quote-right"></i> Quote </a>
+            <a href = "#0" onclick = "replyPost($ID)> <i class="fa fa-reply"></i> Reply </a>
+            <a href = "#0"> <i class="fa fa-quote-right"></i> Quote </a>
         </div>
     </div>
     EOT;
@@ -135,7 +135,6 @@ if ($thread) {
         }  
     }
 }
-// print_r($forum_posts);
 ?>
 
 <div class = "_prof_section">
@@ -167,18 +166,23 @@ if ($thread) {
                 <h2 class = "_nomargin" style = "grid-area: _last; justify-self: left;">Last Post</h2>
             </div>
             EOT;
-            // print_r($forum_names);
-            // print_r($latest_post);
-            // foreach ($forum_names as &$row) {
-            //     return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], 'title', 'user', 'time');
-            // }
             for ($i = 0; $i <= count($forum_names)-1; $i+=1) {
                 $row = $forum_names[$i];
                 $row_last = $latest_post[$i];
-                // print_r($row);
-                // print_r($row_last);
                 return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], $row_last['ID'], $row_last['user_ID'], $row_last['date']);
             }
+            echo <<<EOT
+            <div class="_prof_section _forum_new_post">
+                edit box
+            </div>
+            EOT;
         }
     ?>
 </div>
+
+<script>
+function (ID) {
+    box = document.getElementsByClassName('_forum_new_post')[0];
+    box.style.display = 'block';
+}
+</script>
