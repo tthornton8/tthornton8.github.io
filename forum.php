@@ -19,7 +19,7 @@ function return_forum_name($section_name, $ID, $threads, $posts, $last_ID, $last
         <h3 class = "_threads center_section _nomargin"> $threads </h3>
         <h3 class = "_post center_section _nomargin"> $posts </h3>
         <h5 class = "_title _nomargin"> <a href = "./discussion.html?thread=$last_ID"> $last_title <a></h5>
-        <h5 class = "_user _nomargin"> <a href = "#0" style = "flex: right;"> $user_name </a> </h5>
+        <h5 class = "_user _nomargin"> <a href = "#0" style = "float: right;"> $user_name </a> </h5>
         <h5 class = "_time _nomargin"> $dstr </h5>
     </div>
     EOT;
