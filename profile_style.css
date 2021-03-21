@@ -114,6 +114,10 @@
   margin-right: 7px
 }
 
+._right_justify {
+  flex: right;
+}
+
 ._forum_post_buttons a, .a_button {
   text-decoration:none;
   border: 2px solid var(--darkCherry);
