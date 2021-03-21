@@ -210,7 +210,7 @@ if ($thread) {
                         <button type="submit" name="btnsubmit" style = "margin-bottom: 1em; margin: 0 auto; margin-right: -43%;" class="w3-btn w3-flat-emerald">Send</button>
                     </div>
                     <div class = "reply_text">
-                        <input type = "text" name = "thread_title" value = "Thread title">
+                        <input type = "text" name = "thread_title" placeholder = "Thread title">
                         <textarea id = "reply_text" name = "reply_text" class="w3-input w3-border w3-light-grey" placeholder = "Reply here..."></textarea>
                     </div>
                 </form>
@@ -237,6 +237,11 @@ if ($thread) {
 <script>
 function replyPost(ID) {
     box = document.getElementsByClassName('_forum_new_post')[0];
+    box.classList.remove("hidden");
+}
+
+function newPost(ID) {
+    box = document.getElementsByClassName('_forum_new_thread')[0];
     box.classList.remove("hidden");
 }
 </script>

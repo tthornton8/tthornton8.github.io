@@ -34,6 +34,17 @@
   
 }
 
+#new_thread_form {
+  display: grid;
+  grid-auto-columns: 0.1fr 1fr;
+  grid-template-areas:
+  'title title'
+  'thread thread'
+  'buttons text';
+  column-gap: 10px;
+}
+
+
 #reply_form {
   display: grid;
   grid-auto-columns: 0.1fr 1fr;
