@@ -211,6 +211,7 @@ if ($thread) {
             foreach ($forum_threads as &$row) {
                 return_forum_thread($row['title'], $row['ID'], $row['replies'], $row['views'], 'user', 'time');
             }
+            $action = htmlspecialchars($_SERVER["PHP_SELF"]);
             echo <<<EOT
             <div class="_prof_section _forum_new_thread hidden">
                 <form method="post" id = "new_thread_form" action="$action?name=$name" enctype="multipart/form-data">
