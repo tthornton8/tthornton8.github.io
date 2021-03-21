@@ -115,6 +115,8 @@ if ($name) {
     }
 }
 
+print_r($forum_threads);
+
 $forum_posts = [];
 if ($thread) {
     $thread_link_title = $forum_threads[$thread-1]['title'];
