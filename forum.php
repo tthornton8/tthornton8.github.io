@@ -104,7 +104,7 @@ $forum_threads = [];
 if ($name) {
     $name_link_title = $forum_names[$name-1]['title'];
     if (! $thread) {
-        echo "<h4 style=\"margin-left:2.5%;\"><a href = \"./discussion.html\"> Discussion </a> > $name_link_title<a href = \"#0\" class = \"a_button _right_justify\" onclick = \"newPost()\" style = \"position: relative; width: 140px;margin: 0 2.5% 0 0;bottom: 10px;\"><i class=\"fas fa-plus\"></i>&nbsp;New Post</a></h4>";
+        echo "<h4 style=\"margin-left:2.5%;\"><a href = \"./discussion.html\"> Discussion </a> > $name_link_title<a href = \"#0\" class = \"a_button _right_justify\" onclick = \"newPost($name)\" style = \"position: relative; width: 140px;margin: 0 2.5% 0 0;bottom: 10px;\"><i class=\"fas fa-plus\"></i>&nbsp;New Post</a></h4>";
     }
     $sql = "SELECT * from forum_thread WHERE name_ID = $name;";
     $result = $conn->query($sql);
@@ -122,13 +122,17 @@ if (isset($_POST['btnsubmit'])) {
         list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
 
         extract($_POST);
-        $d = date("Y-m-d");
-        $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, ".htmlspecialchars($conn->real_escape_string($thread)).", ".htmlspecialchars($conn->real_escape_string($name)).", \"".htmlspecialchars($conn->real_escape_string($reply_text))."\", \"$d\");";
-        $result = $conn->query($sql);
-        $sql = "UPDATE forum_thread SET replies = replies + 1 WHERE ID = $thread;";
-        $result = $conn->query($sql);
-        $sql = "UPDATE forum_name SET posts = posts + 1 WHERE ID = $name;";
-        $result = $conn->query($sql);
+        if ($forum_action = 'new_reply') {
+            $d = date("Y-m-d");
+            $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, ".htmlspecialchars($conn->real_escape_string($thread)).", ".htmlspecialchars($conn->real_escape_string($name)).", \"".htmlspecialchars($conn->real_escape_string($reply_text))."\", \"$d\");";
+            $result = $conn->query($sql);
+            $sql = "UPDATE forum_thread SET replies = replies + 1 WHERE ID = $thread;";
+            $result = $conn->query($sql);
+            $sql = "UPDATE forum_name SET posts = posts + 1 WHERE ID = $name;";
+            $result = $conn->query($sql);
+        } elseif ($forum_action = 'new_thread') {
+            echo "new thread";
+        }
     
     } else {
         $logged_in = 'false';
@@ -170,6 +174,7 @@ if ($thread) {
             echo <<<EOT
             <div class="_prof_section _forum_new_post hidden">
                 <form method="post" id = "reply_form" action="$action?thread=$thread" enctype="multipart/form-data">
+                    <input type = "hidden" name = "forum_action" value = "new_reply">
                     <div class = "reply_title">
                         <h5> Reply to this thread </h6>
                     </div>
@@ -194,6 +199,23 @@ if ($thread) {
             foreach ($forum_threads as &$row) {
                 return_forum_thread($row['title'], $row['ID'], $row['replies'], $row['views'], 'user', 'time');
             }
+            echo <<<EOT
+            <div class="_prof_section _forum_new_thread hidden">
+                <form method="post" id = "new_thread_form" action="$action?thread=$thread" enctype="multipart/form-data">
+                    <input type = "hidden" name = "forum_action" value = "new_thread">
+                    <div class = "reply_title">
+                        <h5> Reply to this thread </h6>
+                    </div>
+                    <div class = "reply_buttons">
+                        <button type="submit" name="btnsubmit" style = "margin-bottom: 1em; margin: 0 auto; margin-right: -43%;" class="w3-btn w3-flat-emerald">Send</button>
+                    </div>
+                    <div class = "reply_text">
+                        <input type = "text" name = "thread_title" value = "Thread title">
+                        <textarea id = "reply_text" name = "reply_text" class="w3-input w3-border w3-light-grey" placeholder = "Reply here..."></textarea>
+                    </div>
+                </form>
+            </div>
+            EOT;
         } else {
             echo <<<EOT
             <div class = "_forum_title_block">
