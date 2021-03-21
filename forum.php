@@ -67,7 +67,16 @@ $thread = $_GET['thread'];
 // echo "thread = $thread";
 
 $latest_post = [];
-$sql = "CALL get_latest_post_by_name();";
+$sql = <<<EOT
+SELECT tt.*
+FROM forum_post tt
+INNER JOIN
+    (SELECT name_ID, MAX(Date) AS MaxDateTime
+    FROM forum_post
+    GROUP BY name_ID) groupedtt 
+ON tt.name_ID = groupedtt.name_ID 
+AND tt.Date = groupedtt.MaxDateTime
+EOT;
 $result = $conn->query($sql);
 if ($result) {
     while ($row = $result->fetch_assoc()) {
