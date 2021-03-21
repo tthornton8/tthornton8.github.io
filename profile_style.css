@@ -34,6 +34,27 @@
   
 }
 
+#reply_form {
+  display: grid;
+  grid-auto-columns: 0.1fr 1fr;
+  grid-template-areas:
+  'title title'
+  'buttons text';
+  column-gap: 10px;
+}
+
+.reply_title {
+  grid-area: title;
+}
+
+.reply_buttons {
+  grid-area: buttons;
+}
+
+.reply_text {
+  grid-area: text;
+}
+
 .hidden {
   display: none!important;
 }
