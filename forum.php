@@ -204,16 +204,17 @@ if ($thread) {
                 <form method="post" id = "new_thread_form" action="$action?thread=$thread" enctype="multipart/form-data">
                     <input type = "hidden" name = "forum_action" value = "new_thread">
                     <div class = "reply_title">
-                        <h5> Reply to this thread </h6>
+                        <h4> Start a new thread </h4>
                     </div>
                     <div class = "reply_buttons">
                         <button type="submit" name="btnsubmit" style = "margin-bottom: 1em; margin: 0 auto; margin-right: -43%;" class="w3-btn w3-flat-emerald">Send</button>
                     </div>
                     <div class = "thread_title">
-                        <input type = "text" name = "thread_title" placeholder = "Thread title">
+                        <label for="thread_title"><h5 style="margin-top:0">Thread title</h5></label>
+                        <input id="thread_title" type = "text" name = "thread_title" placeholder = "Thread title">
                     </div>
                     <div class = "reply_text">
-                        <textarea id = "reply_text" name = "reply_text" class="w3-input w3-border w3-light-grey" placeholder = "Reply here..."></textarea>
+                        <textarea id = "reply_text" name = "reply_text" class="w3-input w3-border w3-light-grey" placeholder = "Write your post here"></textarea>
                     </div>
                 </form>
             </div>
