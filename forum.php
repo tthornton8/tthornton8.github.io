@@ -119,10 +119,11 @@ if ($name) {
 
 $forum_posts = [];
 if ($thread) {
-    $sql = "SELECT title FROM forum_thread WHERE thread_ID - $thread;";
+    $sql = "SELECT title FROM forum_thread WHERE ID - $thread;";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $thread_link_title = $row['title'];
+
     echo "<h4 style=\"margin-left:2.5%;\"><a href = \"./discussion.html\"> Discussion </a> > <a href = \"./discussion.html?name=$name\">$name_link_title</a> > $thread_link_title</h4>";
     $sql = "UPDATE forum_thread SET views = views + 1 WHERE ID = $thread;";
     $result = $conn->query($sql);
