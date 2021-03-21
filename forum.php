@@ -135,7 +135,8 @@ if (isset($_POST['btnsubmit'])) {
         list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
 
         extract($_POST);
-        $d = date("Y-m-d");
+        $d = strtotime("now");
+        $d = date("Y-m-d H:i:s", $d);
         if ($forum_action == 'new_reply') {
             $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, ".htmlspecialchars($conn->real_escape_string($thread)).", ".htmlspecialchars($conn->real_escape_string($name)).", \"".htmlspecialchars($conn->real_escape_string($reply_text))."\", \"$d\");";
             $result = $conn->query($sql);
