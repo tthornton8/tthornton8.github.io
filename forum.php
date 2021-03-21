@@ -226,10 +226,26 @@ if ($thread) {
                 <h2 class = "_nomargin" style = "grid-area: _last">Last Post</h2>
             </div>
             EOT;
+            $forum_thread_rows = [];
             for ($i = 0; $i <= count($forum_threads)-1; $i+=1) {
                 $row = $forum_threads[$i];
                 $row_last = $latest_thread[$i];
-                return_forum_thread($row['title'], $row['ID'], $row['replies'], $row['views'], $row_last['user_ID'], $row_last['date'], $conn);
+                $forum_thread_rows[] = array(
+                    'title' => $row['title'],
+                    'ID' => $row['ID'],
+                    'replies' => $row['replies'],
+                    'views' => $row['views'],
+                    'user_ID' => $row_last['user_ID'],
+                    'date' => $row_last['date'],
+                );
+            }
+            function sortByOrder($a, $b) {
+                return $a['date'] - $b['date'];
+            }
+            
+            usort($forum_thread_rows, 'sortByOrder');
+            foreach ($forum_thread_rows as &$row) {
+                return_forum_thread($row['title'], $row['ID'], $row['replies'], $row['views'], $row['user_ID'], $row['date'], $conn);
             }
             $action = htmlspecialchars($_SERVER["PHP_SELF"]);
             echo <<<EOT
