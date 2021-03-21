@@ -51,7 +51,7 @@ function return_forum_post($ID, $user_ID, $content, $date, $conn) {
         <p> $content </p>
         </div>
         <div class = "_forum_post_buttons">
-            <a href = "#0" onclick = "replyPost($ID)> <i class="fa fa-reply"></i> Reply </a>
+            <a href = "#0" onclick = "replyPost($ID)"> <i class="fa fa-reply"></i> Reply </a>
             <a href = "#0"> <i class="fa fa-quote-right"></i> Quote </a>
         </div>
     </div>
