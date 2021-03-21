@@ -122,8 +122,8 @@ if (isset($_POST['btnsubmit'])) {
         list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
 
         extract($_POST);
+        $d = date("Y-m-d");
         if ($forum_action = 'new_reply') {
-            $d = date("Y-m-d");
             $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, ".htmlspecialchars($conn->real_escape_string($thread)).", ".htmlspecialchars($conn->real_escape_string($name)).", \"".htmlspecialchars($conn->real_escape_string($reply_text))."\", \"$d\");";
             $result = $conn->query($sql);
             $sql = "UPDATE forum_thread SET replies = replies + 1 WHERE ID = $thread;";
@@ -131,7 +131,18 @@ if (isset($_POST['btnsubmit'])) {
             $sql = "UPDATE forum_name SET posts = posts + 1 WHERE ID = $name;";
             $result = $conn->query($sql);
         } elseif ($forum_action = 'new_thread') {
-            echo "new thread";
+            $sql = "INSERT INTO forum_thread (name_ID, title, replies, view) VALUES (\"".htmlspecialchars($conn->real_escape_string($name))."\", \"".htmlspecialchars($conn->real_escape_string($thread_title))."\", 0, 0);";
+            $result = $conn->query($sql);
+            $sql = "SELECT max(ID) as thread_ID from forum_thread;";
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+            $thread_ID = $row['thread_ID'];
+            $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, $thread_ID, ".htmlspecialchars($conn->real_escape_string($name)).", \"".htmlspecialchars($conn->real_escape_string($post_text))."\", \"$d\");";
+            $result = $conn->query($sql);
+            $sql = "UPDATE forum_name SET posts = posts + 1 WHERE ID = $name;";
+            $result = $conn->query($sql);
+            $sql = "UPDATE forum_name SET threads = threads + 1 WHERE ID = $name;";
+            $result = $conn->query($sql);
         }
     
     } else {
@@ -214,7 +225,7 @@ if ($thread) {
                         <input id="thread_title" type = "text" name = "thread_title" placeholder = "Thread title">
                     </div>
                     <div class = "reply_text">
-                        <textarea id = "reply_text" name = "reply_text" class="w3-input w3-border w3-light-grey" placeholder = "Write your post here"></textarea>
+                        <textarea id = "post_text" name = "post_text" class="w3-input w3-border w3-light-grey" placeholder = "Write your post here"></textarea>
                     </div>
                 </form>
             </div>
