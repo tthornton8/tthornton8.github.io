@@ -2,7 +2,7 @@
 require_once('get_profile.php');
 require_once('config.php');
 
-function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $last_user, $last_time) {
+function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $last_user, $last_time, $conn) {
     list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $last_user);
     $d=strtotime($last_time);
     $dstr=date('l jS \of F Y h:i A', $d);
@@ -21,7 +21,7 @@ function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $l
     EOT;
 }
 
-function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $last_time) {
+function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $last_time, $conn) {
     list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $user_ID);
     $d=strtotime($last_time);
     $dstr=date('l jS \of F Y h:i A', $d);
@@ -213,7 +213,7 @@ if ($thread) {
             </div>
             EOT;
             foreach ($forum_threads as &$row) {
-                return_forum_thread($row['title'], $row['ID'], $row['replies'], $row['views'], 'user', 'time');
+                return_forum_thread($row['title'], $row['ID'], $row['replies'], $row['views'], 'user', 'time', $conn);
             }
             $action = htmlspecialchars($_SERVER["PHP_SELF"]);
             echo <<<EOT
@@ -248,7 +248,7 @@ if ($thread) {
             for ($i = 0; $i <= count($forum_names)-1; $i+=1) {
                 $row = $forum_names[$i];
                 $row_last = $latest_post[$i];
-                return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], $row_last['ID'], $row_last['user_ID'], $row_last['date']);
+                return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], $row_last['ID'], $row_last['user_ID'], $row_last['date'], $conn);
             }
         }
     ?>
