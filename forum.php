@@ -3,6 +3,7 @@ require_once('get_profile.php');
 require_once('config.php');
 
 function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $last_user, $last_time) {
+    list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $last_user);
     $d=strtotime($last_time);
     $dstr=date('l jS \of F Y h:i A', $d);
     echo <<<EOT
@@ -21,6 +22,7 @@ function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $l
 }
 
 function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $last_time) {
+    list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $user_ID);
     $d=strtotime($last_time);
     $dstr=date('l jS \of F Y h:i A', $d);
     echo <<<EOT
@@ -31,21 +33,21 @@ function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $
         </a>
         <h3 class = "_threads center_section _nomargin"> $replies </h3>
         <h3 class = "_post center_section _nomargin"> $views </h3>
-        <h4 class = "_title _nomargin"> $last_user </h4>
+        <h4 class = "_title _nomargin"> $user_name </h4>
         <h4 class = "_time _nomargin"> $dstr </h4>
     </div>
     EOT;
 }
 
 function return_forum_post($ID, $user_ID, $content, $date, $conn) {
-    list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $user_ID);
+    list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $user_ID);
     $d=strtotime($date);
     $dstr=date('l jS \of F Y h:i A', $d);
     echo <<<EOT
     <div class="_prof_section _forum_post">
         <div class = "_forum_post_header">
             <img src="img.php?id=$user_ID" alt="Profile Picture" class = "pp">
-            <h5> $name </h5>
+            <h5> $user_name </h5>
             <h6> $degree </h6>
             <h6> $uni </h6>
         </div>
