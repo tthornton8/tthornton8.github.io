@@ -3,9 +3,9 @@ require_once('get_profile.php');
 require_once('config.php');
 
 function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $last_user, $last_time) {
-    echo <<<EOT
     $d=strtotime($last_time);
     $dstr=date('l jS \of F Y h:i A', $d);
+    echo <<<EOT
     <div class="_prof_section _forum_name">
         <a href = "./discussion.html?name=$ID" class="_name center_section _nomargin">
             <h2 class = "_name center_section _nomargin">
@@ -21,9 +21,9 @@ function return_forum_name($section_name, $ID, $threads, $posts, $last_title, $l
 }
 
 function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $last_time) {
-    echo <<<EOT
     $d=strtotime($last_time);
     $dstr=date('l jS \of F Y h:i A', $d);
+    echo <<<EOT
     <div class="_prof_section _forum_name">
         <a href = "./discussion.html?thread=$ID" class="_name center_section _nomargin">
             <h2 class = "_name center_section _nomargin">
