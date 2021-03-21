@@ -167,8 +167,8 @@ if ($thread) {
             //     return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], 'title', 'user', 'time');
             // }
             for ($i = 0; $i <= count($forum_names)-1; $i+=1) {
-                $row = $forum_names[i];
-                $row_last = $latest_post[i];
+                $row = $forum_names[$i];
+                $row_last = $latest_post[$i];
                 print_r($row);
                 print_r($row_last);
                 // return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], $row_last['ID'], $row_last['user_ID'], $row_last['date']);
