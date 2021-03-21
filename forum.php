@@ -136,7 +136,8 @@ if ($thread) {
     }
 }
 
-if (isset($_POST['submit'])) {    
+if (isset($_POST['submit'])) {  
+    echo "form;";  
     if (isset($_SESSION['id'])) {
         $logged_in = 'true';
         $id = $_SESSION['id'];
