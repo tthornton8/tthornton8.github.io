@@ -136,7 +136,7 @@ if ($thread) {
     }
 }
 
-if (isset($_POST['submit'])) {  
+if (isset($_POST['btnsubmit'])) {  
     echo "forum_form;";  
     if (isset($_SESSION['id'])) {
         $logged_in = 'true';
