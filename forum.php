@@ -119,7 +119,7 @@ if (isset($_POST['btnsubmit'])) {
     if (isset($_SESSION['id'])) {
         $logged_in = 'true';
         $id = $_SESSION['id'];
-        list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
+        list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
     
     } else {
         $logged_in = 'false';
