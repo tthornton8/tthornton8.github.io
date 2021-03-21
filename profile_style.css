@@ -31,7 +31,7 @@
 }
 
 ._forum_new_post {
-  display: none
+  display: none!important;
 }
 
 ._forum_post {

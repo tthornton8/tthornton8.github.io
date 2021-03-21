@@ -183,6 +183,6 @@ if ($thread) {
 <script>
 function replyPost(ID) {
     box = document.getElementsByClassName('_forum_new_post')[0];
-    box.style.display = 'block';
+    box.style.display = 'block!important';
 }
 </script>
