@@ -132,6 +132,7 @@ if (isset($_POST['btnsubmit'])) {
             $result = $conn->query($sql);
         } elseif ($forum_action = 'new_thread') {
             $sql = "INSERT INTO forum_thread (name_ID, title, replies, view) VALUES (\"".htmlspecialchars($conn->real_escape_string($name))."\", \"".htmlspecialchars($conn->real_escape_string($thread_title))."\", 0, 0);";
+            print_r($sql);
             $result = $conn->query($sql);
             $sql = "SELECT max(ID) as thread_ID from forum_thread;";
             $result = $conn->query($sql);
