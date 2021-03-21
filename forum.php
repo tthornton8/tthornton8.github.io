@@ -37,8 +37,8 @@ function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $
         </a>
         <h3 class = "_threads center_section _nomargin"> $replies </h3>
         <h3 class = "_post center_section _nomargin"> $views </h3>
-        <h4 class = "_title _nomargin"> <a href = "#0"> $user_name </a> </h4>
-        <h4 class = "_time _nomargin"> $dstr </h4>
+        <h4 class = "_time _nomargin"> Last post: &nbsp; <a href = "#0"> $user_name </a> </h4>
+        <h4 class = "_title _nomargin"> $dstr </h4>
     </div>
     EOT;
 }
