@@ -183,6 +183,6 @@ if ($thread) {
 <script>
 function replyPost(ID) {
     box = document.getElementsByClassName('_forum_new_post')[0];
-    .classList.remove("hidden");
+    box.classList.remove("hidden");
 }
 </script>
