@@ -169,7 +169,7 @@ if (isset($_POST['submit'])) {
             $action = htmlspecialchars($_SERVER["PHP_SELF"]);
             echo <<<EOT
             <div class="_prof_section _forum_new_post hidden">
-                <form method="post" id = "reply_form" action="$action" enctype="multipart/form-data">
+                <form method="post" id = "reply_form" action="$action?thread=$thread" enctype="multipart/form-data">
                     <div class = "reply_title">
                         <h5> Reply to this thread </h6>
                     </div>
