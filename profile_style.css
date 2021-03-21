@@ -114,7 +114,7 @@
   margin-right: 7px
 }
 
-._forum_post_buttons a {
+._forum_post_buttons a, .a_button {
   text-decoration:none;
   border: 2px solid var(--darkCherry);
   color: var(--darkCherry);
