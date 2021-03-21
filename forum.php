@@ -152,9 +152,14 @@ if ($thread) {
                 <h2 class = "_nomargin" style = "grid-area: _last; justify-self: left;">Last Post</h2>
             </div>
             EOT;
-            print_r(array_map(null, $forum_names, $latest_post));
-            foreach ($forum_names as &$row) {
-                return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], 'title', 'user', 'time');
+            // print_r(array_map(null, $forum_names, $latest_post));
+            // foreach ($forum_names as &$row) {
+            //     return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], 'title', 'user', 'time');
+            // }
+            for ($i = 0; $i <= count($forum_names); $i+=1) {
+                $row = $forum_posts[i];
+                $row_last = $latest_post[i];
+                return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], $row_last['ID'], $row_last['user_ID'], $row_last['date']);
             }
         }
     ?>
