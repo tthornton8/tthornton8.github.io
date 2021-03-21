@@ -36,6 +36,7 @@
   'header'
   'content'
   'buttons';
+  padding: 0!important;
 }
 
 ._forum_post_header {
@@ -46,6 +47,9 @@
   'pp course'
   'pp uni';
   grid-template-columns: 100px 1fr;
+  background-color: #e1e1e1;
+  padding: 15px;
+
 }
 
 ._forum_post_header h5,
@@ -62,10 +66,17 @@
 
 ._forum_post_content {
   grid-area: content;
+  padding: 5px 15px;
+}
+
+._forum_post_content hr {
+  margin: 5px auto;
 }
 
 ._forum_post_buttons {
   grid-area: buttons;
+  padding: 15px;
+  background-color: #e1e1e1;
 }
 
 #Ideas h2 > i {
