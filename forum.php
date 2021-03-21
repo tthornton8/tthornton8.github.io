@@ -201,7 +201,7 @@ if ($thread) {
             }
             echo <<<EOT
             <div class="_prof_section _forum_new_thread hidden">
-                <form method="post" id = "new_thread_form" action="$action?thread=$thread" enctype="multipart/form-data">
+                <form method="post" id = "new_thread_form" action="$action?name=$name" enctype="multipart/form-data">
                     <input type = "hidden" name = "forum_action" value = "new_thread">
                     <div class = "reply_title">
                         <h4> Start a new thread </h4>
