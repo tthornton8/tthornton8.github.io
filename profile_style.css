@@ -77,6 +77,29 @@
   grid-area: buttons;
   padding: 15px;
   background-color: #e1e1e1;
+  display: inline-block;
+  text-align: right;
+}
+
+._forum_post_buttons i {
+  margin-right: 7px
+}
+
+._forum_post_buttons a {
+  text-decoration:none;
+  border: 2px solid var(--darkCherry);
+  color: var(--darkCherry);
+  border-radius: 3px;
+  padding: 8px;
+  margin: 10px 5px;
+  width: 90px;
+  font-weight: 400;
+}
+
+._forum_post_buttons a:hover {
+  background-color: var(--darkCherry);
+  color: white;
+  cursor: pointer;
 }
 
 #Ideas h2 > i {
