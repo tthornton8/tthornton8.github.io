@@ -26,6 +26,7 @@
 ._forum_title_block {
   display: grid;
   grid-template-areas: '_name _threads _posts _last _by';
+  grid-template-columns: 1fr 1fr 1fr 0.6fr 0.4fr;
   padding: 19px 0;
   margin-left: 5px;
 }
