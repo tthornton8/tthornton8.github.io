@@ -209,8 +209,10 @@ if ($thread) {
                     <div class = "reply_buttons">
                         <button type="submit" name="btnsubmit" style = "margin-bottom: 1em; margin: 0 auto; margin-right: -43%;" class="w3-btn w3-flat-emerald">Send</button>
                     </div>
-                    <div class = "reply_text">
+                    <div class = "thread_title">
                         <input type = "text" name = "thread_title" placeholder = "Thread title">
+                    </div>
+                    <div class = "reply_text">
                         <textarea id = "reply_text" name = "reply_text" class="w3-input w3-border w3-light-grey" placeholder = "Reply here..."></textarea>
                     </div>
                 </form>

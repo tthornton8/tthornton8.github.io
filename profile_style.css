@@ -34,6 +34,10 @@
   
 }
 
+.thread_title {
+  grid-area: thread;
+}
+
 #new_thread_form {
   display: grid;
   grid-auto-columns: 0.1fr 1fr;
