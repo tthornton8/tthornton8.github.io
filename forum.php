@@ -183,7 +183,7 @@ if ($name) {
 
 $forum_posts = [];
 if ($thread) {
-    $sql = "SELECT title FROM forum_thread WHERE ID - $thread;";
+    $sql = "SELECT title FROM forum_thread WHERE ID = $thread;";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $thread_link_title = $row['title'];
