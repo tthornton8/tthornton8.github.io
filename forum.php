@@ -128,7 +128,7 @@ if (isset($_POST['btnsubmit'])) {
 
     extract($_POST);
     $d = date("Y-m-d");
-    $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, ".htmlspecialchars($conn->real_escape_string($thread)).", ".htmlspecialchars($conn->real_escape_string($name)).", ".htmlspecialchars($conn->real_escape_string($reply_text)).", $d);";
+    $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, ".htmlspecialchars($conn->real_escape_string($thread)).", ".htmlspecialchars($conn->real_escape_string($name)).", \"".htmlspecialchars($conn->real_escape_string($reply_text))."\", \"$d\");";
     echo $sql;
     $result = $conn->query($sql);
 }
