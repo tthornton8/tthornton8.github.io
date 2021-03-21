@@ -94,7 +94,7 @@ if ($result) {
 }
 
 if ($thread and ! $name) {
-    $sql = "SELECT name_ID from forum_post WHERE ID = $thread;";
+    $sql = "SELECT name_ID from forum_post WHERE thread_ID = $thread;";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $name = $row['name_ID'];
