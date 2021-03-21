@@ -115,7 +115,7 @@
 }
 
 ._right_justify {
-  flex: right;
+  float: right;
 }
 
 ._forum_post_buttons a, .a_button {
