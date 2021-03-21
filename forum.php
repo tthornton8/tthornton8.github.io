@@ -66,14 +66,14 @@ $thread = $_GET['thread'];
 // echo "post = $post";
 // echo "thread = $thread";
 
-$latest_post = [];
-$sql = "CALL `get_latest_post_by_name`();";
-$result = $conn->query($sql);
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $latest_post[] = $row;
-    }  
-}
+// $latest_post = [];
+// $sql = "CALL `get_latest_post_by_name`();";
+// $result = $conn->query($sql);
+// if ($result) {
+//     while ($row = $result->fetch_assoc()) {
+//         $latest_post[] = $row;
+//     }  
+// }
 
 $forum_names = [];
 $sql = "SELECT * from forum_name;";
