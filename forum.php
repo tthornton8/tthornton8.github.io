@@ -138,10 +138,6 @@ if ($thread) {
 ?>
 
 <div class = "_prof_section">
-    <h2> Our vision is to create a community of students and companies alike; come here to share skills, discuss projects and contribute new ideas to the site! </h2>
-</div>
-
-<div class = "_prof_section">
     <?php 
         if ($post) {
             echo "post placeholder";
