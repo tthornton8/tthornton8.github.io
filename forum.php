@@ -232,7 +232,6 @@ if ($thread) {
                 <h2 class = "_nomargin" style = "grid-area: _threads">Replies</h2>
                 <h2 class = "_nomargin" style = "grid-area: _posts">Views</h2>
                 <h2 class = "_nomargin" style = "grid-area: _last">Last Post</h2>
-                <h2 class = "_nomargin" style = "grid-area: _by">By</h2>
             </div>
             EOT;
             for ($i = 0; $i <= count($forum_threads)-1; $i+=1) {
@@ -267,7 +266,8 @@ if ($thread) {
                 <h2 class = "_nomargin" style = "grid-area: _name">Name</h2>
                 <h2 class = "_nomargin" style = "grid-area: _threads">Threads</h2>
                 <h2 class = "_nomargin" style = "grid-area: _posts">Posts</h2>
-                <h2 class = "_nomargin" style = "grid-area: _last; justify-self: left;">Last Post</h2>
+                <h2 class = "_nomargin" style = "grid-area: _last;">Last Post</h2>
+                <h2 class = "_nomargin" style = "grid-area: _by">By</h2>
             </div>
             EOT;
             for ($i = 0; $i <= count($forum_names)-1; $i+=1) {
