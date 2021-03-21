@@ -96,7 +96,7 @@ $latest_post = [];
 $sql = <<<EOT
 SELECT name_ID, max(thread_ID) as thread_ID, max(user_ID) as user_ID, MAX(date) AS date
 FROM forum_post
-GROUP BY name_ID DESC;
+GROUP BY name_ID ASC;
 EOT;
 $result = $conn->query($sql);
 if ($result) {
@@ -110,7 +110,7 @@ $sql = <<<EOT
 SELECT thread_ID, max(name_ID) as name_ID, max(user_ID) as user_ID, MAX(date) AS date
 FROM forum_post
 WHERE name_ID = $name
-GROUP BY thread_ID DESC;
+GROUP BY thread_ID ASC;
 EOT;
 $result = $conn->query($sql);
 if ($result) {
