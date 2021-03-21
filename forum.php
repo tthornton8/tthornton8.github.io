@@ -145,6 +145,7 @@ if (isset($_POST['btnsubmit'])) {
             $sql = "UPDATE forum_name SET threads = threads + 1 WHERE ID = $name;";
             $result = $conn->query($sql);
         }
+        print_r($forum_action);
     
     } else {
         $logged_in = 'false';
