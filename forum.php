@@ -69,11 +69,11 @@ $thread = $_GET['thread'];
 $latest_post = [];
 $sql = "SELECT * `get_latest_post_by_name`();";
 $result = $conn->query($sql);
-// if ($result) {
-//     while ($row = $result->fetch_assoc()) {
-//         $latest_post[] = $row;
-//     }  
-// }
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $latest_post[] = $row;
+    }  
+}
 
 $forum_names = [];
 $sql = "SELECT * from forum_name;";
