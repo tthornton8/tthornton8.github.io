@@ -138,6 +138,10 @@ if ($thread) {
 ?>
 
 <div class = "_prof_section">
+    <h2> Our vision is to create a community of students and companies alike; come here to share skills, discuss projects and contribute new ideas to the site! </h2>
+</div>
+
+<div class = "_prof_section">
     <?php 
         if ($post) {
             echo "post placeholder";
@@ -145,6 +149,11 @@ if ($thread) {
             foreach ($forum_posts as &$row) {
                 return_forum_post($row['ID'], $row['user_ID'], $row['content'], $row['date'], $conn);
             }
+            echo <<<EOT
+            <div class="_prof_section _forum_new_post">
+                edit box
+            </div>
+            EOT;
         } elseif ($name) {
             echo <<<EOT
             <div class = "_forum_title_block">
@@ -171,11 +180,6 @@ if ($thread) {
                 $row_last = $latest_post[$i];
                 return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], $row_last['ID'], $row_last['user_ID'], $row_last['date']);
             }
-            echo <<<EOT
-            <div class="_prof_section _forum_new_post">
-                edit box
-            </div>
-            EOT;
         }
     ?>
 </div>
