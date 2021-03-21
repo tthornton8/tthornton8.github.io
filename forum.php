@@ -153,9 +153,8 @@ if (isset($_POST['submit'])) {
 
     extract($_POST);
     $d = date("Y-m-d");
-    $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, $thread, $name, $reply_text, $d);";
+    $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, ".htmlspecialchars($conn->real_escape_string($thread)).", ".htmlspecialchars($conn->real_escape_string($name)).", ".htmlspecialchars($conn->real_escape_string($reply_text)).", $d);";
     $result = $conn->query($sql);
-    header("Refresh:0");
 }
 ?>
 
@@ -170,7 +169,7 @@ if (isset($_POST['submit'])) {
             $action = htmlspecialchars($_SERVER["PHP_SELF"]);
             echo <<<EOT
             <div class="_prof_section _forum_new_post hidden">
-                <form id = "reply_form" action="$action" enctype="multipart/form-data">
+                <form method="post" id = "reply_form" action="$action" enctype="multipart/form-data">
                     <div class = "reply_title">
                         <h5> Reply to this thread </h6>
                     </div>
