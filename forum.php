@@ -145,9 +145,22 @@ if ($thread) {
             foreach ($forum_posts as &$row) {
                 return_forum_post($row['ID'], $row['user_ID'], $row['content'], $row['date'], $conn);
             }
+            $action = htmlspecialchars($_SERVER["PHP_SELF"]);
             echo <<<EOT
             <div class="_prof_section _forum_new_post hidden">
-                edit box
+                <form id = "reply_form" action="$action" enctype="multipart/form-data">
+                    <div class = "reply_title">
+                        <h5> Reply to this thread </h6>
+                    </div>
+                    <div class = "reply_buttons">
+                        <button type="submit" name="btnsubmit" style = "margin-bottom: 1em; margin: 0 auto; margin-right: -43%;" class="w3-btn w3-flat-emerald">Save</button>
+                    </div>
+                    <div class = "reply_text">
+                        <textarea id = "reply_text" name = "reply_text" class="w3-input w3-border w3-light-grey">
+                            Reply here...
+                        </textarea>
+                    </div>
+                </form>
             </div>
             EOT;
         } elseif ($name) {
