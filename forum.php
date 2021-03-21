@@ -136,11 +136,7 @@ if ($thread) {
     }
 }
 
-if (isset($_POST['submit'])) {
-    if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
-        unset($_SESSION['id']);
-    }
-     
+if (isset($_POST['submit'])) {    
     if (isset($_SESSION['id'])) {
         $logged_in = 'true';
         $id = $_SESSION['id'];
