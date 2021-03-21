@@ -153,7 +153,7 @@
 }
 
 ._forum_post_buttons a:hover, .a_button:hover {
-  background-color: var(--darkCherry);
+  background-color: var(--darkCherry)!important;
   color: white;
   cursor: pointer;
 }

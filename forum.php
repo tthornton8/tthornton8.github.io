@@ -30,14 +30,14 @@ function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $
     $d=strtotime($last_time);
     $dstr=date('l jS \of F Y h:i A', $d);
     echo <<<EOT
-    <div class="_prof_section _forum_name">
+    <div class="_prof_section _forum_name" style = "grid-template-columns: 1fr 1fr 1fr 0.9fr 0.1fr;">
         <a href = "./discussion.html?thread=$ID" class="_name center_section _nomargin">
             <h2 class = "_name center_section _nomargin">
             <i class="fas fa-comment-dots"></i> $section_name </h2>
         </a>
         <h3 class = "_threads center_section _nomargin"> $replies </h3>
         <h3 class = "_post center_section _nomargin"> $views </h3>
-        <h4 class = "_time _nomargin"> Last post: &nbsp; <a href = "#0"> $user_name </a> </h4>
+        <h4 class = "_time _nomargin"> Last post:&nbsp;<a href = "#0">$user_name</a></h4>
         <h4 class = "_title _nomargin"> $dstr </h4>
     </div>
     EOT;
@@ -167,7 +167,7 @@ $forum_threads = [];
 if ($name) {
     $name_link_title = $forum_names[$name-1]['title'];
     if (! $thread) {
-        echo "<h4 style=\"margin-left:2.5%;\"><a href = \"./discussion.html\"> Discussion </a> > $name_link_title<a href = \"#0\" class = \"a_button _right_justify\" onclick = \"newPost($name)\" style = \"position: relative; width: 140px;margin: 0 2.5% 0 0;bottom: 10px;\"><i class=\"fas fa-plus\"></i>&nbsp;New Post</a></h4>";
+        echo "<h4 style=\"margin-left:2.5%;\"><a href = \"./discussion.html\"> Discussion </a> > $name_link_title<a href = \"#0\" class = \"a_button _right_justify\" onclick = \"newPost($name)\" style = \"position: relative; width: 140px;margin: 0 2.5% 0 0;bottom: 10px; background-color: #e1e1e1aa;\"><i class=\"fas fa-plus\"></i>&nbsp;New Post</a></h4>";
     }
     $sql = "SELECT * from forum_thread WHERE name_ID = $name;";
     $result = $conn->query($sql);
