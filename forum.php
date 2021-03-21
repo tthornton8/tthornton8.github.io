@@ -115,6 +115,23 @@ if ($name) {
     }
 }
 
+if (isset($_POST['btnsubmit'])) {  
+    if (isset($_SESSION['id'])) {
+        $logged_in = 'true';
+        $id = $_SESSION['id'];
+        list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
+    
+    } else {
+        $logged_in = 'false';
+        header('Location: login_student.php');
+    }
+
+    extract($_POST);
+    $d = date("Y-m-d");
+    $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, ".htmlspecialchars($conn->real_escape_string($thread)).", ".htmlspecialchars($conn->real_escape_string($name)).", ".htmlspecialchars($conn->real_escape_string($reply_text)).", $d);";
+    $result = $conn->query($sql);
+}
+
 // print_r($forum_threads);
 
 $forum_posts = [];
@@ -134,24 +151,6 @@ if ($thread) {
             $forum_posts[] = $row;
         }  
     }
-}
-
-if (isset($_POST['btnsubmit'])) {  
-    echo "forum_form;";  
-    if (isset($_SESSION['id'])) {
-        $logged_in = 'true';
-        $id = $_SESSION['id'];
-        list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
-    
-    } else {
-        $logged_in = 'false';
-        header('Location: login_student.php');
-    }
-
-    extract($_POST);
-    $d = date("Y-m-d");
-    $sql = "INSERT INTO forum_post (user_ID, thread_ID, name_ID, content, date) VALUES ($id, ".htmlspecialchars($conn->real_escape_string($thread)).", ".htmlspecialchars($conn->real_escape_string($name)).", ".htmlspecialchars($conn->real_escape_string($reply_text)).", $d);";
-    $result = $conn->query($sql);
 }
 ?>
 
