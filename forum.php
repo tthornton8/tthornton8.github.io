@@ -66,6 +66,15 @@ $thread = $_GET['thread'];
 // echo "post = $post";
 // echo "thread = $thread";
 
+$latest_post = [];
+$sql = "CALL `get_latest_post_by_name`();";
+$result = $conn->query($sql);
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $latest_post[] = $row;
+    }  
+}
+
 $forum_names = [];
 $sql = "SELECT * from forum_name;";
 $result = $conn->query($sql);
@@ -143,6 +152,7 @@ if ($thread) {
                 <h2 class = "_nomargin" style = "grid-area: _last; justify-self: left;">Last Post</h2>
             </div>
             EOT;
+            print_r(array_map(null, $forum_names, $latest_post));
             foreach ($forum_names as &$row) {
                 return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], 'title', 'user', 'time');
             }
