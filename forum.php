@@ -51,6 +51,8 @@ function return_forum_post($ID, $user_ID, $content, $date, $conn) {
         <p> $content </p>
         </div>
         <div class = "_forum_post_buttons">
+            <a href = ""> <h2> <i class="fa fa-reply"></i> Reply </h2> </a>
+            <a href = ""> <h2> <i class="fa fa-quote-right"></i> Quote </h2> </a>
         </div>
     </div>
     EOT;
