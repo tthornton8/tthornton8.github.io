@@ -66,7 +66,7 @@ $thread = $_GET['thread'];
 // echo "post = $post";
 // echo "thread = $thread";
 
-// $latest_post = [];
+$latest_post = [];
 // $sql = "CALL `get_latest_post_by_name`();";
 // $result = $conn->query($sql);
 // if ($result) {
