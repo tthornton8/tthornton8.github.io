@@ -109,10 +109,7 @@ if ($name) {
     $sql = "SELECT * from forum_thread WHERE name_ID = $name;";
     $result = $conn->query($sql);
     if ($result) {
-        while ($row = $result->fetch_assoc()) {position: relative;
-    width: 140px;
-    margin: auto 0;
-    bottom: 10px;
+        while ($row = $result->fetch_assoc()) {
             $forum_threads[] = $row;
         }  
     }
