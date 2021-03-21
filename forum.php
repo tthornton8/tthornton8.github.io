@@ -181,7 +181,7 @@ if ($thread) {
 </div>
 
 <script>
-function (ID) {
+function replyPost(ID) {
     box = document.getElementsByClassName('_forum_new_post')[0];
     box.style.display = 'block';
 }
