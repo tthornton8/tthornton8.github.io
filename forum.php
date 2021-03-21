@@ -94,7 +94,7 @@ if ($thread and ! $name) {
 
 $latest_post = [];
 $sql = <<<EOT
-SELECT name_ID, max(thread_ID) as thread_ID, max(user_ID) as user_ID, MAX(date) AS date
+SELECT name_ID, thread_ID, user_ID, MAX(date) AS date
 FROM forum_post
 GROUP BY name_ID ASC;
 EOT;
@@ -107,7 +107,7 @@ if ($result) {
 
 $latest_thread = [];
 $sql = <<<EOT
-SELECT thread_ID, max(name_ID) as name_ID, max(user_ID) as user_ID, MAX(date) AS date
+SELECT thread_ID, name_ID, user_ID, MAX(date) AS date
 FROM forum_post
 WHERE name_ID = $name
 GROUP BY thread_ID ASC;
