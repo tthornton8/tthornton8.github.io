@@ -273,7 +273,7 @@ if ($thread) {
             for ($i = 0; $i <= count($forum_names)-1; $i+=1) {
                 $row = $forum_names[$i];
                 $row_last = $latest_post[$i];
-                return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], $row_last['ID'], $row_last['user_ID'], $row_last['date'], $conn);
+                return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], $row_last['thread_ID'], $row_last['user_ID'], $row_last['date'], $conn);
             }
         }
     ?>
