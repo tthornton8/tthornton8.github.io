@@ -104,12 +104,15 @@ $forum_threads = [];
 if ($name) {
     $name_link_title = $forum_names[$name-1]['title'];
     if (! $thread) {
-        echo "<h4 style=\"margin-left:2.5%;\"><a href = \"./discussion.html\"> Discussion </a> > $name_link_title<a href = \"#0\" class = \"a_button _right_justify\" onclick = \"newPost()\">New Post</a></h4>";
+        echo "<h4 style=\"margin-left:2.5%;\"><a href = \"./discussion.html\"> Discussion </a> > $name_link_title<a href = \"#0\" class = \"a_button _right_justify\" onclick = \"newPost()\" style = \"position: relative; width: 140px;margin: 0 2.5% 0 0;bottom: 10px;\"><i class=\"fas fa-plus\"></i>New Post</a></h4>";
     }
     $sql = "SELECT * from forum_thread WHERE name_ID = $name;";
     $result = $conn->query($sql);
     if ($result) {
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {position: relative;
+    width: 140px;
+    margin: auto 0;
+    bottom: 10px;
             $forum_threads[] = $row;
         }  
     }
