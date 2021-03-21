@@ -45,7 +45,15 @@
   'title title'
   'thread thread'
   'buttons text';
-  column-gap: 10px;
+  grid-gap: 10px;
+}
+
+#new_thread_form input {
+  width: 100%;
+}
+
+._forum_new_thread {
+  margin-left:5px!important;
 }
 
 
