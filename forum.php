@@ -240,7 +240,7 @@ if ($thread) {
                 );
             }
             function sortByOrder($a, $b) {
-                return $b['date'] - $a['date'];
+                return $b['date'] <=> $a['date'];
             }
             
             usort($forum_thread_rows, 'sortByOrder');
