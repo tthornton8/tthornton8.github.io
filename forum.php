@@ -18,9 +18,9 @@ function return_forum_name($section_name, $ID, $threads, $posts, $last_ID, $last
         </a>
         <h3 class = "_threads center_section _nomargin"> $threads </h3>
         <h3 class = "_post center_section _nomargin"> $posts </h3>
-        <h4 class = "_title _nomargin"> <a href = "./discussion.html?thread=$last_ID"> $last_title <a></h4>
-        <h4 class = "_user _nomargin"> <a href = "#0"> $user_name </a> </h4>
-        <h4 class = "_time _nomargin"> $dstr </h4>
+        <h5 class = "_title _nomargin"> <a href = "./discussion.html?thread=$last_ID"> $last_title <a></h5>
+        <h5 class = "_user _nomargin"> <a href = "#0" style = "flex: right;"> $user_name </a> </h5>
+        <h5 class = "_time _nomargin"> $dstr </h5>
     </div>
     EOT;
 }
@@ -37,8 +37,8 @@ function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $
         </a>
         <h3 class = "_threads center_section _nomargin"> $replies </h3>
         <h3 class = "_post center_section _nomargin"> $views </h3>
-        <h4 class = "_time _nomargin"> Last post:&nbsp;<a href = "#0">$user_name</a></h4>
-        <h4 class = "_title _nomargin"> $dstr </h4>
+        <h5 class = "_time _nomargin"> Last post:&nbsp;<a href = "#0">$user_name</a></h5>
+        <h5 class = "_title _nomargin"> $dstr </h5>
     </div>
     EOT;
 }
