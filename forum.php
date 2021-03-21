@@ -144,7 +144,7 @@ if ($thread) {
             </div>
             EOT;
             foreach ($forum_names as &$row) {
-                return_forum_name($row['title'], $row['ID'], '8', '12', 'title', 'user', 'time');
+                return_forum_name($row['title'], $row['ID'], $row['threads'], $row['posts'], 'title', 'user', 'time');
             }
         }
     ?>
