@@ -22,7 +22,7 @@ if (isset($_SESSION['id'])) {
     header('Location: login_student.php');
 }
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['btnsubmit'])) {
     extract($_POST);
     switch ($action) {
         case "edit_main":
