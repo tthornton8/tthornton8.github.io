@@ -77,7 +77,16 @@ $thread = $_GET['thread'];
 // echo "thread = $thread";
 
 $forum_names = [];
-$sql = "SELECT * from forum_name;";
+$sql = <<<EOT
+SELECT t0.title, t0.ID, t1.posts, t2.threads FROM
+	(SELECT ID, title FROM forum_name) t0
+LEFT JOIN
+    (SELECT COUNT(name_ID) as posts, name_ID from forum_post GROUP BY name_ID) t1
+ON (t1.name_ID = t0.ID)
+LEFT JOIN
+    (SELECT COUNT(name_ID) as threads, name_ID from forum_thread GROUP BY name_ID) t2
+ON (t1.name_ID = t2.name_ID)
+EOT;
 $result = $conn->query($sql);
 if ($result) {
     while ($row = $result->fetch_assoc()) {
