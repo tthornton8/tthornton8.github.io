@@ -568,8 +568,7 @@ function phpAlert($msg) {
                 <input type="hidden" name="proj_icon" value="" id = "proj_icon">
                 <br/>
                 <label class="w3-text" style = "color: var(--darkCherry);" for="summary">Project Summary</label>
-                <textarea id = "summary" name = "summary" class="w3-input w3-border w3-light-grey">
-                    Project Summary goes here...
+                <textarea id = "summary" name = "summary" class="w3-input w3-border w3-light-grey" placeholder = "Project Summary goes here...">
                 </textarea>
                 <br/>
                 <label class="w3-text" style = "color: var(--darkCherry);" for="tinymce">Project Detail</label>
