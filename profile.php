@@ -2,7 +2,7 @@
 session_start();
 
 	
-echo php_ini_loaded_file();
+// echo php_ini_loaded_file();
 
 require_once('config.php');
 require_once('get_profile.php');
