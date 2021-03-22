@@ -756,12 +756,16 @@ a.button_company:hover {
   margin: 5px;
 }
 
+#carousel div div hr {
+  margin: 8px 0;
+}
+
 #carousel div div {
   display: grid;
   grid-template-areas:
   'name icon'
-  'r1 r1'
   'r0 r0'
+  'r1 r1'
   'r2 r2'
   'r3 r3'
   'r4 r4'
