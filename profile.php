@@ -15,21 +15,7 @@ if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
 if (isset($_SESSION['id'])) {
     $logged_in = 'true';
     $id = $_SESSION['id'];
-    list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $id);
-
-    // print_r ($name);
-    // print_r ($email);
-    // print_r ($degree);
-    // print_r ($uni);
-    // print_r ($about);
-    // print_r ($photo);
-    // print_r ($skills);
-    // print_r ($projects);
-    // print_r ($qual);
-    // print_r ($icons);
-    // print_r ($usercompanies);
-    // print_r ($tolearn);
-    // print_r ($interested);
+    // list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $id);
 
 } else {
     $logged_in = 'false';
@@ -78,8 +64,10 @@ if (isset($_POST['btnsubmit'])) {
                     } else {
                         $sql = "UPDATE project SET name = '".htmlspecialchars($conn->real_escape_string($row["name"]))."', icon = '".htmlspecialchars($conn->real_escape_string($row["icon"]))."' WHERE ID = ".$conn->real_escape_string($row['ID']).";";
                     }
-                    $result = $conn->query($sql);
+                } else {
+                    $sql = "DELETE FROM project WHERE ID = '".$conn->real_escape_string($row['ID'])."'";
                 }
+                $result = $conn->query($sql);
             }
 
             $projects = [];
@@ -176,6 +164,10 @@ if (isset($_POST['btnsubmit'])) {
         default:
             echo "";
     }   
+}
+
+if (isset($_SESSION['id'])) {
+    list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $id);
 }
 ?>
 <?php
