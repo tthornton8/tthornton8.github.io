@@ -56,6 +56,35 @@ if (isset($_POST['btnsubmit'])) {
             $sql .= ";";
         
             $result = $conn->query($sql);
+            //
+            $sql = "DELETE FROM user_to_learn WHERE user_ID = '".$conn->real_escape_string($id)."'";
+            $result = $conn->query($sql);
+        
+            $sql = "INSERT INTO user_to_learn (user_ID, title, icon) VALUES ";
+            foreach ($tolearn as &$row) {
+                if ($row["title"]) {
+                    $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row["title"]))."', '".htmlspecialchars($conn->real_escape_string($row["icon"]))."'),";
+                }
+            }
+            $sql = substr($sql, 0, -1);
+            $sql .= ";";
+        
+            $result = $conn->query($sql);
+            //
+            $sql = "DELETE FROM user_interested WHERE user_ID = '".$conn->real_escape_string($id)."'";
+            $result = $conn->query($sql);
+        
+            $sql = "INSERT INTO user_interested (user_ID, name, icon) VALUES ";
+            foreach ($interested as &$row) {
+                if ($row["title"]) {
+                    $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row["title"]))."', '".htmlspecialchars($conn->real_escape_string($row["icon"]))."'),";
+                }
+            }
+            $sql = substr($sql, 0, -1);
+            $sql .= ";";
+        
+            $result = $conn->query($sql);
+            //
 
             foreach ($projects as &$row) {
                 if ($row["name"]) {
