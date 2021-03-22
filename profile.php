@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+	
+echo php_ini_loaded_file();
+
 require_once('config.php');
 require_once('get_profile.php');
 require_once('return_profile.php');
