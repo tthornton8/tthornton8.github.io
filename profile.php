@@ -596,8 +596,8 @@ function phpAlert($msg) {
 
     <script >
         // Get the modal
-        var modal = document.getElementById("editWindow");
-        var modal2 = document.getElementById("projectWindow");
+        // var modal = document.getElementById("editWindow");
+        var modal = document.getElementById("projectWindow");
         
         // Get the button that opens the modal
         var btn = document.getElementById("_edit_pencil");
@@ -620,7 +620,6 @@ function phpAlert($msg) {
         window.onclick = function(event) {
           if (event.target == modal) {
             modal.style.display = "none";
-            modal2.style.display = "none";
           }
         }
 
@@ -637,7 +636,7 @@ function phpAlert($msg) {
             name = name || '';
             icon = icon || '';
 
-            modal2.style.display = "block";
+            modal.style.display = "block";
             var box = document.getElementById("projectID");
             var mce = document.getElementById("tinymce");
             box.value = id;
