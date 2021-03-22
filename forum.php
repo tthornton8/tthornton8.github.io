@@ -170,7 +170,7 @@ if ($name) {
     if (! $thread) {
         echo "<h4 style=\"margin-left:2.5%;\"><a href = \"./discussion.html\"> Discussion </a> > $name_link_title<a href = \"#0\" class = \"a_button _right_justify\" onclick = \"newPost($name)\" style = \"position: relative; width: 140px;margin: 0 2.5% 0 0;bottom: 10px; background-color: #e1e1e1aa;\"><i class=\"fas fa-plus\"></i>&nbsp;New Post</a></h4>";
     }
-    $sql = <<<EOT 
+    $sql = <<<EOT
     SELECT t1.ID, t1.name_ID, t1.title, t1.views, t0.replies FROM (
         SELECT COUNT(thread_ID)-1 as replies, thread_ID from forum_post WHERE name_ID = $name GROUP BY thread_ID
     ) t0
