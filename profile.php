@@ -347,7 +347,7 @@ function phpAlert($msg) {
                             foreach ($tolearn as &$row) {
                                 if ($row["name"]) {
                                     echo "<div class = \"_gr1\">";
-                                    echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"tolearn[$j][name]\" name=\"tolearn[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
+                                    echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"tolearn[$j][name]\" name=\"tolearn[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["title"])."\"/>\n";
                                     echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"tolearn[$j][icon]\" name=\"tolearn[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
                                     
                                     echo "<button onclick = \"toggleVis('dropdown-content_tolearn_$j');\" class=\"dropbtn\" type=\"button\" id = \"dropbtn_tolearn$j\"><img src = icon.php?id=".$row['icon']." width = '25px', height = '25px'></button>";
@@ -377,7 +377,7 @@ function phpAlert($msg) {
                             foreach ($interested as &$row) {
                                 if ($row["name"]) {
                                     echo "<div class = \"_gr1\">";
-                                    echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"interested[$j][name]\" name=\"interested[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["name"])."\"/>\n";
+                                    echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"interested[$j][name]\" name=\"interested[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["title"])."\"/>\n";
                                     echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"interested[$j][icon]\" name=\"interested[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
                                     
                                     echo "<button onclick = \"toggleVis('dropdown-content_interested_$j');\" class=\"dropbtn\" type=\"button\" id = \"dropbtn_interested$j\"><img src = icon.php?id=".$row['icon']." width = '25px', height = '25px'></button>";
