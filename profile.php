@@ -17,6 +17,20 @@ if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
     list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $id);
 
+    echo $name;
+    echo $email;
+    echo $degree;
+    echo $uni;
+    echo $about;
+    echo $photo;
+    echo $skills;
+    echo $projects;
+    echo $qual;
+    echo $icons;
+    echo $usercompanies;
+    echo $tolearn;
+    echo $interested;
+
 } else {
     $logged_in = 'false';
     header('Location: login_student.php');
