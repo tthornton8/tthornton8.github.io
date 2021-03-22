@@ -17,19 +17,19 @@ if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
     list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $id);
 
-    print_r ($name);
-    print_r ($email);
-    print_r ($degree);
-    print_r ($uni);
-    print_r ($about);
-    print_r ($photo);
-    print_r ($skills);
-    print_r ($projects);
-    print_r ($qual);
-    print_r ($icons);
-    print_r ($usercompanies);
-    print_r ($tolearn);
-    print_r ($interested);
+    // print_r ($name);
+    // print_r ($email);
+    // print_r ($degree);
+    // print_r ($uni);
+    // print_r ($about);
+    // print_r ($photo);
+    // print_r ($skills);
+    // print_r ($projects);
+    // print_r ($qual);
+    // print_r ($icons);
+    // print_r ($usercompanies);
+    // print_r ($tolearn);
+    // print_r ($interested);
 
 } else {
     $logged_in = 'false';
@@ -496,7 +496,7 @@ function phpAlert($msg) {
 
                         }
                         function addSection(section_name) {
-                            var i = document.querySelectorAll(`[id^="{section_name}\["]`).length/2;
+                            var i = document.querySelectorAll(`[id^="${section_name}\["]`).length/2;
                             skills = document.getElementById(`${section_name}_section`);
                             var els = createElementFromHTML(`
                                 <div class = "_gr1">
