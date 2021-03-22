@@ -45,6 +45,22 @@ function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $
         }
     echo <<<EOT
     </div>
+    <div class = "_prof_section _skills" style = "grid-area: tolearn">
+        <h2 style = "grid-row: 1; grid-column: 1/3">Want to learn</h2>
+    EOT;
+        foreach ($skills as &$row) {
+            echo "<div class = \"_bubble _gr1\">".$row["name"]."<img src = icon.php?id=".$row["icon"]." alt = \"icon\" onload=\"SVGInject(this)\"></div>";
+        }
+    echo <<<EOT
+    </div>
+    <div class = "_prof_section _skills _projects" style = "grid-area: interested">
+        <h2 style = "grid-row: 1; grid-column: 1/3">Projects interested in</h2>
+    EOT;
+        foreach ($skills as &$row) {
+            echo "<div class = \"_bubble _gr1\">".$row["name"]."<img src = icon.php?id=".$row["icon"]." alt = \"icon\" onload=\"SVGInject(this)\"></div>";
+        }
+    echo <<<EOT
+    </div>
     <div class = "_prof_section _quals">
     <h2>Qualifications</h2>
     EOT;
