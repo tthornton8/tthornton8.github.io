@@ -54,7 +54,7 @@ function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $
     echo <<<EOT
     </div>
     <div class = "_prof_section _skills _projects" style = "grid-area: interested">
-        <h2 style = "grid-row: 1; grid-column: 1/3">Projects Interested In</h2>
+        <h2 style = "grid-row: 1; grid-column: 1/3">Projects Interested in</h2>
     EOT;
         foreach ($interested as &$row) {
             echo "<div class = \"_bubble _gr1\">".$row["title"]."<img src = icon.php?id=".$row["icon"]." alt = \"icon\" onload=\"SVGInject(this)\"></div>";
