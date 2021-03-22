@@ -345,7 +345,7 @@ function phpAlert($msg) {
                             $i = 1;
                             $j = 0;
                             foreach ($tolearn as &$row) {
-                                if ($row["name"]) {
+                                if ($row["title"]) {
                                     echo "<div class = \"_gr1\">";
                                     echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"tolearn[$j][name]\" name=\"tolearn[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["title"])."\"/>\n";
                                     echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"tolearn[$j][icon]\" name=\"tolearn[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
@@ -375,7 +375,7 @@ function phpAlert($msg) {
                             $i = 1;
                             $j = 0;
                             foreach ($interested as &$row) {
-                                if ($row["name"]) {
+                                if ($row["title"]) {
                                     echo "<div class = \"_gr1\">";
                                     echo "<input style = \"display: inline;\" type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"interested[$j][name]\" name=\"interested[$j][name]\" placeholder=\"Skill \"$i\" value = \"".htmlspecialchars($row["title"])."\"/>\n";
                                     echo "<input type=\"hidden\" class=\"w3-input w3-border w3-light-grey\" id=\"interested[$j][icon]\" name=\"interested[$j][icon]\" value = \"".htmlspecialchars($row["icon"])."\"/>\n\n";
