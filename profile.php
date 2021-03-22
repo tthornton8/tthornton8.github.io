@@ -425,7 +425,7 @@ function phpAlert($msg) {
                             <p class="w3-text" style = "color: var(--darkCherry); margin-top: 10px; font-size:150%">Companies Worked With</p>
                             <div class = "_logo_section" id = "logo_section">
                                 <?php
-                                    $html_c .= "";
+                                    $html_c = "";
                                     $i = 0;
                                     foreach ($usercompanies as &$row) {
                                         $html_c .= "<input type=\"text\" class=\"w3-input w3-border w3-light-grey\" id=\"usercompanies_new[$i]\" name=\"usercompanies_new[$i]\" placeholder=\"URL of company logo\" value = \"".$row["logourl"]."\"/>";
