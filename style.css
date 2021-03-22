@@ -345,7 +345,8 @@ a.button_company:hover {
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 10px;
-  /* background-color:#F7F7F7; */
+  background-color: #f7f7f7AA;
+  border: none;
   margin-bottom: 50px;
   
 }
