@@ -1,5 +1,5 @@
 <?php 
-function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id, $edit = True) {
+function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id, $tolearn, $interested, $edit = True) {
     echo <<<EOT
     <div class = "_profile">
 
@@ -46,18 +46,18 @@ function return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $
     echo <<<EOT
     </div>
     <div class = "_prof_section _skills" style = "grid-area: tolearn">
-        <h2 style = "grid-row: 1; grid-column: 1/3">Want to learn</h2>
+        <h2 style = "grid-row: 1; grid-column: 1/3">Want to Learn</h2>
     EOT;
-        foreach ($skills as &$row) {
-            echo "<div class = \"_bubble _gr1\">".$row["name"]."<img src = icon.php?id=".$row["icon"]." alt = \"icon\" onload=\"SVGInject(this)\"></div>";
+        foreach ($tolearn as &$row) {
+            echo "<div class = \"_bubble _gr1\">".$row["title"]."<img src = icon.php?id=".$row["icon"]." alt = \"icon\" onload=\"SVGInject(this)\"></div>";
         }
     echo <<<EOT
     </div>
     <div class = "_prof_section _skills _projects" style = "grid-area: interested">
-        <h2 style = "grid-row: 1; grid-column: 1/3">Projects interested in</h2>
+        <h2 style = "grid-row: 1; grid-column: 1/3">Projects Interested In</h2>
     EOT;
-        foreach ($skills as &$row) {
-            echo "<div class = \"_bubble _gr1\">".$row["name"]."<img src = icon.php?id=".$row["icon"]." alt = \"icon\" onload=\"SVGInject(this)\"></div>";
+        foreach ($interested as &$row) {
+            echo "<div class = \"_bubble _gr1\">".$row["title"]."<img src = icon.php?id=".$row["icon"]." alt = \"icon\" onload=\"SVGInject(this)\"></div>";
         }
     echo <<<EOT
     </div>

@@ -198,7 +198,7 @@ if ($result) {
                     <div>
                         <?php
                             foreach ($ids as &$id) {
-                                list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
+                                list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $id);
                                 require('return_small_profile.php');
                             }
                         ?>

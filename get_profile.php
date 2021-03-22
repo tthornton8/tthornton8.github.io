@@ -45,7 +45,9 @@ function get_profile_vars($conn, $id) {
     $qual = get_from_table("qual", $conn, $id);
     $icons = get_from_table("icon", $conn);
     $usercompanies = get_from_table("usercompanies", $conn, $id);
+    $tolearn = get_from_table("user_to_learn", $conn, $id);
+    $interested = get_from_table("user_interested", $conn, $id);
 
-    return array($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies);
+    return array($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested);
 }
 ?>

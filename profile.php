@@ -12,7 +12,7 @@ if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
 if (isset($_SESSION['id'])) {
     $logged_in = 'true';
     $id = $_SESSION['id'];
-    list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $id);
+    list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $id);
 
 } else {
     $logged_in = 'false';
@@ -218,7 +218,7 @@ function phpAlert($msg) {
         </div>
         <div class = "tabEl w3-animate-opacity ignore_tabEl" style = "" id = "GCcv">
             <?php
-                return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id);
+                return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id, $tolearn, $interested);
             ?>
         </div>
         <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "Edit">

@@ -26,7 +26,7 @@ function return_forum_name($section_name, $ID, $threads, $posts, $last_ID, $last
 }
 
 function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $last_time, $conn) {
-    list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $last_user);
+    list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $last_user);
     $d=strtotime($last_time);
     $dstr=date('l jS \of F Y h:i A', $d);
     echo <<<EOT
@@ -44,7 +44,7 @@ function return_forum_thread($section_name, $ID, $replies, $views, $last_user, $
 }
 
 function return_forum_post($ID, $user_ID, $content, $date, $conn) {
-    list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies) = get_profile_vars($conn, $user_ID);
+    list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $user_ID);
     $d=strtotime($date);
     $dstr=date('l jS \of F Y h:i A', $d);
     echo <<<EOT
