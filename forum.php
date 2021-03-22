@@ -308,10 +308,12 @@ if ($thread) {
 function replyPost(ID) {
     box = document.getElementsByClassName('_forum_new_post')[0];
     box.classList.remove("hidden");
+    box.scrollIntoView(true);
 }
 
 function newPost(ID) {
     box = document.getElementsByClassName('_forum_new_thread')[0];
     box.classList.remove("hidden");
+    box.scrollIntoView(true);
 }
 </script>
