@@ -250,6 +250,8 @@ function phpAlert($msg) {
                 require('forum.php');
             ?>
         </div>
+        <div class = "_bg" id = "bg" onclick="closeBox()"></div>
+        <div class = "_project_box_unclick animate" id = "project_box"></div>
         <div class = "tabEl w3-animate-opacity" style = "display:none;" id="editWindow">
                 <form method="post" id = "cvForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <div class="_profile">
