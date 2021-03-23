@@ -297,6 +297,10 @@ a.button_company:hover {
   background-size: 100% auto;
 }
 
+.w3-border-red,.w3-hover-border-red:hover {
+  border-color:var(--darkCherry)!important;
+}
+
 ._tagline {
   background-color: var(--darkCherry);
   grid-row: 1/1;

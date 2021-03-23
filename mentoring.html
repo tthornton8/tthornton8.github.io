@@ -14,10 +14,11 @@ if (isset($_SESSION['id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-<title>News | GradZ</title>
+<title>Mentoring | GradCherry</title>
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
@@ -31,6 +32,7 @@ if (isset($_SESSION['id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&family=Roboto:wght@100&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    
 </head>
 
 <body>
@@ -42,12 +44,56 @@ if (isset($_SESSION['id'])) {
         sel.style.background = "var(--fadedCherry)";
     </script>
 
+    <div class = "_gradcherry_block" style = "width: 85%; margin: 2em auto; border-radius: 3px;">
+        <h1>GradCherry Mentoring Scheme</h1>
+        <h4>We believe in helping students achieve their goals; that's why we're setting up GradCherry mentoring to help connect students with proffesionals to help with: </h4>
+        <div class="w3-row">
+            <a href="javascript:void(0)" onclick="openLink(event, 'cvbuild');">
+              <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">CV Building</div>
+            </a>
+            <a href="javascript:void(0)" onclick="openLink(event, 'networking');">
+              <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding w3-border-red">Networking</div>
+            </a>
+            <a href="javascript:void(0)" onclick="openLink(event, 'jobsearching');">
+              <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Job Searching</div>
+            </a>
+          </div>
+        <div class = "tabEl w3-container" style = "display:none;" id = "cvbuild">
+            CV Building
+        </div>
+        <div class = "tabEl w3-container ignore_tabEl " style = "" id = "networking">
+            Networking
+        </div>
+        <div class = "tabEl w3-container" style = "display:none;" id = "jobsearching">
+            Job Searching
+        </div>
+        <br/><p> To get in touch, please email: support@gradcherry.com</p>
+    </div>
+
+    
+
     <p style = "text-align: center;">
         <img src="img/fb.png" alt="Students" width= 22px> &nbsp;
         <img src="img/in.png" alt="Students" width= 22px> &nbsp;
         <img src="img/tw.png" alt="Students" width= 22px> &nbsp; <br>
         ©2021 by G-CHERRY SOLUTIONS LTD.
     </p>
+
+    <script>
+        function openLink(evt, tabName) {
+          var i, x, tablinks;
+          x = document.getElementsByClassName("tabEl");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+          }
+          document.getElementById(tabName).style.display = "block";
+          evt.currentTarget.firstElementChild.className += " w3-border-red";
+        }
+    </script>
 
 </body>
 </html>
