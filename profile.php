@@ -63,7 +63,7 @@ if (isset($_POST['btnsubmit'])) {
             $sql = "INSERT INTO user_to_learn (user_ID, title, icon) VALUES ";
             foreach ($tolearn as &$row) {
                 if ($row["name"]) {
-                    $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row["title"]))."', '".htmlspecialchars($conn->real_escape_string($row["icon"]))."'),";
+                    $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row["name"]))."', '".htmlspecialchars($conn->real_escape_string($row["icon"]))."'),";
                 }
             }
             $sql = substr($sql, 0, -1);
@@ -78,7 +78,7 @@ if (isset($_POST['btnsubmit'])) {
             $sql = "INSERT INTO user_interested (user_ID, title, icon) VALUES ";
             foreach ($interested as &$row) {
                 if ($row["name"]) {
-                    $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row["title"]))."', '".htmlspecialchars($conn->real_escape_string($row["icon"]))."'),";
+                    $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row["name"]))."', '".htmlspecialchars($conn->real_escape_string($row["icon"]))."'),";
                 }
             }
             $sql = substr($sql, 0, -1);
