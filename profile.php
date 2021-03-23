@@ -68,7 +68,7 @@ if (isset($_POST['btnsubmit'])) {
             }
             $sql = substr($sql, 0, -1);
             $sql .= ";";
-            echo $sql;
+            // echo $sql;
         
             $result = $conn->query($sql);
             //
