@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
                         <input type="password" class="w3-input w3-border w3-light-grey" id="inputpassword" name="password" placeholder="Password" required />
                         <br>
                         <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Login</button>
-                        <button type="button" style = "margin-bottom: 1em; margin-right: 5px;" class="w3-btn w3-blue-grey">Register</button>
+                        <button type="button" onclick = "window.location.href = '/login_student.php'" style = "margin-bottom: 1em; margin-right: 5px;" class="w3-btn w3-blue-grey">Register</button>
                         <br>
                     </form>
                 </div>
@@ -79,7 +79,7 @@ if (isset($_POST['submit'])) {
                 <div class = "vr"></div>
 
                 <div class="login_company">
-                    <h2>Company Login</h2>
+                    <h2 style = "margin-bottom:0">Company Login</h2>
                     <h4>Don't miss out on top students you may miss through traditional channels</h4>
 
                     <?php if(!empty($error_message)) { ?>
@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
                         <input type="password" class="w3-input w3-border w3-light-grey" id="inputcpassword" name="password" placeholder="Password" required />
                         <br>
                         <button type="submit" name="submit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Login</button>
-                        <button type="button" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Register</button>
+                        <button type="button" onclick = "window.location.href = '/login_student.php'" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Register</button>
                         <br>
                     </form>
                 </div>
