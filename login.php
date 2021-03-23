@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
 
                 <div class="login_student">
                     <h2 style = "float: right; clear: both">Student Login</h2>
-                    <h4 style="float: right;clear: both;text-align: right;">Be a part of something…..showcase your skills and ideas</h4>
+                    <h4 style="float: right;clear: both;text-align: right; min-height: 48px">Be a part of something…..showcase your skills and ideas</h4>
 
                     <?php if(!empty($error_message)) { ?>
                         <div class="alert alert-danger"  style = "margin-top: 2em;float: right; clear: both"><?php echo $error_message; ?></div>
