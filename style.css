@@ -344,6 +344,14 @@ a.button_company:hover {
   border-top-left-radius: 5px; */
 }
 
+._row1 {
+  margin-top: 10px; height: fit-content; grid-row: 2/2; background-color: #f7f7f7AA; border:none
+}
+
+._row2 {
+  margin-top: 0px; padding-top: 10px; height: fit-content; grid-row: 3/3
+}
+
 ._row > div:not(._tagline), ._gradcherry_block {
   padding: 50px;
   padding-top: 20px;
