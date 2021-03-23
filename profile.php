@@ -15,7 +15,7 @@ if (isset($_GET['action']) && ('logout' == $_GET['action'])) {
 if (isset($_SESSION['id'])) {
     $logged_in = 'true';
     $id = $_SESSION['id'];
-    // list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $id);
+    // list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $id);
 
 } else {
     $logged_in = 'false';
@@ -31,8 +31,8 @@ if (isset($_POST['btnsubmit'])) {
  
             $sql =  "UPDATE user\n";
             $sql .= "SET\n";
-            $sql .= "name =   '".htmlspecialchars($conn->real_escape_string($name))."',\n";
-            $sql .= "email =  '".htmlspecialchars($conn->real_escape_string($email))."',\n";
+            $sql .= "name =   '".htmlspecialchars($conn->real_escape_string($user_name))."',\n";
+            // $sql .= "email =  '".htmlspecialchars($conn->real_escape_string($email))."',\n";
             $sql .= "degree = '".htmlspecialchars($conn->real_escape_string($degree))."',\n";
             $sql .= "uni =    '".htmlspecialchars($conn->real_escape_string($uni))."',\n";
             if ($uploadOk) {
@@ -197,7 +197,7 @@ if (isset($_POST['btnsubmit'])) {
 }
 
 if (isset($_SESSION['id'])) {
-    list($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $id);
+    list($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $tolearn, $interested) = get_profile_vars($conn, $id);
 }
 ?>
 <?php
@@ -257,7 +257,7 @@ function phpAlert($msg) {
         </div>
         <div class = "tabEl w3-animate-opacity ignore_tabEl" style = "" id = "GCcv">
             <?php
-                return_profile($name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id, $tolearn, $interested);
+                return_profile($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id, $tolearn, $interested);
             ?>
         </div>
         <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "Edit">
@@ -291,7 +291,7 @@ function phpAlert($msg) {
                             <label class="w3-text _file_upload" for="fileToUpload" style = "grid-area:pp;">
                                 <img src="img.php?id=<?php echo $id; ?>" alt="Profile Picture" class = "pp">
                             </label>
-                            <h1><input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $name; ?>"/></h1>
+                            <h1><input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $user_name; ?>"/></h1>
                             <hr/>
                             <div class="_head_desc">
                                 <h2><input type="text" class="w3-input w3-border w3-light-grey" id="inputdegree" name="degree" placeholder="Degree" value = "<?php echo $degree; ?>"/></h2>
