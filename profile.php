@@ -62,7 +62,7 @@ if (isset($_POST['btnsubmit'])) {
         
             $sql = "INSERT INTO user_to_learn (user_ID, title, icon) VALUES ";
             foreach ($tolearn as &$row) {
-                if ($row["title"]) {
+                if ($row["name"]) {
                     $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row["title"]))."', '".htmlspecialchars($conn->real_escape_string($row["icon"]))."'),";
                 }
             }
@@ -77,7 +77,7 @@ if (isset($_POST['btnsubmit'])) {
         
             $sql = "INSERT INTO user_interested (user_ID, title, icon) VALUES ";
             foreach ($interested as &$row) {
-                if ($row["title"]) {
+                if ($row["name"]) {
                     $sql .= "\n(".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($row["title"]))."', '".htmlspecialchars($conn->real_escape_string($row["icon"]))."'),";
                 }
             }
