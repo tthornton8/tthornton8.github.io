@@ -56,10 +56,10 @@ if (isset($_POST['submit'])) {
                 
 
                 <div class="login_student">
-                    <h2>Student Login</h2>
+                    <h2 style = "float: right; clear: both">Student Login</h2>
 
                     <?php if(!empty($error_message)) { ?>
-                        <div class="alert alert-danger"  style = "margin-top: 2em;"><?php echo $error_message; ?></div>
+                        <div class="alert alert-danger"  style = "margin-top: 2em;float: right; clear: both"><?php echo $error_message; ?></div>
                     <?php } ?>
 
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">

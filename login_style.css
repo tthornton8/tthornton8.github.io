@@ -23,8 +23,7 @@
 }
 
 .login_student label,
-.login_student input,
-.login_student h2 {
+.login_student input {
   float: right;
   clear: both;
   direction: rtl;
