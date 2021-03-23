@@ -329,9 +329,6 @@ a.button_company:hover {
   grid-row: 3/3;
   grid-column: 1/1;
   background: none!important;
-  grid-template-areas: 
-  'title title title title'
-  'c1 c2 c3 c4';
 }
 
 ._row .header_box {
@@ -418,21 +415,18 @@ a.button_company:hover {
 }
 
 ._student_counter {
-  /* background-image: url("bg_opp.jpg") ;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: 100% auto; */
   margin: 0;
   padding: 0;
   margin: 0 auto 10px auto;
   text-align: center;
   width: fit-content;
   display: grid;
-  grid-template-columns:  1fr 1fr 1fr 1fr;
   place-items: center;
   grid-gap: 10px;
   text-justify: center;
+  grid-template-areas: 
+  'title title title title'
+  'c1 c2 c3 c4';
 }
 
 ._student_counter ._title {
@@ -450,11 +444,9 @@ a.button_company:hover {
 ._counter_el {
   /* grid-row: 2/2; */
   /* display: inline-block; */
-  margin-left: 10px;
   background-color: white;
   padding: 10px;
   border-radius: 5px;
-  font-size: 140%;
   color: var(--fadedCherry);
   width: calc(var(--radius) + 50px);
   height: calc(var(--radius) * 1.9);
