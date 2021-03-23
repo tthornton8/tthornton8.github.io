@@ -296,4 +296,9 @@
     'c1 c2'
     'c3 c4';
   }
+
+  #carousel div {
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: none;
+  }
 }
