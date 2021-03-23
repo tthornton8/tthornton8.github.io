@@ -1,7 +1,7 @@
 var els = createElementFromHTML(`
     <div class = "_top" id = "top">
         <div class = "_heading ">
-        <h1><a id = "home_link" href="http://gradcherry.com"><img src="logo_grey.png">Grad<span style = "color:var(--lightCherry)">Cherry</span></a></h1>
+        <h1><a id = "home_link" href="http://gradcherry.com"><img src="logo_grey.png">Grad<span style = "float: none; color:var(--lightCherry)">Cherry</span></a></h1>
         </div>
 
         <div class = "_login" id = "login">
