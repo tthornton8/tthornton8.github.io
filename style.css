@@ -340,7 +340,7 @@ a.button_company:hover {
   border-top-left-radius: 5px; */
 }
 
-._row > div:not(._tagline) {
+._row > div:not(._tagline), ._gradcherry_block {
   padding: 50px;
   padding-top: 20px;
   padding-bottom: 20px;
