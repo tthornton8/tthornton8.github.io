@@ -325,6 +325,15 @@ a.button_company:hover {
   /* margin-left: 100px */
 }
 
+._row ._student_counter {
+  grid-row: 3/3;
+  grid-column: 1/1;
+  background: none!important;
+  grid-template-areas: 
+  'title title title title'
+  'c1 c2 c3 c4';
+}
+
 ._row .header_box {
   grid-column: 2/2;
   padding: 50px;
@@ -426,13 +435,8 @@ a.button_company:hover {
   text-justify: center;
 }
 
-._row ._student_counter {
-  grid-template-columns:  1fr 1fr;
-}
-
 ._student_counter ._title {
-  grid-row: 1/1;
-  grid-column: 1/5;
+  grid-area: title;
   background-color: white;
   margin: 0 auto;
   border-radius: 5px;
