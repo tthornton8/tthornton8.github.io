@@ -44,11 +44,13 @@ if (isset($_POST['submit'])) {
         <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
         <script type="text/javascript" src="script.js"></script>
+        <link href="responsive.css" rel="stylesheet" type="text/css">
     </head>
 
     <body>
         <script type="text/javascript"> var logged_in = "<?php echo $logged_in; ?>";</script>
         <script type="text/javascript" src="header.js"></script>
+        <script type="text/javascript" src="script.js"></script>
 
         <div class="_content" style = "margin: 0 auto; width: 50%; margin-top: 3rem;">
             <div class="w3-card-4">
