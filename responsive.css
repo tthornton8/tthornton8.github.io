@@ -190,6 +190,10 @@
     justify-content: center;
 }
 
+._row {
+  margin-top: 165px;
+}
+
 
 ._top {
   grid-template-areas: 
