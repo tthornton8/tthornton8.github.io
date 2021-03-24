@@ -248,8 +248,12 @@
     justify-content: center;
 }
 
-._row {
-  margin-top: 200px;
+._row,
+._abt_row, 
+._main,
+._top_first_el,
+._top ~ ._prof_section {
+  margin-top: 200px!important;
 }
 
 ._top {
