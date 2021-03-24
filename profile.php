@@ -239,7 +239,7 @@ function phpAlert($msg) {
     <script type="text/javascript" src="header.js"></script>
     <script type="text/javascript" src="script.js"></script>
 
-    <div class = "_profile_main">
+    <div class = "_profile_main _top_first_el">
         <div class ="_right">
             <ul>
                 <li class = "tabLink" onclick = "openLink(event, 'Export');">Export CV</li>

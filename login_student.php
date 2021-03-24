@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
         <script type="text/javascript" src="script.js"></script>
 
         <div class="_content _top_first_el" style = "margin: 0 auto; width: 50%; margin-top: 3rem;">
-            <div class="w3-card-4">
+            <div class="w3-card-4" style = "background-color: white">
                 <div class="w3-container _dark_cherry">
                     <h2>Please Login</h2>
                 </div>
