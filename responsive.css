@@ -398,6 +398,58 @@
     position: fixed;
     left: 0;
   }
+
+  ._head {
+    grid-template-areas: 
+    'pp'
+    'h1'
+    'hr'
+    'h2'
+    'uni';
+    grid-template-rows: auto auto 10px auto auto;
+  }
+
+  ._bubble {
+    margin-right:none;
+    font-size: auto;
+  }
+
+  ._bubble img {
+    height: 15px;
+  }
+
+  ._head ._head_desc {
+    margin-top : 0;
+  }
+
+ ._prof_section h1 {
+   font-size: x-large; 
+ }
+
+ ._prof_section h2 {
+   font-size: large;
+   grid-column: 1/1!important;
+ }
+
+  ._prof_section hr {
+    margin: 1px;
+    width: 100%;
+  }
+
+  ._head .pp {
+    width: 100px;
+    border-width: 5px;
+  }
+
+  ._uni {
+    height: 50px;
+    margin-top: 0;
+    margin: 0 auto;
+  }
+
+  ._skills {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 @media screen and (max-width: 310px) {
