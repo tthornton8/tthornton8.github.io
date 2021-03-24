@@ -196,7 +196,10 @@
   'login'
   'logo'
   'bar';
-  height: auto
+  height: 195px;
+  position: fixed;
+  top: 0;
+  transition: 0.2s;
 }
 
 ._top ._login {
@@ -297,11 +300,19 @@
     'c3 c4';
   }
 
+  ._top ._heading {
+    margin: 0 auto;
+  }
+
+  ._top ._nav a.icon {
+    margin-top: 12px;
+  }
+
   ._top_scroll {
     grid-template-areas: 'bar logo';
     grid-template-columns: 0.2fr 0.8fr;
     height: 80px;
-    padding-top: 5px;
+    padding-top: 0px;
   }
 
   ._top_scroll ._login {

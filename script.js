@@ -26,7 +26,7 @@ window.onscroll = function () {
     var th = 0;
   }
 
-  if (window.scrollY > 450){
+  if (window.scrollY > 200){
     // console.log(navBar.classList);
     navBar.classList.add("_top_scroll");
     var state = 1;
