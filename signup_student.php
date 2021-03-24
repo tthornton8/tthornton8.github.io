@@ -57,6 +57,7 @@ if (isset($_POST['submit'])) {
 <html>
     <head>
         <title>Sign up | GradCherry</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
         <link href="style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -71,7 +72,7 @@ if (isset($_POST['submit'])) {
         <script type="text/javascript" src="header.js"></script>
         <script type="text/javascript" src="script.js"></script>
 
-        <div class="_content" style = "margin: 0 auto; width: 50%; margin-top: 3rem;">
+        <div class="_content _top_first_el" style = "margin: 0 auto; width: 50%; margin-top: 3rem;">
             <div class="w3-card-4">
                 <div class="w3-container _dark_cherry">
                     <h2>Sign Up</h2>
