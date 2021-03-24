@@ -194,7 +194,6 @@
   margin-top: 200px;
 }
 
-
 ._top {
   grid-template-areas: 
   'login'
@@ -330,5 +329,11 @@
   #carousel div {
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: none;
+  }
+}
+
+@media screen and (max-width: 310px) {
+  ._top_scroll {
+    height: 100px;
   }
 }
