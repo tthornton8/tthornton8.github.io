@@ -80,7 +80,7 @@
 }
 
 @media screen and (max-width: 1100px) {
-    ._top_scroll ._nav li:not(:first-child) {
+    /* ._top_scroll ._nav li:not(:first-child) {
         display: none;
     }
 
@@ -109,10 +109,68 @@
   ._top ._nav li:last-child {
       float: right;
       display: block;
+  } */
+
+  ._top ._nav.responsive li:nth-child(8),
+  ._top_scroll ._nav.responsive li:nth-child(8) {
+    width: auto;
   }
 
+  ._top ._nav.responsive,
+  ._top_scroll ._nav.responsive {
+    background-color: var(--darkCherry);
+    width: 40%;
+    height: 100%;
+    border-right: 1px solid #FFF;
+  }
+
+  ._top ._nav.responsive li:first-child,
+  ._top_scroll ._nav.responsive li:first-child {
+    margin-top: 3em;
+    width: auto;
+  }
+
+  ._top ._nav li:last-child {
+    position: fixed;
+    top: 1.5em;
+    left: 4em;
+  }
+
+  ._top ._nav.responsive li:last-child,
+  ._top_scroll ._nav li:last-child {
+    position: fixed;
+    top: 1em;
+    left: 2em;
+  }
+  ._top ._nav.responsive,
+  ._top_scroll ._nav.responsive,
+  ._top ._nav.responsive ul,
+  ._top_scroll ._nav.responsive ul {
+    justify-content: left;
+    margin-left: 0;
+  }
+  ._top ._nav.responsive li,
+  ._top_scroll ._nav.responsive  li{
+    background: none;
+    display: block;
+    border: none;
+    text-justify: left;
+  }
+  ._top ._nav.responsive ul,
+  ._top_scroll ._nav.responsive  ul{
+    background: none;
+    position: fixed;
+    top: 2em;
+  }
+
+  ._top ._nav.responsive ul a,
+  ._top_scroll ._nav.responsive  ul a{
+    background: none;
+  }
+
+  ._top_scroll ._nav a.icon,
   ._top ._nav a.icon {
-    float: right;
+    /* float: right; */
     display: block;
   }
 
@@ -136,7 +194,7 @@
     display: none
   }
 
-  ._top_scroll ._nav.responsive {position: relative;}
+  /* ._top_scroll ._nav.responsive {position: relative;}
   ._top_scroll ._nav.responsive a.icon {
     position: absolute;
     top:0;
@@ -183,7 +241,7 @@
     color: white;
     padding: 8px 16px;
     text-decoration: none;
-  }
+  } */
 
   ._top_scroll ._login {
     height: 2.5rem;
@@ -322,13 +380,19 @@
     display: none;
   }
 
-  ._top_scroll ._nav li:not(:last-child) {
+  ._nav li:not(:last-child) {
     display: none
   }
 
   #carousel div {
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: none;
+  }
+
+  ._nav {
+    display: block;
+    position: fixed;
+    left: 0;
   }
 }
 
