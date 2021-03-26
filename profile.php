@@ -292,7 +292,7 @@ function phpAlert($msg) {
                             <label class="w3-text _file_upload" for="fileToUpload" style = "grid-area:pp;">
                                 <img src="img.php?id=<?php echo $id; ?>" alt="Profile Picture" class = "pp">
                             </label>
-                            <h1><input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="name" placeholder="Name" value = "<?php echo $user_name; ?>"/></h1>
+                            <h1><input type="text" class="w3-input w3-border w3-light-grey" id="inputname" name="user_name" placeholder="Name" value = "<?php echo $user_name; ?>"/></h1>
                             <hr/>
                             <div class="_head_desc">
                                 <h2><input type="text" class="w3-input w3-border w3-light-grey" id="inputdegree" name="degree" placeholder="Degree" value = "<?php echo $degree; ?>"/></h2>
