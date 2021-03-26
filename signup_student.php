@@ -6,6 +6,7 @@ if (isset($_POST['submit'])) {
  
     $_POST = array_map('trim', $_POST);
     extract($_POST);
+    print_r($_post);
  
     if (!empty($username) && !empty($email) && !empty($password)) {
          
@@ -24,6 +25,7 @@ if (isset($_POST['submit'])) {
  
                 $sql = "INSERT INTO user(username, email, pwd, activation_key) VALUES('".$conn->real_escape_string($username)."', '".$email."', '".md5($conn->real_escape_string($password))."', '".$activation_key."')";
                 $conn->query($sql);
+                echo $sql;
                 // echo $sql;
  
                 //send activation link in an email
