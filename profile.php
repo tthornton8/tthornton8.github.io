@@ -24,6 +24,7 @@ if (isset($_SESSION['id'])) {
 
 if (isset($_POST['btnsubmit'])) {
     extract($_POST);
+    print_r($_POST);
     switch ($action) {
         case "edit_main":
             //echo "edit main";
