@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
                     <form method="post"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <br>
                         <label class="w3-text" style = "color: var(--darkCherry);" for="exampleInputusername">Username</label>
-                        <input type="text" class="w3-input w3-border w3-light-grey" id="exampleInputusername" name="username" placeholder="Full Name" value="<?php if(isset($username)) echo $username; ?>" required>
+                        <input type="text" class="w3-input w3-border w3-light-grey" id="exampleInputusername" name="username" placeholder="Username" value="<?php if(isset($username)) echo $username; ?>" required>
 
                         <label class="w3-text" style = "color: var(--darkCherry);" for="exampleInputEmail1">Email address</label>
                         <input type="email" class="w3-input w3-border w3-light-grey" id="exampleInputEmail1" name="email" placeholder="Email" value="<?php if(isset($email)) echo $email; ?>" required>
