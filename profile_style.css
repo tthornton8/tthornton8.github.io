@@ -600,11 +600,38 @@ cursor: pointer;
     display: inline-block;
     cursor: pointer;
     width: 1em;
-  }
+}
+
+._edit_pencil:before {
+  content: 'Edit project details'; /* here's the magic */
+  position:absolute;
   
-  ._edit_pencil:hover {
-    color: rgb(28, 28, 28);
-  }
+  /* vertically center */
+  top:50%;
+  transform:translateY(-50%);
+  
+  /* move to right */
+  left:100%;
+  margin-left:15px; /* and add a small left margin */
+  
+  /* basic styles */
+  width:200px;
+  padding:10px;
+  border-radius:10px;
+  background:#000;
+  color: #fff;
+  text-align:center;
+
+  display:none; /* hide by default */
+}
+  
+._edit_pencil:hover {
+  color: rgb(28, 28, 28);
+}
+
+._edit_pencil:hover:before {
+  display:block;
+}
   
   /* The Modal (background) */
 .modal {
