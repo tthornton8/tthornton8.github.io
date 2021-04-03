@@ -626,10 +626,6 @@ cursor: pointer;
   margin-left: 30px;
   margin-top: -33px;
  
-  /* vertically center */
-  top:50%;
-  transform:translateY(-50%);
- 
   /* the arrow */
   border:10px solid #000;
   border-color: transparent black transparent transparent;
