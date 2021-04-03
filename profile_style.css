@@ -603,16 +603,9 @@ cursor: pointer;
 }
 
 ._edit_pencil:before {
-  content: 'Edit project details'; /* here's the magic */
+  content: 'Edit project details';
   position:absolute;
-  
-  /* vertically center */
-  top:50%;
-  transform:translateY(-50%);
-  
-  /* move to right */
-  left:100%;
-  margin-left:15px; /* and add a small left margin */
+  margin-left:50px;
   
   /* basic styles */
   width:200px;
@@ -624,12 +617,31 @@ cursor: pointer;
 
   display:none; /* hide by default */
 }
+
+._edit_pencil:after {
+  content: "";
+  position:absolute;
+  
+  /* position tooltip correctly */
+  left:100%;
+  margin-left:-5px;
+ 
+  /* vertically center */
+  top:50%;
+  transform:translateY(-50%);
+ 
+  /* the arrow */
+  border:10px solid #000;
+  border-color: transparent black transparent transparent;
+  
+  display:none;
+}
   
 ._edit_pencil:hover {
   color: rgb(28, 28, 28);
 }
 
-._edit_pencil:hover:before {
+._edit_pencil:hover:before, ._edit_pencil:hover:after {
   display:block;
 }
   
