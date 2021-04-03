@@ -72,6 +72,10 @@ $name = $_GET['name'];
 $post = $_GET['post'];
 $thread = $_GET['thread'];
 
+if (isset($name) or isset($post) or isset($thread)) {
+    isset($_SESSION['id']) ? null : header('Location: login_student.php');
+}
+
 // echo "name = $name";
 // echo "post = $post";
 // echo "thread = $thread";
