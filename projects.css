@@ -13,7 +13,7 @@
     background-color:#F7F7F780;
     border-radius: 5px;
     min-height: 500px;
-    backdrop-filter: blur(5px);
+    /* backdrop-filter: blur(5px); */
 }
 
 ._ideas {
