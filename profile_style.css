@@ -21,6 +21,7 @@
   'name threads posts last_title last_user'
   'name threads posts last_time last_time';
   grid-template-columns: 1fr 1fr 1fr 0.6fr 0.4fr;
+  width: 100%!important;
 }
 
 ._forum_title_block {
