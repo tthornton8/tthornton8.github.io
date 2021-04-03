@@ -367,6 +367,10 @@ a.button_company:hover {
   border: none;
   margin-bottom: 50px;
   /* backdrop-filter: blur(5px); */
+  background: url(triangles_gradient_blur.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
   
 }
 

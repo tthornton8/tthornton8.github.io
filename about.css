@@ -27,6 +27,10 @@
     justify-self: center;
     height: fit-content;
     /* backdrop-filter: blur(5px); */
+    background: url(triangles_gradient_blur.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
   }
   
   ._abt_row h1 {
