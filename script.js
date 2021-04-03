@@ -47,6 +47,15 @@ window.onscroll = function () {
 
 };
 
+function getProjContent(detail) {
+  xmlhttp=new XMLHttpRequest();
+  xmlhttp.open("GET", "project.php?id=" + detail, false);
+  xmlhttp.send();
+  var html = xmlhttp.responseText;
+  html = `<span onclick="closeBox()" class="close" title="Close">&times;</span>` + html;
+  return html
+};
+
 
 
 function clickBox(name) {
