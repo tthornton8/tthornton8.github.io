@@ -615,16 +615,16 @@ cursor: pointer;
   color: #fff;
   text-align:center;
 
+  font-size: 50%;
+
   display:none; /* hide by default */
 }
 
 ._edit_pencil:after {
   content: "";
   position:absolute;
-  
-  /* position tooltip correctly */
-  left:100%;
-  margin-left:-5px;
+  margin-left: 30px;
+  margin-top: -33px;
  
   /* vertically center */
   top:50%;
