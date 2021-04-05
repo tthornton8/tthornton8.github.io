@@ -171,7 +171,7 @@ if (isset($_POST['btnsubmit'])) {
 
             if ($project == 'NEW') {
                 $sql = "INSERT INTO project (user_id, name, details, summary, icon) VALUES (".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($proj_name))."', '".$conn->real_escape_string($proj_file_id)."', '".htmlspecialchars($conn->real_escape_string($summary))."', ".htmlspecialchars($conn->real_escape_string($proj_icon)).");";
-                echo $sql;
+                // echo $sql;
             } else {
                 $sql = "UPDATE project SET\n";
                 $sql .= "details = '".$conn->real_escape_string($proj_file_id)."'\n";
@@ -553,7 +553,7 @@ function phpAlert($msg) {
                             var els = createElementFromHTML(`
                                 <div class = "_gr1">
                                 <input type="text" style = "display: inline" class="w3-input w3-border w3-light-grey" id="projects[${i}][name]" name="projects[${i}][name]" placeholder="Project ${i+1}" value = ""/>\n
-                                <input type="hidden" class="w3-input w3-border w3-light-grey" id="projects[${i}][icon]" name="projects[${i}][icon]" placeholder="Project ${i+1}" value = ""/>
+                                <input type="hidden" class="w3-input w3-border w3-light-grey" id="projects[${i}][icon]" name="projects[${i}][icon]" placeholder="Project ${i+1}" value = "0"/>
                                 <input type="hidden" id="projects[${i}][ID]" name="projects[${i}][ID]" value="NEW">
 
                                 <button onclick = "toggleVis('dropdown-content_projects_${i}');" class="dropbtn" type="button" id = "dropbtn_projects${i}"><img src = icon.php?id=0 width = '25px', height = '25px'></button>
