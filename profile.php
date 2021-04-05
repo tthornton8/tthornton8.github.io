@@ -171,7 +171,7 @@ if (isset($_POST['btnsubmit'])) {
 
             if ($project == 'NEW') {
                 $sql = "INSERT INTO project (user_id, name, details, summary, icon) VALUES (".$conn->real_escape_string($id).", '".htmlspecialchars($conn->real_escape_string($proj_name))."', '".$conn->real_escape_string($proj_file_id)."', '".htmlspecialchars($conn->real_escape_string($summary))."', ".htmlspecialchars($conn->real_escape_string($proj_icon)).");";
-                echo $sql;
+                // echo $sql;
             } else {
                 $sql = "UPDATE project SET\n";
                 $sql .= "details = '".$conn->real_escape_string($proj_file_id)."'\n";
@@ -657,8 +657,8 @@ function phpAlert($msg) {
         };
 
         function editProject(id, detail, name, summary, icon) {
-            name = name || '';
-            icon = icon || '';
+            name = name || 'blank';
+            icon = icon || '0';
 
             if (id == "NEW") {
                 num = document.querySelectorAll('input[id^="projects"][type=text').length-1;
