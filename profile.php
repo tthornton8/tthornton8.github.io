@@ -656,6 +656,7 @@ function phpAlert($msg) {
         };
 
         function editProject(id, detail, name, icon, summary) {
+            console.log(id);
             name = name || '';
             icon = icon || '';
 
