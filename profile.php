@@ -659,6 +659,12 @@ function phpAlert($msg) {
             name = name || '';
             icon = icon || '';
 
+            if (id == "NEW") {
+                num = document.querySelectorAll('input[id^="projects"][type=text').length-1;
+                name = document.getElementById(`projects[${num}][name]`).value;
+                icon = document.getElementById(`projects[${num}][icon]`).value;
+            }
+
             modal.style.display = "block";
             var box = document.getElementById("projectID");
             var sum = document.getElementById("summary");
