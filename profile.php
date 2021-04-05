@@ -556,7 +556,7 @@ function phpAlert($msg) {
                                 <input type="hidden" id="projects[${i}][ID]" name="projects[${i}][ID]" value="NEW">
 
                                 <button onclick = "toggleVis('dropdown-content_projects_${i}');" class="dropbtn" type="button" id = "dropbtn_projects${i}"><img src = icon.php?id=0 width = '25px', height = '25px'></button>
-                                <div onclick = "editProject("NEW",'',0);" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div>
+                                <div onclick = "editProject('NEW','',0);" class = "_edit_pencil" id = "_edit_pencil">&#x1f589;</div>
                                 <br/>
                                 <div class="dropdown-content" id = "dropdown-content_projects_${i}">
                                     <?php
