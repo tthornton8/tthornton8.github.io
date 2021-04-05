@@ -361,7 +361,7 @@ function phpAlert($msg) {
                                     echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
                                 }
                                 echo "</div>";
-                                echo "<div onclick = \"editProject(".$row['ID'].",`".$row['details']."`,".$row['icon'].",`".$row['summary']."`);\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div></div>\n";
+                                echo "<div onclick = \"editProject(".$row['ID'].",`".$row['details']."`,".$row['icon'].",`".str_replace(array("\n", "\r"), '', $row['summary'])."`);\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div></div>\n";
 
                                 $i += 1;
                                 $j += 1;
