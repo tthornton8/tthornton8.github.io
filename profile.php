@@ -1,8 +1,5 @@
 <?php
 session_start();
-
-echo `whoami`;
-
 	
 // echo php_ini_loaded_file();
 
