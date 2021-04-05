@@ -361,7 +361,7 @@ function phpAlert($msg) {
                                     echo "\t\t\t\t\t\t\t\t<a onclick = $onclick id = \"icon_".$j."_".$irow['ID']."\">".$img_tag.$irow['descrip']."</a>\n";
                                 }
                                 echo "</div>";
-                                echo "<div onclick = \"editProject(".$row['ID'].",`".$row['details']."`,".$row['icon'].");\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div></div>\n";
+                                echo "<div onclick = \"editProject(".$row['ID'].",`".$row['details']."`,".$row['icon'].",`".$row['summary']."`);\" class = \"_edit_pencil\" id = \"_edit_pencil\">&#x1f589;</div></div>\n";
 
                                 $i += 1;
                                 $j += 1;
@@ -606,9 +606,7 @@ function phpAlert($msg) {
                 </textarea>
                 <br/>
                 <label class="w3-text" style = "color: var(--darkCherry);" for="tinymce">Project Detail</label>
-                <textarea id = "tinymce" name = "detail">
-                    Project detail goes here...
-                </textarea>
+                <textarea id = "tinymce" name = "detail">Project detail goes here...</textarea>
                 <br/>
                 <button type="submit" name="btnsubmit" style = "margin-bottom: 1em;" class="w3-btn w3-blue-grey">Save</button>
                 <br/>
@@ -657,14 +655,16 @@ function phpAlert($msg) {
             return html
         };
 
-        function editProject(id, detail, name, icon) {
+        function editProject(id, detail, name, icon, summary) {
             name = name || '';
             icon = icon || '';
 
             modal.style.display = "block";
             var box = document.getElementById("projectID");
+            var sum = document.getElementById("summary");
             var mce = document.getElementById("tinymce");
             box.value = id;
+            sum.value = summary;
 
             //document.getElementById('dropbtn').innerHTML = "<img src = icon.php?id=" + img + " width = '25px', height = '25px'>";
             document.getElementById('proj_name').value = name;
@@ -688,6 +688,7 @@ function phpAlert($msg) {
                         tinycomments_mode: 'embedded',
                         tinycomments_author: 'Author name',
                 });
+                tinymce.get("tinymce").setContent(text);
             }
         };
 
