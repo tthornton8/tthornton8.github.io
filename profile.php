@@ -679,6 +679,7 @@ function phpAlert($msg) {
             try {
                 tinymce.get("tinymce").setContent(text);
             } catch (error) {
+                console.log(error);
                 tinymce.init({
                         selector: 'textarea#tinymce',
                         elements : "detail",
