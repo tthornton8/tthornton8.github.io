@@ -22,7 +22,7 @@
     /* overflow: scroll; */
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-template-rows: 0.5fr repeat(3, minmax(0, 1fr));;
+    grid-template-rows: 0.5fr repeat(2, minmax(0, 1fr));;
 }
 
 ._interested > h1 {
@@ -32,6 +32,11 @@
 ._interested img {
     width: 100px;
     height: 100px;
+}
+
+._interested > div {
+    align-self: center;
+    justify-self: center;
 }
 
 ._feedback {
