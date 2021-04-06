@@ -263,8 +263,8 @@ function phpAlert($msg) {
                 return_profile($user_name, $email, $degree, $uni, $about, $photo, $skills, $projects, $qual, $icons, $usercompanies, $id, $tolearn, $interested);
             ?>
         </div>
-        <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "Edit">
-            Edit
+        <div class = "tabEl w3-animate-opacity _gradcherry_block" style = "display:none;" id = "Edit">
+            <h1>Edit Profile</h2>
         </div>
         <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "FavStudents">
             Favorite Students

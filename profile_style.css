@@ -640,6 +640,11 @@ cursor: pointer;
 ._edit_pencil:hover:before, ._edit_pencil:hover:after {
   display:block;
 }
+
+._gradcherry_block {
+  margin: 1em 0 1em 0!important;
+  height: 100%;
+}
   
   /* The Modal (background) */
 .modal {
