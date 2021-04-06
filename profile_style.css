@@ -642,8 +642,9 @@ cursor: pointer;
 }
 
 ._gradcherry_block {
-  margin: 1em 0 1em 0!important;
+  margin: 0 1em 1em 1em!important;
   height: 100%;
+  border-radius: 5px;
 }
   
   /* The Modal (background) */
