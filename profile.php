@@ -265,6 +265,11 @@ function phpAlert($msg) {
         </div>
         <div class = "tabEl w3-animate-opacity _gradcherry_block" style = "display:none;" id = "Edit">
             <h1>Edit Profile</h2>
+            <form method="post" id = "userDataForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+                <input type="hidden" name="action" value="edit_user_data">
+                <input name = "email" id = "email" placeholder = "Email address" value = "<?php echo $email;?>">
+                <button type="submit" name="btnsubmit" style = "margin-bottom: 1em; margin: 0 auto; margin-right: -43%;" class="w3-btn w3-flat-emerald">Save</button>
+            </form>
         </div>
         <div class = "tabEl w3-animate-opacity" style = "display:none;" id = "FavStudents">
             Favorite Students
